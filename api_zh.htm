@@ -1,0 +1,3004 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>BKEX API 文档</title>
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="./api/screen.css" rel="stylesheet" media="screen">
+    <link href="./api/print.css" rel="stylesheet" media="print">
+      <script src="./api/all.js"></script>
+  </head>
+
+  <body class="api_zh" data-languages="[&quot;shell&quot;]">
+    <a href="./api_zh.htm?shell#" id="nav-button">
+      <span>
+        <img src="./api/navbar.png" alt="Navbar">
+      </span>
+    </a>
+    <header>
+      <div class="flex_box">
+        <a href="https://www.bkex.co/" class="a-logo">
+          <img src="./api/logo.svg" class="logo" alt="Logo">
+        </a>
+        <div class="nav_box">
+          <!-- <span class="nav_cell" style="display: none">
+            <a href="javascript:;" class="nav_first">v1<i class="icon_nav"></i></a>
+            <ul class="nav_ul">
+              <li>
+                <a href="./api_zh.htm" id="v1_url">v1</a>
+              </li>
+            </ul>
+          </span>
+          <span class="nav_cell nav_tab">
+            <a href="./api_zh.htm" id="btn_spot" class="current">API</a>
+          </span> -->
+        </div>
+      </div>
+      <a href="https://bkexapi.github.io/docs/spot/v1/en/" class="lang" id="lang_box" style="display: block;">English</a>
+    </header>
+    <div class="toc-wrapper">
+        <div class="lang-selector">
+              <a href="./api_zh.htm?shell#" data-language-name="shell" class="active">shell</a>
+        </div>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="./api_zh.htm?shell#bkexApiIntroduce" class="toc-h1 toc-link" data-title="简介">简介</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="./api_zh.htm?shell#bkexApiIntroduce-1" class="toc-h2 toc-link" data-title="API 简介">API 简介</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#bkexApiIntroduce-2" class="toc-h2 toc-link" data-title="更新">更新</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#bkexApiIntroduce-3" class="toc-h2 toc-link" data-title="联系我们">联系我们</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="./api_zh.htm?shell#useQuick" class="toc-h1 toc-link" data-title="快速入门">快速入门</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="./api_zh.htm?shell#useQuick-1" class="toc-h2 toc-link" data-title="接入准备">接入准备</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#useQuick-3" class="toc-h2 toc-link" data-title="接口类型">接口类型</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#useQuick-4" class="toc-h2 toc-link" data-title="接入URLs">接入URLs</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#useQuick-5" class="toc-h2 toc-link" data-title="签名认证">签名认证</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#useQuick-6" class="toc-h2 toc-link" data-title="枚举定义">枚举定义</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="./api_zh.htm?shell#useExplain" class="toc-h1 toc-link" data-title="接入说明">接入说明</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="./api_zh.htm?shell#useExplain-1" class="toc-h2 toc-link" data-title="接口概览">接口概览</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#useExplain-2" class="toc-h2 toc-link" data-title="限频规则">限频规则</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#useExplain-3" class="toc-h2 toc-link" data-title="请求格式">请求格式</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#useExplain-4" class="toc-h2 toc-link" data-title="返回格式">返回格式</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="./api_zh.htm?shell#basicInformation" class="toc-h1 toc-link" data-title="基础信息">基础信息</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="./api_zh.htm?shell#basicInformation-1" class="toc-h2 toc-link" data-title="获取所有交易对">获取所有交易对</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#basicInformation-2" class="toc-h2 toc-link" data-title="获取所有币种">获取所有币种</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="./api_zh.htm?shell#quotationData" class="toc-h1 toc-link" data-title="行情数据">行情数据</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="./api_zh.htm?shell#quotationData-1" class="toc-h2 toc-link" data-title="K 线数据（蜡烛图）">K 线数据（蜡烛图）</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#quotationData-2" class="toc-h2 toc-link" data-title="24小时行情">24小时行情</a>
+                  </li>
+                  <li>
+                      <a href="./api_zh.htm?shell#quotationData-3" class="toc-h2 toc-link" data-title="最新成交价">最新成交价</a>
+                    </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#quotationData-4" class="toc-h2 toc-link" data-title="交易对深度数据">交易对深度数据</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#quotationData-5" class="toc-h2 toc-link" data-title="最近成交记录">最近成交记录</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="./api_zh.htm?shell#accountData" class="toc-h1 toc-link" data-title="账户相关">账户相关</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="./api_zh.htm?shell#accountData-1" class="toc-h2 toc-link" data-title="账户余额">账户余额</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#accountData-2" class="toc-h2 toc-link" data-title="账户之间划转">账户之间划转</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="./api_zh.htm?shell#depositWithdraw" class="toc-h1 toc-link" data-title="充值与提现">充值与提现</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="./api_zh.htm?shell#depositWithdraw-1" class="toc-h2 toc-link" data-title="充币地址查询">充币地址查询</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#depositWithdraw-2" class="toc-h2 toc-link" data-title="提现">提现</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#depositWithdraw-3" class="toc-h2 toc-link" data-title="充值记录">充值记录</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#depositWithdraw-4" class="toc-h2 toc-link" data-title="提现记录">提现记录</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+          <a href="./api_zh.htm?shell#tradeOrder" class="toc-h1 toc-link" data-title="订单交易">订单交易</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="./api_zh.htm?shell#tradeOrder-1" class="toc-h2 toc-link" data-title="下单">下单</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#tradeOrder-2" class="toc-h2 toc-link" data-title="撤销订单">撤销订单</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#tradeOrder-3" class="toc-h2 toc-link" data-title="查询当前未成交订单">查询当前未成交订单</a>
+                  </li>
+                  <li>
+                      <a href="./api_zh.htm?shell#tradeOrder-4" class="toc-h2 toc-link" data-title="查询历史订单">查询历史订单</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#tradeOrder-5" class="toc-h2 toc-link" data-title="批量下单">批量下单</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#tradeOrder-6" class="toc-h2 toc-link" data-title="批量撤销订单">批量撤销订单</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="./api_zh.htm?shell#websocket" class="toc-h1 toc-link" data-title="Websocket行情数据">Websocket行情数据</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="./api_zh.htm?shell#websocket-1" class="toc-h2 toc-link" data-title="简介">简介</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#websocket-2" class="toc-h2 toc-link" data-title="连接例子">连接例子</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#websocket-3" class="toc-h2 toc-link" data-title="K线数据">K线数据</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#websocket-4" class="toc-h2 toc-link" data-title="订单深度行情数据">订单深度行情数据</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#websocket-5" class="toc-h2 toc-link" data-title="成交明细">成交明细</a>
+                  </li>
+                  <li>
+                    <a href="./api_zh.htm?shell#websocket-6" class="toc-h2 toc-link" data-title="24小时行情">24小时行情</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href="https://www.bkex.co/user/api">创建 API Key </a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+
+<h1 id="bkexApiIntroduce">简介</h1>
+<h2 id="订单深度行情数据-1">API 简介</h2>
+<p>欢迎使用币客 API！  </p>
+
+<p>此文档是币客API的唯一官方文档，币客API提供的能力会在此持续更新，请大家及时关注。  </p>
+
+<p>您可通过点击右上方的语言按钮来切换文档语言。  </p>
+
+<p>文档右侧是针对请求参数以及响应结果的示例。</p>
+
+<h2 id="bkexApiIntroduce-2">更新订阅</h2>
+<p>关于API新增、更新、下线等信息币客会提前发布公告进行通知，建议您关注我们的公告，及时获取相关信息。  </p>
+
+<p>您可以点击 <a href="https://bkex.zendesk.com/hc/zh-cn/categories/360001640373-BKEX-Global-%E5%85%AC%E5%91%8A">这里 </a> 查看公告。</p>
+
+<h2 id="bkexApiIntroduce-3">联系我们</h2>
+<p>使用过程中如有问题或者建议，您可选择以下任一方式联系我们：</p>
+
+<ul>
+<li>联系官方微信（bkex7777)。</li>
+<li>发送邮件至tech@bkex.vip。</li>
+</ul>
+<h1 id="useQuick">快速入门</h1><h2 id="useQuick-1">接入准备</h2>
+<p>如需使用API ，请先登录网页端，完成API key的申请和权限配置，再据此文档详情进行开发和交易。  </p>
+
+<p>您可以点击 <a href="https://www.bkex.vip/user/api">这里 </a> 创建 API Key。</p>
+
+<p>每个账号最多可创建5组Api Key，每个Api Key可对应设置读取、交易、提币三种权限。  </p>
+
+<p>权限说明如下：</p>
+
+<ul>
+<li>读取权限：读取权限用于对数据的查询接口，例如：订单查询、成交查询等。</li>
+<li>交易权限：交易权限用于下单、撤单、划转类接口。</li>
+<li>提币权限：提币权限用于创建提币订单、取消提币订单操作。</li>
+</ul>
+
+<p>创建成功后请务必记住以下信息：</p>
+
+<ul>
+<li><p><code>Access Key</code>  API 访问密钥</p></li>
+<li><p><code>Secret Key</code>  签名认证加密所使用的密钥（仅申请时可见）</p></li>
+</ul>
+
+<aside class="notice">
+创建 API Key 时可以绑定 IP 地址，有效期为90天。出于安全考虑，强烈建议您绑定 IP 地址。
+</aside>
+
+<aside class="warning">
+<red><b>风险提示</b></red>：这两个密钥与账号安全紧密相关，无论何时都请勿将二者<b>同时</b>向其它人透露。API Key的泄露可能会造成您的资产损失（即使未开通提币权限），若发现API Key泄露请尽快删除该API Key。
+</aside> 
+
+<h2 id="useQuick-3">接口类型</h2>
+<p>币客为用户提供两种接口，您可根据自己的使用场景和偏好来选择适合的方式进行查询行情、交易或提现。  </p>
+<h3 id="rest-api">REST API</h3>
+<p>REST，即Representational State Transfer的缩写，是目前较为流行的基于HTTP的一种通信机制，每一个URL代表一种资源。</p>
+
+<p>交易或资产提现等一次性操作，建议开发者使用REST API进行操作。</p>
+<h3 id="websocket-api">WebSocket API</h3>
+<p>WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服务器全双工通信，通过一次简单的握手就可以建立客户端和服务器连接，服务器可以根据业务规则主动推送信息给客户端。</p>
+
+<p>市场行情和买卖深度等信息，建议开发者使用WebSocket API进行获取。</p>
+
+<p><strong>接口鉴权</strong></p>
+
+<p>以上两种接口均包含公共接口和私有接口两种类型。</p>
+
+<p>公共接口可用于获取基础信息和行情数据。公共接口无需认证即可调用。</p>
+
+<p>私有接口可用于交易管理和账户管理。每个私有请求必须使用您的API Key进行签名验证。</p>
+<h2 id="useQuick-4">接入URLs</h2>
+<p>您可以自行比较使用api.bkex.vip和api.bkex.com两个域名的延迟情况，选择延迟低的进行使用。     </p>
+
+<p><strong>REST API</strong></p>
+
+<p><strong><code>https://api.bkex.vip</code></strong>  </p>
+
+<p><strong><code>https://api.bkex.com</code></strong>  </p>
+
+<p><strong>Websocket Feed</strong></p>
+
+<p><strong><code>wss://ws.bkex.vip</code></strong>  </p>
+
+<p><strong><code>wss://ws.bkex.com</code></strong>  </p>
+
+
+<h2 id="useQuick-5">签名认证</h2>
+<h3 id="34addae335">签名说明</h3>
+<p>API 请求在通过 internet 传输的过程中极有可能被篡改，为了确保请求未被更改，除公共接口（基础信息，行情数据）外的私有接口均必须使用您的 API Key 做加密处理，以校验参数或参数值在传输途中是否发生了更改。<br>
+每一个API Key需要有适当的权限才能访问相应的接口，每个新创建的API Key都需要分配权限。在使用接口前，请查看每个接口的权限类型，并确认你的API Key有相应的权限。</p>
+
+<p>一个合法的请求所需要的内容：</p>
+
+<ul>
+<li>方法请求地址：即访问服务器地址 api.bkex.vip，比如 https://api.bkex.vip/v2/u/order/create。</li>
+<li>API 访问密钥（X_ACCESS_KEY）：您申请的 API Key 中的 Access Key。</li>
+<li>必选和可选参数：每个方法都有一组用于定义 API 调用的必需参数和可选参数。可以在每个方法的说明中查看这些参数及其含义。 </li>
+<li>签名：加密计算得出的值，用于确保签名有效和未被篡改。</li>
+</ul>
+<h3 id="1fbac240b7">加密方式</h3>
+<p>规范要计算签名的请求 因为使用 HMAC 进行签名计算时，使用不同内容计算得到的结果会完全不同。所以在进行签名计算前，请先对请求进行规范化处理。下面以查询某订单详情请求为例进行说明：</p>
+
+<p>下单请求URL</p>
+<p><code>https://api.bkex.vip/v2/u/order/create?amount=0.12&direction=ASK&price=7126.4285&symbol=BTC_USDT</code></p>
+<p>对参数按照ASCII码顺序进行排序</p>
+<p><code>amount=0.12&direction=ASK&price=7126.4285&symbol=BTC_USDT</code></p>
+<p>将排完序的请求参数使用secretKey 进行HMAC SHA256进行加密，得到的结果</p>
+<p><code>550ac73ace8c34372e0e1dd6631e890c7bd16697af8bb4e2908e966b50aba4e0</code></p>
+<h4 >构造http请求使用 </h4>
+<ol>
+<li>使用 X_ACCESS_KEY 这个header存储access key信息</li>
+<li>使用 X_SIGNATURE 这个header存储生成的签名信息</li>
+</ol>
+<p>然后发送http请求</p>
+
+<h2 id="useQuick-6">枚举定义</h2>
+<h3 id="b79e080266">交易对</h3>
+<p>交易对由基础币种和报价币种组成。以交易对 BTC_USDT 为例，BTC 为基础币种，USDT 为报价币种。  </p>
+
+<h3 id="c3d92b20c8">账户</h3>
+<p>不同业务对应需要不同的账户</p>
+
+<p>账户类型包括：   </p>
+
+<ul>
+<li>WALLET：现货账户,钱包账户<br></li>
+<li>OTC：OTC账户<br></li>
+</ul>
+<h3 id="id">订单、成交相关ID说明</h3>
+<ul>
+<li>orderId : 订单的唯一编号<br></li>
+<li>tradeId : 成交的唯一编号<br></li>
+</ul>
+<h3 id="a1d4eaf18c">订单类型</h3>
+
+<p>买卖方向：  </p>
+
+<ul>
+<li>BID: 买<br></li>
+<li>ASK: 卖<br></li>
+</ul>
+
+<p>订单种类:  </p>
+
+<ul>
+<li>LIMIT : 限价单，该类型订单需指定下单价格，下单数量。<br></li>
+</ul>
+<h3 id="4e4ca9ca80">订单状态</h3>
+<ul>
+<li>0 : 等待成交，该状态订单已进入撮合队列当中。<br></li>
+<li>1 : 已成交。该状态订单不在撮合队列中，订单的全部数量已经被市场成交。<br></li>
+<li>2 : 已撤销。该状态订单不在撮合订单中，此状态订单没有任何成交数量，且被成功撤销。<br></li>
+<li>3 : 部分成交，该状态订单在撮合队列当中，订单的部分数量已经被市场成交，等待剩余部分成交。<br></li></ul>
+
+<h1 id="useExplain">接入说明</h1><h2 id="useExplain-1">接口概览</h2>
+<table><thead>
+<tr>
+<th>接口分类</th>
+<th>分类链接</th>
+<th>概述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>基础类</td>
+<td>/v2/common/*</td>
+<td>基础类接口，包括币种、交易对等接口</td>
+</tr>
+<tr>
+<td>行情类</td>
+<td>/v2/q/*</td>
+<td>公共行情类接口，包括成交、深度、行情等</td>
+</tr>
+<tr>
+<td>账户类</td>
+<td>/v2/u/wallet/*</td>
+<td>账户类接口，包括账户信息，提现，划转等</td>
+</tr>
+<tr>
+<td>订单类</td>
+<td>/v2/u/order/*</td>
+<td>订单类接口，包括下单、撤单、订单查询、成交查询等</td>
+</tr>
+</tbody></table>
+
+<p>该分类为大类整理，部分接口未遵循此规则，请根据需求查看有关接口文档。</p>
+<h2 id="useExplain-2">限频规则</h2>
+<ul>
+<li>每个API Key 在1秒之内限制10次</li>
+<li>若接口不需要API Key，则每个IP在1秒内限制10次</li>
+</ul>
+
+<p>比如：</p>
+
+<ul>
+<li>资产订单类接口调用根据API Key进行限频：1秒10次</li>
+<li>行情类接口调用根据IP进行限频：1秒10次</li>
+</ul>
+<h2 id="useExplain-3">请求格式</h2>
+<p>所有的API请求都是restful，目前只有两种方法：GET和POST</p>
+
+<ul>
+<li>GET请求：所有的参数都在路径参数里</li>
+<li>POST请求，所有参数以form-data格式发送在请求主体（body）里</li>
+</ul>
+<h2 id="useExplain-4">返回格式</h2>
+<p>所有的接口都是JSON格式。在JSON最上层有三个字段：<code>msg</code>, <code>code</code> 和 <code>data</code>。前两个字段表示请求状态和信息，实际的业务数据在<code>data</code>字段里。</p>
+
+<p>以下是一个返回格式的样例：</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"mgs""</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">API</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">nested</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>API信息返回</td>
+</tr>
+<tr>
+<td>code</td>
+<td>int</td>
+<td>接口状态返回，0代表成功</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>接口返回数据主体</td>
+</tr>
+</tbody></table>
+
+<h1 id="basicInformation">基础信息</h1><h2 id="basicInformation-1">获取所有交易对</h2>
+<p>此接口返回所有币客支持的交易对。</p>
+<pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.vip/v2/common/symbols"</span>
+</code></pre><h3 id="http">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/common/symbols</code></li>
+</ul>
+<h3 id="1f9ac54b15">请求参数</h3>
+<p>此接口不接受任何参数。</p>
+
+<blockquote>
+<p>Responds:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span></span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supportTrade"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pricePrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"minimumTradeAmount"</span><span class="p">:</span><span class="s2">0.001</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"ETH_USDT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supportTrade"</span><span class="p">:</span><span class="s2">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pricePrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"minimumTradeAmount"</span><span class="p">:</span><span class="s2">0.01</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id="aceee0d936">返回字段</h3>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>supportTrade</td>
+<td>boolean</td>
+<td>是否支持交易</td>
+</tr>
+<tr>
+<td>amountPrecision</td>
+<td>integer</td>
+<td>交易对下单数量的精度（小数点后位数）</td>
+</tr>
+<tr>
+<td>pricePrecision</td>
+<td>integer</td>
+<td>交易对下单价格的精度（小数点后位数）</td>
+</tr>
+<tr>
+<td>minimumTradeAmount</td>
+<td>decimal</td>
+<td>交易对前币种最小下单数量</td>
+</tr>
+</tbody></table>
+<h2 id="basicInformation-2">获取所有币种</h2>
+<p>此接口返回所有币客支持的币种。</p>
+<pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.vip/v2/common/currencys"</span>
+</code></pre><h3 id="http-2">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/common/currencys</code></li>
+</ul>
+<h3 id="1f9ac54b15-2">请求参数</h3>
+<p>此接口不接受任何参数。</p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span></span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"maxWithdrawOneDay"</span><span class="p">:</span><span class="s2">2000</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"maxWithdrawSingle"</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"minWithdrawSingle"</span><span class="p">:</span><span class="mi">0.1</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"supportDeposit"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"supportTrade"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"supportWithdraw"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"withdrawFee"</span><span class="p">:</span><span class="s2">0.008</span><span class="p">,</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">BTC</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"maxWithdrawOneDay"</span><span class="p">:</span><span class="s2">100</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"maxWithdrawSingle"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"minWithdrawSingle"</span><span class="p">:</span><span class="mi">0.01</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"supportDeposit"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"supportTrade"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"supportWithdraw"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"withdrawFee"</span><span class="p">:</span><span class="s2">0.008</span><span class="p">,</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+ </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id="aceee0d936-2">返回字段</h3>
+<table><thead>
+    <tr>
+    <th>字段名称</th>
+    <th>数据类型</th>
+    <th>描述</th>
+    </tr>
+    </thead><tbody>
+    <tr>
+    <td>currency</td>
+    <td>string</td>
+    <td>币种</td>
+    </tr>
+    <tr>
+    <td>maxWithdrawOneDay</td>
+    <td>decimal</td>
+    <td>当天提笔最大限额</td>
+    </tr>
+    <tr>
+    <td>maxWithdrawSingle</td>
+    <td>decimal</td>
+    <td>单笔提现最大限额</td>
+    </tr>
+    <tr>
+    <td>minWithdrawSingle</td>
+    <td>decimal</td>
+    <td>单笔提现最小数量</td>
+    </tr>
+    <tr>
+    <td>supportDeposit</td>
+    <td>boolean</td>
+    <td>是否支持充值</td>
+    </tr>
+    <tr>
+    <td>supportTrade</td>
+    <td>boolean</td>
+    <td>是否支持交易</td>
+    </tr>
+    <tr>
+    <td>supportWithdraw</td>
+    <td>boolean</td>
+    <td>是否支持提现</td>
+    </tr>
+    <tr>
+    <td>withdrawFee</td>
+    <td>decimal</td>
+    <td>提现手续费</td>
+    </tr>
+    </tbody></table> 
+
+<!-- 行情相关接口-->
+</span></code></pre><h1 id="quotationData">行情数据</h1>
+<h2 id="quotationData-1">K 线数据（蜡烛图）</h2>
+<p>此接口返回历史K线数据。</p>
+<h3 id="http-5">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/q/kline</code></li>
+</ul>
+<pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.vip/v2/q/kline?interval=1m&amp;size=200&amp;symbol=BTC_USDT"</span>
+</code></pre><h3 id="1f9ac54b15-5">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>NA</td>
+<td>交易对</td>
+<td>BTC_USDT</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>string</td>
+<td>false</td>
+<td>1m</td>
+<td>返回数据时间粒度，也就是每根蜡烛的时间区间</td>
+<td>1m, 5m, 15m, 30m, 1h, 4h, 6h, 12h, 1d, 1w</td>
+</tr>
+<tr>
+<td>from</td>
+<td>long</td>
+<td>true</td>
+<td>NA</td>
+<td>查询起始时间戳，位毫秒</td>
+<td>1529739295000</td>
+</tr>
+<tr>
+<td>to</td>
+<td>long</td>
+<td>true</td>
+<td>NA</td>
+<td>查询截止时间戳，单位毫秒</td>
+<td>1532331295000</td>
+</tr>    
+<tr>
+<td>size</td>
+<td>integer</td>
+<td>false</td>
+<td>500</td>
+<td>返回 K 线数据条数</td>
+<td>[1, 1000]</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">K线周期以新加坡时间为基准开始计算，例如日K线的起始周期为新加坡时间0时-新加坡时间次日0时。</aside>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="mi">BTC_USDT</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">12321.1234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="mf">4124.3000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="mf">3873.2130</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="mf">3521.1000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="mf">4521.5000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"vol"</span><span class="p">:</span><span class="w"> </span><span class="mf">71031537.97866500</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1529739295000</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id="2213f4c32f-2">响应数据</h3>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>以基础币种计量的交易量</td>
+</tr>
+<tr>
+<tr>
+<td>open</td>
+<td>decimal</td>
+<td>本阶段开盘价</td>
+</tr>
+<tr>
+<td>close</td>
+<td>decimal</td>
+<td>本阶段收盘价</td>
+</tr>
+<tr>
+<td>low</td>
+<td>decimal</td>
+<td>本阶段最低价</td>
+</tr>
+<tr>
+<td>high</td>
+<td>decimal</td>
+<td>本阶段最高价</td>
+</tr>
+<tr>
+<td>vol</td>
+<td>decimal</td>
+<td>以报价币种计量的交易量</td>
+</tr>
+<td>timestamp</td>
+<td>long</td>
+<td>时间戳</td>
+</tr>
+</tbody></table>
+<h2 id="quotationData-2">24小时行情</h2>
+<p>此接口提供最近24小时的交易对行情信息。</p>
+<h3 id="http-6">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/q/tickers</code></li>
+</ul>
+<pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.vip/v2/q/tickers?symbol=BTC_USDT"</span>
+</code></pre><h3 id="1f9ac54b15-6">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>false</td>
+<td>NA</td>
+<td>交易对</td>
+<td>BTC_USDT,ETH_USDT...</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"symbol"</span><span class="p">:</span><span class="mi">BTC_USDT</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"close"</span><span class="p">:</span><span class="mf">7145.0407</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"open"</span><span class="p">:</span><span class="mf">7145.0407</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"high"</span><span class="p">:</span><span class="mf">7145.0407</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"low"</span><span class="p">:</span><span class="mf">7145.0407</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">3124.1231</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"vol"</span><span class="p">:</span><span class="mf">23131.847291</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"change"</span><span class="p">:</span><span class="mf">0.12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1529739295000</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+<span class="p">]</span><span class="w"></span>
+</span></code></pre><h3 id="2213f4c32f-3">响应数据</h3>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>以基础币种计量的交易量</td>
+</tr>
+<tr>
+<td>open</td>
+<td>decimal</td>
+<td>本阶段开盘价</td>
+</tr>
+<tr>
+<td>close</td>
+<td>decimal</td>
+<td>本阶段最新价</td>
+</tr>
+<tr>
+<td>low</td>
+<td>decimal</td>
+<td>本阶段最低价</td>
+</tr>
+<tr>
+<td>high</td>
+<td>decimal</td>
+<td>本阶段最高价</td>
+</tr>
+<tr>
+<td>vol</td>
+<td>decimal</td>
+<td>以报价币种计量的交易量</td>
+</tr>
+<tr>
+<td>change</td>
+<td>decimal</td>
+<td>24小时涨跌幅</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>时间</td>
+</tr>
+</tbody></table>
+
+<h2 id="quotationData-3">最新成交价</h2>
+<p>此接口提供交易对当前最新成交价</p>
+<h3 id="http-6">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/q/ticker/price</code></li>
+</ul>
+<pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.vip/v2/q/tickers?symbol=BTC_USDT"</span>
+</code></pre><h3 id="1f9ac54b15-6">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>false</td>
+<td>NA</td>
+<td>交易对</td>
+<td>BTC_USDT,ETH_USDT...</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"symbol"</span><span class="p">:</span><span class="mi">BTC_USDT</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">7145.0407</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+<span class="p">]</span><span class="w"></span>
+</span></code></pre><h3 id="2213f4c32f-3">响应数据</h3>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>price</td>
+<td>decimal</td>
+<td>当前成交价格</td>
+</tr>
+</tbody></table>
+<h2 id="quotationData-4">交易对深度数据</h2>
+<p>此接口返回指定交易对的当前深度数据。</p>
+<h3 id="http-8">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/q/depth</code></li>
+</ul>
+<pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.vip/v2/q/depth?symbol=BTC_USDT&amp;size=20&amp;precision=4"</span>
+</code></pre><h3 id="1f9ac54b15-8">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>必须</th>
+<th>默认值</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>NA</td>
+<td>交易对</td>
+<td>BTC_USDT</td>
+</tr>
+<tr>
+<td>size</td>
+<td>integer</td>
+<td>false</td>
+<td>50</td>
+<td>返回深度的数量</td>
+<td>[1-50]</td>
+</tr>
+<tr>
+<td>precision</td>
+<td>integer</td>
+<td>false</td>
+<td>交易对默认精度</td>
+<td>价格精度</td>
+<td>[1-10]</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="mi">7964</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0678</span><span class="p">],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="p">[</span><span class="err">价格</span><span class="p">,</span><span class="w"> </span><span class="err">数量</span><span class="p">]</span><span class="w">
+      </span><span class="p">[</span><span class="mi">7963</span><span class="p">,</span><span class="w"> </span><span class="mf">0.9162</span><span class="p">],</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="mi">7979</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0736</span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="mi">7980</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0292</span><span class="p">],</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="2213f4c32f-5">响应数据</h3>
+
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bids</td>
+<td>object</td>
+<td>当前的所有买单 [price, amount]</td>
+</tr>
+<tr>
+<td>asks</td>
+<td>object</td>
+<td>当前的所有卖单 [price, amount]</td>
+</tr>
+</tbody></table>
+<h2 id="quotationData-5">最近成交记录</h2>
+<p>此接口返回指定交易对最新成交记录。</p>
+<h3 id="http-9">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/q/deals</code></li>
+</ul>
+<pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.vip/v2/q/deals?symbol=BTC_USDT&amp;size=20"</span>
+</code></pre><h3 id="1f9ac54b15-9">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>NA</td>
+<td>BTC_USDT</td>
+</tr>
+<tr>
+    <td>size</td>
+    <td>integer</td>
+    <td>false</td>
+    <td>NA</td>
+    <td>[1-50]</td>
+    </tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+  <span class="p">[</span><span class="w"></span>
+    <span class="p">{</span><span class="w">
+    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="mi">BTC_USDT</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">7145.0407</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dealAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5344</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1529739295000</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+
+</span></code></pre><h3 id="2213f4c32f-6">响应数据</h3>
+
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>dealAmount</td>
+<td>decimal</td>
+<td>以基础币种为单位的成交量</td>
+</tr>
+<tr>
+<td>price</td>
+<td>decimal</td>
+<td>以报价币种为单位的成交价格</td>
+</tr>
+<tr>
+    <td>direction</td>
+    <td>string</td>
+    <td>交易方向：“B” 或 “S”, “B” 即买，“S” 即卖</td>
+    </tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>调整为新加坡时间的时间戳，单位毫秒</td>
+</tr>
+</tbody></table>
+<!-- 账户相关接口-->
+<h1 id="accountData">账户相关</h1>
+<aside class="notice">访问账户相关的接口需要进行签名认证。</aside>
+
+<h2 id="accountData-1">账户余额</h2>
+<p>API Key 权限：读取</p>
+
+<p>查询指定账户的余额，支持以下账户：</p>
+
+<h3 id="http-13">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/u/wallet/balance</code></li>
+</ul>
+<h3 id="1f9ac54b15-13">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencys</td>
+<td>false</td>
+<td>string</td>
+<td>币种</td>
+<td>NA</td>
+<td>BTC,ETH...</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"></span>
+  <span class="s2">"WALLET"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2"</span><span class="w"></span>
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"OTC"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2"</span><span class="w"></span>
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="2213f4c32f-10">响应数据</h3>
+<p></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>字段名称</th>
+      <th>数据类型</th>
+      <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>WALLET</td>
+        <td>object</td>
+        <td>钱包账户</td>
+      </tr>
+      <tr>
+        <td>OTC</td>
+        <td>object</td>
+        <td>OTC账户</td>
+      </tr>  
+ </tbody>
+</table>
+
+<p>账户中的字段</p>
+<table><thead>
+<tr>
+  <th>字段名称</th>
+  <th>数据类型</th>
+  <th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>币种</td>
+</tr>
+<tr>
+<td>available</td>
+<td>decimal</td>
+<td>可用余额</td>
+</tr>
+<tr>
+<td>frozen</td>
+<td>decimal</td>
+<td>冻结余额</td>
+</tr>
+<tr>
+<td>total</td>
+<td>decimal</td>
+<td>全部余额</td>
+</tr>
+</tbody></table>
+
+<h2 id="accountData-2">账户之间划转</h2>
+<p>API Key 权限：交易</p>
+
+<p>此接口用户不用账户之间资金划转。</p>
+
+<h3 id="http-14">HTTP 请求</h3>
+<ul>
+<li>POST <code>/v2/u/wallet/transfer</code></li>
+</ul>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.001"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fromWallet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALLET"</span><span class="w">
+  </span><span class="s2">"toWallet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTC"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="1f9ac54b15-15">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>是否必需</th>
+<th>默认值</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>true</td>
+<td>NA</td>
+<td>BTC</td>
+<td></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>true</td>
+<td>NA</td>
+<td>划转数量</td>
+<td></td>
+</tr>
+<tr>
+<td>fromWallet</td>
+<td>string</td>
+<td>true</td>
+<td>NA</td>
+<td>划出划转</td>
+<td>WALLET,OTC</td>
+</tr>
+<tr>
+<td>toWallet</td>
+<td>string</td>
+<td>true</td>
+<td>NA</td>
+<td>划入类型</td>
+<td>WALLET,OTC</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="2213f4c32f-12">响应数据</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>状态码</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+</tr>
+<tr>
+</tbody></table>
+<!--钱包相关，充值与提现-->
+<h1 id="depositWithdraw">充值与提现</h1>
+<aside class="notice">访问钱包相关的接口需要进行签名认证。</aside>
+<h2 id="depositWithdraw-1">充币地址查询</h2>
+
+<p>API Key 权限：读取</p>
+<h3 id="http-18">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/u/wallet/address</code></li>
+</ul>
+<pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.vip//v2/u/wallet/address?currency=ETH"</span>
+</code></pre><h3 id="1f9ac54b15-19">请求参数</h3>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>是否必需</th>
+<th>类型</th>
+<th>字段描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>string</td>
+<td>币种</td>
+<td>ETH,BTC...</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+    <span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m4k2yUKTSrX6SM9FGgvwMybAbYtRVi2N"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span>
+</span></code></pre><h3 id="2213f4c32f-16">响应数据</h3>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>字段描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>币种</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>充币地址</td>
+<td></td>
+</tr>
+<tr>
+<td>memo</td>
+<td>string</td>
+<td>充币地址标签</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="depositWithdraw-2">提现</h2>
+<p>API Key 权限：提现</p>
+
+<h3 id="http-20">HTTP 请求</h3>
+<ul>
+<li>POST <code>/v2/u/wallet/withdraw</code></li>
+</ul>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"txAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m4k2yUKTSrX6SM9FGgvwMybAbYtRVi2N"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="1f9ac54b15-21">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>类型</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>txAddress</td>
+<td>true</td>
+<td>string</td>
+<td>提现地址</td>
+<td>仅支持在官网上相应币种中的地址</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>true</td>
+<td>string</td>
+<td>提币数量</td>
+<td></td>
+</tr>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>string</td>
+<td>资产类型</td>
+<td>BTC</td>
+</tr>
+<tr>
+<td>memo</td>
+<td>false</td>
+<td>string</td>
+<td>部分币种需要填写memo</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>true</td>
+<td>string</td>
+<td>账户登陆密码</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="2213f4c32f-12">响应数据</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>状态码</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>返回信息</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>返回数据</td>
+</tr>
+</tbody></table>
+
+<h2 id="depositWithdraw-3">充值记录</h2>
+<p>API Key 权限：读取</p>
+
+<p>查询充值记录</p>
+<h3 id="http-22">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/u/wallet/depositRecord</code></li>
+</ul>
+<h3 id="1f9ac54b15-23">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currency</td>
+<td>false</td>
+<td>string</td>
+<td>币种</td>
+<td></td>
+<td>BTC</td>
+</tr>
+<tr>
+<td>from</td>
+<td>false</td>
+<td>long</td>
+<td>起始时间戳</td>
+<td></td>
+<td>1532331295000</td>
+</tr>
+<tr>
+<td>to</td>
+<td>false</td>
+<td>long</td>
+<td>截止时间戳</td>
+<td></td>
+<td>1532331295000</td>
+</tr>
+<tr>
+<td>size</td>
+<td>false</td>
+<td>integer</td>
+<td>查询记录大小</td>
+<td>10</td>
+<td>10-100</td>
+</tr>
+<tr>
+<td>page</td>
+<td>false</td>
+<td>integer</td>
+<td>页数</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json">
+  <span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"117121312313"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6ea95a124371c685e000b968ace1c024f2d67bf73a97b43cf94ab6572fa529"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1234</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fromAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1LMhQnpvwiiRSn2NPPxaQLVyBzdGcXvi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"toAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1LMhQnpvwiiRSn2NPPxaQLVyBzdGcXvi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"needConfirmed"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1532331295000</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span>
+</code></pre><h3 id="2213f4c32f-20">响应数据</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>业务ID</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>币种</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>string</td>
+<td>交易哈希</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>个数</td>
+</tr>
+<tr>
+<td>fromAddress</td>
+<td>string</td>
+<td>起始地址</td>
+</tr>
+<tr>
+<td>toAddress</td>
+<td>string</td>
+<td>充值地址</td>
+</tr>
+<tr>
+<td>confirmed</td>
+<td>integer</td>
+<td>确认数</td>
+</tr>
+<tr>
+<td>needConfirmed</td>
+<td>integer</td>
+<td>需要确认数</td>
+</tr>
+<tr>
+<td>state</td>
+<td>integer</td>
+<td>状态</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>long</td>
+<td>发起时间</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>充值状态定义：</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>-1</td>
+<td>失败</td>
+</tr>
+<tr>
+<td>0</td>
+<td>已确认</td>
+</tr>
+<tr>
+<td>3</td>
+<td>确认中</td>
+</tr>
+</tbody></table>
+
+<h2 id="depositWithdraw-4">提现记录</h2>
+<p>API Key 权限：读取</p>
+
+<p>查询提现记录</p>
+<h3 id="http-22">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/u/wallet/withdrawRecord</code></li>
+</ul>
+<h3 id="withdrawRecord-23">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currency</td>
+<td>false</td>
+<td>string</td>
+<td>币种</td>
+<td></td>
+<td>BTC</td>
+</tr>
+<tr>
+<td>from</td>
+<td>false</td>
+<td>long</td>
+<td>起始时间戳</td>
+<td></td>
+<td>1532331295000</td>
+</tr>
+<tr>
+<td>to</td>
+<td>false</td>
+<td>long</td>
+<td>截止时间戳</td>
+<td></td>
+<td>1532331295000</td>
+</tr>
+<tr>
+<td>size</td>
+<td>false</td>
+<td>integer</td>
+<td>查询记录大小</td>
+<td>10</td>
+<td>10-100</td>
+</tr>
+<tr>
+<td>page</td>
+<td>false</td>
+<td>integer</td>
+<td>页数</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json">
+  <span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"117121312313"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6ea95a124371c685e000b968ace1c024f2d67bf73a97b43cf94ab6572fa529"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1234</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fromAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1LMhQnpvwiiRSn2NPPxaQLVyBzdGcXvi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"toAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1LMhQnpvwiiRSn2NPPxaQLVyBzdGcXvi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.0001</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1532331295000</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span>
+</code></pre><h3 id="withdrawRecord-20">响应数据</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>业务ID</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>币种</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>string</td>
+<td>交易哈希</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>个数</td>
+</tr>
+<tr>
+<td>fromAddress</td>
+<td>string</td>
+<td>起始地址</td>
+</tr>
+<tr>
+<td>toAddress</td>
+<td>string</td>
+<td>充值地址</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>decimal</td>
+<td>手续费数量</td>
+</tr>
+<tr>
+<td>state</td>
+<td>integer</td>
+<td>状态</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>long</td>
+<td>发起时间</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>提现状态定义：</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>-1</td>
+<td>失败</td>
+</tr>
+<tr>
+<td>0</td>
+<td>已确认</td>
+</tr>
+<tr>
+<td>1</td>
+<td>已提交</td>
+</tr>
+<tr>
+<td>2</td>
+<td>已取消</td>
+</tr>
+<tr>
+<td>5</td>
+<td>等待确认中</td>
+</tr>
+</tbody></table>
+<!-- 交易相关-->
+<h1 id="tradeOrder">订单交易</h1>
+<aside class="notice">访问交易相关的接口需要进行签名认证。</aside>
+
+<h2 id="tradeOrder-1">下单</h2>
+<p>API Key 权限：交易</p>
+
+<p>发送一个新订单</p>
+<h3 id="http-23">HTTP 请求</h3>
+<ul>
+<li>POST <code>/v2/u/order/create</code></li>
+</ul>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">0.1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">7000.12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="1f9ac54b15-24">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>是否必需</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>NA</td>
+<td>BTC_USDT</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>true</td>
+<td>NA</td>
+<td>下单数量</td>
+</tr>
+<tr>
+<td>price</td>
+<td>decimal</td>
+<td>false</td>
+<td>NA</td>
+<td>下单价格</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>string</td>
+<td>true</td>
+<td>NA</td>
+<td>下单方向，ASK,BID</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180623123334234234"</span><span class="w"></span>
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="2213f4c32f-21">响应数据</h3>
+<p>code为0，表示下单成功，返回的数据data对象是下单成功后的订单号。</p>
+
+<h2 id="tradeOrder-2">撤销订单</h2>
+<p>API Key 权限：交易</p>
+
+<p>此接口发送一个撤销订单的请求。</p>
+<h3 id="http-24">HTTP 请求</h3>
+<ul>
+<li>POST <code>/v2/u/order/cancel</code></li>
+</ul>
+<h3 id="1f9ac54b15-25">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderId</td>
+<td>true</td>
+<td>string</td>
+<td>订单ID</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>true</td>
+<td>string</td>
+<td>交易对</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"></span>
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="2213f4c32f-22">响应数据</h3>
+<p>code为0，表示撤销成功</p>
+
+<h2 id="tradeOrder-3">查询当前未完成订单</h2>
+<p>API Key 权限：读取</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="w">
+   </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">1</span><span class="w">
+   </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="http-26">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/u/order/openOrders</code></li>
+</ul>
+<h3 id="1f9ac54b15-27">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>是否必需</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>ture</td>
+<td>NA</td>
+<td>交易对,BTC_USDT</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>string</td>
+<td>false</td>
+<td>NA</td>
+<td>指定只返回某一个方向的订单，卖为ASK，买为BID</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>false</td>
+<td>1</td>
+<td>查询页码</td>
+</tr>
+<tr>
+<td>size</td>
+<td>integer</td>
+<td>false</td>
+<td>10</td>
+<td>返回订单的数量，最大值100。</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+  <span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201806232342422123123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIMIT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">"7000.3241"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"createdTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530604762277</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dealAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frozenAmountByOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totalAnchorCoin"</span><span class="p">:</span><span class="w"> </span><span class="mi">2341</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"feeRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.002</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id="2213f4c32f-24">响应数据</h3>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>订单id</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>交易对, 例如BTC_USDT</td>
+</tr>
+<tr>
+<td>price</td>
+<td>string</td>
+<td>下单价格</td>
+</tr>
+<tr>
+<td>createdTime</td>
+<td>long</td>
+<td>订单创建时间的时间戳，单位毫秒</td>
+</tr>
+<tr>
+<td>orderType</td>
+<td>string</td>
+<td>订单类型</td>
+</tr>
+<tr>
+<td>totalAmount</td>
+<td>decimal</td>
+<td>订单下单总数</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>string</td>
+<td>下单方向</td>
+</tr>
+<tr>
+<td>dealAmount</td>
+<td>decimal</td>
+<td>已成交数量</td>
+</tr>
+<tr>
+<td>frozenAmountByOrder</td>
+<td>decimal</td>
+<td>下单冻结数量</td>
+</tr>
+<tr>
+<td>totalAnchorCoin</td>
+<td>decimal</td>
+<td>锚定币种数量</td>
+</tr>
+<tr>
+<td>feeRate</td>
+<td>decimal</td>
+<td>手续费费率</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>0:挂单中，1:已完成，2:已撤销，3:部分成交</td>
+</tr>
+</tbody></table>
+<h2 id="tradeOrder-4">查询历史订单</h2>
+<p>API Key 权限：读取</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="w">
+   </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">1</span><span class="w">
+   </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">10</span><span class="w">
+   </span><span class="s2">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">1532331295000</span><span class="w">
+   </span><span class="s2">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">1532331295000</span><span class="w"></span>
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id="http-26">HTTP 请求</h3>
+<ul>
+<li>GET <code>/v2/u/order/historyOrders</code></li>
+</ul>
+<h3 id="tradeOrder-4-27">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>是否必需</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>ture</td>
+<td>NA</td>
+<td>交易对,BTC_USDT</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>string</td>
+<td>false</td>
+<td>NA</td>
+<td>指定只返回某一个方向的订单，卖为ASK，买为BID</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>false</td>
+<td>1</td>
+<td>查询页码</td>
+</tr>
+<tr>
+<td>size</td>
+<td>integer</td>
+<td>false</td>
+<td>10</td>
+<td>返回订单的数量，最大值100。</td>
+</tr>
+<tr>
+<td>startTime</td>
+<td>long</td>
+<td>false</td>
+<td>NA</td>
+<td>起始时间戳</td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>long</td>
+<td>false</td>
+<td>NA</td>
+<td>截止时间戳</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+  <span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201806232342422123123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LIMIT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">"7000.3241"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dealAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frozenAmountByOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dealAvgPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">2341</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"createdTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530604762277</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updateTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1530604762277</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id="tradeOrder-4-24">响应数据</h3>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>订单id</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>交易对, 例如BTC_USDT</td>
+</tr>
+<tr>
+<td>price</td>
+<td>string</td>
+<td>下单价格</td>
+</tr>
+<tr>
+<td>orderType</td>
+<td>string</td>
+<td>订单类型</td>
+</tr>
+<tr>
+<td>totalAmount</td>
+<td>decimal</td>
+<td>订单下单总数</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>string</td>
+<td>下单方向</td>
+</tr>
+<tr>
+<td>dealAmount</td>
+<td>decimal</td>
+<td>已成交数量</td>
+</tr>
+<tr>
+<td>frozenAmountByOrder</td>
+<td>decimal</td>
+<td>下单冻结数量</td>
+</tr>
+<tr>
+<td>dealAvgPrice</td>
+<td>decimal</td>
+<td>成交均价</td>
+</tr>
+<tr>
+<td>createdTime</td>
+<td>long</td>
+<td>订单创建时间的时间戳，单位毫秒</td>
+</tr>
+<tr>
+<td>createdTime</td>
+<td>long</td>
+<td>订单最后修改时间的时间戳，单位毫秒</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>1:已完成，2:已撤销</td>
+</tr>
+</tbody></table>
+
+<h2 id="tradeOrder-5">批量下单</h2>
+<p>API Key 权限：交易</p>
+<pre class="highlight json tab-json"><code>
+<span class="p">{</span><span class="w">
+  <span class="p">[</span><span class="w">
+   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">0.1</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">7000.12</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+  <span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="http-27">HTTP 请求</h3>
+<ul>
+<li>POST <code>/v2/u/order/batchCreate</code></li>
+</ul>
+<h3 id="batchCreateOrders-28">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orders</td>
+<td>true</td>
+<td>string</td>
+<td>JOSN格式字符串:[{"symbol":"BTC_USDT","direction":"BID","price":7000,"amount":10}]</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"></span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"></span><span class="mi">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fail"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="s2">["2019062312313131231","2019063123131312313"]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="batchCreateOrders-25">响应数据</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>integer</td>
+<td>成功数量</td>
+<td></td>
+</tr>
+<tr>
+<td>fail</td>
+<td>integer</td>
+<td>失败数量</td>
+<td></td>
+</tr>
+<tr>
+<td>results</td>
+<td>string</td>
+<td>下单成功订单号集合</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="tradeOrder-6">批量撤销订单</h2>
+<p>API Key 权限：交易</p>
+
+<p>此接口同时为多个订单（基于id）发送取消请求。</p>
+<h3 id="http-28">HTTP 请求</h3>
+<ul>
+<li>POST <code>/v2/u/order/batchCancel</code></li>
+</ul>
+<pre class="highlight json tab-json"><code>
+  <span class="p">{</span><span class="w">
+    <span class="p">[</span><span class="w">
+      </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018062321121231231"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+    <span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w"></span></code></pre>
+<h3 id="batchCancelOrders-29">请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orders</td>
+<td>true</td>
+<td>string</td>
+<td>JOSN格式字符串:[{"symbol":"BTC_USDT","orderId":"2018062321121231231"}]</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"></span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"></span><span class="mi">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fail"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="s2">["2019062312313131231","2019063123131312313"]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="batchCancelOrders-26">响应数据</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>integer</td>
+<td>成功数量</td>
+<td></td>
+</tr>
+<tr>
+<td>fail</td>
+<td>integer</td>
+<td>失败数量</td>
+<td></td>
+</tr>
+<tr>
+<td>results</td>
+<td>string</td>
+<td>撤单成功订单号集合</td>
+<td></td>
+</tr>
+</tbody></table>
+<!-- Websocket-->
+<h1 id="websocket">Websocket行情数据</h1>
+<h2 id="websocket-1">简介</h2>
+<h3 id="url">接入URL</h3>
+<p><strong>行情请求地址</strong></p>
+
+<p><strong><code>wss://ws.bkex.vip</code></strong></p>
+
+<p><strong><code>wss://ws.bkex.com</code></strong></p>
+<h2 id="websocket-2">例子</h2>
+<h3 id="a94c7743c5">Socket.io Demo</h3>
+<p><code>var io = require('socket.io-client');</code></p>
+<p><code>var socket = io('wss://ws.bkex.vip', { transports: ['websocket'] });</code></p>
+<p><code>socket.on('connect', function (data) {
+    socket.emit('subQuotationSymbol'); 
+  });</code></p>
+
+<h3 id="a94c7743c5">Native WebScoket Demo</h3>
+<p><code>var pingPong = null;</code></p>
+<p><code>ws = new WebSocket("wss://ws.bkex.vip/socket.io/?EIO=3&transport=websocket");</code></p>
+<p><code>ws.onopen = function() {pingPong = setInterval(function () { ws.send('2');}, 20 * 1000)};</code></p>
+<p><code>ws.onmessage = function(e) {</code></p>
+<p><code>&nbsp;&nbsp;if(e.data === '40') {</code></p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;ws.send('40/quotation')}</code></p>
+<p><code>&nbsp;&nbsp;else if(e.data === '40/quotation'){</code></p>
+<p><code>&nbsp;&nbsp;&nbsp;&nbsp;ws.send('42/quotation,["subOrderDepth",{"symbol": "BTC_USDT","number": "50}]')}</code></p>
+<p><code>&nbsp;&nbsp;else {}</code></p>
+<p><code>};</code></p>
+
+
+<h2 id="websocket-3">K线数据</h2><h3 id="a94c7743c5">主题订阅</h3>
+
+<p><code>subKlineByRange</code></p>
+
+<blockquote>
+<p>订阅请求</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">"subKlineByRange"</span><span class="w"></span><span class="p">,</span><span class="w"></span>
+  <span class="p">{</span><span class="w"></span>
+    <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"240"</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="m1">1567136369</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="m1">1574307629</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157430756955441833"</span><span class="w"></span>
+  <span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+<h3 id="749d765242">订阅参数</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必需</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>交易对</td>
+<td>BTC_USDT</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>string</td>
+<td>true</td>
+<td>K线周期</td>
+<td>’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’， 数字代表分钟, 1D代表：1天, 1W 代表：1周</td>
+</tr>
+<tr>
+<td>from</td>
+<td>long</td>
+<td>true</td>
+<td>起始时间戳,单位秒</td>
+<td></td>
+</tr>
+<tr>
+<td>to</td>
+<td>long</td>
+<td>true</td>
+<td>截止时间戳,单位秒</td>
+<td></td>
+</tr>
+<tr>
+<td>no</td>
+<td>string</td>
+<td>true</td>
+<td>标记号</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>全量Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">symbolKlineByRange</span><span class="w"></span><span class="p">,</span><span class="w"></span>
+  <span class="p">{</span><span class="w"></span>
+   <span class="s2">"no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157430756955441833"</span><span class="p">,</span><span class="w"></span>
+   <span class="s2">"noMore"</span><span class="p">:</span><span class="w"> </span><span class="mi">false</span><span class="p">,</span><span class="w"></span>
+   <span class="s2">"list"</span><span class="p">:</span><span class="w"></span><span class="p">[</span><span class="w"></span>
+     <span class="p">{</span><span class="w"></span>
+       <span class="s2">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">194.2213</span><span class="p">,</span><span class="w"></span>
+       <span class="s2">"c"</span><span class="p">:</span><span class="w"> </span><span class="mi">8765.4543</span><span class="p">,</span><span class="w"></span>
+       <span class="s2">"v"</span><span class="p">:</span><span class="w"> </span><span class="mi">31295.7543</span><span class="p">,</span><span class="w"></span>
+       <span class="s2">"h"</span><span class="p">:</span><span class="w"> </span><span class="mi">8942.4962</span><span class="p">,</span><span class="w"></span>
+       <span class="s2">"l"</span><span class="p">:</span><span class="w"> </span><span class="mi">8312.3154</span><span class="p">,</span><span class="w"></span>
+       <span class="s2">"o"</span><span class="p">:</span><span class="w"> </span><span class="mi">8532.8129</span><span class="p">,</span><span class="w"></span>
+       <span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574307629</span><span class="w"></span>
+     <span class="p">}</span><span class="w"></span><span class="p">]</span><span class="w"></span>
+  <span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+<blockquote>
+<p>增量Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">qSymbolKLine</span><span class="w"></span><span class="p">,</span><span class="w"></span>
+  <span class="p">{</span><span class="w"></span>
+    <span class="s2">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">194.2213</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"c"</span><span class="p">:</span><span class="w"> </span><span class="mi">8765.4543</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"v"</span><span class="p">:</span><span class="w"> </span><span class="mi">31295.7543</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"h"</span><span class="p">:</span><span class="w"> </span><span class="mi">8942.4962</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"l"</span><span class="p">:</span><span class="w"> </span><span class="mi">8312.3154</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"o"</span><span class="p">:</span><span class="w"> </span><span class="mi">8532.8129</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574307629</span><span class="w"></span>
+  <span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+<h3 id="7bf990a9a9">响应数据</h3>
+<table><thead>
+<tr>
+<th>字段</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>no</td>
+<td>string</td>
+<td>标记号，返回和参数一致</td>
+</tr>
+<tr>
+<td>noMore</td>
+<td>boolean</td>
+<td>是否还有更多数据，false为有</td>
+</tr>
+<tr>
+<td>list</td>
+<td>object</td>
+<td>全量数据集合</td>
+</tr>
+</tbody></table>
+<h3 id="7bf990a9a9">数据字段列表</h3>
+<table><thead>
+<tr>
+<th>字段</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>a</td>
+<td>decimal</td>
+<td>成交量</td>
+</tr>
+<tr>
+<td>o</td>
+<td>decimal</td>
+<td>开盘价</td>
+</tr>
+<tr>
+<td>c</td>
+<td>decimal</td>
+<td>收盘价</td>
+</tr>
+<tr>
+<td>l</td>
+<td>decimal</td>
+<td>最低价</td>
+</tr>
+<tr>
+<td>h</td>
+<td>decimal</td>
+<td>最高价</td>
+</tr>
+<tr>
+<td>v</td>
+<td>decimal</td>
+<td>成交额</td>
+</tr>
+</tbody></table>
+
+<h2 id="websocket-4">订单深度行情数据</h2>
+<h3 id="a94c7743c5-2">主题订阅</h3>
+<p><code>subOrderDepth</code></p>
+
+<blockquote>
+<p>订阅参数</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">subOrderDepth</span><span class="w"></span><span class="p">,</span><span class="w"></span>
+  <span class="p">{</span><span class="w"></span>
+   <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w"></span>
+   <span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"></span>
+  <span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+<h3 id="749d765242-2">参数</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必需</th>
+<th>缺省值</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>NA</td>
+<td>交易对</td>
+<td>symbol</td>
+</tr>
+<tr>
+<td>number</td>
+<td>integer</td>
+<td>true</td>
+<td>50</td>
+<td>深度数量</td>
+<td>[1-50]</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">quotationOrderDepth</span><span class="w"></span><span class="p">,</span><span class="w"></span>
+  <span class="p">{</span><span class="w"></span>
+    <span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">BTC_USDT</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1577254059571</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"a"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="p">
+        <span class="p">["7148.0994","0.0021"]</span><span class="p">,</span><span class="w"></span></span><span class="err">//</span><span class="w"> </span><span class="p">[</span><span class="err">价格</span><span class="p">,</span><span class="w"> </span><span class="err">数量</span><span class="p">]</span><span class="w"></span>
+        <span class="p">["7148.0994","0.0021"]</span><span class="p">,</span><span class="w"></span>
+        <span class="err">...</span><span class="w"> </span>
+    </span><span class="p">]</span><span class="p"><span class="p">,</span><span class="w"></span>
+    <span class="s2">"b"</span><span class="p">:</span><span class="w"></span><span class="p">[</span><span class="p">
+        <span class="p">["7148.0994","0.0021"]</span><span class="p">,</span><span class="w"></span>
+        <span class="p">["7148.0994","0.0021"]</span><span class="p">,</span><span class="w"></span>
+        <span class="err">...</span><span class="w"> </span>
+    </span><span class="p">]</span><span class="p">
+  <span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+
+<h3 id="7bf990a9a9-2">数据字段列表</h3>
+<table><thead>
+<tr>
+<th>字段</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>s</td>
+<td>string</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>t</td>
+<td>long</td>
+<td>时间戳，单位毫秒</td>
+</tr>
+<tr>
+<td>a</td>
+<td>object</td>
+<td>当前的所有卖单[价格,数量]</td>
+</tr>
+<tr>
+<td>b</td>
+<td>object</td>
+<td>当前所以买单[价格,数量]</td>
+</tr>
+</tbody></table>
+
+<h2 id="websocket-5">成交明细</h2>
+<h3 id="a94c7743c5-4">主题订阅</h3>
+<p><code>quotationDealConnect</code></p>
+<p>此主题提供最新成交逐笔明细。</p>
+
+<blockquote>
+<p>订阅参数</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">quotationDealConnect</span><span class="w"></span><span class="p">,</span><span class="w"></span>
+  <span class="p">{</span><span class="w"></span>
+   <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w"></span>
+   <span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"></span>
+  <span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+<h3 id="749d765242-4">参数</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必需</th>
+<th>缺省值</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>NA</td>
+<td>交易代码</td>
+<td>BTC_USDT</td>
+</tr>
+<tr>
+<td>number</td>
+<td>integer</td>
+<td>true</td>
+<td>50</td>
+<td>数量</td>
+<td>[1-50]</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>全量Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">quotationAllDeal</span><span class="w"></span><span class="p">,</span><span class="w"></span>
+  <span class="p">[{</span><span class="w"></span>
+    <span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">BTC_USDT</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="mi">7145.0806</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1662</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"d"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1577254059571</span><span class="p">,</span><span class="w"></span>
+  <span class="p">}]</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+<h3 id="7bf990a9a9-4">数据字段列表</h3>
+<table><thead>
+<tr>
+<th>字段</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>s</td>
+<td>string</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>p</td>
+<td>decimal</td>
+<td>成交价格</td>
+</tr>
+<tr>
+<td>a</td>
+<td>decimal</td>
+<td>成交数量</td>
+</tr>
+<tr>
+<td>d</td>
+<td>string</td>
+<td>成交方向，B为买，S为卖</td>
+</tr>
+<tr>
+<td>t</td>
+<td>long</td>
+<td>成交时间戳</td>
+</tr>
+</tbody></table>
+<blockquote><p>增量Response</p></blockquote>
+<pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">quotationListDeal</span><span class="w"></span><span class="p">,</span><span class="w"></span>
+  <span class="p">[{</span><span class="w"></span>
+    <span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">BTC_USDT</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="mi">7145.0806</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1662</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"d"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1577254059571</span>
+  <span class="p">}]</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+
+<h2 id="websocket-6">24小时行情</h2>
+<h3 id="a94c7743c5-5">主题订阅</h3>
+<p><code>subQuotationSymbol</code></p>
+
+<blockquote>
+<p>订阅参数</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">subQuotationSymbol</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">qPairsUpdateStats</span><span class="w"></span><span class="p">,</span><span class="w"></span>
+  <span class="p">[{</span><span class="w"></span>
+    <span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">BTC_USDT</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"c"</span><span class="p">:</span><span class="w"> </span><span class="mi">7145.0806</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"o"</span><span class="p">:</span><span class="w"> </span><span class="mi">7123.0407</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"h"</span><span class="p">:</span><span class="w"> </span><span class="mi">7167.1034</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"l"</span><span class="p">:</span><span class="w"> </span><span class="mi">7105.5237</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">4214.5321</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"v"</span><span class="p">:</span><span class="w"> </span><span class="mi">94285313.4451</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"r"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.12</span>
+  <span class="p">}]</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+
+<h3 id="7bf990a9a9-5">数据更新字段列表</h3>
+<table><thead>
+<tr>
+<th>字段</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>s</td>
+<td>string</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>c</td>
+<td>decimal</td>
+<td>24小时收盘价</td>
+</tr>
+<td>a</td>
+<td>decimal</td>
+<td>24小时成交量</td>
+</tr>
+<tr>
+<td>o</td>
+<td>decimal</td>
+<td>24小时开盘价</td>
+</tr>
+<tr>
+<td>l</td>
+<td>decimal</td>
+<td>24小时最低价</td>
+</tr>
+<tr>
+<td>h</td>
+<td>decimal</td>
+<td>24小时最高价</td>
+</tr>
+<tr>
+<td>v</td>
+<td>decimal</td>
+<td>24小时成交额</td>
+</tr>
+<tr>
+<td>r</td>
+<td>decimal</td>
+<td>24小时涨跌幅</td>
+</tr>
+</tbody></table>
+<p><br>
+<br>
+<br>
+<br>
+<br></p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="./api_zh.htm?shell#" data-language-name="shell" class="active">shell</a>
+          </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+      $("#toc").on("click", function(e) {
+        let tar = e.target;
+        $("a.active-nav").removeClass("active-nav");
+        $(tar).addClass("active-nav");
+      });
+    });
+    </script>
+  
+
+</body>
+</html>
