@@ -542,10 +542,11 @@
 
 <h3 id="4e4ca9ca80">订单状态</h3>
 <ul>
-<li>0 : 等待成交，该状态订单已进入撮合队列当中。<br></li>
-<li>1 : 已成交。该状态订单不在撮合队列中，订单的全部数量已经被市场成交。<br></li>
-<li>2 : 已撤销。该状态订单不在撮合订单中，此状态订单没有任何成交数量，且被成功撤销。<br></li>
-<li>3 : 部分成交，该状态订单在撮合队列当中，订单的部分数量已经被市场成交，等待剩余部分成交。<br></li></ul>
+<li>-1 : 计划委托订单未触发，该状态订单为进入撮合队列当中。<br></li>
+<li> 0 : 等待成交，该状态订单已进入撮合队列当中。<br></li>
+<li> 1 : 已成交。该状态订单不在撮合队列中，订单的全部数量已经被市场成交。<br></li>
+<li> 2 : 已撤销。该状态订单不在撮合订单中，此状态订单没有任何成交数量，且被成功撤销。<br></li>
+<li> 3 : 部分成交，该状态订单在撮合队列当中，订单的部分数量已经被市场成交，等待剩余部分成交。<br></li></ul>
 
 <h1 id="useExplain">接入说明</h1><h2 id="useExplain-1">接口概览</h2>
 <table><thead>
@@ -790,7 +791,7 @@
 <ul>
 <li>GET <code>/v2/q/kline</code></li>
 </ul>
-<pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.co/v2/q/kline?interval=1m&amp;size=200&amp;symbol=BTC_USDT"</span>
+<pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.co/v2/q/kline?period=1m&amp;size=200&amp;symbol=BTC_USDT&amp;from=1529739295000&amp;to=1532331295000"</span>
 </code></pre><h3 id="1f9ac54b15-5">请求参数</h3>
 <table><thead>
 <tr>
@@ -1516,7 +1517,7 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m4k2yUKTSrX6SM9FGgvwMybAbYtRVi2N"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EOS"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="w">
 </span><span class="p">}</span><span class="w">
