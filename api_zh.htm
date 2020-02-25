@@ -484,9 +484,9 @@
 <p>规范要计算签名的请求 因为使用 HMAC 进行签名计算时，使用不同内容计算得到的结果会完全不同。所以在进行签名计算前，请先对请求进行规范化处理。下面以查询某订单详情请求为例进行说明：</p>
 
 <p>下单请求URL</p>
-<p><code>https://api.bkex.co/v2/u/order/create?amount=0.12&direction=ASK&price=7126.4285&symbol=BTC_USDT</code></p>
+<p><code>https://api.bkex.co/v2/u/order/create?volume=0.12&direction=ASK&price=7126.4285&symbol=BTC_USDT</code></p>
 <p>对参数按照ASCII码顺序进行排序</p>
-<p><code>amount=0.12&direction=ASK&price=7126.4285&symbol=BTC_USDT</code></p>
+<p><code>&\direction=ASK&price=7126.4285&symbol=BTC_USDT&volume=0.12</code></p>
 <p>将排完序的请求参数使用secretKey 进行HMAC SHA256进行加密，得到的结果</p>
 <p><code>550ac73ace8c34372e0e1dd6631e890c7bd16697af8bb4e2908e966b50aba4e0</code></p>
 <h4 >构造http请求使用 </h4>
@@ -653,16 +653,16 @@
 <pre class="highlight json tab-json"><code><span class="w">  </span></span><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"supportTrade"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volumePrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pricePrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"minimumTradeAmount"</span><span class="p">:</span><span class="s2">0.001</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"minimumTradeVolume"</span><span class="p">:</span><span class="s2">0.001</span><span class="p">,</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
     </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"ETH_USDT"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"supportTrade"</span><span class="p">:</span><span class="s2">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volumePrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pricePrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"minimumTradeAmount"</span><span class="p">:</span><span class="s2">0.01</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"minimumTradeVolume"</span><span class="p">:</span><span class="s2">0.01</span><span class="p">,</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id="aceee0d936">返回字段</h3>
@@ -684,7 +684,7 @@
 <td>是否支持交易</td>
 </tr>
 <tr>
-<td>amountPrecision</td>
+<td>volumePrecision</td>
 <td>integer</td>
 <td>交易对下单数量的精度（小数点后位数）</td>
 </tr>
@@ -694,7 +694,7 @@
 <td>交易对下单价格的精度（小数点后位数）</td>
 </tr>
 <tr>
-<td>minimumTradeAmount</td>
+<td>minimumTradeVolume</td>
 <td>decimal</td>
 <td>交易对前币种最小下单数量</td>
 </tr>
@@ -853,12 +853,12 @@
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="mi">BTC_USDT</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">12321.1234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">12321.1234</span><span class="p">,</span><span class="w">
     </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="mf">4124.3000</span><span class="p">,</span><span class="w">
     </span><span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="mf">3873.2130</span><span class="p">,</span><span class="w">
     </span><span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="mf">3521.1000</span><span class="p">,</span><span class="w">
     </span><span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="mf">4521.5000</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"vol"</span><span class="p">:</span><span class="w"> </span><span class="mf">71031537.97866500</span><span class="w">
+    </span><span class="s2">"quoteVolume"</span><span class="p">:</span><span class="w"> </span><span class="mf">71031537.97866500</span><span class="w">
     </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1529739295000</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -876,7 +876,7 @@
 <td>交易对</td>
 </tr>
 <tr>
-<td>amount</td>
+<td>volume</td>
 <td>decimal</td>
 <td>以基础币种计量的交易量</td>
 </tr>
@@ -902,7 +902,7 @@
 <td>本阶段最高价</td>
 </tr>
 <tr>
-<td>vol</td>
+<td>quoteVolume</td>
 <td>decimal</td>
 <td>以报价币种计量的交易量</td>
 </tr>
@@ -949,8 +949,8 @@
   </span><span class="s2">"open"</span><span class="p">:</span><span class="mf">7145.0407</span><span class="p">,</span><span class="w">
   </span><span class="s2">"high"</span><span class="p">:</span><span class="mf">7145.0407</span><span class="p">,</span><span class="w">
   </span><span class="s2">"low"</span><span class="p">:</span><span class="mf">7145.0407</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">3124.1231</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"vol"</span><span class="p">:</span><span class="mf">23131.847291</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"volume"</span><span class="p">:</span><span class="mf">3124.1231</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"quoteVolume"</span><span class="p">:</span><span class="mf">23131.847291</span><span class="p">,</span><span class="w">
   </span><span class="s2">"change"</span><span class="p">:</span><span class="mf">0.12</span><span class="p">,</span><span class="w">
   </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1529739295000</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -969,7 +969,7 @@
 <td>交易对</td>
 </tr>
 <tr>
-<td>amount</td>
+<td>volume</td>
 <td>decimal</td>
 <td>以基础币种计量的交易量</td>
 </tr>
@@ -984,7 +984,7 @@
 <td>本阶段最新价</td>
 </tr>
 <tr>
-<td>low</td>
+<td>quoteVolume</td>
 <td>decimal</td>
 <td>本阶段最低价</td>
 </tr>
@@ -1137,12 +1137,12 @@
 <tr>
 <td>bids</td>
 <td>object</td>
-<td>当前的所有买单 [price, amount]</td>
+<td>当前的所有买单 [price, volume]</td>
 </tr>
 <tr>
 <td>asks</td>
 <td>object</td>
-<td>当前的所有卖单 [price, amount]</td>
+<td>当前的所有卖单 [price, volume]</td>
 </tr>
 </tbody></table>
 <h2 id="quotationData-5">最近成交记录</h2>
@@ -1186,7 +1186,7 @@
     <span class="p">{</span><span class="w">
     </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="mi">BTC_USDT</span><span class="p">,</span><span class="w">
     </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">7145.0407</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5344</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5344</span><span class="p">,</span><span class="w">
     </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1529739295000</span><span class="p">,</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1207,7 +1207,7 @@
 <td>交易对</td>
 </tr>
 <tr>
-<td>amount</td>
+<td>volume</td>
 <td>decimal</td>
 <td>以基础币种为单位的成交量</td>
 </tr>
@@ -1217,10 +1217,10 @@
 <td>以报价币种为单位的成交价格</td>
 </tr>
 <tr>
-    <td>direction</td>
-    <td>string</td>
-    <td>交易方向：“B” 或 “S”, “B” 即买，“S” 即卖</td>
-    </tr>
+<td>direction</td>
+<td>string</td>
+<td>交易方向：“B” 或 “S”, “B” 即买，“S” 即卖</td>
+</tr>
 <tr>
 <td>ts</td>
 <td>long</td>
@@ -1323,9 +1323,9 @@
 <p>账户中的字段</p>
 <table><thead>
 <tr>
-  <th>字段名称</th>
-  <th>数据类型</th>
-  <th>描述</th>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1362,7 +1362,7 @@
 
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="s2">"fromSource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALLET"</span><span class="w">
   </span><span class="s2">"toSource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTC"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1386,7 +1386,7 @@
 <td></td>
 </tr>
 <tr>
-<td>amount</td>
+<td>volume</td>
 <td>decimal</td>
 <td>true</td>
 <td>NA</td>
@@ -1516,7 +1516,7 @@
 </ul>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m4k2yUKTSrX6SM9FGgvwMybAbYtRVi2N"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EOS"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="w">
@@ -1539,7 +1539,7 @@
 <td>仅支持在官网上相应币种中的地址</td>
 </tr>
 <tr>
-<td>amount</td>
+<td>volume</td>
 <td>true</td>
 <td>string</td>
 <td>提币数量</td>
@@ -1670,7 +1670,7 @@
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"117121312313"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6ea95a124371c685e000b968ace1c024f2d67bf73a97b43cf94ab6572fa529"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1234</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1234</span><span class="p">,</span><span class="w">
         </span><span class="s2">"fromAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1LMhQnpvwiiRSn2NPPxaQLVyBzdGcXvi"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"toAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1LMhQnpvwiiRSn2NPPxaQLVyBzdGcXvi"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -1703,7 +1703,7 @@
 <td>交易哈希</td>
 </tr>
 <tr>
-<td>amount</td>
+<td>volume</td>
 <td>decimal</td>
 <td>个数</td>
 </tr>
@@ -1828,7 +1828,7 @@
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"117121312313"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6ea95a124371c685e000b968ace1c024f2d67bf73a97b43cf94ab6572fa529"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1234</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1234</span><span class="p">,</span><span class="w">
         </span><span class="s2">"fromAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1LMhQnpvwiiRSn2NPPxaQLVyBzdGcXvi"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"toAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1LMhQnpvwiiRSn2NPPxaQLVyBzdGcXvi"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.0001</span><span class="p">,</span><span class="w">
@@ -1861,7 +1861,7 @@
 <td>交易哈希</td>
 </tr>
 <tr>
-<td>amount</td>
+<td>volume</td>
 <td>decimal</td>
 <td>个数</td>
 </tr>
@@ -1936,7 +1936,7 @@
 <li>POST <code>/v2/u/order/create</code></li>
 </ul>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">7000.12</span><span class="p">,</span><span class="w">
   </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
@@ -1963,7 +1963,7 @@
 <td>BTC_USDT</td>
 </tr>
 <tr>
-<td>amount</td>
+<td>volume</td>
 <td>decimal</td>
 <td>true</td>
 <td>NA</td>
@@ -2144,11 +2144,11 @@
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201806232342422123123"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STOP_LIMIT"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totalVolume"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
       </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">"7000.3241"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"dealAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"frozenAmountByOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dealVolume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frozenVolumeByOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
       </span><span class="s2">"totalAnchorCoin"</span><span class="p">:</span><span class="w"> </span><span class="mi">2341</span><span class="p">,</span><span class="w">
       </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">WALLET</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">6900</span><span class="p">,</span><span class="w">
@@ -2192,7 +2192,7 @@
 <td>订单类型</td>
 </tr>
 <tr>
-<td>totalAmount</td>
+<td>totalVolume</td>
 <td>decimal</td>
 <td>订单下单总数</td>
 </tr>
@@ -2202,12 +2202,12 @@
 <td>下单方向</td>
 </tr>
 <tr>
-<td>dealAmount</td>
+<td>dealVolume</td>
 <td>decimal</td>
 <td>已成交数量</td>
 </tr>
 <tr>
-<td>frozenAmountByOrder</td>
+<td>frozenVolumeByOrder</td>
 <td>decimal</td>
 <td>下单冻结数量</td>
 </tr>
@@ -2329,11 +2329,11 @@
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201806232342422123123"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STOP_LIMIT"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totalVolume"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
       </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">"7000.3241"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"dealAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"frozenAmountByOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dealVolume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frozenVolumeByOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1.123</span><span class="p">,</span><span class="w">
       </span><span class="s2">"dealAvgPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">2341</span><span class="p">,</span><span class="w">
       </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALEET"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">6900</span><span class="p">,</span><span class="w">
@@ -2372,7 +2372,7 @@
 <td>订单类型</td>
 </tr>
 <tr>
-<td>totalAmount</td>
+<td>totalVolume</td>
 <td>decimal</td>
 <td>订单下单总数</td>
 </tr>
@@ -2382,12 +2382,12 @@
 <td>下单方向</td>
 </tr>
 <tr>
-<td>dealAmount</td>
+<td>dealVolume</td>
 <td>decimal</td>
 <td>已成交数量</td>
 </tr>
 <tr>
-<td>frozenAmountByOrder</td>
+<td>frozenVolumeByOrder</td>
 <td>decimal</td>
 <td>下单冻结数量</td>
 </tr>
@@ -2432,7 +2432,7 @@
 <pre class="highlight json tab-json"><code>
 <span class="p">[</span><span class="w">
   <span class="p">{</span><span class="w">
-   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">0.1</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">0.1</span><span class="p">,</span><span class="w">
    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">7000.12</span><span class="p">,</span><span class="w">
    </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
@@ -2441,7 +2441,7 @@
    </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6900"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lte"</span><span class="p">
    <span class="p">}</span><span class="w"><span class="p">,</span>
-   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">0.1</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">0.1</span><span class="p">,</span><span class="w">
    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">7000.12</span><span class="p">,</span><span class="w">
    </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
@@ -2699,9 +2699,9 @@
    <span class="s2">"noMore"</span><span class="p">:</span><span class="w"> </span><span class="mi">false</span><span class="p">,</span><span class="w"></span>
    <span class="s2">"list"</span><span class="p">:</span><span class="w"></span><span class="p">[</span><span class="w"></span>
      <span class="p">{</span><span class="w"></span>
-       <span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">194.2213</span><span class="p">,</span><span class="w"></span>
+       <span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">194.2213</span><span class="p">,</span><span class="w"></span>
        <span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="mi">8765.4543</span><span class="p">,</span><span class="w"></span>
-       <span class="s2">"vol"</span><span class="p">:</span><span class="w"> </span><span class="mi">31295.7543</span><span class="p">,</span><span class="w"></span>
+       <span class="s2">"quoteVolume"</span><span class="p">:</span><span class="w"> </span><span class="mi">31295.7543</span><span class="p">,</span><span class="w"></span>
        <span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="mi">8942.4962</span><span class="p">,</span><span class="w"></span>
        <span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="mi">8312.3154</span><span class="p">,</span><span class="w"></span>
        <span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="mi">8532.8129</span><span class="p">,</span><span class="w"></span>
@@ -2717,11 +2717,11 @@
 <span class="p">[</span><span class="w"></span>
   <span class="s2">"qSymbolKLine"</span><span class="w"></span><span class="p">,</span><span class="w"></span>
   <span class="p">{</span><span class="w"></span>
-    <span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">194.2213</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">194.2213</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="mi">8765.4543</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"vol"</span><span class="p">:</span><span class="w"> </span><span class="mi">31295.7543</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="mi">8942.4962</span><span class="p">,</span><span class="w"></span>
-    <span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="mi">8312.3154</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"quoteVolume"</span><span class="p">:</span><span class="w"> </span><span class="mi">8312.3154</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="mi">8532.8129</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574307629</span><span class="w"></span>
   <span class="p">}</span><span class="w"></span>
@@ -2760,7 +2760,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>amount</td>
+<td>volume</td>
 <td>decimal</td>
 <td>成交量</td>
 </tr>
@@ -2785,7 +2785,7 @@
 <td>最高价</td>
 </tr>
 <tr>
-<td>vol</td>
+<td>quoteVolume</td>
 <td>decimal</td>
 <td>成交额</td>
 </tr>
@@ -2944,7 +2944,7 @@
   <span class="p">[{</span><span class="w"></span>
     <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">BTC_USDT</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">7145.0806</span><span class="p">,</span><span class="w"></span>
-    <span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1662</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1662</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1577254059571</span><span class="w"></span>
   <span class="p">}]</span><span class="w"></span>
@@ -2969,7 +2969,7 @@
 <td>成交价格</td>
 </tr>
 <tr>
-<td>amount</td>
+<td>volume</td>
 <td>decimal</td>
 <td>成交数量</td>
 </tr>
@@ -2991,7 +2991,7 @@
   <span class="p">[{</span><span class="w"></span>
     <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">BTC_USDT</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">7145.0806</span><span class="p">,</span><span class="w"></span>
-    <span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1662</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.1662</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1577254059571</span>
   <span class="p">}]</span><span class="w"></span>
@@ -3022,8 +3022,8 @@
     <span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="mi">7123.0407</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="mi">7167.1034</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="mi">7105.5237</span><span class="p">,</span><span class="w"></span>
-    <span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4214.5321</span><span class="p">,</span><span class="w"></span>
-    <span class="s2">"vol"</span><span class="p">:</span><span class="w"> </span><span class="mi">94285313.4451</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">4214.5321</span><span class="p">,</span><span class="w"></span>
+    <span class="s2">"quoteVolume"</span><span class="p">:</span><span class="w"> </span><span class="mi">94285313.4451</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="mi">0.12</span>
   <span class="p">}]</span><span class="w"></span>
 <span class="p">]</span><span class="w"></span>
@@ -3047,7 +3047,7 @@
 <td>decimal</td>
 <td>24小时收盘价</td>
 </tr>
-<td>amount</td>
+<td>volume</td>
 <td>decimal</td>
 <td>24小时成交量</td>
 </tr>
@@ -3067,7 +3067,7 @@
 <td>24小时最高价</td>
 </tr>
 <tr>
-<td>vol</td>
+<td>quoteVolume</td>
 <td>decimal</td>
 <td>24小时成交额</td>
 </tr>
