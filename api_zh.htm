@@ -2585,20 +2585,20 @@
 <h3 id="url">接入URL</h3>
 <p><strong>行情请求地址</strong></p>
 
-<p><strong><code>wss://ws.bkex.co</code></strong></p>
+<p><strong><code>wss://api.bkex.co</code></strong></p>
 
-<p><strong><code>wss://ws.bkex.com</code></strong></p>
+<p><strong><code>wss://api.bkex.com</code></strong></p>
 <h2 id="websocket-2">例子</h2>
 <h3 id="a94c7743c5">Socket.io Demo</h3>
 <p><code>var io = require('socket.io-client');</code></p>
-<p><code>var socket = io('wss://ws.bkex.co', { transports: ['websocket'] });</code></p>
+<p><code>var socket = io('wss://api.bkex.co', { transports: ['websocket'] });</code></p>
 <p><code>socket.on('connect', function (data) {
     socket.emit('subQuotationSymbol'); 
   });</code></p>
 
 <h3 id="a94c7743c5">Native WebScoket Demo</h3>
 <p><code>var pingPong = null;</code></p>
-<p><code>ws = new WebSocket("wss://ws.bkex.co/socket.io/?EIO=3&transport=websocket");</code></p>
+<p><code>ws = new WebSocket("wss://api.bkex.co/socket.io/?EIO=3&transport=websocket");</code></p>
 <p><code>ws.onopen = function() {pingPong = setInterval(function () { ws.send('2');}, 20 * 1000)};</code></p>
 <p><code>ws.onmessage = function(e) {</code></p>
 <p><code>&nbsp;&nbsp;if(e.data === '40') {</code></p>
