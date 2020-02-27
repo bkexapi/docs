@@ -304,9 +304,9 @@
                   <li>
                     <a href="./api_zh.htm?shell#accountData-1" class="toc-h2 toc-link" data-title="账户余额">账户余额</a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="./api_zh.htm?shell#accountData-2" class="toc-h2 toc-link" data-title="账户之间划转">账户之间划转</a>
-                  </li>
+                  </li> -->
               </ul>
           </li>
           <li>
@@ -383,16 +383,16 @@
 
 <h1 id="bkexApiIntroduce">简介</h1>
 <h2 id="订单深度行情数据-1">API 简介</h2>
-<p>欢迎使用币客 API！  </p>
+<p>欢迎使用Bkex Global API！  </p>
 
-<p>此文档是币客API的唯一官方文档，币客API提供的能力会在此持续更新，请大家及时关注。  </p>
+<p>此文档是Bkex GlobalAPI的唯一官方文档，Bkex GlobalAPI提供的能力会在此持续更新，请大家及时关注。  </p>
 
 <p>您可通过点击右上方的语言按钮来切换文档语言。  </p>
 
 <p>文档右侧是针对请求参数以及响应结果的示例。</p>
 
 <h2 id="bkexApiIntroduce-2">更新订阅</h2>
-<p>关于API新增、更新、下线等信息币客会提前发布公告进行通知，建议您关注我们的公告，及时获取相关信息。  </p>
+<p>关于API新增、更新、下线等信息Bkex Global会提前发布公告进行通知，建议您关注我们的公告，及时获取相关信息。  </p>
 
 <p>您可以点击 <a href="https://bkex.zendesk.com/hc/zh-cn/categories/360001640373-BKEX-Global-%E5%85%AC%E5%91%8A">这里 </a> 查看公告。</p>
 
@@ -434,7 +434,7 @@
 </aside> 
 
 <h2 id="useQuick-3">接口类型</h2>
-<p>币客为用户提供两种接口，您可根据自己的使用场景和偏好来选择适合的方式进行查询行情、交易或提现。  </p>
+<p>Bkex Global为用户提供两种接口，您可根据自己的使用场景和偏好来选择适合的方式进行查询行情、交易或提现。  </p>
 <h3 id="rest-api">REST API</h3>
 <p>REST，即Representational State Transfer的缩写，是目前较为流行的基于HTTP的一种通信机制，每一个URL代表一种资源。</p>
 
@@ -545,7 +545,7 @@
 <li>-1 : 计划委托订单未触发，该状态订单为进入撮合队列当中。<br></li>
 <li> 0 : 等待成交，该状态订单已进入撮合队列当中。<br></li>
 <li> 1 : 已成交。该状态订单不在撮合队列中，订单的全部数量已经被市场成交。<br></li>
-<li> 2 : 已撤销。该状态订单不在撮合订单中，此状态订单没有任何成交数量，且被成功撤销。<br></li>
+<li> 2 : 已撤销。该状态订单不在撮合订单中，此状态订单可能有部分成交数量，且被成功撤销。<br></li>
 <li> 3 : 部分成交，该状态订单在撮合队列当中，订单的部分数量已经被市场成交，等待剩余部分成交。<br></li></ul>
 
 <h1 id="useExplain">接入说明</h1><h2 id="useExplain-1">接口概览</h2>
@@ -569,7 +569,7 @@
 <tr>
 <td>账户类</td>
 <td>/v2/u/account/*</td>
-<td>账户类接口，包括账户信息，划转等</td>
+<td>账户类接口，包括账户信息等</td>
 </tr>
 <tr>
 <td>钱包类</td>
@@ -637,7 +637,7 @@
 </tbody></table>
 
 <h1 id="basicInformation">基础信息</h1><h2 id="basicInformation-1">获取所有交易对</h2>
-<p>此接口返回所有币客支持的交易对。</p>
+<p>此接口返回所有Bkex Global支持的交易对。</p>
 <pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.co/v2/common/symbols"</span>
 </code></pre><h3 id="http">HTTP 请求</h3>
 <ul>
@@ -699,7 +699,7 @@
 </tr>
 </tbody></table>
 <h2 id="basicInformation-2">获取所有币种</h2>
-<p>此接口返回所有币客支持的币种。</p>
+<p>此接口返回所有Bkex Global支持的币种。</p>
 <pre class="highlight shell tab-shell" ><code>curl <span class="s2">"https://api.bkex.co/v2/common/currencys"</span>
 </code></pre><h3 id="http-2">HTTP 请求</h3>
 <ul>
@@ -823,7 +823,7 @@
 <td>long</td>
 <td>true</td>
 <td>NA</td>
-<td>查询起始时间戳，位毫秒</td>
+<td>查询起始时间戳，单位毫秒</td>
 <td>1529739295000</td>
 </tr>
 <tr>
@@ -1329,7 +1329,7 @@
 <td>全部余额</td>
 </tr>
 </tbody></table>
-
+<!---
 <h2 id="accountData-2">账户之间划转</h2>
 <p>API Key 权限：交易</p>
 
@@ -1418,6 +1418,7 @@
 </tr>
 <tr>
 </tbody></table>
+-->
 <!--钱包相关，充值与提现-->
 <h1 id="depositWithdraw">充值与提现</h1>
 <aside class="notice">访问钱包相关的接口需要进行签名认证。</aside>
@@ -1516,7 +1517,7 @@
 <td>true</td>
 <td>string</td>
 <td>提现地址</td>
-<td>仅支持在官网上相应币种中的地址</td>
+<td>仅支持在官网上能够提现的币种</td>
 </tr>
 <tr>
 <td>volume</td>
