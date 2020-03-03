@@ -590,6 +590,10 @@
 <ul>
 <li>每个API Key 在1秒之内限制10次</li>
 <li>若接口不需要API Key，则每个IP在1秒内限制10次</li>
+<li>各别接口有单独的限频规则</li>
+<li>超过限频数量，会被封禁5-10秒</li>
+
+
 </ul>
 
 <p>比如：</p>
@@ -2554,6 +2558,8 @@
 
 <h2 id="tradeOrder-5">批量下单</h2>
 <p>API Key 权限：交易</p>
+<p>一个批量最多20张订单</p>
+<aside class="notice">该接口限制频率1秒1次</aside>
 <pre class="highlight json tab-json"><code>
 <span class="p">[</span><span class="w">
   <span class="p">{</span><span class="w">
@@ -2644,7 +2650,7 @@
 </tbody></table>
 <h2 id="tradeOrder-6">批量撤销订单</h2>
 <p>API Key 权限：交易</p>
-
+<aside class="notice">该接口限制频率1秒1次</aside>
 <p>此接口同时为多个订单（基于id）发送取消请求。</p>
 <h3 id="http-28">HTTP 请求</h3>
 <ul>
