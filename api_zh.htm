@@ -3778,144 +3778,144 @@
             </tbody>
         </table>
 
-        <h2 id="contract-depthMerged">合并订单簿（推荐）</h2>
-        <p>API Key 权限：无需签名</p>
-        <p>获取当前订单簿的数据。该端点0.5秒更新一次。</p>
-        <h3 id="http-contract-depthMerged">HTTP 请求</h3>
-        <ul>
-            <li>GET <code>/v2/contract/q/depthMerged</code></li>
-        </ul>
-        <pre class="highlight json tab-json"><code>{
-  "symbol": BTC-PERP-REV,
-  "limit": 30
-}</code></pre>
-        <h3 id="contract-depthMerged-request">请求参数</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>参数</th>
-                <th>数据类型</th>
-                <th>是否必须</th>
-                <th>默认值</th>
-                <th>描述</th>
-                <th>取值范围</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>true</td>
-                <td>NA</td>
-                <td>用来获取订单簿的合约名称。E.g. BTC-PERP-REV</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>limit</td>
-                <td>integer</td>
-                <td>false</td>
-                <td>40</td>
-                <td>返回bids和asks的数量 。默认 40; 最大 40.</td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
+<!--        <h2 id="contract-depthMerged">合并订单簿（推荐）</h2>-->
+<!--        <p>API Key 权限：无需签名</p>-->
+<!--        <p>获取当前订单簿的数据。该端点0.5秒更新一次。</p>-->
+<!--        <h3 id="http-contract-depthMerged">HTTP 请求</h3>-->
+<!--        <ul>-->
+<!--            <li>GET <code>/v2/contract/q/depthMerged</code></li>-->
+<!--        </ul>-->
+<!--        <pre class="highlight json tab-json"><code>{-->
+<!--  "symbol": BTC-PERP-REV,-->
+<!--  "limit": 30-->
+<!--}</code></pre>-->
+<!--        <h3 id="contract-depthMerged-request">请求参数</h3>-->
+<!--        <table>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>参数</th>-->
+<!--                <th>数据类型</th>-->
+<!--                <th>是否必须</th>-->
+<!--                <th>默认值</th>-->
+<!--                <th>描述</th>-->
+<!--                <th>取值范围</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--                <td>symbol</td>-->
+<!--                <td>string</td>-->
+<!--                <td>true</td>-->
+<!--                <td>NA</td>-->
+<!--                <td>用来获取订单簿的合约名称。E.g. BTC-PERP-REV</td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>limit</td>-->
+<!--                <td>integer</td>-->
+<!--                <td>false</td>-->
+<!--                <td>40</td>-->
+<!--                <td>返回bids和asks的数量 。默认 40; 最大 40.</td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
 
 
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json"><code>{
-  "code": 0,
-  "data": {
-  "time": 1555049455783,
-  "bids": [
-   ["78.82", "0.526"],//[Price, Quantity]
-   ["77.24", "1.22"],
-   ["76.65", "1.043"],
-   ["76.58", "1.34"],
-   ["75.67", "1.52"],
-   ["75.12", "0.635"],
-   ["75.02", "0.72"],
-   ["75.01", "0.672"],
-   ["73.73", "1.282"],
-   ["73.58", "1.116"],
-   ["73.45", "0.471"],
-   ["73.44", "0.483"],
-   ["72.32", "0.383"],
-   ["72.26", "1.283"],
-   ["72.11", "0.703"],
-   ["70.61", "0.454"]],
-   "asks": [
-     ["122.96", "0.381"],//[Price, Quantity]
-     ["144.46", "1"],
-     ["155.55", "0.065"],
-     ["160.16", "0.052"],
-     ["200", "0.775"],
-     ["249", "0.17"],
-     ["250", "1"],
-     ["300", "1"],
-     ["400", "1"],
-     ["499", "1"]]
-   }
-}</code></pre>
+<!--        <blockquote>-->
+<!--            <p>Response:</p>-->
+<!--        </blockquote>-->
+<!--        <pre class="highlight json tab-json"><code>{-->
+<!--  "code": 0,-->
+<!--  "data": {-->
+<!--  "time": 1555049455783,-->
+<!--  "bids": [-->
+<!--   ["78.82", "0.526"],//[Price, Quantity]-->
+<!--   ["77.24", "1.22"],-->
+<!--   ["76.65", "1.043"],-->
+<!--   ["76.58", "1.34"],-->
+<!--   ["75.67", "1.52"],-->
+<!--   ["75.12", "0.635"],-->
+<!--   ["75.02", "0.72"],-->
+<!--   ["75.01", "0.672"],-->
+<!--   ["73.73", "1.282"],-->
+<!--   ["73.58", "1.116"],-->
+<!--   ["73.45", "0.471"],-->
+<!--   ["73.44", "0.483"],-->
+<!--   ["72.32", "0.383"],-->
+<!--   ["72.26", "1.283"],-->
+<!--   ["72.11", "0.703"],-->
+<!--   ["70.61", "0.454"]],-->
+<!--   "asks": [-->
+<!--     ["122.96", "0.381"],//[Price, Quantity]-->
+<!--     ["144.46", "1"],-->
+<!--     ["155.55", "0.065"],-->
+<!--     ["160.16", "0.052"],-->
+<!--     ["200", "0.775"],-->
+<!--     ["249", "0.17"],-->
+<!--     ["250", "1"],-->
+<!--     ["300", "1"],-->
+<!--     ["400", "1"],-->
+<!--     ["499", "1"]]-->
+<!--   }-->
+<!--}</code></pre>-->
 
-        <h3 id="contract-depthMerged-response">响应数据</h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>参数名称</th>
-                <th>数据类型</th>
-                <th>例子</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>time</td>
-                <td>long</td>
-                <td>1550829103981</td>
-                <td>当前时间（Unix Timestamp，毫秒ms）</td>
-            </tr>
-            <tr>
-                <td>bids</td>
-                <td>list</td>
-                <td>(如下)</td>
-                <td>所有bid的价格和数量信息，最优bid价格由上到下排列。</td>
-            </tr>
-            <tr>
-                <td>asks</td>
-                <td>list</td>
-                <td>(如下)</td>
-                <td>所有ask的价格和数量信息，最优ask价格由上到下排列。</td>
-            </tr>
-            </tbody>
-        </table>
-        <table>
-            <p>bids和asks所对应的信息组代表了订单簿的所有价格以及价格对应数量的信息，由最优价格从上到下排列:</p>
-            <tbody>
-            <thead>
-            <tr>
-                <th>参数名称</th>
-                <th>数据类型</th>
-                <th>例子</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>123.10</td>
-                <td>价格</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>300</td>
-                <td>当前价格对应的数量</td>
-            </tr>
-            </tbody>
-        </table>
+<!--        <h3 id="contract-depthMerged-response">响应数据</h3>-->
+<!--        <table>-->
+<!--            <tbody>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>参数名称</th>-->
+<!--                <th>数据类型</th>-->
+<!--                <th>例子</th>-->
+<!--                <th>描述</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tr>-->
+<!--                <td>time</td>-->
+<!--                <td>long</td>-->
+<!--                <td>1550829103981</td>-->
+<!--                <td>当前时间（Unix Timestamp，毫秒ms）</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>bids</td>-->
+<!--                <td>list</td>-->
+<!--                <td>(如下)</td>-->
+<!--                <td>所有bid的价格和数量信息，最优bid价格由上到下排列。</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>asks</td>-->
+<!--                <td>list</td>-->
+<!--                <td>(如下)</td>-->
+<!--                <td>所有ask的价格和数量信息，最优ask价格由上到下排列。</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--        <table>-->
+<!--            <p>bids和asks所对应的信息组代表了订单簿的所有价格以及价格对应数量的信息，由最优价格从上到下排列:</p>-->
+<!--            <tbody>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>参数名称</th>-->
+<!--                <th>数据类型</th>-->
+<!--                <th>例子</th>-->
+<!--                <th>描述</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tr>-->
+<!--                <td>''</td>-->
+<!--                <td>float</td>-->
+<!--                <td>123.10</td>-->
+<!--                <td>价格</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>''</td>-->
+<!--                <td>float</td>-->
+<!--                <td>300</td>-->
+<!--                <td>当前价格对应的数量</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
 
 
         <h2 id="contract-trades">最新成交</h2>
@@ -4029,8 +4029,8 @@
             <li>GET <code>/v2/contract/q/kline</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>{
-  "symbol": BTC-PERP-REV,
-  "limit": 500
+  "symbol": "BTC-PERP-REV",
+  "interval": "1m"
 }</code></pre>
         <h3 id="contract-kline-request">请求参数</h3>
         <table>
@@ -4086,9 +4086,7 @@
         </blockquote>
         <pre class="highlight json tab-json"><code>{
   "code": 0,
-  "data": {
-  "time": 1555049455783,
-  "bids": [
+  "data": {[
   [
     1499040000000,      // Open time
     "0.01634790",       // Open
