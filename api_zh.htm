@@ -1766,120 +1766,120 @@
             </tr>
             </tbody>
         </table>
-        <h2 id="depositWithdraw-2">提现</h2>
-        <p>API Key 权限：提现</p>
+<!--        <h2 id="depositWithdraw-2">提现</h2>-->
+<!--        <p>API Key 权限：提现</p>-->
 
-        <h3 id="http-20">HTTP 请求</h3>
-        <ul>
-            <li>POST <code>/v2/u/wallet/withdraw</code></li>
-        </ul>
-        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m4k2yUKTSrX6SM9FGgvwMybAbYtRVi2N"</span><span
-                class="p">,</span><span class="w">
-  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"0.05"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EOS"</span><span
-                class="p">,</span><span class="w">
-  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"123456"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"abc123456"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-        <h3 id="1f9ac54b15-21">请求参数</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>参数名称</th>
-                <th>是否必须</th>
-                <th>类型</th>
-                <th>描述</th>
-                <th>取值范围</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>address</td>
-                <td>true</td>
-                <td>string</td>
-                <td>提现地址</td>
-                <td>仅支持在官网上能够提现的币种</td>
-            </tr>
-            <tr>
-                <td>volume</td>
-                <td>true</td>
-                <td>string</td>
-                <td>提币数量</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>currency</td>
-                <td>true</td>
-                <td>string</td>
-                <td>资产类型</td>
-                <td>BTC</td>
-            </tr>
-            <tr>
-                <td>memo</td>
-                <td>false</td>
-                <td>string</td>
-                <td>部分币种需要填写memo</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>chainType</td>
-                <td>false</td>
-                <td>string</td>
-                <td>部分币种需要填写链的类型，比如USDT需要：OMIN或ERC20</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>password</td>
-                <td>true</td>
-                <td>string</td>
-                <td>账户登陆密码</td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
+<!--        <h3 id="http-20">HTTP 请求</h3>-->
+<!--        <ul>-->
+<!--            <li>POST <code>/v2/u/wallet/withdraw</code></li>-->
+<!--        </ul>-->
+<!--        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">-->
+<!--  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m4k2yUKTSrX6SM9FGgvwMybAbYtRVi2N"</span><span-->
+<!--                class="p">,</span><span class="w">-->
+<!--  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span-->
+<!--                class="s2">"0.05"</span><span class="p">,</span><span class="w">-->
+<!--  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EOS"</span><span-->
+<!--                class="p">,</span><span class="w">-->
+<!--  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span-->
+<!--                class="s2">"123456"</span><span class="p">,</span><span class="w">-->
+<!--  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span-->
+<!--                class="s2">"abc123456"</span><span class="w">-->
+<!--</span><span class="p">}</span><span class="w">-->
+<!--</span></code></pre>-->
+<!--        <h3 id="1f9ac54b15-21">请求参数</h3>-->
+<!--        <table>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>参数名称</th>-->
+<!--                <th>是否必须</th>-->
+<!--                <th>类型</th>-->
+<!--                <th>描述</th>-->
+<!--                <th>取值范围</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--                <td>address</td>-->
+<!--                <td>true</td>-->
+<!--                <td>string</td>-->
+<!--                <td>提现地址</td>-->
+<!--                <td>仅支持在官网上能够提现的币种</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>volume</td>-->
+<!--                <td>true</td>-->
+<!--                <td>string</td>-->
+<!--                <td>提币数量</td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>currency</td>-->
+<!--                <td>true</td>-->
+<!--                <td>string</td>-->
+<!--                <td>资产类型</td>-->
+<!--                <td>BTC</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>memo</td>-->
+<!--                <td>false</td>-->
+<!--                <td>string</td>-->
+<!--                <td>部分币种需要填写memo</td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>chainType</td>-->
+<!--                <td>false</td>-->
+<!--                <td>string</td>-->
+<!--                <td>部分币种需要填写链的类型，比如USDT需要：OMIN或ERC20</td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>password</td>-->
+<!--                <td>true</td>-->
+<!--                <td>string</td>-->
+<!--                <td>账户登陆密码</td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
 
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span
-                class="w">
-  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"success"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-        <h3 id="2213f4c32f-12">响应数据</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>参数名称</th>
-                <th>数据类型</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>code</td>
-                <td>integer</td>
-                <td>状态码</td>
-            </tr>
-            <tr>
-                <td>msg</td>
-                <td>string</td>
-                <td>返回信息</td>
-            </tr>
-            <tr>
-                <td>data</td>
-                <td>object</td>
-                <td>返回数据</td>
-            </tr>
-            </tbody>
-        </table>
+<!--        <blockquote>-->
+<!--            <p>Response:</p>-->
+<!--        </blockquote>-->
+<!--        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">-->
+<!--  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span-->
+<!--                class="w">-->
+<!--  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span-->
+<!--                class="s2">"success"</span><span class="w">-->
+<!--</span><span class="p">}</span><span class="w">-->
+<!--</span></code></pre>-->
+<!--        <h3 id="2213f4c32f-12">响应数据</h3>-->
+<!--        <table>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>参数名称</th>-->
+<!--                <th>数据类型</th>-->
+<!--                <th>描述</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--                <td>code</td>-->
+<!--                <td>integer</td>-->
+<!--                <td>状态码</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>msg</td>-->
+<!--                <td>string</td>-->
+<!--                <td>返回信息</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>data</td>-->
+<!--                <td>object</td>-->
+<!--                <td>返回数据</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
 
         <h2 id="depositWithdraw-3">充值记录</h2>
         <p>API Key 权限：读取</p>
