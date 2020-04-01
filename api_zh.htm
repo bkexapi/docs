@@ -461,7 +461,7 @@
         </ul>
         </li>
         <li>
-            <a href="./api_zh.htm?shell#websocket" class="toc-h1 toc-link" data-title="Websocket行情数据">Websocket行情数据</a>
+            <a href="./api_zh.htm?shell#websocket" class="toc-h1 toc-link" data-title="Websocket币币行情数据">Websocket币币行情数据</a>
             <ul class="toc-list-h2">
                 <li>
                     <a href="./api_zh.htm?shell#websocket-1" class="toc-h2 toc-link" data-title="简介">简介</a>
@@ -482,6 +482,12 @@
                     <a href="./api_zh.htm?shell#websocket-6" class="toc-h2 toc-link" data-title="24小时行情">24小时行情</a>
                 </li>
             </ul>
+        </li>
+        <li>
+            <a href="./api_zh.htm?shell#websocket-contract-q" class="toc-h1 toc-link" data-title="Websocket合约行情数据">Websocket合约行情数据</a>
+        </li>
+        <li>
+            <a href="./api_zh.htm?shell#websocket-contract-u" class="toc-h1 toc-link" data-title="Websocket合约用户数据">Websocket合约用户数据</a>
         </li>
     </ul>
     <ul class="toc-footer">
@@ -1480,6 +1486,76 @@
         <!-- 账户相关接口-->
         <h1 id="accountData">账户相关</h1>
         <aside class="notice">访问账户相关的接口需要进行签名认证。</aside>
+
+
+        <h2 id="api-key-info">API Key权限信息</h2>
+        <p>查询当前API Key的权限信息</p>
+        <h3 id="http-api-key-index">HTTP 请求</h3>
+        <ul>
+            <li>GET <code>/v2/u/api/info</code></li>
+        </ul>
+
+        <h3 id="contract-api-key-request">请求参数</h3>
+        <p>此接口不接受任何参数。</p>
+
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
+	"code":0,
+	"data":{
+		"asset":true,
+		"contract":true,
+		"contractType":1,
+		"deal":true,
+		"endTime":1591537150000
+	}
+}</code></pre>
+
+        <h3 id="contract-api-key-response">响应数据</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>asset</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>是否可查询资产(钱包账户、法币账户)</td>
+            </tr>
+            <tr>
+                <td>deal</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>是否可委托交易</td>
+            </tr>
+            <tr>
+                <td>contract</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>是否开通合约相关权限</td>
+            </tr>
+            <tr>
+                <td>contractType</td>
+                <td>integer</td>
+                <td>1</td>
+                <td>合约权限(0:查询，1:查询和交易)</td>
+            </tr>
+            <tr>
+                <td>endTime</td>
+                <td>long</td>
+                <td>1591537150000</td>
+                <td>api-key过期时间</td>
+            </tr>
+            </tbody>
+        </table>
 
         <h2 id="accountData-1">账户余额</h2>
         <p>API Key 权限：读取</p>
@@ -6068,7 +6144,7 @@
 
 
         <!-- Websocket-->
-        <h1 id="websocket">Websocket行情数据</h1>
+        <h1 id="websocket">Websocket币币行情数据</h1>
         <h2 id="websocket-1">简介</h2>
         <h3 id="url">接入URL</h3>
         <p><strong>行情请求地址</strong></p>
@@ -6634,6 +6710,816 @@
             <br>
             <br>
             <br></p>
+
+
+
+
+    <!-- websocket-contract-q -->
+    <h1 id="websocket-contract-q">Websocket合约行情数据</h1>
+    <h3 id="websocket-contract-q-url">接入URL</h3>
+    <p><strong>合约行情请求地址</strong></p>
+
+    <p><strong><code>wss://api.bkex.co/contract/q/ws</code></strong></p>
+
+    <p><strong><code>wss://api.bkex.com/contract/q/ws</code></strong></p>
+
+
+    <p></p>
+    <h2 id="websocket-contract-q-8">错误处理</h2>
+    <p><code>INVALID_REQUEST("-10000", "Invalid request!")</code></p>
+    <p><code>JSON_FORMAT_ERROR("-10001", "Invalid JSON!")</code></p>
+    <p><code>INVALID_EVENT("-10002", "Invalid event")</code></p>
+    <p><code>REQUIRED_EVENT("-10003", "Event required!")</code></p>
+    <p><code>INVALID_TOPIC("-10004", "Invalid topic!")</code></p>
+    <p><code>REQUIRED_TOPIC("-10005", "Topic required!")</code></p>
+    <p><code>PARAM_EMPTY("-10007", "Params required!")</code></p>
+    <p><code>PERIOD_EMPTY("-10008", "Period required!")</code></p>
+    <p><code>PERIOD_ERROR("-10009", "Invalid period!")</code></p>
+    <p><code>SYMBOLS_ERROR("-100010", "Invalid Symbols!")</code></p>
+
+    <p></p>
+    <h2 id="websocket-contract-q-9">心跳</h2>
+    <p>每隔一段时间，客户端需要发送ping帧，服务端会回复pong帧，否则服务端会在5分钟内主动断开链接。</p>
+    <h3 id="a94c7743d5">请求</h3>
+    <p><code>{
+        "ping": 1535975085052
+        }</code></p>
+    <h3 id="a94c7743d6">返回</h3>
+    <p><code>{
+        "pong": 1535975085052
+        }</code></p>
+
+    <p></p>
+    <h2 id="websocket-contract-q-3">全量深度</h2>
+    <h3 id="a94c7743c5">订阅消息</h3>
+
+
+    <p><code>{
+        "topic": "depth",
+        "event": "sub",
+        "params": {
+        "binary": false,
+        "symbol": "$symbol"
+        }
+        }</code></p>
+
+    <blockquote>
+        <p>订阅请求</p>
+    </blockquote>
+    <pre class="highlight json tab-json"><code>{
+  "topic": "depth",
+  "event": "sub",
+  "params": {
+    "binary": false,
+    "symbol": "BTC-SWAP-USDT",
+    }
+}
+</code></pre>
+    <h3 id="749d765242">订阅参数</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>symbol</td><td>string</td><td>true</td><td>交易对</td><td>BTC-SWAP-USDT</td>
+        </tr>
+        <tr>
+            <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <blockquote>
+        <p>Response</p>
+    </blockquote>
+    <pre class="highlight json tab-json"><code>{
+  "topic": "depth",
+  "params": {
+    "symbol": "BTC-SWAP-USDT",
+    "binary": "false"
+  },
+  "data": {
+    "s": "BTC-SWAP-USDT",
+    "t": 1582001376853,
+    "v": "13850022_2",
+    "b": [
+      [
+        "9780.79",
+        "0.01"
+      ],//[价格, 数量]
+      [
+        "9780.5",
+        "0.1"
+      ],
+      [
+        "9780.4",
+        "0.517813"
+      ]...
+    ],
+    "a": [
+      [
+        "9781.21",
+        "0.042842"
+      ],//[价格, 数量]
+      [
+        "9782",
+        "0.3"
+      ],
+      [
+        "9782.1",
+        "0.226"
+      ],
+      [
+        "9782.3",
+        "0.2"
+      ]...
+    ]
+  }
+}
+</code></pre>
+
+    <h3 id="7bf990a9a9">响应数据data</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>字段</th><th>数据类型</th><th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>s</td><td>string</td><td>Symbol</td></tr>
+        <tr><td>t</td><td>long</td><td>时间戳</td></tr>
+        <tr><td>b[0][0]</td><td>string</td><td>Bids价格</td></tr>
+        <tr><td>b[0][1]</td><td>string</td><td>Bids数量</td></tr>
+        <tr><td>a[0][0]</td><td>string</td><td>Asks价格</td></tr>
+        <tr><td>a[0][1]</td><td>string</td><td>Asks数量</td></tr>
+        </tbody>
+    </table>
+
+
+    <h2 id="websocket-contract-q-4">Symbol的Ticker信息</h2>
+    <h3 id="a94c7743c6-2">主题订阅</h3>
+    <p><code>{
+        "topic": "realtimes",
+        "event": "sub",
+        "params": {
+        "binary": false,
+        "symbol": "$symbol",
+        }
+        }</code></p>
+
+    <blockquote>
+        <p>订阅参数</p>
+    </blockquote>
+    <pre class="highlight json tab-json">{
+  "topic": "realtimes",
+  "event": "sub",
+  "params": {
+    "binary": false,
+    "symbol": "$symbol",
+  }
+}
+        </code></pre>
+    <h3 id="749d765245-2">参数</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>symbol</td><td>string</td><td>true</td><td>交易对</td><td>BTC-SWAP-USDT</td>
+        </tr>
+        <tr>
+            <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <blockquote>
+        <p>Response</p>
+    </blockquote>
+    <pre class="highlight json tab-json"><code>{
+  "topic": "realtimes",
+  "params": {
+    "symbol": "BTC-SWAP-USDT",
+    "binary": "false"
+  },
+  "data": {
+    "t": 1582001616500,
+    "s": "BTC-SWAP-USDT",
+    "o": "9736.5",
+    "h": "9830.19",
+    "l": "9455.71",
+    "c": "9796.75",
+    "v": "77211.561764",
+    "qv": "740412516.91255711",
+    "m": "0.0062"
+  }
+}
+</code></pre>
+    <h3 id="7bf990a9as8">响应数据data</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>字段</th><th>数据类型</th><th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>t</td><td>long</td><td>时间戳</td></tr>
+        <tr><td>s</td><td>string</td><td>Symbol</td></tr>
+        <tr><td>o</td><td>string</td><td>开盘价</td></tr>
+        <tr><td>h</td><td>string</td><td>最高价</td></tr>
+        <tr><td>l</td><td>string</td><td>最低价</td></tr>
+        <tr><td>c</td><td>string</td><td>收盘价</td></tr>
+        <tr><td>v</td><td>string</td><td>交易量</td></tr>
+        <tr><td>qv</td><td>string</td><td>交易额</td></tr>
+        <tr><td>m</td><td>string</td><td>涨跌幅</td></tr>
+        </tbody>
+    </table>
+
+
+
+    <h2 id="websocket-contract-q-5">逐笔交易</h2>
+    <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。
+        在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。
+        变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是EOS-SWAP-USDT、BTC-SWAP-USDT、BTC-SWAP。它们的“v”会为连续的值（112，113，114）。</p>
+    <h3 id="a94c7743c5-2">主题订阅</h3>
+    <p><code>{
+        "topic": "trade",
+        "event": "sub",
+        "params": {
+        "symbol": "$symbol",
+        "binary": false
+        }
+        }</code></p>
+
+    <blockquote>
+        <p>订阅参数</p>
+    </blockquote>
+    <pre class="highlight json tab-json">{
+            "topic": "trade",
+            "event": "sub",
+            "params": {
+            "symbol": "$symbol",
+            "binary": false
+            }
+            }</code>
+        </pre>
+    <h3 id="749d765242-2">参数</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>symbol</td><td>string</td><td>true</td><td>交易对</td><td>BTC-SWAP-USDT</td>
+        </tr>
+        <tr>
+            <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <blockquote>
+        <p>Response</p>
+    </blockquote>
+    <pre class="highlight json tab-json"><code>{
+  "topic": "trade",
+  "params": {
+    "symbol": "BTC-SWAP-USDT",
+    "binary": "false"
+  },
+  "data": {
+    "v": "564265886622695424",
+    "t": 1582001735462,
+    "p": "9787.5",
+    "q": "0.195009",
+    "m": true
+  }
+}</code></pre>
+    <h3 id="7bf990a9a8">响应数据data</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>字段</th><th>数据类型</th><th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>t</td><td>long</td><td>时间戳</td></tr>
+        <tr><td>v</td><td>string</td><td>可以理解成一个交易ID</td></tr>
+        <tr><td>p</td><td>string</td><td>价格</td></tr>
+        <tr><td>q</td><td>string</td><td>数量</td></tr>
+        <tr><td>m</td><td>string</td><td>true = 买, false = 卖</td></tr>
+        </tbody>
+    </table>
+
+
+
+    <h2 id="websocket-contract-q-5">K线/蜡烛图</h2>
+    <p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
+    <p>K线/蜡烛图间隔:</p>
+    <p>订阅Kline需要提供间隔参数，最短为分钟线，最长为月线。支持以下间隔:</p>
+    <p>m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月</p>
+    <p>1m、5m、15m、30m、1h、2h、4h、6h、12h、1d、1w、1M</p>
+    <h3 id="a94c77q43c5-2">主题订阅</h3>
+    <p><code>{
+        "topic": "kline",
+        "event": "sub",
+        "params": {
+        "binary": false,
+        "symbol": "$symbol",
+        "klineType": "1m"
+        }
+        }</code></p>
+
+    <blockquote>
+        <p>订阅参数</p>
+    </blockquote>
+    <pre class="highlight json tab-json">{
+  "topic": "kline",
+  "event": "sub",
+  "params": {
+    "binary": false,
+    "symbol": "BTC-SWAP-USDT",
+    "klineType": "1m"
+  }
+}</code>
+        </pre>
+    <h3 id="749d76524s2-2">参数</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>symbol</td><td>string</td><td>true</td><td>合约id</td><td>BTC-SWAP-USDT</td>
+        </tr>
+        <tr>
+            <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
+        </tr>
+        <tr>
+            <td>klineType</td><td>string</td><td>true</td><td>间隔</td><td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <blockquote>
+        <p>Response</p>
+    </blockquote>
+    <pre class="highlight json tab-json"><code>{
+  "topic": "kline",
+  "params": {
+    "symbol": "BTC-SWAP-USDT",
+    "binary": "false",
+    "klineType": "1m"
+  },
+  "data": {
+    "t": 1585729380000,
+    "s": "BTC-SWAP-USDT",
+    "c": "6308",
+    "h": "6308",
+    "l": "6308",
+    "o": "6308",
+    "v": "10"
+  }
+}</code></pre>
+    <h3 id="7bf99w0a9a8">响应数据data</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>字段</th><th>数据类型</th><th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>t</td><td>long</td><td>k线开始时间</td></tr>
+        <tr><td>s</td><td>string</td><td>symbol</td></tr>
+        <tr><td>c</td><td>string</td><td>收盘价</td></tr>
+        <tr><td>h</td><td>string</td><td>最高价</td></tr>
+        <tr><td>l</td><td>string</td><td>最低价</td></tr>
+        <tr><td>o</td><td>string</td><td>开盘价</td></tr>
+        <tr><td>v</td><td>string</td><td>交易量</td></tr>
+        </tbody>
+    </table>
+
+
+
+    <h2 id="websocket-contract-q-6">订单簿Ticker信息</h2>
+    <h3 id="a94c7743c42-2">主题订阅</h3>
+    <p><code>{
+        "topic": "bookTicker",
+        "event": "sub",
+        "params": {
+        "binary": false,
+        "symbol": "$symbol"
+        }
+        }</code></p>
+
+    <blockquote>
+        <p>订阅参数</p>
+    </blockquote>
+    <pre class="highlight json tab-json">{
+            "topic": "trade",
+            "event": "sub",
+            "params": {
+            "symbol": "BTC-SWAP-USDT",
+            "binary": false
+            }
+            }</code>
+        </pre>
+    <h3 id="749d76524a2-2">参数</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>symbol</td><td>string</td><td>true</td><td>合约id</td><td>BTC-SWAP-USDT</td>
+        </tr>
+        <tr>
+            <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <blockquote>
+        <p>Response</p>
+    </blockquote>
+    <pre class="highlight json tab-json"><code>{
+  "topic": "bookTicker",
+  "params": {
+    "symbol": "BTC-SWAP-USDT",
+    "binary": "false"
+  },
+  "data": {
+    "symbol": "BTC-SWAP-USDT",
+    "bidPrice": "9797.79",
+    "bidQty": "0.177976",
+    "askPrice": "9799",
+    "askQty": "0.65",
+    "time": 1582001830346
+  }
+}</code></pre>
+    <h3 id="7bf99w0a9aa8">响应数据data</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>字段</th><th>数据类型</th><th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>time</td><td>long</td><td>时间戳</td></tr>
+        <tr><td>symbol</td><td>string</td><td>symbol</td></tr>
+        <tr><td>bidPrice</td><td>string</td><td>bid价格</td></tr>
+        <tr><td>bidQty</td><td>string</td><td>bid量</td></tr>
+        <tr><td>askPrice</td><td>string</td><td>ask价格</td></tr>
+        <tr><td>askQty</td><td>string</td><td>ask量</td></tr>
+        </tbody>
+    </table>
+
+        <!-- websocket-contract-u -->
+        <h1 id="websocket-contract-u">Websocket合约用户数据</h1>
+        <h2 id="websocket-contract-u-1">基本信息</h2>
+        <ul>
+            <li><p>一个用户数据流的 listenKey 在创建之后的有效期只有60分钟</p></li>
+            <li><p>如果对listenKey 做PUT 请求可以延长有效期60分钟</p></li>
+            <li><p>如果对listenKey 做DELETE 请求会关闭推送</p></li>
+            <li><p>用户数据流推送在这个端点 /contract/u/ws/{listenKey}访问</p></li>
+            <li><p>单一API连接的有效期只有24小时，请做好在24小时后被断开连接的准备</p></li>
+            <li><p>用户信息流返回在订单繁忙期不保证顺序正常，请使用E字段进行排序</p></li>
+            <li>
+        </ul>
+        <h3 id="websocket-contract-u-url">接入URL</h3>
+        <p><strong><code>wss://api.bkex.co/contract/u/ws/{listenKey}</code></strong></p>
+        <p><strong><code>wss://api.bkex.com/contract/u/ws/{listenKey}</code></strong></p>
+        <p></p>
+
+
+
+        <h2 id="websocket-contract-listenKey-create">创建listenKey</h2>
+        <p>API Key 权限：合约查询</p>
+        <p>创建一个新的用户信息流。如果没有发送keepalive，推送将会在60分钟后断开</p>
+        <h3 id="http-contract-listenKey-create">HTTP 请求</h3>
+        <ul>
+            <li>POST <code>/ws/dataStream/create</code></li>
+        </ul>
+        <pre class="highlight json tab-json"><code>{
+  "recvWindow": 500
+}</code></pre>
+        <h3 id="contract-listenKey-create-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>recvWindow</td>
+                <td>long</td>
+                <td>false</td>
+                <td>500</td>
+                <td>recvWindow</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
+  "code": 0,
+  "data": {
+  "listenKey": "1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj"
+}
+}</code></pre>
+
+        <h3 id="contract-listenKey-create-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>listenKey</td>
+                <td>String</td>
+                <td></td>
+                <td>listen Key</td>
+            </tr>
+
+            </tbody>
+        </table>
+        <ul>
+            <li><strong>Weight:</strong><span>1</span></li>
+        </ul>
+
+        <h2 id="contract-listenKey-update">延长 Listen Key 有效期</h2>
+        <p>API Key 权限：合约查询</p>
+        <p>延长至本次调用后60分钟，建议每30分钟发送一个 ping </p>
+        <h3 id="http-contract-listenKey-update">HTTP 请求</h3>
+        <ul>
+            <li>POST <code>/ws/dataStream/update</code></li>
+        </ul>
+        <pre class="highlight json tab-json"><code>{
+            "listenKey":"1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj",
+  "recvWindow": 500
+}</code></pre>
+        <h3 id="contract-listenKey-update-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>listenKey</td>
+                <td>string</td>
+                <td>true</td>
+                <td>500</td>
+                <td>listen Key</td>
+            </tr>
+            <tr>
+                <td>recvWindow</td>
+                <td>long</td>
+                <td>false</td>
+                <td>500</td>
+                <td>recvWindow</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
+  "code": 0,
+  "data": {}
+}</code></pre>
+
+        <h3 id="contract-listenKey-update-response">响应数据</h3>
+        <p>{}</p>
+        <ul>
+            <li><strong>Weight:</strong><span>1</span></li>
+        </ul>
+
+        <h2 id="websocket-contract-listenKey-delete">关闭listenKey</h2>
+        <p>API Key 权限：合约查询</p>
+        <p>关闭用户数据流</p>
+        <h3 id="http-contract-listenKey-delete">HTTP 请求</h3>
+        <ul>
+            <li>POST <code>/ws/dataStream/delete</code></li>
+        </ul>
+        <pre class="highlight json tab-json"><code>{
+            "listenKey":"1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj",
+            "recvWindow": 500
+            }</code></pre>
+        <h3 id="contract-listenKey-delete-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>listenKey</td>
+                <td>string</td>
+                <td>true</td>
+                <td>500</td>
+                <td>listen Key</td>
+            </tr>
+            <tr>
+                <td>recvWindow</td>
+                <td>long</td>
+                <td>false</td>
+                <td>500</td>
+                <td>recvWindow</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
+  "code": 0,
+  "data": {}
+}</code></pre>
+
+        <h3 id="contract-listenKey-delete-response">响应数据</h3>
+        <p>{}</p>
+        <ul>
+            <li><strong>Weight:</strong><span>1</span></li>
+        </ul>
+
+        <p></p>
+        <h2>WebSocket Payload</h2>
+        <p></p>
+
+        <p></p>
+        <h2>账户更新</h2>
+        <p>使用 outboundAccountInfo event进行账户更新</p>
+        <h3 id="a94c7723d5">Payload</h3>
+        <p><code>{
+            "e": "outboundAccountInfo",   // 事件类型
+            "E": 1499405658849,           // 事件时间
+            "T": true,                    // 允许交易?
+            "W": true,                    // 允许体现?
+            "D": true,                    // 允许充值?
+            "B": [                        // 余额变化
+            {
+            "a": "LTC",               // 资产名称
+            "f": "17366.18538083",    // 可用数量
+            "l": "0.00000000"         // 冻结数量
+            }
+            ]
+            }</code></p>
+
+        <blockquote>
+            <p>账户更新response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
+  "e": "outboundAccountInfo",   // 事件类型
+  "E": 1499405658849,           // 事件时间
+  "T": true,                    // 允许交易?
+  "W": true,                    // 允许体现?
+  "D": true,                    // 允许充值?
+  "B": [                        // 余额变化
+    {
+      "a": "LTC",               // 资产名称
+      "f": "17366.18538083",    // 可用数量
+      "l": "0.00000000"         // 冻结数量
+    }
+  ]
+}
+</code></pre>
+
+        <p></p>
+        <h2>订单更新</h2>
+        <p>订单通过executionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格</p>
+        <h3 id="a94c774365">Payload</h3>
+        <p><code>{
+            "e": "executionReport",        // 事件类型
+            "E": 1499405658658,            // 事件时间
+            "s": "BTC-SWAP-USDT",          // 交易对
+            "c": 1000087761,               // Client order ID
+            "S": "BUY",                    // 订单方向
+            "o": "LIMIT",                  // 订单类型
+            "f": "GTC",                    // Time in force
+            "q": "1.00000000",             // 订单数量
+            "p": "0.10264410",             // 订单价格
+            "X": "NEW",                    // 当前订单状态
+            "i": 4293153,                  // Order ID
+            "l": "0.00000000",             // 最新成交数量
+            "z": "0.00000000",             // 累计成交数量
+            "L": "0.00000000",             // 最新成交价格
+            "n": "0",                      // 手续费
+            "N": null,                     // 手续费币种
+            "u": true,                     // 请忽略
+            "w": true,                     // 请忽略
+            "m": false,                    // 请忽略
+            "O": 1499405658657,            // 订单创建时间
+            "Z": "0.00000000"              // 累计成交数额</code></p>
+
+        <h5>订单状态:</h5>
+        <ul>
+            <li>NEW（新订单）</li>
+            <li>PARTIALLY_FILLED（部分成交）</li>
+            <li>FILLED（全部成交）</li>
+            <li>CANCELED（已撤销）</li>
+            <li>REJECTED（已拒绝）</li>
+        </ul>
+
+        <blockquote>
+            <p>订单更新response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
+  "e": "executionReport",        // 事件类型
+  "E": 1499405658658,            // 事件时间
+  "s": "BTC-SWAP-USDT",                 // 交易对
+  "c": 1000087761,               // Client order ID
+  "S": "BUY",                    // 订单方向
+  "o": "LIMIT",                  // 订单类型
+  "f": "GTC",                    // Time in force
+  "q": "1.00000000",             // 订单数量
+  "p": "0.10264410",             // 订单价格
+  "X": "NEW",                    // 当前订单状态
+  "i": 4293153,                  // Order ID
+  "l": "0.00000000",             // 最新成交数量
+  "z": "0.00000000",             // 累计成交数量
+  "L": "0.00000000",             // 最新成交价格
+  "n": "0",                      // 手续费
+  "N": null,                     // 手续费币种
+  "u": true,                     // 请忽略
+  "w": true,                     // 请忽略
+  "m": false,                    // 请忽略
+  "O": 1499405658657,            // 订单创建时间
+  "Z": "0.00000000"              // 累计成交数额
+</code></pre>
+
+        <p></p>
+        <h2>持仓推送</h2>
+        <p>使用 outboundContractPositionInfo event进行持仓更新</p>
+        <h3 id="a94c6743d5">Payload</h3>
+        <p><code>{
+            "e": "outboundContractPositionInfo",  // 事件类型
+            "A": "",                              // 账户ID
+            "s": "BTC-SWAP-USDT",                 // symbol
+            "S": "LONG",                          // 仓位方向
+            "p": "9851.5",                        // 平均价格
+            "P": "269",                           // 仓位数量
+            "a": "269",                           // 可用
+            "f": "7705.9",                        // 强子平仓价
+            "m": "59.7884",                       // 保证金
+            "r": "-0.0139"                        // 已实现盈亏
+            }</code></p>
+
+        <blockquote>
+            <p>持仓更新response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
+  "e": "outboundContractPositionInfo",  // 事件类型
+  "A": "",                              // 账户ID
+  "s": "BTC-SWAP-USDT",                 // symbol
+  "S": "LONG",                          // 仓位方向
+  "p": "9851.5",                        // 平均价格
+  "P": "269",                           // 仓位数量
+  "a": "269",                           // 可用
+  "f": "7705.9",                        // 强子平仓价
+  "m": "59.7884",                       // 保证金
+  "r": "-0.0139"                        // 已实现盈亏
+}
+</code></pre>
+
 
     </div>
     <div class="dark-box">
