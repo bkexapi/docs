@@ -7192,8 +7192,8 @@
         <h2 id="websocket-contract-u-1">基本信息</h2>
         <ul>
             <li><p>一个用户数据流的 listenKey 在创建之后的有效期只有60分钟</p></li>
-            <li><p>如果对listenKey 做PUT 请求可以延长有效期60分钟</p></li>
-            <li><p>如果对listenKey 做DELETE 请求会关闭推送</p></li>
+            <li><p>如果对listenKey 做更新请求可以延长有效期60分钟</p></li>
+            <li><p>如果对listenKey 做删除请求会关闭推送</p></li>
             <li><p>用户数据流推送在这个端点 /contract/u/ws/{listenKey}访问</p></li>
             <li><p>单一API连接的有效期只有24小时，请做好在24小时后被断开连接的准备</p></li>
             <li><p>用户信息流返回在订单繁忙期不保证顺序正常，请使用E字段进行排序</p></li>
