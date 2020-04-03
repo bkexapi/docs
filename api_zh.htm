@@ -7211,7 +7211,7 @@
         <p>创建一个新的用户信息流。如果没有发送keepalive，推送将会在60分钟后断开</p>
         <h3 id="http-contract-listenKey-create">HTTP 请求</h3>
         <ul>
-            <li>POST <code>/ws/dataStream/create</code></li>
+            <li>POST <code>/v2/contract/ws/dataStream/create</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>{
   "recvWindow": 500
@@ -7278,7 +7278,7 @@
         <p>延长至本次调用后60分钟，建议每30分钟发送一个 ping </p>
         <h3 id="http-contract-listenKey-update">HTTP 请求</h3>
         <ul>
-            <li>POST <code>/ws/dataStream/update</code></li>
+            <li>POST <code>/v2/contract/ws/dataStream/update</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>{
             "listenKey":"1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj",
@@ -7332,7 +7332,7 @@
         <p>关闭用户数据流</p>
         <h3 id="http-contract-listenKey-delete">HTTP 请求</h3>
         <ul>
-            <li>POST <code>/ws/dataStream/delete</code></li>
+            <li>POST <code>/v2/contract/ws/dataStream/delete</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>{
             "listenKey":"1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj",
