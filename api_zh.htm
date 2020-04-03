@@ -6771,7 +6771,7 @@
   "event": "sub",
   "params": {
     "binary": false,
-    "symbol": "BTC-SWAP-USDT",
+    "symbol": "BTC-SWAP-USDT"
     }
 }
 </code></pre>
@@ -6866,7 +6866,7 @@
         "event": "sub",
         "params": {
         "binary": false,
-        "symbol": "$symbol",
+        "symbol": "$symbol"
         }
         }</code></p>
 
@@ -6878,7 +6878,7 @@
   "event": "sub",
   "params": {
     "binary": false,
-    "symbol": "$symbol",
+    "symbol": "$symbol"
   }
 }
         </code></pre>
@@ -7425,10 +7425,10 @@
 
         <p></p>
         <h2>订单更新</h2>
-        <p>订单通过executionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格</p>
+        <p>订单通过contractExecutionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格</p>
         <h3 id="a94c774365">Payload</h3>
         <p><code>{
-            "e": "executionReport",        // 事件类型
+            "e": "contractExecutionReport",        // 事件类型
             "E": 1499405658658,            // 事件时间
             "s": "BTC-SWAP-USDT",          // 交易对
             "c": 1000087761,               // Client order ID
