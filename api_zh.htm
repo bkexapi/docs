@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>BKEX API 文档</title>
     <style>
+        .next-ul-show{
+            display: block !important;
+        }
         .highlight table td {
             padding: 5px;
         }
@@ -258,10 +261,13 @@
         .highlight .o {
             color: #f92672;
         }
+
     </style>
     <link href="./api/screen.css" rel="stylesheet" media="screen">
     <link href="./api/print.css" rel="stylesheet" media="print">
-    <script src="./api/all.js"></script>
+<!--    <script src="./api/all.js"></script>-->
+    <script src="./api/jquery.min.js"></script>
+
     <link rel="shortcut icon" href="./img/logo.png">
 </head>
 
@@ -376,6 +382,9 @@
             <a href="./api_zh.htm?shell#accountData" class="toc-h1 toc-link" data-title="账户相关">账户相关</a>
             <ul class="toc-list-h2">
                 <li>
+                    <a href="./api_zh.htm?shell#api-key-info" class="toc-h2 toc-link" data-title="API Key权限信息">API Key权限信息</a>
+                </li>
+                <li>
                     <a href="./api_zh.htm?shell#accountData-1" class="toc-h2 toc-link" data-title="账户余额">账户余额</a>
                 </li>
                 <!-- <li>
@@ -390,9 +399,9 @@
                     <a href="./api_zh.htm?shell#depositWithdraw-1" class="toc-h2 toc-link"
                        data-title="充币地址查询">充币地址查询</a>
                 </li>
-                <li>
-                    <a href="./api_zh.htm?shell#depositWithdraw-2" class="toc-h2 toc-link" data-title="提现">提现</a>
-                </li>
+<!--                <li>-->
+<!--                    <a href="./api_zh.htm?shell#depositWithdraw-2" class="toc-h2 toc-link" data-title="提现">提现</a>-->
+<!--                </li>-->
                 <li>
                     <a href="./api_zh.htm?shell#depositWithdraw-3" class="toc-h2 toc-link" data-title="充值记录">充值记录</a>
                 </li>
@@ -415,8 +424,8 @@
                        data-title="查询当前未完成订单">查询当前未完成订单</a>
                 </li>
                 <li>
-                    <a href="./api_zh.htm?shell#tradeOrder-6" class="toc-h2 toc-link"
-                       data-title="查询未成交订单详情">查询未成交订单详情</a>
+                    <a href="./api_zh.htm?shell#tradeOrder-7" class="toc-h2 toc-link"
+                       data-title="查询未完成订单详情">查询未完成订单详情</a>
                 </li>
                 <li>
                     <a href="./api_zh.htm?shell#tradeOrder-4" class="toc-h2 toc-link" data-title="查询历史订单">查询历史订单</a>
@@ -439,8 +448,7 @@
             </li>
             <li><a href="./api_zh.htm?shell#contract-index" class="toc-h2 toc-link" data-title="指数价格">指数价格</a></li>
             <li><a href="./api_zh.htm?shell#contract-depth" class="toc-h2 toc-link" data-title="订单簿">订单簿</a></li>
-            <li><a href="./api_zh.htm?shell#contract-depthMerged" class="toc-h2 toc-link" data-title="合并订单簿（推荐）">合并订单簿（推荐）</a>
-            </li>
+<!--            <li><a href="./api_zh.htm?shell#contract-depthMerged" class="toc-h2 toc-link" data-title="合并订单簿（推荐）">合并订单簿（推荐）</a></li>-->
             <li><a href="./api_zh.htm?shell#contract-trades" class="toc-h2 toc-link" data-title="最新成交">最新成交</a></li>
             <li><a href="./api_zh.htm?shell#contract-kline" class="toc-h2 toc-link" data-title="K线/蜡烛图数据">K线/蜡烛图数据</a>
             </li>
@@ -486,9 +494,29 @@
         </li>
         <li>
             <a href="./api_zh.htm?shell#websocket-contract-q" class="toc-h1 toc-link" data-title="Websocket合约行情数据">Websocket合约行情数据</a>
+            <ul class="toc-list-h2">
+                <li><a href="./api_zh.htm?shell#websocket-contract-q-url" class="toc-h2 toc-link" data-title="接入URL">接入URL</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-q-8" class="toc-h2 toc-link" data-title="错误处理">错误处理</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-q-9" class="toc-h2 toc-link" data-title="心跳">心跳</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-q-3" class="toc-h2 toc-link" data-title="全量深度">全量深度</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-q-4" class="toc-h2 toc-link" data-title="Symbol的Ticker信息">Symbol的Ticker信息</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-q-12" class="toc-h2 toc-link" data-title="24小时行情">逐笔交易</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-q-5" class="toc-h2 toc-link" data-title="K线/蜡烛图">K线/蜡烛图</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-q-6" class="toc-h2 toc-link" data-title="订单簿Ticker信息">订单簿Ticker信息</a></li>
+            </ul>
         </li>
         <li>
             <a href="./api_zh.htm?shell#websocket-contract-u" class="toc-h1 toc-link" data-title="Websocket合约用户数据">Websocket合约用户数据</a>
+            <ul class="toc-list-h2">
+                <li><a href="./api_zh.htm?shell#websocket-contract-u-1" class="toc-h2 toc-link" data-title="基本信息">基本信息</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-u-url" class="toc-h2 toc-link" data-title="接入URL">接入URL</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-listenKey-create" class="toc-h2 toc-link" data-title="创建listenKey">创建listenKey</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-listenKey-update" class="toc-h2 toc-link" data-title="延长ListenKey有效期">延长ListenKey有效期</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-listenKey-delete" class="toc-h2 toc-link" data-title="关闭listenKey">关闭listenKey</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-u-account" class="toc-h2 toc-link" data-title="账户更新">账户更新</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-u-order" class="toc-h2 toc-link" data-title="订单更新">订单更新</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-u-position" class="toc-h2 toc-link" data-title="持仓更新">持仓更新</a></li>
+            </ul>
         </li>
     </ul>
     <ul class="toc-footer">
@@ -2680,7 +2708,7 @@
             </tbody>
         </table>
 
-        <h2 id="tradeOrder-3">查询未完成订单详情</h2>
+        <h2 id="tradeOrder-7">查询未完成订单详情</h2>
         <p>API Key 权限：读取</p>
         <h3 id="http-26">HTTP 请求</h3>
         <ul>
@@ -6944,11 +6972,11 @@
 
 
 
-    <h2 id="websocket-contract-q-5">逐笔交易</h2>
+    <h2 id="websocket-contract-q-12">逐笔交易</h2>
     <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。
         在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。
         变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是EOS-SWAP-USDT、BTC-SWAP-USDT、BTC-SWAP。它们的“v”会为连续的值（112，113，114）。</p>
-    <h3 id="a94c7743c5-2">主题订阅</h3>
+    <h3 id="a94c774w3c5-2">主题订阅</h3>
     <p><code>{
         "topic": "trade",
         "event": "sub",
@@ -6970,7 +6998,7 @@
             }
             }</code>
         </pre>
-    <h3 id="749d765242-2">参数</h3>
+    <h3 id="749d7652242-2">参数</h3>
     <table>
         <thead>
         <tr>
@@ -7274,7 +7302,7 @@
             <li><strong>Weight:</strong><span>1</span></li>
         </ul>
 
-        <h2 id="contract-listenKey-update">延长 Listen Key 有效期</h2>
+        <h2 id="websocket-contract-listenKey-update">延长ListenKey有效期</h2>
         <p>API Key 权限：合约查询</p>
         <p>延长至本次调用后60分钟，建议每30分钟做一次延长操作 </p>
         <h3 id="http-contract-listenKey-update">HTTP 请求</h3>
@@ -7387,7 +7415,7 @@
         <p></p>
 
         <p></p>
-        <h2>账户更新</h2>
+        <h2 id="websocket-contract-u-account">账户更新</h2>
         <p>使用 outboundAccountInfo event进行账户更新</p>
         <h3 id="a94c7723d5">Payload</h3>
         <p><code>{
@@ -7425,7 +7453,7 @@
 </code></pre>
 
         <p></p>
-        <h2>订单更新</h2>
+        <h2 id="websocket-contract-u-order">订单更新</h2>
         <p>订单通过contractExecutionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格</p>
         <h3 id="a94c774365">Payload</h3>
         <p><code>{
@@ -7488,7 +7516,7 @@
 </code></pre>
 
         <p></p>
-        <h2>持仓推送</h2>
+        <h2 id="websocket-contract-u-position">持仓更新</h2>
         <p>使用 outboundContractPositionInfo event进行持仓更新</p>
         <h3 id="a94c6743d5">Payload</h3>
         <p><code>{
@@ -7531,11 +7559,13 @@
 </div>
 <script>
     $(document).ready(function () {
-        $("#toc").on("click", function (e) {
-            let tar = e.target;
+        $("#toc a.toc-h1").on("click", function (e) {
+            let tar = $(this);
             $("a.active-nav").removeClass("active-nav");
-            $(tar).addClass("active-nav");
+            $("ul.next-ul-show").removeClass("next-ul-show");
+            tar.addClass("active-nav").next("ul").addClass("next-ul-show");
         });
+
     });
 </script>
 
