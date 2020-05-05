@@ -354,6 +354,10 @@
                     <a href="./api_zh.htm?shell#basicInformation-2" class="toc-h2 toc-link"
                        data-title="获取所有币种">获取所有币种</a>
                 </li>
+                <li>
+                    <a href="./api_zh.htm?shell#basicInformation-3" class="toc-h2 toc-link"
+                       data-title="获取服务器时间时间戳">获取服务器时间戳</a>
+                </li>
             </ul>
         </li>
         <li>
@@ -489,6 +493,27 @@
                 </li>
                 <li>
                     <a href="./api_zh.htm?shell#websocket-6" class="toc-h2 toc-link" data-title="24小时行情">24小时行情</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="./api_zh.htm?shell#websocket-account" class="toc-h1 toc-link" data-title="Websocket币币用户数据">Websocket币币用户数据</a>
+            <ul class="toc-list-h2">
+                <li>
+                    <a href="./api_zh.htm?shell#websocket-account-1" class="toc-h2 toc-link" data-title="简介">简介</a>
+                </li>
+                <li>
+                    <a href="./api_zh.htm?shell#websocket-account-2" class="toc-h2 toc-link" data-title="连接例子">连接例子</a>
+                </li>
+                <li>
+                    <a href="./api_zh.htm?shell#websocket-account-3" class="toc-h2 toc-link" data-title="用户登录">用户登录</a>
+                </li>
+                <li>
+                    <a href="./api_zh.htm?shell#websocket-account-4" class="toc-h2 toc-link" data-title="账户余额数据">账户余额数据</a>
+                </li>
+                <li>
+                    <a href="./api_zh.htm?shell#websocket-account-5" class="toc-h2 toc-link" data-title="订单数据">订单数据</a>
+
                 </li>
             </ul>
         </li>
@@ -888,6 +913,8 @@
             </tr>
             </tbody>
         </table>
+
+
         <h2 id="basicInformation-2">获取所有币种</h2>
         <p>此接口返回所有Bkex Global支持的币种。</p>
         <pre class="highlight shell tab-shell"><code>curl <span
@@ -992,6 +1019,48 @@
                 <td>decimal</td>
                 <td>提现手续费</td>
             </tr>
+            </tbody>
+        </table>
+
+
+
+        <h2 id="basicInformation-3">获取服务器时间戳</h2>
+        <p>此接口返回服务器当前时间戳。即从 UTC 1970年1月1日0时0分0秒0毫秒到现在的总毫秒数。</p>
+        <pre class="highlight shell tab-shell"><code>curl <span
+                class="s2">"https://api.bkex.co/v2/common/timestamp"</span>
+</code></pre>
+        <h3 id="http-3">HTTP 请求</h3>
+        <ul>
+            <li>GET <code>/v2/common/timestamp</code></li>
+        </ul>
+        <h3 id="1f9ac54b15-3">请求参数</h3>
+        <p>此接口不接受任何参数。</p>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code><span class="w">  </span></span><span class="p">{
+    "code": 0,
+    "data": 1588652674630,
+    "msg": "success"
+}
+</span></code></pre>
+        <h3 id="aceee0d936-3">返回字段</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>data</td>
+                <td>long</td>
+                <td>时间戳</td>
+            </tr>
+
             </tbody>
         </table>
 
@@ -6217,7 +6286,7 @@
   <span class="s2">"subKlineByRange"</span><span class="w"></span><span class="p">,</span><span class="w"></span>
   <span class="p">{</span><span class="w"></span>
     <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w"></span>
+                class="s2">"BTC_USDT,ETH_USDT"</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"240"</span><span
                 class="p">,</span><span class="w"></span>
     <span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span
@@ -6245,8 +6314,8 @@
                 <td>symbol</td>
                 <td>string</td>
                 <td>true</td>
-                <td>交易对</td>
-                <td>BTC_USDT</td>
+                <td>交易对(多交易对以','分隔)</td>
+                <td>BTC_USDT,ETH_USDT...</td>
             </tr>
             <tr>
                 <td>period</td>
@@ -6417,7 +6486,7 @@
   <span class="s2">"subOrderDepth"</span><span class="w"></span><span class="p">,</span><span class="w"></span>
   <span class="p">{</span><span class="w"></span>
    <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w"></span>
+                class="s2">"BTC_USDT,ETH_USDT"</span><span class="p">,</span><span class="w"></span>
    <span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span
                 class="w"></span>
   <span class="p">}</span><span class="w"></span>
@@ -6441,8 +6510,8 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>交易对</td>
-                <td>symbol</td>
+                <td>交易对(多交易对以','分隔)</td>
+                <td>BTC_USDT,ETH_USDT...</td>
             </tr>
             <tr>
                 <td>number</td>
@@ -6532,7 +6601,7 @@
   <span class="s2">"quotationDealConnect"</span><span class="w"></span><span class="p">,</span><span class="w"></span>
   <span class="p">{</span><span class="w"></span>
    <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w"></span>
+                class="s2">"BTC_USDT,ETH_USDT"</span><span class="p">,</span><span class="w"></span>
    <span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span
                 class="w"></span>
   <span class="p">}</span><span class="w"></span>
@@ -6556,8 +6625,8 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>交易代码</td>
-                <td>BTC_USDT</td>
+                <td>交易对(多交易对以','分隔)</td>
+                <td>BTC_USDT,ETH_USDT...</td>
             </tr>
             <tr>
                 <td>number</td>
@@ -6740,10 +6809,297 @@
             <br>
             <br></p>
 
+        <!-- Websocket-->
+        <h1 id="websocket-account">Websocket币币行情数据</h1>
+        <h2 id="websocket-account-1">简介</h2>
+        <aside class="notice">订阅用户相关数据需要进行签名认证。<a href="./api_zh.htm?shell#useQuick-5" data-title="签名说明">签名说明</a></aside>
+        <h3 id="url-account">接入URL</h3>
+        <p><strong>请求地址</strong></p>
+
+        <p><strong><code>wss://api.bkex.co</code></strong></p>
+
+        <p><strong><code>wss://api.bkex.com</code></strong></p>
+        <h2 id="websocket-account-2">例子</h2>
+        <h3 id="a94c7743c5-account">Socket.io Demo</h3>
+        <p><code>var io = require('socket.io-client');</code></p>
+        <p><code>var socket = io('wss://api.bkex.co', { transports: ['websocket'] });</code></p>
+        <p><code>socket.on('connect', function (data) {
+            socket.emit('subQuotationSymbol');
+            });</code></p>
+
+        <h3 id="a94c7743c6-account">Native WebScoket Demo</h3>
+        <p><code>var pingPong = null;</code></p>
+        <p><code>ws = new WebSocket("wss://api.bkex.co/socket.io/?EIO=3&transport=websocket");</code></p>
+        <p><code>ws.onopen = function() {pingPong = setInterval(function () { ws.send('2');}, 20 * 1000)};</code>
+        </p>
+        <p><code>ws.onmessage = function(e) {</code></p>
+        <p><code>&nbsp;&nbsp;if(e.data === '40') {</code></p>
+        <p><code>&nbsp;&nbsp;&nbsp;&nbsp;ws.send('40/account')}</code></p>
+        <p><code>&nbsp;&nbsp;else if(e.data === '40/account'){</code></p>
+
+        <p><code>&nbsp;&nbsp;&nbsp;&nbsp;ws.send('42/account,["userLogin",{"signature":"93c4f85c396eeff4c0472a31439b98bec7168338f8fad44ef54b4f5b3f6b3e2f","accessKey":"64ff07234e19363cf15ca8dae1fa35e734a7842e1fef820ba7fbc94d5cffa45d","timestamp":1588663088781}]')}</code></p>
+        <p><code>&nbsp;&nbsp;else {}</code></p>
+        <p><code>};</code></p>
+
+
+        <h2 id="websocket-account-3">websocket用户登录</h2>
+        <h3 id="a94c7743c5-account-3">事件名</h3>
+        <p><code>userLogin</code></p>
+
+        <blockquote>
+            <p>参数</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>[
+  "userLogin",
+  {
+    "signature": "93c4f85c396eeff4c0472a31439b98bec7168338f8fad44ef54b4f5b3f",
+    "accessKey": "xxxxxxxxxx19363cf15ca8dae1fa35e734a7842e1fef820ba7fbc94d5c",
+    "timestamp": 1588663088781
+  }
+]
+
+</code></pre>
+
+
+        <h3 id="request-account-5">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>accessKey</td>
+                <td>string</td>
+                <td>api key</td>
+            </tr>
+            <tr>
+                <td>timestamp</td>
+                <td>long</td>
+                <td>时间戳</td>
+            </tr>
+            <tr>
+                <td>signature</td>
+                <td>string</td>
+                <td>签名字符串</td>
+            </tr>
+            </tbody>
+        </table>
 
 
 
-    <!-- websocket-contract-q -->
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>
+[
+  "userLogin",
+  {
+    "code": 0,
+    "msg": "success"
+  }
+]
+</code></pre>
+
+        <h3 id="7bf990a9a9-account-3">响应信息</h3>
+        <p>
+            如果登录信息验证通过会返回成功消息（code=0，msg='success'）;<br>
+            如果验证不通过会返回对应错误信息。
+            <br></p>
+
+
+        <h2 id="websocket-account-4">用户余额变更订阅</h2>
+        <h3 id="a94c7743c5-account-4">主题订阅</h3>
+        <p><code>subUserAccountInfo</code></p>
+
+        <blockquote>
+            <p>订阅参数</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">"subUserAccountInfo"</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>
+    [
+  "subUserAccountInfo",
+  [
+    {
+      "avAfterChange": "201.100000",
+      "availableChange": "0.100000",
+      "currency": "BTC",
+      "frAfterChange": "0.000000",
+      "frozenChange": "0.000000",
+      "time": 1588667153068,
+      "type": "TRADE_DEAL_BUY"
+    },
+    {
+      "avAfterChange": "1991120.234380",
+      "availableChange": "0.000000",
+      "currency": "USDT",
+      "frAfterChange": "0.000000",
+      "frozenChange": "-807.251420",
+      "time": 1588667153068,
+      "type": "TRADE_DEAL_BUY"
+    }
+  ]
+]
+</code></pre>
+
+        <h3 id="7bf990a9a9-account-4">数据更新字段列表</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>avAfterChange</td>
+                <td>string</td>
+                <td>变更后可用余额</td>
+            </tr>
+            <tr>
+                <td>availableChange</td>
+                <td>string</td>
+                <td>可用余额变更量</td>
+            </tr>
+            <tr>
+                <td>currency</td>
+                <td>string</td>
+                <td>币种</td>
+            </tr>
+            <tr>
+                <td>frAfterChange</td>
+                <td>string</td>
+                <td>变更后冻结余额</td>
+            </tr>
+            <tr>
+                <td>frozenChange</td>
+                <td>string</td>
+                <td>冻结余额变更量</td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td>long</td>
+                <td>时间戳</td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>string</td>
+                <td>余额变更类型</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+        <p>余额变更类型：</p>
+        <p>TRADE_DEAL_BUY:交易中买家余额变更</p>
+        <p>TRADE_DEAL_SELL:交易中卖家余额变更</p>
+        <p>TRADE_DEAL_BUY_FEE:交易中买家手续费变更</p>
+        <p>TRADE_DEAL_SELL_FEE:交易中卖家手续费变更</p>
+
+
+        <h2 id="websocket-account-5">用户订单变更订阅</h2>
+        <h3 id="a94c7743c5-account-5">主题订阅</h3>
+        <p><code>subUserOrderDeal</code></p>
+
+        <blockquote>
+            <p>订阅参数</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">"subUserOrderDeal"</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>
+[
+  "subUserOrderDeal",
+  {
+    "dealVolume": "0.1000",
+    "fee": "0.00000000",
+    "feeCurrency": "BKK",
+    "id": "2020050516255306842000020",
+    "orderId": "2020050516255281242000020",
+    "orderSide": "BID",
+    "price": "8072.5142",
+    "symbol": "BTC_USDT",
+    "tradeTime": 1588667153068
+  }
+]
+</code></pre>
+
+        <h3 id="7bf990a9a9-account-5">数据更新字段列表</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>dealVolume</td>
+                <td>string</td>
+                <td>成交量</td>
+            </tr>
+            <tr>
+                <td>fee</td>
+                <td>string</td>
+                <td>手续费</td>
+            </tr>
+            <tr>
+                <td>feeCurrency</td>
+                <td>string</td>
+                <td>手续费币种</td>
+            </tr>
+            <tr>
+                <td>id</td>
+                <td>string</td>
+                <td>成交ID</td>
+            </tr>
+            <tr>
+                <td>orderId</td>
+                <td>string</td>
+                <td>订单id</td>
+            </tr>
+            <tr>
+                <td>orderSide</td>
+                <td>string</td>
+                <td>订单方向(BID:买入,ASK:卖出)</td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td>string</td>
+                <td>单价</td>
+            </tr>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>交易对</td>
+            </tr>
+            <tr>
+                <td>tradeTime</td>
+                <td>long</td>
+                <td>成交时间</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+
+
+        <!-- websocket-contract-q -->
     <h1 id="websocket-contract-q">Websocket合约行情数据</h1>
     <h3 id="websocket-contract-q-url">接入URL</h3>
     <p><strong>合约行情请求地址</strong></p>
