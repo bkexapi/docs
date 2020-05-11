@@ -6251,20 +6251,26 @@
 
         <p><strong><code>wss://api.bkex.com</code></strong></p>
         <h2 id="websocket-2">例子</h2>
-        <h3 id="a94c7743c5">Socket.io Demo</h3>
-        <p><code>var io = require('socket.io-client');</code></p>
-        <p><code>var socket = io('wss://api.bkex.co', { transports: ['websocket'] });</code></p>
-        <p><code>socket.on('connect', function (data) {
-            socket.emit('subQuotationSymbol');
-            });</code></p>
+        <h3 id="a94c7743c15">Socket.io Demo</h3>
+        <p><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"&gt;&lt;/script&gt;</code></p>
+        <p><code>const socket = io('https://api.bkex.co/quotation');</code></p>
+        <p><code>socket.on('connect', function (data) {</code></p>
+        <p><code>&emsp;socket.emit("subKlineByRange", {</code></p>
+        <p><code>&emsp;&emsp;"symbol": "BTC_USDT,ETH_USDT,LTC_USDT",</code></p>
+        <p><code>&emsp;&emsp;"period": "240",</code></p>
+        <p><code>&emsp;&emsp;"from": 1567136369,</code></p>
+        <p><code>&emsp;&emsp;"to": 1588735346,</code></p>
+        <p><code>&emsp;&emsp;"no": "157430756955441803"</code></p>
+        <p><code>&emsp;});</code></p>
+        <p><code>});</code></p>
 
-        <h3 id="a94c7743c5">Native WebScoket Demo</h3>
+        <h3 id="a94c7743c25">Native WebScoket Demo</h3>
         <p><code>var pingPong = null;</code></p>
         <p><code>ws = new WebSocket("wss://api.bkex.co/socket.io/?EIO=3&transport=websocket");</code></p>
         <p><code>ws.onopen = function() {pingPong = setInterval(function () { ws.send('2');}, 20 * 1000)};</code>
         </p>
         <p><code>ws.onmessage = function(e) {</code></p>
-        <p><code>&nbsp;&nbsp;if(e.data === '40') {</code></p>
+        <p><code>  if(e.data === '40') {</code></p>
         <p><code>&nbsp;&nbsp;&nbsp;&nbsp;ws.send('40/quotation')}</code></p>
         <p><code>&nbsp;&nbsp;else if(e.data === '40/quotation'){</code></p>
         <p><code>&nbsp;&nbsp;&nbsp;&nbsp;ws.send('42/quotation,["subOrderDepth",{"symbol": "BTC_USDT","number":
@@ -6821,11 +6827,21 @@
         <p><strong><code>wss://api.bkex.com</code></strong></p>
         <h2 id="websocket-account-2">例子</h2>
         <h3 id="a94c7743c5-account">Socket.io Demo</h3>
-        <p><code>var io = require('socket.io-client');</code></p>
-        <p><code>var socket = io('wss://api.bkex.co', { transports: ['websocket'] });</code></p>
-        <p><code>socket.on('connect', function (data) {
-            socket.emit('subQuotationSymbol');
-            });</code></p>
+        <p><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"&gt;&lt;/script&gt;</code></p>
+        <p><code>const socketUser = io('https://api.bkex.co/account');</code></p>
+        <p><code>socketUser.on('connect', function (data) {</code></p>
+        <p><code>&emsp;socketUser.emit('userLogin', {</code></p>
+        <p><code>&emsp;&emsp;"signature": "XXXXX",</code></p>
+        <p><code>&emsp;&emsp;"accessKey": "XXXXX",</code></p>
+        <p><code>&emsp;&emsp;"timestamp": 1589199182739</code></p>
+        <p><code>&emsp;&emsp;});</code></p>
+        <p><code>&emsp;});</code></p>
+        <p><code>socketUser.on('userLogin', function (data) {</code></p>
+        <p><code>&emsp;if(data.code==0){</code></p>
+        <p><code>&emsp;&emsp;socketUser.emit("subUserAccountInfo");</code></p>
+        <p><code>&emsp;&emsp;socketUser.emit("subUserOrderDeal");</code></p>
+        <p><code>&emsp;}</code></p>
+        <p><code>});</code></p>
 
         <h3 id="a94c7743c6-account">Native WebScoket Demo</h3>
         <p><code>var pingPong = null;</code></p>

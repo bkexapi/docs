@@ -265,7 +265,7 @@
     </style>
     <link href="./api/screen.css" rel="stylesheet" media="screen">
     <link href="./api/print.css" rel="stylesheet" media="print">
-<!--    <script src="./api/all.js"></script>-->
+    <!--    <script src="./api/all.js"></script>-->
     <script src="./api/jquery.min.js"></script>
 
     <link rel="shortcut icon" href="./img/logo.png">
@@ -354,6 +354,10 @@
                     <a href="./api_zh.htm?shell#basicInformation-2" class="toc-h2 toc-link"
                        data-title="获取所有币种">获取所有币种</a>
                 </li>
+                <li>
+                    <a href="./api_zh.htm?shell#basicInformation-3" class="toc-h2 toc-link"
+                       data-title="获取服务器时间时间戳">获取服务器时间戳</a>
+                </li>
             </ul>
         </li>
         <li>
@@ -399,9 +403,9 @@
                     <a href="./api_zh.htm?shell#depositWithdraw-1" class="toc-h2 toc-link"
                        data-title="充币地址查询">充币地址查询</a>
                 </li>
-<!--                <li>-->
-<!--                    <a href="./api_zh.htm?shell#depositWithdraw-2" class="toc-h2 toc-link" data-title="提现">提现</a>-->
-<!--                </li>-->
+                <!--                <li>-->
+                <!--                    <a href="./api_zh.htm?shell#depositWithdraw-2" class="toc-h2 toc-link" data-title="提现">提现</a>-->
+                <!--                </li>-->
                 <li>
                     <a href="./api_zh.htm?shell#depositWithdraw-3" class="toc-h2 toc-link" data-title="充值记录">充值记录</a>
                 </li>
@@ -448,7 +452,7 @@
             </li>
             <li><a href="./api_zh.htm?shell#contract-index" class="toc-h2 toc-link" data-title="指数价格">指数价格</a></li>
             <li><a href="./api_zh.htm?shell#contract-depth" class="toc-h2 toc-link" data-title="订单簿">订单簿</a></li>
-<!--            <li><a href="./api_zh.htm?shell#contract-depthMerged" class="toc-h2 toc-link" data-title="合并订单簿（推荐）">合并订单簿（推荐）</a></li>-->
+            <!--            <li><a href="./api_zh.htm?shell#contract-depthMerged" class="toc-h2 toc-link" data-title="合并订单簿（推荐）">合并订单簿（推荐）</a></li>-->
             <li><a href="./api_zh.htm?shell#contract-trades" class="toc-h2 toc-link" data-title="最新成交">最新成交</a></li>
             <li><a href="./api_zh.htm?shell#contract-kline" class="toc-h2 toc-link" data-title="K线/蜡烛图数据">K线/蜡烛图数据</a>
             </li>
@@ -489,6 +493,27 @@
                 </li>
                 <li>
                     <a href="./api_zh.htm?shell#websocket-6" class="toc-h2 toc-link" data-title="24小时行情">24小时行情</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="./api_zh.htm?shell#websocket-account" class="toc-h1 toc-link" data-title="Websocket币币用户数据">Websocket币币用户数据</a>
+            <ul class="toc-list-h2">
+                <li>
+                    <a href="./api_zh.htm?shell#websocket-account-1" class="toc-h2 toc-link" data-title="简介">简介</a>
+                </li>
+                <li>
+                    <a href="./api_zh.htm?shell#websocket-account-2" class="toc-h2 toc-link" data-title="连接例子">连接例子</a>
+                </li>
+                <li>
+                    <a href="./api_zh.htm?shell#websocket-account-3" class="toc-h2 toc-link" data-title="用户登录">用户登录</a>
+                </li>
+                <li>
+                    <a href="./api_zh.htm?shell#websocket-account-4" class="toc-h2 toc-link" data-title="账户余额数据">账户余额数据</a>
+                </li>
+                <li>
+                    <a href="./api_zh.htm?shell#websocket-account-5" class="toc-h2 toc-link" data-title="订单数据">订单数据</a>
+
                 </li>
             </ul>
         </li>
@@ -888,6 +913,8 @@
             </tr>
             </tbody>
         </table>
+
+
         <h2 id="basicInformation-2">获取所有币种</h2>
         <p>此接口返回所有Bkex Global支持的币种。</p>
         <pre class="highlight shell tab-shell"><code>curl <span
@@ -992,6 +1019,48 @@
                 <td>decimal</td>
                 <td>提现手续费</td>
             </tr>
+            </tbody>
+        </table>
+
+
+
+        <h2 id="basicInformation-3">获取服务器时间戳</h2>
+        <p>此接口返回服务器当前时间戳。即从 UTC 1970年1月1日0时0分0秒0毫秒到现在的总毫秒数。</p>
+        <pre class="highlight shell tab-shell"><code>curl <span
+                class="s2">"https://api.bkex.co/v2/common/timestamp"</span>
+</code></pre>
+        <h3 id="http-3">HTTP 请求</h3>
+        <ul>
+            <li>GET <code>/v2/common/timestamp</code></li>
+        </ul>
+        <h3 id="1f9ac54b15-3">请求参数</h3>
+        <p>此接口不接受任何参数。</p>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code><span class="w">  </span></span><span class="p">{
+    "code": 0,
+    "data": 1588652674630,
+    "msg": "success"
+}
+</span></code></pre>
+        <h3 id="aceee0d936-3">返回字段</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>data</td>
+                <td>long</td>
+                <td>时间戳</td>
+            </tr>
+
             </tbody>
         </table>
 
@@ -1871,120 +1940,120 @@
             </tr>
             </tbody>
         </table>
-<!--        <h2 id="depositWithdraw-2">提现</h2>-->
-<!--        <p>API Key 权限：提现</p>-->
+        <!--        <h2 id="depositWithdraw-2">提现</h2>-->
+        <!--        <p>API Key 权限：提现</p>-->
 
-<!--        <h3 id="http-20">HTTP 请求</h3>-->
-<!--        <ul>-->
-<!--            <li>POST <code>/v2/u/wallet/withdraw</code></li>-->
-<!--        </ul>-->
-<!--        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">-->
-<!--  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m4k2yUKTSrX6SM9FGgvwMybAbYtRVi2N"</span><span-->
-<!--                class="p">,</span><span class="w">-->
-<!--  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span-->
-<!--                class="s2">"0.05"</span><span class="p">,</span><span class="w">-->
-<!--  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EOS"</span><span-->
-<!--                class="p">,</span><span class="w">-->
-<!--  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span-->
-<!--                class="s2">"123456"</span><span class="p">,</span><span class="w">-->
-<!--  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span-->
-<!--                class="s2">"abc123456"</span><span class="w">-->
-<!--</span><span class="p">}</span><span class="w">-->
-<!--</span></code></pre>-->
-<!--        <h3 id="1f9ac54b15-21">请求参数</h3>-->
-<!--        <table>-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th>参数名称</th>-->
-<!--                <th>是否必须</th>-->
-<!--                <th>类型</th>-->
-<!--                <th>描述</th>-->
-<!--                <th>取值范围</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr>-->
-<!--                <td>address</td>-->
-<!--                <td>true</td>-->
-<!--                <td>string</td>-->
-<!--                <td>提现地址</td>-->
-<!--                <td>仅支持在官网上能够提现的币种</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>volume</td>-->
-<!--                <td>true</td>-->
-<!--                <td>string</td>-->
-<!--                <td>提币数量</td>-->
-<!--                <td></td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>currency</td>-->
-<!--                <td>true</td>-->
-<!--                <td>string</td>-->
-<!--                <td>资产类型</td>-->
-<!--                <td>BTC</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>memo</td>-->
-<!--                <td>false</td>-->
-<!--                <td>string</td>-->
-<!--                <td>部分币种需要填写memo</td>-->
-<!--                <td></td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>chainType</td>-->
-<!--                <td>false</td>-->
-<!--                <td>string</td>-->
-<!--                <td>部分币种需要填写链的类型，比如USDT需要：OMIN或ERC20</td>-->
-<!--                <td></td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>password</td>-->
-<!--                <td>true</td>-->
-<!--                <td>string</td>-->
-<!--                <td>账户登陆密码</td>-->
-<!--                <td></td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
+        <!--        <h3 id="http-20">HTTP 请求</h3>-->
+        <!--        <ul>-->
+        <!--            <li>POST <code>/v2/u/wallet/withdraw</code></li>-->
+        <!--        </ul>-->
+        <!--        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">-->
+        <!--  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m4k2yUKTSrX6SM9FGgvwMybAbYtRVi2N"</span><span-->
+        <!--                class="p">,</span><span class="w">-->
+        <!--  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span-->
+        <!--                class="s2">"0.05"</span><span class="p">,</span><span class="w">-->
+        <!--  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EOS"</span><span-->
+        <!--                class="p">,</span><span class="w">-->
+        <!--  </span><span class="s2">"memo"</span><span class="p">:</span><span class="w"> </span><span-->
+        <!--                class="s2">"123456"</span><span class="p">,</span><span class="w">-->
+        <!--  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span-->
+        <!--                class="s2">"abc123456"</span><span class="w">-->
+        <!--</span><span class="p">}</span><span class="w">-->
+        <!--</span></code></pre>-->
+        <!--        <h3 id="1f9ac54b15-21">请求参数</h3>-->
+        <!--        <table>-->
+        <!--            <thead>-->
+        <!--            <tr>-->
+        <!--                <th>参数名称</th>-->
+        <!--                <th>是否必须</th>-->
+        <!--                <th>类型</th>-->
+        <!--                <th>描述</th>-->
+        <!--                <th>取值范围</th>-->
+        <!--            </tr>-->
+        <!--            </thead>-->
+        <!--            <tbody>-->
+        <!--            <tr>-->
+        <!--                <td>address</td>-->
+        <!--                <td>true</td>-->
+        <!--                <td>string</td>-->
+        <!--                <td>提现地址</td>-->
+        <!--                <td>仅支持在官网上能够提现的币种</td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>volume</td>-->
+        <!--                <td>true</td>-->
+        <!--                <td>string</td>-->
+        <!--                <td>提币数量</td>-->
+        <!--                <td></td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>currency</td>-->
+        <!--                <td>true</td>-->
+        <!--                <td>string</td>-->
+        <!--                <td>资产类型</td>-->
+        <!--                <td>BTC</td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>memo</td>-->
+        <!--                <td>false</td>-->
+        <!--                <td>string</td>-->
+        <!--                <td>部分币种需要填写memo</td>-->
+        <!--                <td></td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>chainType</td>-->
+        <!--                <td>false</td>-->
+        <!--                <td>string</td>-->
+        <!--                <td>部分币种需要填写链的类型，比如USDT需要：OMIN或ERC20</td>-->
+        <!--                <td></td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>password</td>-->
+        <!--                <td>true</td>-->
+        <!--                <td>string</td>-->
+        <!--                <td>账户登陆密码</td>-->
+        <!--                <td></td>-->
+        <!--            </tr>-->
+        <!--            </tbody>-->
+        <!--        </table>-->
 
-<!--        <blockquote>-->
-<!--            <p>Response:</p>-->
-<!--        </blockquote>-->
-<!--        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">-->
-<!--  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span-->
-<!--                class="w">-->
-<!--  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span-->
-<!--                class="s2">"success"</span><span class="w">-->
-<!--</span><span class="p">}</span><span class="w">-->
-<!--</span></code></pre>-->
-<!--        <h3 id="2213f4c32f-12">响应数据</h3>-->
-<!--        <table>-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th>参数名称</th>-->
-<!--                <th>数据类型</th>-->
-<!--                <th>描述</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr>-->
-<!--                <td>code</td>-->
-<!--                <td>integer</td>-->
-<!--                <td>状态码</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>msg</td>-->
-<!--                <td>string</td>-->
-<!--                <td>返回信息</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>data</td>-->
-<!--                <td>object</td>-->
-<!--                <td>返回数据</td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
+        <!--        <blockquote>-->
+        <!--            <p>Response:</p>-->
+        <!--        </blockquote>-->
+        <!--        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">-->
+        <!--  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span-->
+        <!--                class="w">-->
+        <!--  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span-->
+        <!--                class="s2">"success"</span><span class="w">-->
+        <!--</span><span class="p">}</span><span class="w">-->
+        <!--</span></code></pre>-->
+        <!--        <h3 id="2213f4c32f-12">响应数据</h3>-->
+        <!--        <table>-->
+        <!--            <thead>-->
+        <!--            <tr>-->
+        <!--                <th>参数名称</th>-->
+        <!--                <th>数据类型</th>-->
+        <!--                <th>描述</th>-->
+        <!--            </tr>-->
+        <!--            </thead>-->
+        <!--            <tbody>-->
+        <!--            <tr>-->
+        <!--                <td>code</td>-->
+        <!--                <td>integer</td>-->
+        <!--                <td>状态码</td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>msg</td>-->
+        <!--                <td>string</td>-->
+        <!--                <td>返回信息</td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>data</td>-->
+        <!--                <td>object</td>-->
+        <!--                <td>返回数据</td>-->
+        <!--            </tr>-->
+        <!--            </tbody>-->
+        <!--        </table>-->
 
         <h2 id="depositWithdraw-3">充值记录</h2>
         <p>API Key 权限：读取</p>
@@ -3883,144 +3952,144 @@
             </tbody>
         </table>
 
-<!--        <h2 id="contract-depthMerged">合并订单簿（推荐）</h2>-->
-<!--        <p>API Key 权限：无需签名</p>-->
-<!--        <p>获取当前订单簿的数据。该端点0.5秒更新一次。</p>-->
-<!--        <h3 id="http-contract-depthMerged">HTTP 请求</h3>-->
-<!--        <ul>-->
-<!--            <li>GET <code>/v2/contract/q/depthMerged</code></li>-->
-<!--        </ul>-->
-<!--        <pre class="highlight json tab-json"><code>{-->
-<!--  "symbol": BTC-PERP-REV,-->
-<!--  "limit": 30-->
-<!--}</code></pre>-->
-<!--        <h3 id="contract-depthMerged-request">请求参数</h3>-->
-<!--        <table>-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th>参数</th>-->
-<!--                <th>数据类型</th>-->
-<!--                <th>是否必须</th>-->
-<!--                <th>默认值</th>-->
-<!--                <th>描述</th>-->
-<!--                <th>取值范围</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr>-->
-<!--                <td>symbol</td>-->
-<!--                <td>string</td>-->
-<!--                <td>true</td>-->
-<!--                <td>NA</td>-->
-<!--                <td>用来获取订单簿的合约名称。E.g. BTC-PERP-REV</td>-->
-<!--                <td></td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>limit</td>-->
-<!--                <td>integer</td>-->
-<!--                <td>false</td>-->
-<!--                <td>40</td>-->
-<!--                <td>返回bids和asks的数量 。默认 40; 最大 40.</td>-->
-<!--                <td></td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
+        <!--        <h2 id="contract-depthMerged">合并订单簿（推荐）</h2>-->
+        <!--        <p>API Key 权限：无需签名</p>-->
+        <!--        <p>获取当前订单簿的数据。该端点0.5秒更新一次。</p>-->
+        <!--        <h3 id="http-contract-depthMerged">HTTP 请求</h3>-->
+        <!--        <ul>-->
+        <!--            <li>GET <code>/v2/contract/q/depthMerged</code></li>-->
+        <!--        </ul>-->
+        <!--        <pre class="highlight json tab-json"><code>{-->
+        <!--  "symbol": BTC-PERP-REV,-->
+        <!--  "limit": 30-->
+        <!--}</code></pre>-->
+        <!--        <h3 id="contract-depthMerged-request">请求参数</h3>-->
+        <!--        <table>-->
+        <!--            <thead>-->
+        <!--            <tr>-->
+        <!--                <th>参数</th>-->
+        <!--                <th>数据类型</th>-->
+        <!--                <th>是否必须</th>-->
+        <!--                <th>默认值</th>-->
+        <!--                <th>描述</th>-->
+        <!--                <th>取值范围</th>-->
+        <!--            </tr>-->
+        <!--            </thead>-->
+        <!--            <tbody>-->
+        <!--            <tr>-->
+        <!--                <td>symbol</td>-->
+        <!--                <td>string</td>-->
+        <!--                <td>true</td>-->
+        <!--                <td>NA</td>-->
+        <!--                <td>用来获取订单簿的合约名称。E.g. BTC-PERP-REV</td>-->
+        <!--                <td></td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>limit</td>-->
+        <!--                <td>integer</td>-->
+        <!--                <td>false</td>-->
+        <!--                <td>40</td>-->
+        <!--                <td>返回bids和asks的数量 。默认 40; 最大 40.</td>-->
+        <!--                <td></td>-->
+        <!--            </tr>-->
+        <!--            </tbody>-->
+        <!--        </table>-->
 
 
-<!--        <blockquote>-->
-<!--            <p>Response:</p>-->
-<!--        </blockquote>-->
-<!--        <pre class="highlight json tab-json"><code>{-->
-<!--  "code": 0,-->
-<!--  "data": {-->
-<!--  "time": 1555049455783,-->
-<!--  "bids": [-->
-<!--   ["78.82", "0.526"],//[Price, Quantity]-->
-<!--   ["77.24", "1.22"],-->
-<!--   ["76.65", "1.043"],-->
-<!--   ["76.58", "1.34"],-->
-<!--   ["75.67", "1.52"],-->
-<!--   ["75.12", "0.635"],-->
-<!--   ["75.02", "0.72"],-->
-<!--   ["75.01", "0.672"],-->
-<!--   ["73.73", "1.282"],-->
-<!--   ["73.58", "1.116"],-->
-<!--   ["73.45", "0.471"],-->
-<!--   ["73.44", "0.483"],-->
-<!--   ["72.32", "0.383"],-->
-<!--   ["72.26", "1.283"],-->
-<!--   ["72.11", "0.703"],-->
-<!--   ["70.61", "0.454"]],-->
-<!--   "asks": [-->
-<!--     ["122.96", "0.381"],//[Price, Quantity]-->
-<!--     ["144.46", "1"],-->
-<!--     ["155.55", "0.065"],-->
-<!--     ["160.16", "0.052"],-->
-<!--     ["200", "0.775"],-->
-<!--     ["249", "0.17"],-->
-<!--     ["250", "1"],-->
-<!--     ["300", "1"],-->
-<!--     ["400", "1"],-->
-<!--     ["499", "1"]]-->
-<!--   }-->
-<!--}</code></pre>-->
+        <!--        <blockquote>-->
+        <!--            <p>Response:</p>-->
+        <!--        </blockquote>-->
+        <!--        <pre class="highlight json tab-json"><code>{-->
+        <!--  "code": 0,-->
+        <!--  "data": {-->
+        <!--  "time": 1555049455783,-->
+        <!--  "bids": [-->
+        <!--   ["78.82", "0.526"],//[Price, Quantity]-->
+        <!--   ["77.24", "1.22"],-->
+        <!--   ["76.65", "1.043"],-->
+        <!--   ["76.58", "1.34"],-->
+        <!--   ["75.67", "1.52"],-->
+        <!--   ["75.12", "0.635"],-->
+        <!--   ["75.02", "0.72"],-->
+        <!--   ["75.01", "0.672"],-->
+        <!--   ["73.73", "1.282"],-->
+        <!--   ["73.58", "1.116"],-->
+        <!--   ["73.45", "0.471"],-->
+        <!--   ["73.44", "0.483"],-->
+        <!--   ["72.32", "0.383"],-->
+        <!--   ["72.26", "1.283"],-->
+        <!--   ["72.11", "0.703"],-->
+        <!--   ["70.61", "0.454"]],-->
+        <!--   "asks": [-->
+        <!--     ["122.96", "0.381"],//[Price, Quantity]-->
+        <!--     ["144.46", "1"],-->
+        <!--     ["155.55", "0.065"],-->
+        <!--     ["160.16", "0.052"],-->
+        <!--     ["200", "0.775"],-->
+        <!--     ["249", "0.17"],-->
+        <!--     ["250", "1"],-->
+        <!--     ["300", "1"],-->
+        <!--     ["400", "1"],-->
+        <!--     ["499", "1"]]-->
+        <!--   }-->
+        <!--}</code></pre>-->
 
-<!--        <h3 id="contract-depthMerged-response">响应数据</h3>-->
-<!--        <table>-->
-<!--            <tbody>-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th>参数名称</th>-->
-<!--                <th>数据类型</th>-->
-<!--                <th>例子</th>-->
-<!--                <th>描述</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tr>-->
-<!--                <td>time</td>-->
-<!--                <td>long</td>-->
-<!--                <td>1550829103981</td>-->
-<!--                <td>当前时间（Unix Timestamp，毫秒ms）</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>bids</td>-->
-<!--                <td>list</td>-->
-<!--                <td>(如下)</td>-->
-<!--                <td>所有bid的价格和数量信息，最优bid价格由上到下排列。</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>asks</td>-->
-<!--                <td>list</td>-->
-<!--                <td>(如下)</td>-->
-<!--                <td>所有ask的价格和数量信息，最优ask价格由上到下排列。</td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
-<!--        <table>-->
-<!--            <p>bids和asks所对应的信息组代表了订单簿的所有价格以及价格对应数量的信息，由最优价格从上到下排列:</p>-->
-<!--            <tbody>-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th>参数名称</th>-->
-<!--                <th>数据类型</th>-->
-<!--                <th>例子</th>-->
-<!--                <th>描述</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tr>-->
-<!--                <td>''</td>-->
-<!--                <td>float</td>-->
-<!--                <td>123.10</td>-->
-<!--                <td>价格</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>''</td>-->
-<!--                <td>float</td>-->
-<!--                <td>300</td>-->
-<!--                <td>当前价格对应的数量</td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
+        <!--        <h3 id="contract-depthMerged-response">响应数据</h3>-->
+        <!--        <table>-->
+        <!--            <tbody>-->
+        <!--            <thead>-->
+        <!--            <tr>-->
+        <!--                <th>参数名称</th>-->
+        <!--                <th>数据类型</th>-->
+        <!--                <th>例子</th>-->
+        <!--                <th>描述</th>-->
+        <!--            </tr>-->
+        <!--            </thead>-->
+        <!--            <tr>-->
+        <!--                <td>time</td>-->
+        <!--                <td>long</td>-->
+        <!--                <td>1550829103981</td>-->
+        <!--                <td>当前时间（Unix Timestamp，毫秒ms）</td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>bids</td>-->
+        <!--                <td>list</td>-->
+        <!--                <td>(如下)</td>-->
+        <!--                <td>所有bid的价格和数量信息，最优bid价格由上到下排列。</td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>asks</td>-->
+        <!--                <td>list</td>-->
+        <!--                <td>(如下)</td>-->
+        <!--                <td>所有ask的价格和数量信息，最优ask价格由上到下排列。</td>-->
+        <!--            </tr>-->
+        <!--            </tbody>-->
+        <!--        </table>-->
+        <!--        <table>-->
+        <!--            <p>bids和asks所对应的信息组代表了订单簿的所有价格以及价格对应数量的信息，由最优价格从上到下排列:</p>-->
+        <!--            <tbody>-->
+        <!--            <thead>-->
+        <!--            <tr>-->
+        <!--                <th>参数名称</th>-->
+        <!--                <th>数据类型</th>-->
+        <!--                <th>例子</th>-->
+        <!--                <th>描述</th>-->
+        <!--            </tr>-->
+        <!--            </thead>-->
+        <!--            <tr>-->
+        <!--                <td>''</td>-->
+        <!--                <td>float</td>-->
+        <!--                <td>123.10</td>-->
+        <!--                <td>价格</td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>''</td>-->
+        <!--                <td>float</td>-->
+        <!--                <td>300</td>-->
+        <!--                <td>当前价格对应的数量</td>-->
+        <!--            </tr>-->
+        <!--            </tbody>-->
+        <!--        </table>-->
 
 
         <h2 id="contract-trades">最新成交</h2>
@@ -6182,20 +6251,26 @@
 
         <p><strong><code>wss://api.bkex.com</code></strong></p>
         <h2 id="websocket-2">例子</h2>
-        <h3 id="a94c7743c5">Socket.io Demo</h3>
-        <p><code>var io = require('socket.io-client');</code></p>
-        <p><code>var socket = io('wss://api.bkex.co', { transports: ['websocket'] });</code></p>
-        <p><code>socket.on('connect', function (data) {
-            socket.emit('subQuotationSymbol');
-            });</code></p>
+        <h3 id="a94c7743c15">Socket.io Demo</h3>
+        <p><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"&gt;&lt;/script&gt;</code></p>
+        <p><code>const socket = io('https://api.bkex.co/quotation');</code></p>
+        <p><code>socket.on('connect', function (data) {</code></p>
+        <p><code>&emsp;socket.emit("subKlineByRange", {</code></p>
+        <p><code>&emsp;&emsp;"symbol": "BTC_USDT,ETH_USDT,LTC_USDT",</code></p>
+        <p><code>&emsp;&emsp;"period": "240",</code></p>
+        <p><code>&emsp;&emsp;"from": 1567136369,</code></p>
+        <p><code>&emsp;&emsp;"to": 1588735346,</code></p>
+        <p><code>&emsp;&emsp;"no": "157430756955441803"</code></p>
+        <p><code>&emsp;});</code></p>
+        <p><code>});</code></p>
 
-        <h3 id="a94c7743c5">Native WebScoket Demo</h3>
+        <h3 id="a94c7743c25">Native WebScoket Demo</h3>
         <p><code>var pingPong = null;</code></p>
         <p><code>ws = new WebSocket("wss://api.bkex.co/socket.io/?EIO=3&transport=websocket");</code></p>
         <p><code>ws.onopen = function() {pingPong = setInterval(function () { ws.send('2');}, 20 * 1000)};</code>
         </p>
         <p><code>ws.onmessage = function(e) {</code></p>
-        <p><code>&nbsp;&nbsp;if(e.data === '40') {</code></p>
+        <p><code>  if(e.data === '40') {</code></p>
         <p><code>&nbsp;&nbsp;&nbsp;&nbsp;ws.send('40/quotation')}</code></p>
         <p><code>&nbsp;&nbsp;else if(e.data === '40/quotation'){</code></p>
         <p><code>&nbsp;&nbsp;&nbsp;&nbsp;ws.send('42/quotation,["subOrderDepth",{"symbol": "BTC_USDT","number":
@@ -6217,7 +6292,7 @@
   <span class="s2">"subKlineByRange"</span><span class="w"></span><span class="p">,</span><span class="w"></span>
   <span class="p">{</span><span class="w"></span>
     <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w"></span>
+                class="s2">"BTC_USDT,ETH_USDT"</span><span class="p">,</span><span class="w"></span>
     <span class="s2">"period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"240"</span><span
                 class="p">,</span><span class="w"></span>
     <span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span
@@ -6245,8 +6320,8 @@
                 <td>symbol</td>
                 <td>string</td>
                 <td>true</td>
-                <td>交易对</td>
-                <td>BTC_USDT</td>
+                <td>交易对(多交易对以','分隔)</td>
+                <td>BTC_USDT,ETH_USDT...</td>
             </tr>
             <tr>
                 <td>period</td>
@@ -6417,7 +6492,7 @@
   <span class="s2">"subOrderDepth"</span><span class="w"></span><span class="p">,</span><span class="w"></span>
   <span class="p">{</span><span class="w"></span>
    <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w"></span>
+                class="s2">"BTC_USDT,ETH_USDT"</span><span class="p">,</span><span class="w"></span>
    <span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span
                 class="w"></span>
   <span class="p">}</span><span class="w"></span>
@@ -6441,8 +6516,8 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>交易对</td>
-                <td>symbol</td>
+                <td>交易对(多交易对以','分隔)</td>
+                <td>BTC_USDT,ETH_USDT...</td>
             </tr>
             <tr>
                 <td>number</td>
@@ -6532,7 +6607,7 @@
   <span class="s2">"quotationDealConnect"</span><span class="w"></span><span class="p">,</span><span class="w"></span>
   <span class="p">{</span><span class="w"></span>
    <span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w"></span>
+                class="s2">"BTC_USDT,ETH_USDT"</span><span class="p">,</span><span class="w"></span>
    <span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span
                 class="w"></span>
   <span class="p">}</span><span class="w"></span>
@@ -6556,8 +6631,8 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>交易代码</td>
-                <td>BTC_USDT</td>
+                <td>交易对(多交易对以','分隔)</td>
+                <td>BTC_USDT,ETH_USDT...</td>
             </tr>
             <tr>
                 <td>number</td>
@@ -6740,62 +6815,359 @@
             <br>
             <br></p>
 
+        <!-- Websocket-->
+        <h1 id="websocket-account">Websocket币币用户数据</h1>
+        <h2 id="websocket-account-1">简介</h2>
+        <aside class="notice">订阅用户相关数据需要进行签名认证。<a href="./api_zh.htm?shell#useQuick-5" data-title="签名说明">签名说明</a></aside>
+        <h3 id="url-account">接入URL</h3>
+        <p><strong>请求地址</strong></p>
+
+        <p><strong><code>wss://api.bkex.co</code></strong></p>
+
+        <p><strong><code>wss://api.bkex.com</code></strong></p>
+        <h2 id="websocket-account-2">例子</h2>
+        <h3 id="a94c7743c5-account">Socket.io Demo</h3>
+        <p><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"&gt;&lt;/script&gt;</code></p>
+        <p><code>const socketUser = io('https://api.bkex.co/account');</code></p>
+        <p><code>socketUser.on('connect', function (data) {</code></p>
+        <p><code>&emsp;socketUser.emit('userLogin', {</code></p>
+        <p><code>&emsp;&emsp;"signature": "XXXXX",</code></p>
+        <p><code>&emsp;&emsp;"accessKey": "XXXXX",</code></p>
+        <p><code>&emsp;&emsp;"timestamp": 1589199182739</code></p>
+        <p><code>&emsp;&emsp;});</code></p>
+        <p><code>&emsp;});</code></p>
+        <p><code>socketUser.on('userLogin', function (data) {</code></p>
+        <p><code>&emsp;if(data.code==0){</code></p>
+        <p><code>&emsp;&emsp;socketUser.emit("subUserAccountInfo");</code></p>
+        <p><code>&emsp;&emsp;socketUser.emit("subUserOrderDeal");</code></p>
+        <p><code>&emsp;}</code></p>
+        <p><code>});</code></p>
+
+        <h3 id="a94c7743c6-account">Native WebScoket Demo</h3>
+        <p><code>var pingPong = null;</code></p>
+        <p><code>ws = new WebSocket("wss://api.bkex.co/socket.io/?EIO=3&transport=websocket");</code></p>
+        <p><code>ws.onopen = function() {pingPong = setInterval(function () { ws.send('2');}, 20 * 1000)};</code>
+        </p>
+        <p><code>ws.onmessage = function(e) {</code></p>
+        <p><code>&nbsp;&nbsp;if(e.data === '40') {</code></p>
+        <p><code>&nbsp;&nbsp;&nbsp;&nbsp;ws.send('40/account')}</code></p>
+        <p><code>&nbsp;&nbsp;else if(e.data === '40/account'){</code></p>
+
+        <p><code>&nbsp;&nbsp;&nbsp;&nbsp;ws.send('42/account,["userLogin",{"signature":"93c4f85c396eeff4c0472a31439b98bec7168338f8fad44ef54b4f5b3f6b3e2f","accessKey":"64ff07234e19363cf15ca8dae1fa35e734a7842e1fef820ba7fbc94d5cffa45d","timestamp":1588663088781}]')}</code></p>
+        <p><code>&nbsp;&nbsp;else {}</code></p>
+        <p><code>};</code></p>
+
+
+        <h2 id="websocket-account-3">websocket用户登录</h2>
+        <h3 id="a94c7743c5-account-3">事件名</h3>
+        <p><code>userLogin</code></p>
+
+        <blockquote>
+            <p>参数</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>[
+  "userLogin",
+  {
+    "signature": "93c4f85c396eeff4c0472a31439b98bec7168338f8fad44ef54b4f5b3f",
+    "accessKey": "xxxxxxxxxx19363cf15ca8dae1fa35e734a7842e1fef820ba7fbc94d5c",
+    "timestamp": 1588663088781
+  }
+]
+
+</code></pre>
+
+
+        <h3 id="request-account-5">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>accessKey</td>
+                <td>string</td>
+                <td>api key</td>
+            </tr>
+            <tr>
+                <td>timestamp</td>
+                <td>long</td>
+                <td>时间戳</td>
+            </tr>
+            <tr>
+                <td>signature</td>
+                <td>string</td>
+                <td>签名字符串</td>
+            </tr>
+            </tbody>
+        </table>
 
 
 
-    <!-- websocket-contract-q -->
-    <h1 id="websocket-contract-q">Websocket合约行情数据</h1>
-    <h3 id="websocket-contract-q-url">接入URL</h3>
-    <p><strong>合约行情请求地址</strong></p>
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>
+[
+  "userLogin",
+  {
+    "code": 0,
+    "msg": "success"
+  }
+]
+</code></pre>
 
-    <p><strong><code>wss://api.bkex.co/contract/q/ws</code></strong></p>
-
-    <p><strong><code>wss://api.bkex.com/contract/q/ws</code></strong></p>
-
-
-    <p></p>
-    <h2 id="websocket-contract-q-8">错误处理</h2>
-    <p><code>INVALID_REQUEST("-10000", "Invalid request!")</code></p>
-    <p><code>JSON_FORMAT_ERROR("-10001", "Invalid JSON!")</code></p>
-    <p><code>INVALID_EVENT("-10002", "Invalid event")</code></p>
-    <p><code>REQUIRED_EVENT("-10003", "Event required!")</code></p>
-    <p><code>INVALID_TOPIC("-10004", "Invalid topic!")</code></p>
-    <p><code>REQUIRED_TOPIC("-10005", "Topic required!")</code></p>
-    <p><code>PARAM_EMPTY("-10007", "Params required!")</code></p>
-    <p><code>PERIOD_EMPTY("-10008", "Period required!")</code></p>
-    <p><code>PERIOD_ERROR("-10009", "Invalid period!")</code></p>
-    <p><code>SYMBOLS_ERROR("-100010", "Invalid Symbols!")</code></p>
-
-    <p></p>
-    <h2 id="websocket-contract-q-9">心跳</h2>
-    <p>每隔一段时间，客户端需要发送ping帧，服务端会回复pong帧，否则服务端会在5分钟内主动断开链接。</p>
-    <h3 id="a94c7743d5">请求</h3>
-    <p><code>{
-        "ping": 1535975085052
-        }</code></p>
-    <h3 id="a94c7743d6">返回</h3>
-    <p><code>{
-        "pong": 1535975085052
-        }</code></p>
-
-    <p></p>
-    <h2 id="websocket-contract-q-3">全量深度</h2>
-    <h3 id="a94c7743c5">订阅消息</h3>
+        <h3 id="7bf990a9a9-account-3">响应信息</h3>
+        <p>
+            如果登录信息验证通过会返回成功消息（code=0，msg='success'）;<br>
+            如果验证不通过会返回对应错误信息。
+            <br></p>
 
 
-    <p><code>{
-        "topic": "depth",
-        "event": "sub",
-        "params": {
-        "binary": false,
-        "symbol": "$symbol"
-        }
-        }</code></p>
+        <h2 id="websocket-account-4">用户余额变更订阅</h2>
+        <h3 id="a94c7743c5-account-4">主题订阅</h3>
+        <p><code>subUserAccountInfo</code></p>
 
-    <blockquote>
-        <p>订阅请求</p>
-    </blockquote>
-    <pre class="highlight json tab-json"><code>{
+        <blockquote>
+            <p>订阅参数</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">"subUserAccountInfo"</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>
+    [
+  "subUserAccountInfo",
+  [
+    {
+      "avAfterChange": "201.100000",
+      "availableChange": "0.100000",
+      "currency": "BTC",
+      "frAfterChange": "0.000000",
+      "frozenChange": "0.000000",
+      "time": 1588667153068,
+      "type": "TRADE_DEAL_BUYER"
+    },
+    {
+      "avAfterChange": "1991120.234380",
+      "availableChange": "0.000000",
+      "currency": "USDT",
+      "frAfterChange": "0.000000",
+      "frozenChange": "-807.251420",
+      "time": 1588667153068,
+      "type": "TRADE_DEAL_BUYER"
+    }
+  ]
+]
+</code></pre>
+
+        <h3 id="7bf990a9a9-account-4">数据更新字段列表</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>avAfterChange</td>
+                <td>string</td>
+                <td>变更后可用余额</td>
+            </tr>
+            <tr>
+                <td>availableChange</td>
+                <td>string</td>
+                <td>可用余额变更量</td>
+            </tr>
+            <tr>
+                <td>currency</td>
+                <td>string</td>
+                <td>币种</td>
+            </tr>
+            <tr>
+                <td>frAfterChange</td>
+                <td>string</td>
+                <td>变更后冻结余额</td>
+            </tr>
+            <tr>
+                <td>frozenChange</td>
+                <td>string</td>
+                <td>冻结余额变更量</td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td>long</td>
+                <td>时间戳</td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>string</td>
+                <td>余额变更类型</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+        <p>余额变更类型：</p>
+        <p>TRADE_DEAL_BUYER:交易中买家余额变更</p>
+        <p>TRADE_DEAL_SELLER:交易中卖家余额变更</p>
+        <p>TRADE_DEAL_BUYER_FEE:交易中买家手续费变更</p>
+        <p>TRADE_DEAL_SELLER_FEE:交易中卖家手续费变更</p>
+
+
+        <h2 id="websocket-account-5">用户订单变更订阅</h2>
+        <h3 id="a94c7743c5-account-5">主题订阅</h3>
+        <p><code>subUserOrderDeal</code></p>
+
+        <blockquote>
+            <p>订阅参数</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>
+<span class="p">[</span><span class="w"></span>
+  <span class="s2">"subUserOrderDeal"</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre>
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>
+[
+  "subUserOrderDeal",
+  {
+    "dealVolume": "0.1000",
+    "fee": "0.00000000",
+    "feeCurrency": "BKK",
+    "id": "2020050516255306842000020",
+    "orderId": "2020050516255281242000020",
+    "orderSide": "BID",
+    "price": "8072.5142",
+    "symbol": "BTC_USDT",
+    "tradeTime": 1588667153068
+  }
+]
+</code></pre>
+
+        <h3 id="7bf990a9a9-account-5">数据更新字段列表</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>dealVolume</td>
+                <td>string</td>
+                <td>成交量</td>
+            </tr>
+            <tr>
+                <td>fee</td>
+                <td>string</td>
+                <td>手续费</td>
+            </tr>
+            <tr>
+                <td>feeCurrency</td>
+                <td>string</td>
+                <td>手续费币种</td>
+            </tr>
+            <tr>
+                <td>id</td>
+                <td>string</td>
+                <td>成交ID</td>
+            </tr>
+            <tr>
+                <td>orderId</td>
+                <td>string</td>
+                <td>订单id</td>
+            </tr>
+            <tr>
+                <td>orderSide</td>
+                <td>string</td>
+                <td>订单方向(BID:买入,ASK:卖出)</td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td>string</td>
+                <td>单价</td>
+            </tr>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>交易对</td>
+            </tr>
+            <tr>
+                <td>tradeTime</td>
+                <td>long</td>
+                <td>成交时间</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+
+
+        <!-- websocket-contract-q -->
+        <h1 id="websocket-contract-q">Websocket合约行情数据</h1>
+        <h3 id="websocket-contract-q-url">接入URL</h3>
+        <p><strong>合约行情请求地址</strong></p>
+
+        <p><strong><code>wss://api.bkex.co/contract/q/ws</code></strong></p>
+
+        <p><strong><code>wss://api.bkex.com/contract/q/ws</code></strong></p>
+
+
+        <p></p>
+        <h2 id="websocket-contract-q-8">错误处理</h2>
+        <p><code>INVALID_REQUEST("-10000", "Invalid request!")</code></p>
+        <p><code>JSON_FORMAT_ERROR("-10001", "Invalid JSON!")</code></p>
+        <p><code>INVALID_EVENT("-10002", "Invalid event")</code></p>
+        <p><code>REQUIRED_EVENT("-10003", "Event required!")</code></p>
+        <p><code>INVALID_TOPIC("-10004", "Invalid topic!")</code></p>
+        <p><code>REQUIRED_TOPIC("-10005", "Topic required!")</code></p>
+        <p><code>PARAM_EMPTY("-10007", "Params required!")</code></p>
+        <p><code>PERIOD_EMPTY("-10008", "Period required!")</code></p>
+        <p><code>PERIOD_ERROR("-10009", "Invalid period!")</code></p>
+        <p><code>SYMBOLS_ERROR("-100010", "Invalid Symbols!")</code></p>
+
+        <p></p>
+        <h2 id="websocket-contract-q-9">心跳</h2>
+        <p>每隔一段时间，客户端需要发送ping帧，服务端会回复pong帧，否则服务端会在5分钟内主动断开链接。</p>
+        <h3 id="a94c7743d5">请求</h3>
+        <p><code>{
+            "ping": 1535975085052
+            }</code></p>
+        <h3 id="a94c7743d6">返回</h3>
+        <p><code>{
+            "pong": 1535975085052
+            }</code></p>
+
+        <p></p>
+        <h2 id="websocket-contract-q-3">全量深度</h2>
+        <h3 id="a94c7743c5">订阅消息</h3>
+
+
+        <p><code>{
+            "topic": "depth",
+            "event": "sub",
+            "params": {
+            "binary": false,
+            "symbol": "$symbol"
+            }
+            }</code></p>
+
+        <blockquote>
+            <p>订阅请求</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
   "topic": "depth",
   "event": "sub",
   "params": {
@@ -6804,27 +7176,27 @@
     }
 }
 </code></pre>
-    <h3 id="749d765242">订阅参数</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>symbol</td><td>string</td><td>true</td><td>交易对</td><td>BTC-SWAP-USDT</td>
-        </tr>
-        <tr>
-            <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
-        </tr>
-        </tbody>
-    </table>
+        <h3 id="749d765242">订阅参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td><td>string</td><td>true</td><td>交易对</td><td>BTC-SWAP-USDT</td>
+            </tr>
+            <tr>
+                <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
+            </tr>
+            </tbody>
+        </table>
 
-    <blockquote>
-        <p>Response</p>
-    </blockquote>
-    <pre class="highlight json tab-json"><code>{
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
   "topic": "depth",
   "params": {
     "symbol": "BTC-SWAP-USDT",
@@ -6870,39 +7242,39 @@
 }
 </code></pre>
 
-    <h3 id="7bf990a9a9">响应数据data</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>字段</th><th>数据类型</th><th>描述</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr><td>s</td><td>string</td><td>Symbol</td></tr>
-        <tr><td>t</td><td>long</td><td>时间戳</td></tr>
-        <tr><td>b[0][0]</td><td>string</td><td>Bids价格</td></tr>
-        <tr><td>b[0][1]</td><td>string</td><td>Bids数量</td></tr>
-        <tr><td>a[0][0]</td><td>string</td><td>Asks价格</td></tr>
-        <tr><td>a[0][1]</td><td>string</td><td>Asks数量</td></tr>
-        </tbody>
-    </table>
+        <h3 id="7bf990a9a9">响应数据data</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th><th>数据类型</th><th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>s</td><td>string</td><td>Symbol</td></tr>
+            <tr><td>t</td><td>long</td><td>时间戳</td></tr>
+            <tr><td>b[0][0]</td><td>string</td><td>Bids价格</td></tr>
+            <tr><td>b[0][1]</td><td>string</td><td>Bids数量</td></tr>
+            <tr><td>a[0][0]</td><td>string</td><td>Asks价格</td></tr>
+            <tr><td>a[0][1]</td><td>string</td><td>Asks数量</td></tr>
+            </tbody>
+        </table>
 
 
-    <h2 id="websocket-contract-q-4">Symbol的Ticker信息</h2>
-    <h3 id="a94c7743c6-2">主题订阅</h3>
-    <p><code>{
-        "topic": "realtimes",
-        "event": "sub",
-        "params": {
-        "binary": false,
-        "symbol": "$symbol"
-        }
-        }</code></p>
+        <h2 id="websocket-contract-q-4">Symbol的Ticker信息</h2>
+        <h3 id="a94c7743c6-2">主题订阅</h3>
+        <p><code>{
+            "topic": "realtimes",
+            "event": "sub",
+            "params": {
+            "binary": false,
+            "symbol": "$symbol"
+            }
+            }</code></p>
 
-    <blockquote>
-        <p>订阅参数</p>
-    </blockquote>
-    <pre class="highlight json tab-json">{
+        <blockquote>
+            <p>订阅参数</p>
+        </blockquote>
+        <pre class="highlight json tab-json">{
   "topic": "realtimes",
   "event": "sub",
   "params": {
@@ -6910,28 +7282,28 @@
     "symbol": "$symbol"
   }
 }
-        </code></pre>
-    <h3 id="749d765245-2">参数</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>symbol</td><td>string</td><td>true</td><td>交易对</td><td>BTC-SWAP-USDT</td>
-        </tr>
-        <tr>
-            <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
-        </tr>
-        </tbody>
-    </table>
+            </code></pre>
+        <h3 id="749d765245-2">参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td><td>string</td><td>true</td><td>交易对</td><td>BTC-SWAP-USDT</td>
+            </tr>
+            <tr>
+                <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
+            </tr>
+            </tbody>
+        </table>
 
-    <blockquote>
-        <p>Response</p>
-    </blockquote>
-    <pre class="highlight json tab-json"><code>{
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
   "topic": "realtimes",
   "params": {
     "symbol": "BTC-SWAP-USDT",
@@ -6950,46 +7322,46 @@
   }
 }
 </code></pre>
-    <h3 id="7bf990a9as8">响应数据data</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>字段</th><th>数据类型</th><th>描述</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr><td>t</td><td>long</td><td>时间戳</td></tr>
-        <tr><td>s</td><td>string</td><td>Symbol</td></tr>
-        <tr><td>o</td><td>string</td><td>开盘价</td></tr>
-        <tr><td>h</td><td>string</td><td>最高价</td></tr>
-        <tr><td>l</td><td>string</td><td>最低价</td></tr>
-        <tr><td>c</td><td>string</td><td>收盘价</td></tr>
-        <tr><td>v</td><td>string</td><td>交易量</td></tr>
-        <tr><td>qv</td><td>string</td><td>交易额</td></tr>
-        <tr><td>m</td><td>string</td><td>涨跌幅</td></tr>
-        </tbody>
-    </table>
+        <h3 id="7bf990a9as8">响应数据data</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th><th>数据类型</th><th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>t</td><td>long</td><td>时间戳</td></tr>
+            <tr><td>s</td><td>string</td><td>Symbol</td></tr>
+            <tr><td>o</td><td>string</td><td>开盘价</td></tr>
+            <tr><td>h</td><td>string</td><td>最高价</td></tr>
+            <tr><td>l</td><td>string</td><td>最低价</td></tr>
+            <tr><td>c</td><td>string</td><td>收盘价</td></tr>
+            <tr><td>v</td><td>string</td><td>交易量</td></tr>
+            <tr><td>qv</td><td>string</td><td>交易额</td></tr>
+            <tr><td>m</td><td>string</td><td>涨跌幅</td></tr>
+            </tbody>
+        </table>
 
 
 
-    <h2 id="websocket-contract-q-12">逐笔交易</h2>
-    <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。
-        在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。
-        变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是EOS-SWAP-USDT、BTC-SWAP-USDT、BTC-SWAP。它们的“v”会为连续的值（112，113，114）。</p>
-    <h3 id="a94c774w3c5-2">主题订阅</h3>
-    <p><code>{
-        "topic": "trade",
-        "event": "sub",
-        "params": {
-        "symbol": "$symbol",
-        "binary": false
-        }
-        }</code></p>
+        <h2 id="websocket-contract-q-12">逐笔交易</h2>
+        <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。
+            在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。
+            变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是EOS-SWAP-USDT、BTC-SWAP-USDT、BTC-SWAP。它们的“v”会为连续的值（112，113，114）。</p>
+        <h3 id="a94c774w3c5-2">主题订阅</h3>
+        <p><code>{
+            "topic": "trade",
+            "event": "sub",
+            "params": {
+            "symbol": "$symbol",
+            "binary": false
+            }
+            }</code></p>
 
-    <blockquote>
-        <p>订阅参数</p>
-    </blockquote>
-    <pre class="highlight json tab-json">{
+        <blockquote>
+            <p>订阅参数</p>
+        </blockquote>
+        <pre class="highlight json tab-json">{
             "topic": "trade",
             "event": "sub",
             "params": {
@@ -6998,27 +7370,27 @@
             }
             }</code>
         </pre>
-    <h3 id="749d7652242-2">参数</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>symbol</td><td>string</td><td>true</td><td>交易对</td><td>BTC-SWAP-USDT</td>
-        </tr>
-        <tr>
-            <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
-        </tr>
-        </tbody>
-    </table>
+        <h3 id="749d7652242-2">参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td><td>string</td><td>true</td><td>交易对</td><td>BTC-SWAP-USDT</td>
+            </tr>
+            <tr>
+                <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
+            </tr>
+            </tbody>
+        </table>
 
-    <blockquote>
-        <p>Response</p>
-    </blockquote>
-    <pre class="highlight json tab-json"><code>{
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
   "topic": "trade",
   "params": {
     "symbol": "BTC-SWAP-USDT",
@@ -7032,45 +7404,45 @@
     "m": true
   }
 }</code></pre>
-    <h3 id="7bf990a9a8">响应数据data</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>字段</th><th>数据类型</th><th>描述</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr><td>t</td><td>long</td><td>时间戳</td></tr>
-        <tr><td>v</td><td>string</td><td>可以理解成一个交易ID</td></tr>
-        <tr><td>p</td><td>string</td><td>价格</td></tr>
-        <tr><td>q</td><td>string</td><td>数量</td></tr>
-        <tr><td>m</td><td>string</td><td>true = 买, false = 卖</td></tr>
-        </tbody>
-    </table>
+        <h3 id="7bf990a9a8">响应数据data</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th><th>数据类型</th><th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>t</td><td>long</td><td>时间戳</td></tr>
+            <tr><td>v</td><td>string</td><td>可以理解成一个交易ID</td></tr>
+            <tr><td>p</td><td>string</td><td>价格</td></tr>
+            <tr><td>q</td><td>string</td><td>数量</td></tr>
+            <tr><td>m</td><td>string</td><td>true = 买, false = 卖</td></tr>
+            </tbody>
+        </table>
 
 
 
-    <h2 id="websocket-contract-q-5">K线/蜡烛图</h2>
-    <p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
-    <p>K线/蜡烛图间隔:</p>
-    <p>订阅Kline需要提供间隔参数，最短为分钟线，最长为月线。支持以下间隔:</p>
-    <p>m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月</p>
-    <p>1m、5m、15m、30m、1h、2h、4h、6h、12h、1d、1w、1M</p>
-    <h3 id="a94c77q43c5-2">主题订阅</h3>
-    <p><code>{
-        "topic": "kline",
-        "event": "sub",
-        "params": {
-        "binary": false,
-        "symbol": "$symbol",
-        "klineType": "1m"
-        }
-        }</code></p>
+        <h2 id="websocket-contract-q-5">K线/蜡烛图</h2>
+        <p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
+        <p>K线/蜡烛图间隔:</p>
+        <p>订阅Kline需要提供间隔参数，最短为分钟线，最长为月线。支持以下间隔:</p>
+        <p>m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月</p>
+        <p>1m、5m、15m、30m、1h、2h、4h、6h、12h、1d、1w、1M</p>
+        <h3 id="a94c77q43c5-2">主题订阅</h3>
+        <p><code>{
+            "topic": "kline",
+            "event": "sub",
+            "params": {
+            "binary": false,
+            "symbol": "$symbol",
+            "klineType": "1m"
+            }
+            }</code></p>
 
-    <blockquote>
-        <p>订阅参数</p>
-    </blockquote>
-    <pre class="highlight json tab-json">{
+        <blockquote>
+            <p>订阅参数</p>
+        </blockquote>
+        <pre class="highlight json tab-json">{
   "topic": "kline",
   "event": "sub",
   "params": {
@@ -7080,30 +7452,30 @@
   }
 }</code>
         </pre>
-    <h3 id="749d76524s2-2">参数</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>symbol</td><td>string</td><td>true</td><td>合约id</td><td>BTC-SWAP-USDT</td>
-        </tr>
-        <tr>
-            <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
-        </tr>
-        <tr>
-            <td>klineType</td><td>string</td><td>true</td><td>间隔</td><td></td>
-        </tr>
-        </tbody>
-    </table>
+        <h3 id="749d76524s2-2">参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td><td>string</td><td>true</td><td>合约id</td><td>BTC-SWAP-USDT</td>
+            </tr>
+            <tr>
+                <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
+            </tr>
+            <tr>
+                <td>klineType</td><td>string</td><td>true</td><td>间隔</td><td></td>
+            </tr>
+            </tbody>
+        </table>
 
-    <blockquote>
-        <p>Response</p>
-    </blockquote>
-    <pre class="highlight json tab-json"><code>{
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
   "topic": "kline",
   "params": {
     "symbol": "BTC-SWAP-USDT",
@@ -7120,41 +7492,41 @@
     "v": "10"
   }
 }</code></pre>
-    <h3 id="7bf99w0a9a8">响应数据data</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>字段</th><th>数据类型</th><th>描述</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr><td>t</td><td>long</td><td>k线开始时间</td></tr>
-        <tr><td>s</td><td>string</td><td>symbol</td></tr>
-        <tr><td>c</td><td>string</td><td>收盘价</td></tr>
-        <tr><td>h</td><td>string</td><td>最高价</td></tr>
-        <tr><td>l</td><td>string</td><td>最低价</td></tr>
-        <tr><td>o</td><td>string</td><td>开盘价</td></tr>
-        <tr><td>v</td><td>string</td><td>交易量</td></tr>
-        </tbody>
-    </table>
+        <h3 id="7bf99w0a9a8">响应数据data</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th><th>数据类型</th><th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>t</td><td>long</td><td>k线开始时间</td></tr>
+            <tr><td>s</td><td>string</td><td>symbol</td></tr>
+            <tr><td>c</td><td>string</td><td>收盘价</td></tr>
+            <tr><td>h</td><td>string</td><td>最高价</td></tr>
+            <tr><td>l</td><td>string</td><td>最低价</td></tr>
+            <tr><td>o</td><td>string</td><td>开盘价</td></tr>
+            <tr><td>v</td><td>string</td><td>交易量</td></tr>
+            </tbody>
+        </table>
 
 
 
-    <h2 id="websocket-contract-q-6">订单簿Ticker信息</h2>
-    <h3 id="a94c7743c42-2">主题订阅</h3>
-    <p><code>{
-        "topic": "bookTicker",
-        "event": "sub",
-        "params": {
-        "binary": false,
-        "symbol": "$symbol"
-        }
-        }</code></p>
+        <h2 id="websocket-contract-q-6">订单簿Ticker信息</h2>
+        <h3 id="a94c7743c42-2">主题订阅</h3>
+        <p><code>{
+            "topic": "bookTicker",
+            "event": "sub",
+            "params": {
+            "binary": false,
+            "symbol": "$symbol"
+            }
+            }</code></p>
 
-    <blockquote>
-        <p>订阅参数</p>
-    </blockquote>
-    <pre class="highlight json tab-json">{
+        <blockquote>
+            <p>订阅参数</p>
+        </blockquote>
+        <pre class="highlight json tab-json">{
             "topic": "trade",
             "event": "sub",
             "params": {
@@ -7163,28 +7535,28 @@
             }
             }</code>
         </pre>
-    <h3 id="749d76524a2-2">参数</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>symbol</td><td>string</td><td>true</td><td>合约id</td><td>BTC-SWAP-USDT</td>
-        </tr>
-        <tr>
-            <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
-        </tr>
-        </tbody>
-    </table>
+        <h3 id="749d76524a2-2">参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th><th>数据类型</th><th>是否必需</th><th>描述</th><th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td><td>string</td><td>true</td><td>合约id</td><td>BTC-SWAP-USDT</td>
+            </tr>
+            <tr>
+                <td>binary</td><td>boolean</td><td>false</td><td>返回的数据是否是压缩过的，默认为false</td><td></td>
+            </tr>
+            </tbody>
+        </table>
 
 
-    <blockquote>
-        <p>Response</p>
-    </blockquote>
-    <pre class="highlight json tab-json"><code>{
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json"><code>{
   "topic": "bookTicker",
   "params": {
     "symbol": "BTC-SWAP-USDT",
@@ -7199,22 +7571,22 @@
     "time": 1582001830346
   }
 }</code></pre>
-    <h3 id="7bf99w0a9aa8">响应数据data</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>字段</th><th>数据类型</th><th>描述</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr><td>time</td><td>long</td><td>时间戳</td></tr>
-        <tr><td>symbol</td><td>string</td><td>symbol</td></tr>
-        <tr><td>bidPrice</td><td>string</td><td>bid价格</td></tr>
-        <tr><td>bidQty</td><td>string</td><td>bid量</td></tr>
-        <tr><td>askPrice</td><td>string</td><td>ask价格</td></tr>
-        <tr><td>askQty</td><td>string</td><td>ask量</td></tr>
-        </tbody>
-    </table>
+        <h3 id="7bf99w0a9aa8">响应数据data</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段</th><th>数据类型</th><th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>time</td><td>long</td><td>时间戳</td></tr>
+            <tr><td>symbol</td><td>string</td><td>symbol</td></tr>
+            <tr><td>bidPrice</td><td>string</td><td>bid价格</td></tr>
+            <tr><td>bidQty</td><td>string</td><td>bid量</td></tr>
+            <tr><td>askPrice</td><td>string</td><td>ask价格</td></tr>
+            <tr><td>askQty</td><td>string</td><td>ask量</td></tr>
+            </tbody>
+        </table>
 
         <!-- websocket-contract-u -->
         <h1 id="websocket-contract-u">Websocket合约用户数据</h1>
