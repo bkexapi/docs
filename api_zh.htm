@@ -3411,7 +3411,9 @@
         <ul>
             <li>GET <code>/v2/contract/common/brokerInfo</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code></code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/common/brokerInfo"</span>
+        </code></pre>
         <h3 id="contract-broker-request">请求参数</h3>
         <p>无参数</p>
 
@@ -3462,10 +3464,10 @@
           }
         ],
         "exchangeId": "301",
-        "symbol": "BTC-PERP-REV",
-        "symbolName": "BTC-PERP-REV",
+        "symbol": "BTC-SWAP",
+        "symbolName": "BTC-SWAP",
         "status": "TRADING",
-        "baseAsset": "BTC-PERP-REV",
+        "baseAsset": "BTC-SWAP",
         "baseAssetPrecision": "1",
         "quoteAsset": "USDT",
         "quoteAssetPrecision": "0.01",
@@ -3576,7 +3578,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>合约名称</td>
             </tr>
             <tr>
@@ -3588,7 +3590,7 @@
             <tr>
                 <td>baseAsset</td>
                 <td>string</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>基础资产。对于合约来说，合约本身就是基础资产。</td>
             </tr>
             <tr>
@@ -3619,7 +3621,7 @@
                 <td>index</td>
                 <td>string</td>
                 <td>BTCUSDT</td>
-                <td>标的指数的名称。标的指数实时价格可在index端点访问得到。比如BTC-PERP-REV使用BTCUSDT为标的指数，那么可以在index端点寻找BTCUSDT的实时价格</td>
+                <td>标的指数的名称。标的指数实时价格可在index端点访问得到。比如BTC-SWAP使用BTCUSDT为标的指数，那么可以在index端点寻找BTCUSDT的实时价格</td>
             </tr>
             <tr>
                 <td>contractMultiplier</td>
@@ -3738,9 +3740,9 @@
         <ul>
             <li>GET <code>/v2/contract/q/index</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-  "symbol": BTC-PERP-REV
-}</code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/q/index?symbol=BTC-SWAP"</span>
+        </code></pre>
         <h3 id="contract-index-request">请求参数</h3>
         <table>
             <thead>
@@ -3759,7 +3761,7 @@
                 <td>string</td>
                 <td>false</td>
                 <td>NA</td>
-                <td>标的指数名称,如果这个没有发送，所有标的指数的价格都会被返回。E.g. BTC-PERP-REV</td>
+                <td>标的指数名称,如果这个没有发送，所有标的指数的价格都会被返回。E.g. BTC-SWAP</td>
                 <td></td>
             </tr>
             </tbody>
@@ -3820,10 +3822,9 @@
         <ul>
             <li>GET <code>/v2/contract/q/depth</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-  "symbol": BTC-PERP-REV,
-  "limit": 30
-}</code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/q/depth?symbol=BTC-SWAP&limit=30"</span>
+            </code></pre>
         <h3 id="contract-depth-request">请求参数</h3>
         <table>
             <thead>
@@ -3842,7 +3843,7 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>用来获取订单簿的合约名称。E.g. BTC-PERP-REV</td>
+                <td>用来获取订单簿的合约名称。E.g. BTC-SWAP</td>
                 <td></td>
             </tr>
             <tr>
@@ -3960,7 +3961,7 @@
         <!--            <li>GET <code>/v2/contract/q/depthMerged</code></li>-->
         <!--        </ul>-->
         <!--        <pre class="highlight json tab-json"><code>{-->
-        <!--  "symbol": BTC-PERP-REV,-->
+        <!--  "symbol": BTC-SWAP,-->
         <!--  "limit": 30-->
         <!--}</code></pre>-->
         <!--        <h3 id="contract-depthMerged-request">请求参数</h3>-->
@@ -3981,7 +3982,7 @@
         <!--                <td>string</td>-->
         <!--                <td>true</td>-->
         <!--                <td>NA</td>-->
-        <!--                <td>用来获取订单簿的合约名称。E.g. BTC-PERP-REV</td>-->
+        <!--                <td>用来获取订单簿的合约名称。E.g. BTC-SWAP</td>-->
         <!--                <td></td>-->
         <!--            </tr>-->
         <!--            <tr>-->
@@ -4099,10 +4100,9 @@
         <ul>
             <li>GET <code>/v2/contract/q/trades</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-  "symbol": BTC-PERP-REV,
-  "limit": 500
-}</code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/q/trades?symbol=BTC-SWAP&limit=10"</span>
+            </code></pre>
         <h3 id="contract-trades-request">请求参数</h3>
         <table>
             <thead>
@@ -4121,7 +4121,7 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>用来获取订单簿的合约名称。E.g. BTC-PERP-REV</td>
+                <td>用来获取订单簿的合约名称。E.g. BTC-SWAP</td>
                 <td></td>
             </tr>
             <tr>
@@ -4202,10 +4202,9 @@
         <ul>
             <li>GET <code>/v2/contract/q/kline</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-  "symbol": "BTC-PERP-REV",
-  "interval": "1m"
-}</code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/q/kline?symbol=BTC-SWAP&interval=1m"</span>
+            </code></pre>
         <h3 id="contract-kline-request">请求参数</h3>
         <table>
             <thead>
@@ -4224,7 +4223,7 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>Symbol名称 E.g. BTC-PERP-REV</td>
+                <td>Symbol名称 E.g. BTC-SWAP</td>
                 <td></td>
             </tr>
             <tr>
@@ -4373,9 +4372,9 @@
         <ul>
             <li>GET <code>/v2/contract/q/ticker24hr</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-  "symbol": BTC-PERP-REV
-}</code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-SWAP"</span>
+            </code></pre>
         <h3 id="contract-ticker24hr-request">请求参数</h3>
         <table>
             <thead>
@@ -4394,7 +4393,7 @@
                 <td>string</td>
                 <td>false</td>
                 <td>NA</td>
-                <td>Symbol名称 E.g. BTC-PERP-REV</td>
+                <td>Symbol名称 E.g. BTC-SWAP</td>
                 <td></td>
             </tr>
             </tbody>
@@ -4521,7 +4520,7 @@
             <li>POST <code>/v2/contract/trade/order</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>{
-  "symbol": "BTC-PERP-REV",
+  "symbol": "BTC-SWAP",
   "side": "BUY_OPEN",
   "orderType": "LIMIT",
   "quantity": 10,
@@ -4548,7 +4547,7 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>Symbol名称 E.g. BTC-PERP-REV</td>
+                <td>Symbol名称 E.g. BTC-SWAP</td>
                 <td></td>
             </tr>
             <tr>
@@ -4636,7 +4635,7 @@
   'updateTime': '0',
   'orderId': '469961015902208000',
   'clientOrderId': '6423344174',
-  'symbol': 'BTC-PERP-REV',
+  'symbol': 'BTC-SWAP',
   'price': '8200',
   'leverage': '12.08',
   'origQty': '5',
@@ -4690,7 +4689,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>合约名称</td>
             </tr>
             <tr>
@@ -4789,11 +4788,9 @@
         <ul>
             <li>GET <code>/v2/contract/trade/getOrder</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-  "orderType": "LIMIT",
-  "orderId": "507904211109878016",
-  "clientOrderId": "100011111100001"
-}</code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/trade/getOrder?orderId=507904211109878016&orderType=LIMIT"</span>
+        </code></pre>
         <h3 id="contract-getOrder-request">请求参数</h3>
         <table>
             <thead>
@@ -4844,7 +4841,7 @@
   'updateTime': '0',
   'orderId': '469961015902208000',
   'clientOrderId': '6423344174',
-  'symbol': 'BTC-PERP-REV',
+  'symbol': 'BTC-SWAP',
   'price': '8200',
   'leverage': '12.08',
   'origQty': '5',
@@ -4898,7 +4895,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>合约名称</td>
             </tr>
             <tr>
@@ -5068,7 +5065,7 @@
         <pre class="highlight json tab-json"><code>{
   "code": 0,
   "data": {
-    "symbol": "BTC-PERP-REV",
+    "symbol": "BTC-SWAP",
     "leverage": "10",
     "orderType": "LIMIT",
     "side": "BUY_OPEN",
@@ -5126,7 +5123,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>合约名称</td>
             </tr>
             <tr>
@@ -5244,10 +5241,9 @@
         <ul>
             <li>GET <code>/v2/contract/trade/openOrders</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-  "symbol": "BTC-PERP-REV",
-  "orderType": "LIMIT"
-}</code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/trade/openOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
+</code></pre>
         <h3 id="contract-openOrders-request">请求参数</h3>
         <table>
             <thead>
@@ -5266,7 +5262,7 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>Symbol名称 E.g. BTC-PERP-REV</td>
+                <td>Symbol名称 E.g. BTC-SWAP</td>
                 <td></td>
             </tr>
             <tr>
@@ -5315,7 +5311,7 @@
     'updateTime': '0',
     'orderId': '469965509788581888',
     'clientOrderId': '1570760253946',
-    'symbol': 'BTC-PERP-REV',
+    'symbol': 'BTC-SWAP',
     'price': '8502.34',
     'leverage': '20',
     'origQty': '222',
@@ -5370,7 +5366,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>合约名称</td>
             </tr>
             <tr>
@@ -5488,10 +5484,9 @@
         <ul>
             <li>GET <code>/v2/contract/trade/historyOrders</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-  "symbol": "BTC-PERP-REV",
-  "orderType": "LIMIT"
-}</code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/trade/historyOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
+</code></pre>
         <h3 id="contract-historyOrders-request">请求参数</h3>
         <table>
             <thead>
@@ -5510,7 +5505,7 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>Symbol名称 E.g. BTC-PERP-REV</td>
+                <td>Symbol名称 E.g. BTC-SWAP</td>
                 <td></td>
             </tr>
             <tr>
@@ -5559,7 +5554,7 @@
     'updateTime': '0',
     'orderId': '469965509788581888',
     'clientOrderId': '1570760253946',
-    'symbol': 'BTC-PERP-REV',
+    'symbol': 'BTC-SWAP',
     'price': '8502.34',
     'leverage': '20',
     'origQty': '222',
@@ -5614,7 +5609,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>合约名称</td>
             </tr>
             <tr>
@@ -5732,10 +5727,9 @@
         <ul>
             <li>GET <code>/v2/contract/trade/myTrades</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-  "symbol": "BTC-PERP-REV",
-  "side": "LIMIT"
-}</code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/trade/myTrades?symbol=BTC-SWAP&side=LIMIT"</span>
+</code></pre>
         <h3 id="contract-myTrades-request">请求参数</h3>
         <table>
             <thead>
@@ -5754,7 +5748,7 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>Symbol名称 E.g. BTC-PERP-REV</td>
+                <td>Symbol名称 E.g. BTC-SWAP</td>
                 <td></td>
             </tr>
             <tr>
@@ -5803,7 +5797,7 @@
     'tradeId': '469968263995080704',
     'orderId': '469968263793737728',
     'accountId': '456552319339779840',
-    'symbolId': 'BTC-PERP-REV',
+    'symbolId': 'BTC-SWAP',
     'price': '8531.17',
     'quantity': '100',
     'feeTokenId': 'TBTC',
@@ -5840,13 +5834,13 @@
             <tr>
                 <td>orderId</td>
                 <td>integer</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>订单id</td>
             </tr>
             <tr>
                 <td>symbolId</td>
                 <td>string</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>合约名称</td>
             </tr>
             <tr>
@@ -5905,10 +5899,9 @@
         <ul>
             <li>GET <code>/v2/contract/trade/positions</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-  "symbol": "BTC-PERP-REV",
-  "side": "LONG"
-}</code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/trade/positions?symbol=BTC-SWAP&side=LONG"</span>
+</code></pre>
         <h3 id="contract-positions-request">请求参数</h3>
         <table>
             <thead>
@@ -5947,7 +5940,7 @@
   "code": 0,
   "data": [
     {
-      "symbol": "BTC-PERP-REV",
+      "symbol": "BTC-SWAP",
       "leverage": "8.81",
       "side": "SHORT",
       "margin": "0.00056284",
@@ -5979,7 +5972,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>合约名称</td>
             </tr>
             <tr>
@@ -6078,7 +6071,7 @@
             <li>POST <code>/v2/contract/trade/modifyMargin</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>{
-  "symbol": "BTC-PERP-REV",
+  "symbol": "BTC-SWAP",
   "amount": 0.2564,
   "side": "LONG"
 }</code></pre>
@@ -6100,7 +6093,7 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>合约名称 E.g. BTC-PERP-REV</td>
+                <td>合约名称 E.g. BTC-SWAP</td>
                 <td></td>
             </tr>
             <tr>
@@ -6127,7 +6120,7 @@
         <pre class="highlight json tab-json"><code>{
   "code": 0,
   "data": {
-    "symbol": "BTC-PERP-REV",
+    "symbol": "BTC-SWAP",
     "margin": "0.00056304",
     "timestamp": "1583931567359"
   }
@@ -6147,7 +6140,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>BTC-PERP-REV</td>
+                <td>BTC-SWAP</td>
                 <td>合约名称</td>
             </tr>
             <tr>
@@ -6181,7 +6174,9 @@
         <ul>
             <li>GET <code>/v2/contract/u/account</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code></code></pre>
+        <pre class="highlight json tab-json"><code>
+curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
+        </code></pre>
         <h3 id="contract-account-request">请求参数</h3>
         <p>无参数</p>
         <blockquote>
