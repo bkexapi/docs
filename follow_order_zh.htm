@@ -377,7 +377,14 @@
         <p><strong><code>https://api.bkex.com</code></strong></p>
 
 
-        <h2 id="useQuick-5">签名认证</h2>
+        <h2 id="useQuick-5">时间同步安全</h2>
+        <ul>
+            <li>timestamp：请求发送时间。签名接口均可传递 timestamp参数（建议签名接口都使用），其值应当是请求发送时刻的unix时间戳（毫秒）</li>
+            <li>recvWindow:时间空窗，默认值为5000(毫秒)。服务器收到请求时会判断请求中的时间戳，如果是5000毫秒之前发出的，则请求会被认为无效。互联网状况并不完全稳定可靠,因此你的程序本地到币安服务器的时延会有抖动。这是我们设置recvWindow的目的所在，如果你从事高频交易，对交易时效性有较高的要求，可以灵活设置recvWindow以达到你的要求</li>
+        </ul>
+
+
+        <h2 id="useQuick-51">签名认证</h2>
         <h3 id="34addae335">签名说明</h3>
         <p>每个接口都需要签名验证</p>
 
@@ -595,9 +602,8 @@
         </ul>
         <pre class="highlight json tab-json"><code>
 {
-  "fromUserId": "123456",
-  "toUserId": "222456",
-  "limit": 10
+  "page": 1,
+  "size": 10
 }
         </code></pre>
         <h3 id="1f9ac54b15-25">请求参数</h3>
@@ -613,25 +619,18 @@
             </thead>
             <tbody>
             <tr>
-                <td>fromUserId</td>
-                <td>String</td>
-                <td>true</td>
-                <td>NA</td>
-                <td>查询开始userId</td>
-            </tr>
-            <tr>
-                <td>toUserId</td>
-                <td>String</td>
-                <td>false</td>
-                <td>NA</td>
-                <td>查询结束userId</td>
-            </tr>
-            <tr>
-                <td>limit</td>
+                <td>page</td>
                 <td>number</td>
                 <td>false</td>
-                <td>NA</td>
-                <td>返回数据量</td>
+                <td>1</td>
+                <td>页码</td>
+            </tr>
+            <tr>
+                <td>size</td>
+                <td>number</td>
+                <td>false</td>
+                <td>10</td>
+                <td>分页size</td>
             </tr>
             </tbody>
         </table>
@@ -642,21 +641,45 @@
         <pre class="highlight json tab-json"><code>{
   "code": 0,
   "msg": "success",
-  "data": [
-    {
-      "accessKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "userId": "123456",
-      "ips": "192.168.1.10"
-    },
-    {
-      "accessKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "userId": "123457",
-      "ips": "192.168.1.10"
-    }
-    ...
-  ]
-}</code></pre>
+  "data": {
+    "totalCount": 101,
+    "list": [
+      {
+        "accessKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "userId": "123456",
+        "ips": "192.168.1.10"
+      },
+      {
+        "accessKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "userId": "123457",
+        "ips": "192.168.1.10"
+      }
+    ]
+  }
+}
+        </code></pre>
         <h3 id="2213f4c32f-25">响应数据</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>字段名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>totalCount</td>
+                <td>long</td>
+                <td>数据总行数</td>
+            </tr>
+            <tr>
+                <td>list</td>
+                <td>list</td>
+                <td>查询页码的数据集合</td>
+            </tr>
+            </tbody>
+        </table>
         <table>
             <thead>
             <tr>
