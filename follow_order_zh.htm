@@ -400,10 +400,15 @@
         <p>规范要计算签名的请求 因为使用 HMAC 进行签名计算时，使用不同内容计算得到的结果会完全不同。所以在进行签名计算前，请先对请求进行规范化处理。下面以查询某订单详情请求为例进行说明：</p>
 
         <p>下单请求URL</p>
-        <p><code>https://api.bkex.co/v2/u/order/create?volume=0.12&direction=ASK&price=7126.4285&symbol=BTC_USDT</code>
+        <p><code>https://api.bkex.co/fo/subAccount/create</code></br></p>
+        <p>参数：</p>
+        <p><code>"originUid":"11113"</code></br>
+        <code>"timestamp":1589969518658</code></br>
+        <code>"ips":127.0.0.1;127.0.0.2</code></br>
+        <code>"recvWindow":2000</code></br>
         </p>
         <p>对参数按照ASCII码顺序进行排序</p>
-        <p><code>direction=ASK&price=7126.4285&symbol=BTC_USDT&volume=0.12</code></p>
+        <p><code>ips=127.0.0.1;127.0.0.2&originUid=11113&recvWindow=2000&amp;timestamp=1589969518658</code></p>
         <p>将排完序的请求参数使用secretKey 进行HMAC SHA256进行加密，得到的结果</p>
         <p><code>550ac73ace8c34372e0e1dd6631e890c7bd16697af8bb4e2908e966b50aba4e0</code></p>
         <h4>构造http请求使用 </h4>
