@@ -263,10 +263,16 @@
             color: #f92672;
         }
 
+        pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+        .string { color: green; }
+        .number { color: darkorange; }
+        .boolean { color: #ae81ff; }
+        .null { color: magenta; }
+        .key { color: #e6db74; }
+
     </style>
     <link href="./api/screen.css" rel="stylesheet" media="screen">
     <link href="./api/print.css" rel="stylesheet" media="print">
-    <!--    <script src="./api/all.js"></script>-->
     <script src="./api/jquery.min.js"></script>
 
     <link rel="shortcut icon" href="api/logo.png">
@@ -813,19 +819,11 @@
             <code>data</code>。前两个字段表示请求状态和信息，实际的业务数据在<code>data</code>字段里。</p>
 
         <p>以下是一个返回格式的样例：</p>
-        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"mgs""</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span
-                class="p">,</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span
-                class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">//</span><span
-                class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">API</span><span
-                class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">data</span><span
-                class="w"> </span><span class="err">in</span><span class="w"> </span><span
-                class="err">nested</span><span class="w"> </span><span class="err">JSON</span><span
-                class="w"> </span><span class="err">object</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+        <pre class="highlight json tab-json responsePre">{
+  "mgs": "success",
+  "code": "0",
+  "data": // per API response data in nested JSON object
+}</code></pre>
         <table>
             <thead>
             <tr>
@@ -869,7 +867,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -943,7 +941,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -1038,7 +1036,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code><span class="w">  </span></span><span class="p">{
+        <pre class="highlight json tab-json responsePre"><code>{
     "code": 0,
     "data": 1588652674630,
     "msg": "success"
@@ -1134,7 +1132,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -1237,7 +1235,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -1347,7 +1345,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -1430,7 +1428,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": {
@@ -1509,7 +1507,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -1579,7 +1577,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": {
@@ -1672,7 +1670,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": {
@@ -1755,7 +1753,7 @@
 <li>POST <code>/v2/u/account/transfer</code></li>
 </ul>
 
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json responsePre"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="s2">"fromSource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WALLET"</span><span class="w">
@@ -1809,7 +1807,7 @@
 <blockquote>
 <p>Response:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json responsePre"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1871,7 +1869,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -1919,7 +1917,7 @@
         <!--        <ul>-->
         <!--            <li>POST <code>/v2/u/wallet/withdraw</code></li>-->
         <!--        </ul>-->
-        <!--        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">-->
+        <!--        <pre class="highlight json tab-json responsePre"><code><span class="p">{</span><span class="w">-->
         <!--  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1m4k2yUKTSrX6SM9FGgvwMybAbYtRVi2N"</span><span-->
         <!--                class="p">,</span><span class="w">-->
         <!--  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span-->
@@ -1992,7 +1990,7 @@
         <!--        <blockquote>-->
         <!--            <p>Response:</p>-->
         <!--        </blockquote>-->
-        <!--        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">-->
+        <!--        <pre class="highlight json tab-json responsePre"><code><span class="p">{</span><span class="w">-->
         <!--  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span-->
         <!--                class="w">-->
         <!--  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span-->
@@ -2094,7 +2092,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json">{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -2263,7 +2261,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -2384,25 +2382,16 @@
         <ul>
             <li>POST <code>/v2/u/order/create</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span
-                class="mi">0.1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span
-                class="mi">7000.12</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"ASK"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"WALLET"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span
-                class="s2">"STOP_LIMIT"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">6900</span><span
-                class="p">,</span><span class="w">
-  </span><span class="s2">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gte"</span><span
-                class="p">,</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+        <pre class="highlight json tab-json responsePre"><code>{
+  "volume": 0.1,
+  "price": 7000.12,
+  "direction": "ASK",
+  "symbol": "BTC_USDT",
+  "source": "WALLET",
+  "type": "STOP_LIMIT",
+  "stopPrice": 6900,
+  "operator": "gte",
+}</code></pre>
         <h3 id="1f9ac54b15-24">请求参数</h3>
         <table>
             <thead>
@@ -2477,15 +2466,11 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0,</span><span
-                class="w">
-  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Create Order Successfully",</span><span
-                class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180623123334234234"</span><span
-                class="w"></span>
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+        <pre class="highlight json tab-json responsePre"><code>{
+  "code": 0,
+  "msg": "Create Order Successfully",
+  "data": "20180623123334234234"
+}</code></pre>
         <h3 id="2213f4c32f-21">响应数据</h3>
         <p>code为0，表示下单成功，返回的数据data对象是下单成功后的订单号。</p>
 
@@ -2520,14 +2505,11 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0,</span><span
-                class="w">
-  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success",</span>
-  <span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201908231244212312123"</span><span
-                class="w"></span>
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+        <pre class="highlight json tab-json responsePre"><code>{
+  "code": 0,
+  "msg": "success",
+  "data": "201908231244212312123"
+}</code></pre>
         <h3 id="2213f4c32f-22">响应数据</h3>
         <p>code为0，表示撤销成功，data返回订单Id</p>
 
@@ -2621,7 +2603,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": {
@@ -2743,7 +2725,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -2957,7 +2939,7 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "mgs": "success",
   "code": "0",
   "data": [
@@ -3141,20 +3123,15 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"></span><span class="mi">0</span><span
-                class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
-   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span
-                class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fail"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span
-                class="p">,</span><span class="w">
-    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="s2">["2019062312313131231","2019063123131312313"]</span><span
-                class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+        <pre class="highlight json tab-json responsePre"><code>{
+  "code":0,
+  "data":
+   {
+    "success": 2,
+    "fail": 0,
+    "results": ["2019062312313131231","2019063123131312313"]
+   }
+}</code></pre>
         <h3 id="batchCreateOrders-25">响应数据</h3>
         <table>
             <thead>
@@ -3194,11 +3171,11 @@
             <li>POST <code>/v2/u/order/batchCancel</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-    <span class="p">[</span>
-            </span><span class="s2">"2018062321121231231"</span>,<span class="s2">"2018062321121231232"</span><span
-                class="w">
-    <span class="p">]</span><span class="w">
-  </span></code></pre>
+<span class="p">[</span></span>
+    <span class="s2">"2018062321121231231"</span>,<span class="s2">"2018062321121231232"</span><span
+                class="w"></span>
+<span class="p">]</span><span class="w"></span>
+        </code></pre>
         <h3 id="batchCancelOrders-29">请求参数</h3>
         <table>
             <thead>
@@ -3226,22 +3203,16 @@
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"></span><span class="mi">0</span><span
-                class="p">,</span><span class="w">
-  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"></span><span class="mi">""</span><span
-                class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
-   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span
-                class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fail"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span
-                class="p">,</span><span class="w">
-    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="s2">["2019062312313131231","2019063123131312313"]</span><span
-                class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+        <pre class="highlight json tab-json responsePre"><code>{
+  "code":0,
+  "msg":"",
+  "data":
+   {
+    "success": 2,
+    "fail": 0,
+    "results": ["2019062312313131231","2019063123131312313"]
+   }
+}</code></pre>
         <h3 id="batchCancelOrders-26">响应数据</h3>
         <table>
             <thead>
@@ -3329,8 +3300,9 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/common/brokerInfo"</span>
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {
     "timezone": "UTC",
     "serverTime": "1570701444309",
@@ -3680,8 +3652,9 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/index?symbol=BTC-SWAP"<
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {
   "index":{
     "BTCUSDT":"8243.21666667",
@@ -3770,8 +3743,9 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/depth?symbol=BTC-SWAP&l
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {
   "time": 1555049455783,
   "bids": [
@@ -4048,8 +4022,9 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/trades?symbol=BTC-SWAP&
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {
   "time": 1555049455783,
   "bids": [
@@ -4166,8 +4141,9 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/kline?symbol=BTC-SWAP&i
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {[
   [
     1499040000000,      // Open time
@@ -4312,8 +4288,9 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-S
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {
 ## Single ticker
 {
@@ -4428,7 +4405,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-S
         <ul>
             <li>POST <code>/v2/contract/trade/order</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "symbol": "BTC-SWAP",
   "side": "BUY_OPEN",
   "orderType": "LIMIT",
@@ -4537,27 +4514,28 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-S
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {
-  'time': '1570759718825',
-  'updateTime': '0',
-  'orderId': '469961015902208000',
-  'clientOrderId': '6423344174',
-  'symbol': 'BTC-SWAP',
-  'price': '8200',
-  'leverage': '12.08',
-  'origQty': '5',
-  'executedQty': '0',
-  'avgPrice': '0',
-  'marginLocked': '0.00005047',
-  'orderType': 'LIMIT',
-  'side': 'BUY_OPEN',
-  'fees': [],
-  'timeInForce': 'GTC',
-  'status': 'NEW',
-  'priceType': 'INPUT'
-}
+    "time": "1570759718825",
+    "updateTime": "0",
+    "orderId": "469961015902208000",
+    "clientOrderId": "6423344174",
+    "symbol": "BTC-SWAP",
+    "price": "8200",
+    "leverage": "12.08",
+    "origQty": "5",
+    "executedQty": "0",
+    "avgPrice": "0",
+    "marginLocked": "0.00005047",
+    "orderType": "LIMIT",
+    "side": "BUY_OPEN",
+    "fees": [],
+    "timeInForce": "GTC",
+    "status": "NEW",
+    "priceType": "INPUT"
+  }
 }</code></pre>
 
         <h3 id="contract-order-response">响应数据</h3>
@@ -4743,27 +4721,28 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/getOrder?orderId=50
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {
-  'time': '1570759718825',
-  'updateTime': '0',
-  'orderId': '469961015902208000',
-  'clientOrderId': '6423344174',
-  'symbol': 'BTC-SWAP',
-  'price': '8200',
-  'leverage': '12.08',
-  'origQty': '5',
-  'executedQty': '0',
-  'avgPrice': '0',
-  'marginLocked': '0.00005047',
-  'orderType': 'LIMIT',
-  'side': 'BUY_OPEN',
-  'fees': [],
-  'timeInForce': 'GTC',
-  'status': 'NEW',
-  'priceType': 'INPUT'
-}
+    "time": "1570759718825",
+    "updateTime": "0",
+    "orderId": "469961015902208000",
+    "clientOrderId": "6423344174",
+    "symbol": "BTC-SWAP",
+    "price": "8200",
+    "leverage": "12.08",
+    "origQty": "5",
+    "executedQty": "0",
+    "avgPrice": "0",
+    "marginLocked": "0.00005047",
+    "orderType": "LIMIT",
+    "side": "BUY_OPEN",
+    "fees": [],
+    "timeInForce": "GTC",
+    "status": "NEW",
+    "priceType": "INPUT"
+  }
 }</code></pre>
 
         <h3 id="contract-getOrder-response">响应数据</h3>
@@ -4923,7 +4902,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/getOrder?orderId=50
         <ul>
             <li>POST <code>/v2/contract/trade/orderCancel</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "orderType": "LIMIT",
   "orderId": "507904211109878016",
   "clientOrderId": "100011111100001"
@@ -4971,8 +4950,9 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/getOrder?orderId=50
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {
     "symbol": "BTC-SWAP",
     "leverage": "10",
@@ -5212,29 +5192,30 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/openOrders?symbol=B
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": [
-  {
-    'time': '1570760254539',
-    'updateTime': '0',
-    'orderId': '469965509788581888',
-    'clientOrderId': '1570760253946',
-    'symbol': 'BTC-SWAP',
-    'price': '8502.34',
-    'leverage': '20',
-    'origQty': '222',
-    'executedQty': '0',
-    'avgPrice': '0',
-    'marginLocked': '0.00130552',
-    'orderType': 'LIMIT',
-    'side': 'BUY_OPEN',
-    'fees': [],
-    'timeInForce': 'GTC',
-    'status': 'NEW',
-    'priceType': 'INPUT'
-  },...
-]
+    {
+      "time": "1570760254539",
+      "updateTime": "0",
+      "orderId": "469965509788581888",
+      "clientOrderId": "1570760253946",
+      "symbol": "BTC-SWAP",
+      "price": "8502.34",
+      "leverage": "20",
+      "origQty": "222",
+      "executedQty": "0",
+      "avgPrice": "0",
+      "marginLocked": "0.00130552",
+      "orderType": "LIMIT",
+      "side": "BUY_OPEN",
+      "fees": [],
+      "timeInForce": "GTC",
+      "status": "NEW",
+      "priceType": "INPUT"
+    },...
+  ]
 }</code></pre>
 
         <h3 id="contract-openOrders-response">响应数据</h3>
@@ -5455,29 +5436,30 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/historyOrders?symbo
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": [
-  {
-    'time': '1570760254539',
-    'updateTime': '0',
-    'orderId': '469965509788581888',
-    'clientOrderId': '1570760253946',
-    'symbol': 'BTC-SWAP',
-    'price': '8502.34',
-    'leverage': '20',
-    'origQty': '222',
-    'executedQty': '0',
-    'avgPrice': '0',
-    'marginLocked': '0.00130552',
-    'orderType': 'LIMIT',
-    'side': 'BUY_OPEN',
-    'fees': [],
-    'timeInForce': 'GTC',
-    'status': 'NEW',
-    'priceType': 'INPUT'
-  },...
-]
+    {
+      "time": "1570760254539",
+      "updateTime": "0",
+      "orderId": "469965509788581888",
+      "clientOrderId": "1570760253946",
+      "symbol": "BTC-SWAP",
+      "price": "8502.34",
+      "leverage": "20",
+      "origQty": "222",
+      "executedQty": "0",
+      "avgPrice": "0",
+      "marginLocked": "0.00130552",
+      "orderType": "LIMIT",
+      "side": "BUY_OPEN",
+      "fees": [],
+      "timeInForce": "GTC",
+      "status": "NEW",
+      "priceType": "INPUT"
+    },...
+  ]
 }</code></pre>
 
         <h3 id="contract-historyOrders-response">响应数据</h3>
@@ -5698,23 +5680,24 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/myTrades?symbol=BTC
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": [
-  {
-    'time': '1570760582848',
-    'tradeId': '469968263995080704',
-    'orderId': '469968263793737728',
-    'accountId': '456552319339779840',
-    'symbolId': 'BTC-SWAP',
-    'price': '8531.17',
-    'quantity': '100',
-    'feeTokenId': 'TBTC',
-    'fee': '0.00000586',
-    'type': 'LIMIT',
-    'side': 'BUY_OPEN'
-  },...
-]
+    {
+      "time": "1570760582848",
+      "tradeId": "469968263995080704",
+      "orderId": "469968263793737728",
+      "accountId": "456552319339779840",
+      "symbolId": "BTC-SWAP",
+      "price": "8531.17",
+      "quantity": "100",
+      "feeTokenId": "TBTC",
+      "fee": "0.00000586",
+      "type": "LIMIT",
+      "side": "BUY_OPEN"
+    },...
+  ]
 }</code></pre>
 
         <h3 id="contract-myTrades-response">响应数据</h3>
@@ -5845,8 +5828,9 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/positions?symbol=BT
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": [
     {
       "symbol": "BTC-SWAP",
@@ -5979,7 +5963,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/positions?symbol=BT
         <ul>
             <li>POST <code>/v2/contract/trade/modifyMargin</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "symbol": "BTC-SWAP",
   "amount": 0.2564,
   "side": "LONG"
@@ -6026,8 +6010,9 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/positions?symbol=BT
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {
     "symbol": "BTC-SWAP",
     "margin": "0.00056304",
@@ -6091,16 +6076,17 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
+  "mgs": "success",
   "data": {
-  "TBTC": {
-    "total":"131.06671401",
-    "availableMargin":"131.0545541",
-    "positionMargin":"0.01215991",
-    "orderMargin":"0"
-  },...
-}
+    "TBTC": {
+        "total":"131.06671401",
+        "availableMargin":"131.0545541",
+        "positionMargin":"0.01215991",
+        "orderMargin":"0"
+    },...
+  }
 }</code></pre>
 
         <h3 id="contract-account-response">响应数据</h3>
@@ -6773,7 +6759,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>参数</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>[
+        <pre class="highlight json tab-json responsePre"><code>[
   "userLogin",
   {
     "signature": "93c4f85c396eeff4c0472a31439b98bec7168338f8fad44ef54b4f5b3f",
@@ -6817,7 +6803,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>
+        <pre class="highlight json tab-json responsePre"><code>
 [
   "userLogin",
   {
@@ -6849,7 +6835,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>
+        <pre class="highlight json tab-json responsePre"><code>
     [
   "subUserAccountInfo",
   [
@@ -6945,7 +6931,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>
+        <pre class="highlight json tab-json responsePre"><code>
 [
   "subUserOrderDeal",
   {
@@ -7074,7 +7060,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>订阅请求</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "topic": "depth",
   "event": "sub",
   "params": {
@@ -7115,7 +7101,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "topic": "depth",
   "params": {
     "symbol": "BTC-SWAP-USDT",
@@ -7219,7 +7205,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>订阅参数</p>
         </blockquote>
-        <pre class="highlight json tab-json">{
+        <pre class="highlight json tab-json responsePre">{
   "topic": "realtimes",
   "event": "sub",
   "params": {
@@ -7260,7 +7246,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "topic": "realtimes",
   "params": {
     "symbol": "BTC-SWAP-USDT",
@@ -7355,7 +7341,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>订阅参数</p>
         </blockquote>
-        <pre class="highlight json tab-json">{
+        <pre class="highlight json tab-json responsePre">{
             "topic": "trade",
             "event": "sub",
             "params": {
@@ -7396,7 +7382,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "topic": "trade",
   "params": {
     "symbol": "BTC-SWAP-USDT",
@@ -7469,7 +7455,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>订阅参数</p>
         </blockquote>
-        <pre class="highlight json tab-json">{
+        <pre class="highlight json tab-json responsePre"><code>{
   "topic": "kline",
   "event": "sub",
   "params": {
@@ -7518,7 +7504,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "topic": "kline",
   "params": {
     "symbol": "BTC-SWAP-USDT",
@@ -7598,7 +7584,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>订阅参数</p>
         </blockquote>
-        <pre class="highlight json tab-json">{
+        <pre class="highlight json tab-json responsePre"><code>{
             "topic": "trade",
             "event": "sub",
             "params": {
@@ -7640,7 +7626,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "topic": "bookTicker",
   "params": {
     "symbol": "BTC-SWAP-USDT",
@@ -7723,7 +7709,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <ul>
             <li>POST <code>/v2/contract/ws/dataStream/create</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "recvWindow": 500
 }</code></pre>
         <h3 id="contract-listenKey-create-request">请求参数</h3>
@@ -7752,7 +7738,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
   "data": {
   "listenKey": "1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj"
@@ -7790,8 +7776,8 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <ul>
             <li>POST <code>/v2/contract/ws/dataStream/update</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-            "listenKey":"1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj",
+        <pre class="highlight json tab-json responsePre"><code>{
+  "listenKey":"1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj",
   "recvWindow": 500
 }</code></pre>
         <h3 id="contract-listenKey-update-request">请求参数</h3>
@@ -7826,7 +7812,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
   "data": {}
 }</code></pre>
@@ -7844,10 +7830,10 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <ul>
             <li>POST <code>/v2/contract/ws/dataStream/delete</code></li>
         </ul>
-        <pre class="highlight json tab-json"><code>{
-            "listenKey":"1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj",
-            "recvWindow": 500
-            }</code></pre>
+        <pre class="highlight json tab-json responsePre"><code>{
+  "listenKey":"1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj",
+  "recvWindow": 500
+}</code></pre>
         <h3 id="contract-listenKey-delete-request">请求参数</h3>
         <table>
             <thead>
@@ -7880,7 +7866,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
   "data": {}
 }</code></pre>
@@ -7917,7 +7903,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>账户更新response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "e": "outboundAccountInfo",   // 事件类型
   "E": 1499405658849,           // 事件时间
   "T": true,                    // 允许交易?
@@ -7972,7 +7958,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>订单更新response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "e": "executionReport",        // 事件类型
   "E": 1499405658658,            // 事件时间
   "s": "BTC-SWAP-USDT",                 // 交易对
@@ -7994,7 +7980,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
   "m": false,                    // 请忽略
   "O": 1499405658657,            // 订单创建时间
   "Z": "0.00000000"              // 累计成交数额
-</code></pre>
+}</code></pre>
 
         <p></p>
         <h2 id="websocket-contract-u-position">持仓更新</h2>
@@ -8016,7 +8002,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>持仓更新response</p>
         </blockquote>
-        <pre class="highlight json tab-json"><code>{
+        <pre class="highlight json tab-json responsePre"><code>{
   "e": "outboundContractPositionInfo",  // 事件类型
   "A": "",                              // 账户ID
   "s": "BTC-SWAP-USDT",                 // symbol
@@ -8047,7 +8033,42 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
             tar.addClass("active-nav").next("ul").addClass("next-ul-show");
         });
 
+        $("pre.responsePre ").html(function () {
+            var json = $(this).html();
+            try {
+                $(this).html(syntaxHighlight(json));
+            }catch (e) {
+                console.log(json);
+                console.log(e);
+            }
+
+        });
+
     });
+
+    function syntaxHighlight(json) {
+        if (typeof json != 'string') {
+            json = JSON.stringify(json, undefined, 2);
+        }
+        json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+            var cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+
+
 </script>
 
 
