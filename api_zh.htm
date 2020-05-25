@@ -820,7 +820,7 @@
 
         <p>以下是一个返回格式的样例：</p>
         <pre class="highlight json tab-json responsePre">{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": // per API response data in nested JSON object
 }</code></pre>
@@ -868,7 +868,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": [
     {
@@ -942,7 +942,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": [
     {
@@ -1133,7 +1133,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": [
     {
@@ -1236,7 +1236,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": [
     {
@@ -1346,7 +1346,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": [
     {
@@ -1429,7 +1429,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": {
     "bids": [
@@ -1508,7 +1508,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": [
     {
@@ -1578,7 +1578,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": {
     "asset": true,
@@ -1671,7 +1671,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": {
     "WALLET": [
@@ -1870,7 +1870,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": [
     {
@@ -2093,7 +2093,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": [
     {
@@ -2262,7 +2262,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": [
     {
@@ -2604,17 +2604,26 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
-  "data": {
-    "symbol": "BTC_USDT",
-    "direction": "ASK",
-    "source": "WALLET",
-    "type": "LIMIT",
-    "sortingWay": "TIME_ASC",
-    "page": 1,
-    "size": 10
-  }
+  "data": [
+    {
+      "id": "201806232342422123123",
+      "symbol": "BTC_USDT",
+      "type": "STOP_LIMIT",
+      "totalVolume": 1.123,
+      "price": "7000.3241",
+      "direction": "ASK",
+      "dealVolume": 0.1,
+      "frozenVolumeByOrder": 1.123,
+      "source": WALLET,
+      "stopPrice": 6900,
+      "operator": ">=",
+      "status": 0,
+      "createdTime": 1530604762277
+
+    }
+  ]
 }</code></pre>
         <h3 id="2213f4c32f-24">响应数据</h3>
         <table>
@@ -2726,10 +2735,9 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
-  "data": [
-    {
+  "data":{
       "id": "201806232342422123123",
       "symbol": "BTC_USDT",
       "type": "STOP_LIMIT",
@@ -2745,7 +2753,6 @@
       "createdTime": 1530604762277,
       "updateTime": 1530604762277
     }
-  ]
 }</code></pre>
         <h3 id="2213f4c32f-24">响应数据</h3>
         <table>
@@ -2940,7 +2947,7 @@
             <p>Response:</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "mgs": "success",
+  "msg": "success",
   "code": "0",
   "data": [
     {
@@ -3125,6 +3132,7 @@
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code":0,
+  "msg": "success",
   "data":
    {
     "success": 2,
@@ -3205,7 +3213,7 @@
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code":0,
-  "msg":"",
+  "msg": "success",
   "data":
    {
     "success": 2,
@@ -3302,7 +3310,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/common/brokerInfo"</span>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {
     "timezone": "UTC",
     "serverTime": "1570701444309",
@@ -3654,7 +3662,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/index?symbol=BTC-SWAP"<
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {
   "index":{
     "BTCUSDT":"8243.21666667",
@@ -3745,7 +3753,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/depth?symbol=BTC-SWAP&l
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {
   "time": 1555049455783,
   "bids": [
@@ -4024,7 +4032,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/trades?symbol=BTC-SWAP&
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {
   "time": 1555049455783,
   "bids": [
@@ -4143,7 +4151,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/kline?symbol=BTC-SWAP&i
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {[
   [
     1499040000000,      // Open time
@@ -4290,7 +4298,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-S
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {
 ## Single ticker
 {
@@ -4516,7 +4524,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-S
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {
     "time": "1570759718825",
     "updateTime": "0",
@@ -4723,7 +4731,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/getOrder?orderId=50
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {
     "time": "1570759718825",
     "updateTime": "0",
@@ -4952,7 +4960,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/getOrder?orderId=50
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {
     "symbol": "BTC-SWAP",
     "leverage": "10",
@@ -5194,7 +5202,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/openOrders?symbol=B
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": [
     {
       "time": "1570760254539",
@@ -5438,7 +5446,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/historyOrders?symbo
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": [
     {
       "time": "1570760254539",
@@ -5682,7 +5690,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/myTrades?symbol=BTC
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": [
     {
       "time": "1570760582848",
@@ -5830,7 +5838,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/positions?symbol=BT
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": [
     {
       "symbol": "BTC-SWAP",
@@ -6012,7 +6020,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/positions?symbol=BT
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {
     "symbol": "BTC-SWAP",
     "margin": "0.00056304",
@@ -6078,7 +6086,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
-  "mgs": "success",
+  "msg": "success",
   "data": {
     "TBTC": {
         "total":"131.06671401",
@@ -6835,8 +6843,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>
-    [
+        <pre class="highlight json tab-json responsePre"><code>[
   "subUserAccountInfo",
   [
     {
@@ -7329,26 +7336,28 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
             在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。
             变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是EOS-SWAP-USDT、BTC-SWAP-USDT、BTC-SWAP。它们的“v”会为连续的值（112，113，114）。</p>
         <h3 id="a94c774w3c5-2">主题订阅</h3>
-        <p><code>{
-            "topic": "trade",
-            "event": "sub",
-            "params": {
-            "symbol": "$symbol",
-            "binary": false
-            }
-            }</code></p>
+        <p><code>
+{
+    "topic": "trade",
+    "event": "sub",
+    "params": {
+        "symbol": "$symbol",
+        "binary": false
+    }
+}
+        </code></p>
 
         <blockquote>
             <p>订阅参数</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre">{
-            "topic": "trade",
-            "event": "sub",
-            "params": {
-            "symbol": "$symbol",
-            "binary": false
-            }
-            }</code>
+        <pre class="highlight json tab-json responsePre"><code>{
+  "topic": "trade",
+  "event": "sub",
+  "params": {
+    "symbol": "$symbol",
+    "binary": false
+  }
+}</code>
         </pre>
         <h3 id="749d7652242-2">参数</h3>
         <table>
@@ -7585,13 +7594,13 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
             <p>订阅参数</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-            "topic": "trade",
-            "event": "sub",
-            "params": {
-            "symbol": "BTC-SWAP-USDT",
-            "binary": false
-            }
-            }</code>
+  "topic": "trade",
+  "event": "sub",
+  "params": {
+    "symbol": "BTC-SWAP-USDT",
+    "binary": false
+  }
+}</code>
         </pre>
         <h3 id="749d76524a2-2">参数</h3>
         <table>
@@ -7741,8 +7750,8 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
   "data": {
-  "listenKey": "1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj"
-}
+    "listenKey": "1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj"
+  }
 }</code></pre>
 
         <h3 id="contract-listenKey-create-response">响应数据</h3>
