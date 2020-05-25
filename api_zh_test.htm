@@ -793,18 +793,23 @@
             <code>data</code>。前两个字段表示请求状态和信息，实际的业务数据在<code>data</code>字段里。</p>
 
         <p>以下是一个返回格式的样例：</p>
-        <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+        <pre class="highlight json tab-json"><code>
+<span class="p">{</span><span class="w">
   </span><span class="s2">"mgs""</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span
                 class="p">,</span><span class="w">
   </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span
                 class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">//</span><span
+  </span><span class="s2">"data"</span><span class="p">:</span>
+
+            <span class="w"> </span><span class="err">//</span><span
                 class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">API</span><span
                 class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">data</span><span
                 class="w"> </span><span class="err">in</span><span class="w"> </span><span
                 class="err">nested</span><span class="w"> </span><span class="err">JSON</span><span
                 class="w"> </span><span class="err">object</span><span class="w">
+
 </span><span class="p">}</span><span class="w">
+
 </span></code></pre>
         <table>
             <thead>
@@ -851,9 +856,10 @@
         </blockquote>
         <pre class="highlight json tab-json"><code><span class="w">  </span></span><span class="p">[</span><span
                 class="w">
-   </span><span class="p">{</span><span class="s2">"symbol"</span><span class="p">:</span><span
-                class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supportTrade"</span><span class="p">:</span><span class="s2">true</span><span
+   </span><span class="p">{</span>
+            <span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BTC_USDT"</span><span class="p">,</span>
+            <span class="w"></span>
+            <span class="s2">"supportTrade"</span><span class="p">:</span><span class="s2">true</span><span
                 class="p">,</span><span class="w">
     </span><span class="s2">"volumePrecision"</span><span class="p">:</span><span class="mi">4</span><span
                 class="p">,</span><span class="w">
