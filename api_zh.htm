@@ -561,16 +561,16 @@
 
         <h1 id="bkexApiIntroduce">简介</h1>
         <h2 id="订单深度行情数据-1">API 简介</h2>
-        <p>欢迎使用Bkex Global API！ </p>
+        <p>欢迎使用BKEX Global API！ </p>
 
-        <p>此文档是Bkex GlobalAPI的唯一官方文档，Bkex GlobalAPI提供的能力会在此持续更新，请大家及时关注。 </p>
+        <p>此文档是BKEX GlobalAPI的唯一官方文档，BKEX GlobalAPI提供的能力会在此持续更新，请大家及时关注。 </p>
 
         <p>您可通过点击右上方的语言按钮来切换文档语言。 </p>
 
         <p>文档右侧是针对请求参数以及响应结果的示例。</p>
 
         <h2 id="bkexApiIntroduce-2">更新订阅</h2>
-        <p>关于API新增、更新、下线等信息Bkex Global会提前发布公告进行通知，建议您关注我们的公告，及时获取相关信息。 </p>
+        <p>关于API新增、更新、下线等信息BKEX Global会提前发布公告进行通知，建议您关注我们的公告，及时获取相关信息。 </p>
 
         <p>您可以点击 <a
                 href="https://bkex.zendesk.com/hc/zh-cn/categories/360001640373-BKEX-Global-%E5%85%AC%E5%91%8A">这里 </a>
@@ -616,7 +616,7 @@
         </aside>
 
         <h2 id="useQuick-3">接口类型</h2>
-        <p>Bkex Global为用户提供两种接口，您可根据自己的使用场景和偏好来选择适合的方式进行查询行情、交易或提现。 </p>
+        <p>BKEX Global为用户提供两种接口，您可根据自己的使用场景和偏好来选择适合的方式进行查询行情、交易或提现。 </p>
         <h3 id="rest-api">REST API</h3>
         <p>REST，即Representational State Transfer的缩写，是目前较为流行的基于HTTP的一种通信机制，每一个URL代表一种资源。</p>
 
@@ -834,7 +834,7 @@
 
         <h1 id="basicInformation">基础信息</h1>
         <h2 id="basicInformation-1">获取所有交易对</h2>
-        <p>此接口返回所有Bkex Global支持的交易对。</p>
+        <p>此接口返回所有BKEX Global支持的交易对。</p>
         <pre class="highlight shell tab-shell"><code>curl <span
                 class="s2">"https://api.bkex.co/v2/common/symbols"</span>
 </code></pre>
@@ -908,7 +908,7 @@
 
 
         <h2 id="basicInformation-2">获取所有币种</h2>
-        <p>此接口返回所有Bkex Global支持的币种。</p>
+        <p>此接口返回所有BKEX Global支持的币种。</p>
         <pre class="highlight shell tab-shell"><code>curl <span
                 class="s2">"https://api.bkex.co/v2/common/currencys"</span>
 </code></pre>
@@ -6785,6 +6785,11 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
             </tbody>
         </table>
 
+        <aside class="notice">登录需要进行签名认证。<a href="./api_zh.htm?shell#useQuick-5" data-title="签名说明">签名说明</a></aside>
+        <p>签名参数为 timestamp</p>
+        <p>例：<br>
+        签名参数字符串：<code>timestamp=1588663088781</code><br>
+        使用secretKey 进行HMAC SHA256进行加密，得到的结果：<code>93c4f85c396eeff4c0472a31439b98bec7168338f8fad44ef54b4f5b3f</code></p>
 
         <blockquote>
             <p>Response</p>
