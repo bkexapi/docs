@@ -725,7 +725,7 @@
 
         <h3 id="4e4ca9ca80">Order Status</h3>
         <ul>
-            <li>-1 : Scheduled delegate order not triggered, this status order is in the matchmaking queue. <br></li>
+            <li>-1 : Stop-limit order not triggered, this status order is in the matchmaking queue. <br></li>
             <li> 0 : Waiting to be filled, this status order is in the matchmaking queue. <br></li>
             <li> 1 : Filled. This status order is not in the matchmaking queue and the full quantity of the order has been filled by the market. <br></li>
             <li> 2 : Cancelled. This status order is not in the pinch order, this status order may have a partial quantity and was successfully cancelled. <br></li>
@@ -761,12 +761,12 @@
             <tr>
                 <td>Wallet class</td>
                 <td>/v2/u/wallet/*</td>
-                <td>Wallet withdrawals, charge and withdrawal records</td>.
+                <td>Wallet withdrawals, deposit and withdrawal records</td>.
             </tr>
             <tr>
                 <td>Order Class</td>
                 <td>/v2/u/order/*</td>
-                <td>Order class interface, including placing orders, withdrawals, order inquiries, transaction inquiries, etc. </td>
+                <td>Order class interface, including placing orders, withdrawals, order inquiries, deal inquiries, etc. </td>
             </tr>
             </tbody>
         </table>
@@ -792,7 +792,7 @@
 
         <ul>
             <li>GET request: all the parameters are in the path parameter</li>
-            <li>POST request, with all parameters sent in form-data format in the body of the request</li>.
+            <li>POST request, with all parameters sent in form-data format in the body of the request</li>
         </ul>
         <h2 id="useExplain-4">Return Format</h2>
         <p>All interfaces are in JSON format. There are three fields at the top of JSON: <code>msg</code>, <code>code< /code> and
@@ -880,7 +880,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
             </tr>
             <tr>
                 <td>supportTrade</td>
@@ -980,17 +980,17 @@
             <tr>
                 <td>supportDeposit</td>
                 <td>boolean</td>
-                <td>Whether or not to support top-up</td>.
+                <td>Whether or not to support deposit</td>.
             </tr>
             <tr>
                 <td>supportTrade</td>
                 <td>boolean</td>
-                <td>Whether or not the transaction is supported</td>
+                <td>Whether or not to support trade</td>
             </tr>
             <tr>
                 <td>supportWithdraw</td>
                 <td>boolean</td>
-                <td>Whether it supports cash withdrawal</td>
+                <td>Whether or not to support withdrawal</td>
             </tr>
             <tr>
                 <td>withdrawFee</td>
@@ -1068,7 +1068,7 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
                 <td>BTC_USDT</td>
             </tr>
             <tr>
@@ -1140,7 +1140,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
             </tr>
             <tr>
                 <td>volume</td>
@@ -1205,7 +1205,7 @@
                 <td>string</td>
                 <td>false</td>
                 <td>NA</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
                 <td>BTC_USDT,ETH_USDT... </td>
             </tr>
             </tbody>
@@ -1244,7 +1244,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
             </tr>
             <tr>
                 <td>volume</td>
@@ -1315,7 +1315,7 @@
                 <td>string</td>
                 <td>false</td>
                 <td>NA</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
                 <td>BTC_USDT,ETH_USDT... </td>
             </tr>
             </tbody>
@@ -1347,7 +1347,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
             </tr>
             <tr>
                 <td>price</td>
@@ -1382,7 +1382,7 @@
                 <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
                 <td>BTC_USDT</td>
             </tr>
             <tr>
@@ -1512,7 +1512,7 @@
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
             </tr>
             <tr>
                 <td>volume</td>
@@ -1812,7 +1812,7 @@
         <!--钱包相关，充值与提现-->
         <h1 id="depositWithdraw">Top-ups and withdrawals</h1>
         <aside class="notice">Signature authentication is required to access the wallet-related interface. </aside>
-        <h2 id="depositWithdraw-1">Charge Address Lookup</h2>
+        <h2 id="depositWithdraw-1">Deposit Address Lookup</h2>
 
         <p>API Key Permissions: Read</p>
         <h3 id="http-18">HTTP requests</h3>
@@ -1876,13 +1876,13 @@
             <tr>
                 <td>address</td>
                 <td>string</td>
-                <td>Charge Address</td>
+                <td>Deposit Address</td>
                 <td></td>
             </tr>
             <tr>
                 <td>memo</td>
                 <td>string</td>
-                <td>Charging Address Labels</td>
+                <td>Deposit Address Labels</td>
                 <td></td>
             </tr>
             </tbody>
@@ -2109,7 +2109,7 @@
             <tr>
                 <td>hash</td>
                 <td>string</td>
-                <td>Trading Hash</td>
+                <td>Exchange Hash</td>
             </tr>
             <tr>
                 <td>volume</td>
@@ -2278,7 +2278,7 @@
             <tr>
                 <td>hash</td>
                 <td>string</td>
-                <td>Trading Hash</td>
+                <td>Exchange Hash</td>
             </tr>
             <tr>
                 <td>volume</td>
@@ -2428,14 +2428,14 @@
                 <td>decimal</td>
                 <td>false</td>
                 <td>NA</td>
-                <td>Scheduled Commission Order Trigger Price</td>
+                <td>Stop-limit Order Trigger Price</td>
             </tr>
             <tr>
                 <td>operator</td>
                 <td>string</td>
                 <td>false</td>
                 <td>NA</td>
-                <td>Scheduled delegate order trigger price operator gte - greater than and equal (>=), lte - less than and equal (<=)</td>
+                <td>Stop-limit order trigger price operator gte - greater than and equal (>=), lte - less than and equal (<=)</td>
             </tr>
             </tbody>
         </table>
@@ -2665,12 +2665,12 @@
             <tr>
                 <td>stopPrice</td>
                 <td>decimal</td>
-                <td>Scheduled Commission Order Trigger Price</td>
+                <td>Stop-limit Order Trigger Price</td>
             </tr>
             <tr>
                 <td>operator</td>
                 <td>string</td>
-                <td>Scheduled Delegated Order Operator</td>
+                <td>Stop-limit Order Operator</td>
             </tr>
             <tr>
                 <td>status</td>
@@ -2794,12 +2794,12 @@
             <tr>
                 <td>stopPrice</td>
                 <td>decimal</td>
-                <td>Scheduled Commission Order Trigger Price</td>
+                <td>Stop-limit Order Trigger Price</td>
             </tr>
             <tr>
                 <td>operator</td>
                 <td>string</td>
-                <td>Scheduled Delegated Order Operator</td>
+                <td>Stop-limit Order Operator</td>
             </tr>
             <tr>
                 <td>status</td>
@@ -3008,12 +3008,12 @@
             <tr>
                 <td>stopPrice</td>
                 <td>decimal</td>
-                <td>Scheduled Commission Order Trigger Price</td>
+                <td>Stop-limit Order Trigger Price</td>
             </tr>
             <tr>
                 <td>operator</td>
                 <td>string</td>
-                <td>Scheduled Delegated Order Operator</td>
+                <td>Stop-limit Order Operator</td>
             </tr>
             <tr>
                 <td>createdTime</td>.
@@ -5885,7 +5885,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/positions?symbol=B
                 <td>lastPrice</td>
                 <td>float</td>
                 <td>100</td>
-                <td>Last Market Price of Contract</td>.
+                <td>Last Market Price of Contract</td>
             </tr>
             <tr>
                 <td>positionValue</td>
@@ -5897,7 +5897,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/positions?symbol=B
                 <td>flp</td>
                 <td>float</td>
                 <td>80</td>
-                <td>Forced Closeout Price</td>
+                <td>Forced liquidation price</td>
             </tr>
             <tr>
                 <td>margin</td>
@@ -6448,7 +6448,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
             </tr>
             <tr>
                 <td>ts</td>
@@ -6552,7 +6552,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
             </tr>
             <tr>
                 <td>price</td>
@@ -6645,7 +6645,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
             </tr>
             <tr>
                 <td>close</td>
@@ -6980,7 +6980,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
             </tr>
             <tr>
                 <td>tradeTime</td>
@@ -7069,7 +7069,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
                 <td>symbol</td>
                 <td>string</td>
                 <td>true</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
                 <td>BTC-SWAP-USDT</td>
             </tr>
             <tr>
@@ -7214,7 +7214,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
                 <td>symbol</td>
                 <td>string</td>
                 <td>true</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
                 <td>BTC-SWAP-USDT</td>
             </tr>
             <tr>
@@ -7352,7 +7352,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
                 <td>symbol</td>
                 <td>string</td>
                 <td>true</td>
-                <td>Trade pairs</td>
+                <td>Trading pair</td>
                 <td>BTC-SWAP-USDT</td>
             </tr>
             <tr>
