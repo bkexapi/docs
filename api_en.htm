@@ -607,7 +607,7 @@
 
         <aside class="warning">
             <red><b>Risk warning</b></red>
-            ：These two keys are closely related to the security of your account, so do not disclose them to anyone at any time<b>at the same time</b>. API Key leaks can result in the loss of your assets (even if you don't have access to the currency). Please remove this API Key as soon as possible for leaks.
+            ：These two keys are closely related to the security of your account, so do not disclose them to anyone at any time<b> together</b>. API Key leaks can result in the loss of your assets (even if you don't have access to the currency). Please remove this API Key as soon as possible for leaks.
         </aside>
 
         <h2 id="useQuick-3">Interface type</h2>
@@ -685,8 +685,9 @@
         <p>Account types include： </p>
 
         <ul>
-            <li>WALLET: spot accounts, wallet accounts<br></li>
-            <li>OTC：OTC accounts<br></li>
+            <li>WALLET: Spot account<br></li>
+            <li>OTC：OTC account<br></li>
+            <li>GENERAL：Account for Super Contract<br></li>
         </ul>
         <h3 id="id">Order and transaction related ID description</h3>
         <ul>
@@ -714,7 +715,7 @@
 
         <ul>
             <li>TIME_ASC :Ascending by time. <br></li>
-            <li>TIME_DESC : In descending time order. <br></li>
+            <li>TIME_DESC : Descending by time. <br></li>
             <li>PRICE_ASC : ascending order by price. <br></li>
             <li>PRICE_DESC : descending order by price. <br></li>
         </ul>
@@ -791,7 +792,7 @@
             <li>POST request, with all parameters sent in form-data format in the body of the request</li>
         </ul>
         <h2 id="useExplain-4">Return Format</h2>
-        <p>All interfaces are in JSON format. There are three fields at the top of JSON: <code>msg</code>, <code>code< /code> and
+        <p>All interfaces are in JSON format. There are three fields at the top of JSON: <code>msg</code>, <code>code</code> and
             <code>data</code>. The first two fields represent the request status and information, the actual business data is in the <code>data</code> field . </p>
 
         <p>Here is an example of a return format:</p>
@@ -829,9 +830,9 @@
 
         <h1 id="basicInformation">Basic Information</h1>
         <h2 id="basicInformation-1">Get all pairs</h2>.
-        <p>This interface returns all pairs supported by BKEX Global. </p>
+        <p>This interface returns all symbols supported by BKEX Global. </p>
         <pre class="highlight shell tab-shell">< code>curl <span
-                class="s2">"https://api.bkex.co/v2/common/ symbols"</span>
+                class="s2">"https://api.bkex.co/v2/common/symbols"</span>
             </code></pre>
         <h3 id="http">HTTP requests</h3>
         <ul>
@@ -1080,7 +1081,7 @@
                 <td>long</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>Query the start time stamp in milliseconds</td>.
+                <td>The start timestamp in milliseconds</td>.
                 <td>1529739295000</td>
             </tr>
             <tr>
@@ -1088,21 +1089,21 @@
                 <td>long</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>Query deadline timestamp in milliseconds</td>
+                <td>The end timestamp in milliseconds</td>
                 <td>1532331295000</td>
             </tr>
             <tr>
-                <td>Size</td>
+                <td>size</td>
                 <td>integer</td>
                 <td>false</td>
                 <td>500</td>
-                <td>Return the number of K-line data bars</td>.
+                <td>The number of K-line data bars</td>.
                 <td>[1, 1000]</td>
             </tr>
             </tbody>
         </table>
 
-        <aside class="notice">The K-cycle is calculated starting at Greenwich Mean Time, e.g. The starting period of the daily K line is 0000 GMT - 0000 GMT the next day. </aside>
+        <aside class="notice">The K-cycle is calculated starting at Greenwich Mean Time, e.g. The starting period of the 1 Day kline is 0000 GMT , while the ending is 0000 GMT the next day. </aside>
 
         <blockquote>
             <p>Response:</p>
@@ -1175,7 +1176,7 @@
             </tr>
             </tbody>
         </table>
-        <h2 id="quotationData-2">24-hour quotes</h2>
+        <h2 id="quotationData-2">24-hour trade statistics</h2>
         <p>This interface provides the last 24 hours of pair market information. </p>
         <h3 id="http-6">HTTP requests</h3>
         <ul>
@@ -1352,7 +1353,7 @@
             </tr>
             </tbody>
         </table>
-        <h2 id="quotationData-4">Trade pair depth data</h2>
+        <h2 id="quotationData-4">Trade pair order book</h2>
         <p>This interface returns the current depth data for the specified trading pair. </p>
         <h3 id="http-8">HTTP requests</h3>
         <ul>
@@ -1578,13 +1579,13 @@
                 <td>asset</td>
                 <td>boolean</td>
                 <td>true</td>
-                <td>Whether or not assets (wallet accounts, fiat currency accounts)</td> are searchable
+                <td>Whether or not assets (wallet accounts, fiat currency accounts) are searchable </td>
             </tr>
             <tr>
                 <td>deal</td>
                 <td>boolean</td>
                 <td>true</td>
-                <td>Whether a trade can be delegated</td>
+                <td>Whether you can make a trade using this API key</td>
             </tr>
             <tr>
                 <td>contract</td>
@@ -1597,12 +1598,6 @@
                 <td>integer</td>
                 <td>1</td>
                 <td>Contract Permissions (0: Query, 1: Query and Trade)</td>
-            </tr>
-            <tr>
-                <td>endTime</td>
-                <td>long</td>
-                <td>1591537150000</td>
-                <td>api-key expiration time</td>
             </tr>
             </tbody>
         </table>
@@ -1677,8 +1672,8 @@
             <tbody>
             <tr>
                 <td>WALLET</td>
-                <td>object</td>
-                <td>Wallet account</td>
+                <td>string</td>
+                <td>Wallet account type, WALLET/OTC/GENERAL</td>
             </tr>
             </tbody>
         </table>
@@ -1815,7 +1810,7 @@
         <ul>
             <li>GET <code>/v2/u/wallet/address</code></li>.
         </ul>
-        <pre class="highlight shell tab-shell">< code>curl <span class="s2">"https://api. bkex.co//v2/u/wallet/address?currency=ETH"< /span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api. bkex.co//v2/u/wallet/address?currency=ETH"</span>
             </code></pre>
         <h3 id="1f9ac54b15-19">Request Parameters</h3>
         <table>
@@ -2031,7 +2026,7 @@
                 <td>from</td>
                 <td>false</td>
                 <td>long</td>
-                <td>Beginning timestamp</td>
+                <td>Beginning timestamp, in milliseconds</td>
                 <td></td>
                 <td>1532331295000</td>
             </tr>
@@ -2039,7 +2034,7 @@
                 <td>to</td>
                 <td>false</td>
                 <td>long</td>
-                <td>Timestamp</td>.
+                <td>End timestamp, in milliseconds</td>.
                 <td></td>
                 <td>1532331295000</td>
             </tr>
@@ -2200,7 +2195,7 @@
                 <td>from</td>
                 <td>false</td>
                 <td>long</td>
-                <td>Beginning timestamp</td>
+                <td>Beginning timestamp, in milliseconds</td>
                 <td></td>
                 <td>1532331295000</td>
             </tr>
@@ -2344,7 +2339,7 @@
             </tbody>
         </table>
         <! -- transaction-related->>
-        <h1 id="tradeOrder">spot trading</h1>
+        <h1 id="tradeOrder">Spot trading</h1>
         <aside class="notice">Signature authentication is required to access transaction-related interfaces. </aside>
 
         <h2 id="tradeOrder-1">Order</h2>.
@@ -3427,7 +3422,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/common/brokerInfo"</span
             </tbody>
         </table>
         <table>
-            <p>In the contracts information group: information on all contracts currently being traded by the broker will be returned:</ p>
+            <p>In the contracts information group: information on all contracts currently being traded by the broker will be returned:</p>
             <tbody>
             <thead>
             <tr>
@@ -4156,7 +4151,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/q/kline?symbol=BTC-SWAP&
                 <td>''</td>
                 <td>long</td>
                 <td>1538728740000</td>
-                <td>Beginning timestamp in milliseconds (ms) </td>
+                <td>Beginning timestamp in milliseconds</td>
             </tr>
             <tr>
                 <td>''</td>
@@ -4222,7 +4217,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/q/kline?symbol=BTC-SWAP&
         </table>
 
         <ul>
-            <li><strong>Weight:</strong><span>1</span></span>. /li>
+            <li><strong>Weight:</strong><span>1</span></li>
             <li><span>base asset represents that quantity of contracts received by the buyer</span></br>.
                 <span>quote asset represents the number of tokens used to obtain the contract</span></li>.
         </ul>
@@ -4233,23 +4228,23 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/q/kline?symbol=BTC-SWAP&
         <h2 id="contract-ticker24hr">24-hour ticker price changes Data</h2>
         <p>API Key Permissions: no signature required</p>
         <p>24-hour price change data. Note A lot of data is returned if symbols are not sent </p>
-        <h3 id="http-contract-ticker24hr">HTTP 请求</h3>。
+        <h3 id="http-contract-ticker24hr">HTTP Requests</h3>
         <ul>
             <li>GET <code>/v2/contract/q/ticker24hr</code></li>。
         </ul>
         <pre class="highlight json tab-json"><code>。
 curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-SWAP"</span>。
             </code></pre>
-        <h3 id="contract-ticker24hr-request">请求参数</h3>。
+        <h3 id="contract-ticker24hr-request">Request parameters</h3>。
         <table>
             <thead>
             <tr>
-                <th>参数</th>
-                <th>数据类型</th>
-                <th>是否必须</th>
-                <th>默认值</th>
-                <th>描述</th>
-                <th>取值范围</th>。
+                <th>Parameters</th>
+                <th>Data Types</th>
+                <th>Is it necessary</th>
+                <th>Default values</th>
+                <th>Description</th>
+                <th>Range of values</th>
             </tr>
             </thead>
             <tbody>
@@ -4300,7 +4295,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-S
     ]
 }</code></pre>
 
-        <h3 id="contract-ticker24hr-response">response data < /h3>
+        <h3 id="contract-ticker24hr-response">response data </h3>
             <table>
                 <tbody>
                 <thead>
@@ -4315,7 +4310,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-S
                     <td>time</td>
                     <td>long</td>
                     <td>1538728740000</td>
-                    <td>Beginning timestamp</td>
+                    <td>Beginning timestamp, in milliseconds</td>
                 </tr>
                 <tr>
                     <td>symbol</td>
@@ -4653,7 +4648,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-S
             <p>Get the details of a particular order</p>
             <h3 id="http-contract-getOrder">HTTP request</h3 >
             <ul>
-                <li>GET <code>/v2/contract/trade/getOrder</... code></li>
+                <li>GET <code>/v2/contract/trade/getOrder</code></li>
             </ul>
             <pre class="highlight json tab-json"><code>
 curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/getOrder?orderId= 507904211109878016&orderType=LIMIT"</span>
@@ -4725,7 +4720,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/getOrder?orderId= 
   }
 }</code></pre>
 
-            <h3 id="contract-getOrder-response">Response data</ h3>
+            <h3 id="contract-getOrder-response">Response data</h3>
             <table>
                 <tbody>
                 <thead>
@@ -4887,7 +4882,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/getOrder?orderId= 
   "orderId": "507904211109878016",
   "clientOrderId": "100011111100001"
 }</code></pre>
-                <h3 id="contract-orderCancel-request">Request Parameters< /h3>
+                <h3 id="contract-orderCancel-request">Request Parameters</h3>
                     <table>
                         <thead>
                         <tr>
@@ -5096,7 +5091,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/getOrder?orderId= 
                     </table>
 
                     <ul>
-                        <li><strong>Weight:</strong><span>1</span></span>. /li>
+                        <li><strong>Weight:</strong><span>1</span></li>
                             Either <li>orderId or clientOrderId must be sent</li>.
                     </ul>
 
@@ -5106,14 +5101,14 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/getOrder?orderId= 
                     <h2 id="contract-openOrders">Current Orders</h2>
                     <p>API Key Permissions: Contract Queries</p>
                     <p>Gets the current order of single or multiple symbols. Note If no symbols are sent, a lot of data is returned. </p>
-                    <h3 id="http-contract-openOrders">HTTP requests</ h3>
+                    <h3 id="http-contract-openOrders">HTTP requests</h3>
                     <ul>
                         <li>GET <code>/v2/contract/trade/openOrders</code></li>
                     </ul>
                     <pre class="highlight json tab-json"><code>
 curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/openOrders?symbol=BTC- SWAP&orderType=LIMIT"</span>
 </code></pre>
-                    <h3 id="contract-openOrders-request">Request Parameters</ h3>
+                    <h3 id="contract-openOrders-request">Request Parameters</h3>
                     <table>
                         <thead>
                         <tr>
@@ -5340,7 +5335,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/openOrders?symbol=
         </table>
 
         <ul>
-            <li><strong>Weight:</strong><span>1</span></span>. /li>
+            <li><strong>Weight:</strong><span>1</span></span></li>
             <li>If an orderId is sent, all orders with < orderId are returned. If not, it returns the most recent unfinished order</li>
         </ul>
 
@@ -5679,7 +5674,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/myTrades?symbol=BT
   ]
 }</code></pre>
 
-        <h3 id="contract-myTrades-response">response data</ h3>
+        <h3 id="contract-myTrades-response">response data</h3>
         <table>
             <tbody>
             <thead>
@@ -5753,7 +5748,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/myTrades?symbol=BT
             </tbody>
         </table>
         <ul>
-            <li><strong>Weight:</strong><span>5</span></span>. /li>
+            <li><strong>Weight:</strong><span>5</span></span></li>
             <li>If only fromId, it will return the order number less than fromId, in reverse order. </li>
             <li>If only toId is available, it will return the order number less than toId, in ascending order. </li>
             <li>If you have both fromId and toId, it will return the order number in both fromId and toId. In reverse order. </li>
@@ -5766,14 +5761,14 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/myTrades?symbol=BT
         <h2 id="contract-positions">Current Positions</h2>
         <p>API Key Permissions: Contract Queries</p>
         <p>Get current position information</p>
-        <h3 id="http-contract-positions">HTTP requests</ h3>
+        <h3 id="http-contract-positions">HTTP requests</h3>
         <ul>
             <li>GET <code>/v2/contract/trade/positions</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
 curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/positions?symbol=BTC-SWAP &side=LONG"</span>
 </code></pre>
-        <h3 id="contract-positions-request">Request Parameters</ h3>
+        <h3 id="contract-positions-request">Request Parameters</h3>
         <table>
             <thead>
             <tr>
@@ -5830,7 +5825,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/positions?symbol=B
   ]
 }</code></pre>
 
-        <h3 id="contract-positions-response">response data</ h3>
+        <h3 id="contract-positions-response">Response data</h3>
         <table>
             <tbody>
             <thead>
@@ -6031,7 +6026,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/trade/positions?symbol=B
             </tbody>
         </table>
         <ul>
-            <li><strong>Weight:</strong><span>1</span></span>. /li>
+            <li><strong>Weight:</strong><span>1</span></li>
         </ul>
 
 
@@ -6118,7 +6113,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
 
         <p><strong><code>wss://api.bkex.co</code></strong></code>. strong></p>
 
-        <p><strong><code>wss://api.bkex.com</code>< /strong></p>
+        <p><strong><code>wss://api.bkex.com</code></strong></p>
         <h2 id="websocket-2">Example</h2>
         <h3 id="a94c7743c15">Socket.io Demo</h3>
         <p><code>&lt;script
@@ -7676,7 +7671,6 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
             <li><p>User data streams are pushed at this endpoint /contract/u/ws/{listenKey} access</p></li>.
             <li><p>A single API connection is only valid for 24 hours, be prepared to be disconnected after 24 hours</p></li>.
             <li><p>User information flow returns are not guaranteed to be in proper order during busy order periods, please use the E field for sorting</p></li>.
-            <li>
         </ul>
         <h3 id="websocket-contract-u-url">Access URL</h3>
         <p><strong><code>wss://api.bkex.co/contract /u/ws/{listenKey}</code></strong></p>
@@ -7756,7 +7750,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
         <p>Extend to 60 minutes after this call, it is recommended to do an extension every 30 minutes </p>
         <h3 id="http-contract-listenKey-update"> HTTP Request</h3>
         <ul>
-            <li>POST <code>/v2/contract/ws/dataStream/ update</code></li>
+            <li>POST <code>/v2/contract/ws/dataStream/update</code></li>
         </ul>
         <pre class="highlight json tab-json responsePre"><code>{
   "listenKey":" 1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj ",
@@ -7864,8 +7858,8 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
         <p></p>
 
         <p></p>
-        <h2 id="websocket-contract-u-account">Account update< /h2>
-            <p>Use outboundAccountInfo event for account updates</p>
+        <h2 id="websocket-contract-u-account">Account update</h2>
+            <p>Use outbound AccountInfo event for account updates</p>
             <h3 id="a94c7723d5">Payload</h3>
             <p><code>{
                 "e": "outboundAccountInfo", // event type
@@ -7902,7 +7896,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
 </code></pre>
 
             <p></p>
-            <h2 id="websocket-contract-u-order">Order Update</i h2>
+            <h2 id="websocket-contract-u-order">Order Update</h2>
                 <p>The order is updated via the contractExecutionReport event. Detailed description information can be found here. Average price can be found by dividing Z by z</p>
                 <h3 id="a94c774365">Payload</h3>
                 <p><code>{
@@ -7998,8 +7992,7 @@ curl <span class="s2">"https://api.bkex.co/ v2/contract/u/account"</span>
 }
 </code></pre>
 
-
-    </div>
+<div>
     <div class="dark-box">
         <div class="lang-selector">
             <a href="./api_en.htm?shell#" data-language-name="shell" class="active">shell</a>
