@@ -348,6 +348,12 @@
                 <li>
                     <a href="./api_en.htm?shell#useExplain-4" class="toc-h2 toc-link" data-title="Response format">Response format</a>
                 </li>
+                <li>
+                    <a href="./api_en.htm?shell#useExplain-5" class="toc-h2 toc-link" data-title="Error code">Error code</a>
+                </li>
+                <li>
+                    <a href="./api_en.htm?shell#useExplain-6" class="toc-h2 toc-link" data-title="Sample code">Sample code</a>
+                </li>
             </ul>
         </li>
         <li>
@@ -785,7 +791,7 @@
             <li>Frequency limit according to IP for market class interface calls: 1 second and 10 times</li>.
         </ul>
         <h2 id="useExplain-3">Request Format</h2>
-        <p>All API requests are restful, and there are currently only two methods: GET and POST</p>
+        <p>There are currently only two methods: GET and POST</p>
 
         <ul>
             <li>GET request: all the parameters are in the path parameter</li>
@@ -827,8 +833,103 @@
             </tr>
             </tbody>
         </table>
+        <h2 id="useExplain-5">Error Code</h2>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <td>Error Code</td>
+                <td>Description</td>
+            </tr>
+            </thead>
+            <tr>
+                <td>0075</td>
+                <td>Incorrect trade priceSpread</td>
+            </tr>
+            <tr>
+                <td>0076</td>
+                <td>Incorrect trade order priceSpread precision</td>
+            </tr>
+            <tr>
+                <td>0077</td>
+                <td>Incorrect request param</td>
+            </tr>
+            <tr>
+                <td>1005</td>
+                <td>Not Enough balance</td>
+            </tr>
+            <tr>
+                <td>1801</td>
+                <td>Amount too small</td>
+            </tr>
+            <tr>
+                <td>1931</td>
+                <td>Quantity of ordering exceeds the limit</td>
+            </tr>
+            <tr>
+                <td>2002</td>
+                <td>Trading pair error</td>
+            </tr>
+            <tr>
+                <td>2025</td>
+                <td>Trading direction error</td>
+            </tr>
+            <tr>
+                <td>2027</td>
+                <td>The trading pair is not currently open for orders</td>
+            </tr>
+            <tr>
+                <td>2031</td>
+                <td>The number of precision not correct</td>
+            </tr>
+            <tr>
+                <td>2033</td>
+                <td>The trading pair is not currently open for BID orders</td>
+            </tr>
+            <tr>
+                <td>2034</td>
+                <td>This trading pair is not open for BID orders</td>
+            </tr>
+            <tr>
+                <td>2035</td>
+                <td>The trading pair is not currently open for ASK orders</td>
+            </tr>
+            <tr>
+                <td>2036</td>
+                <td>This trading pair is not open for ASK orders</td>
+            </tr>
+            <tr>
+                <td>2037</td>
+                <td>Please make trade after some time</td>
+            </tr>
+            <tr>
+                <td>2041</td>
+                <td>Price should be empty for market order</td>
+            </tr>
+            <tr>
+                <td>2042</td>
+                <td>The stop-limit orders of the trading pair exceeds the limit</td>
+            </tr>
+            <tr>
+                <td>2043</td>
+                <td>The total of stop-limit orders exceeds the limit</td>
+            </tr>
+            <tr>
+                <td>6006</td>
+                <td>Visit too frequently. Please try again later</td>
+            </tr>
+            <tr>
+                <td>7019</td>
+                <td>Cannot find order, cannot cancel</td>
+            </tr>
+            <tr>
+                <td>7020</td>
+                <td>You can not cancel the order now</td>
+            </tr>
+            </tbody>
+        </table>
 
-        <h2 id="Sample code">Sample code</h2>
+        <h2 id="useExplain-6">Sample code</h2>
         <p><a href="https://github.com/bkexapi/apidemo" target="_Blank">github sample code</a></p>
 
         <h1 id="basicInformation">Basic Information</h1>

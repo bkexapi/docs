@@ -348,6 +348,12 @@
                 <li>
                     <a href="./api_zh.htm?shell#useExplain-4" class="toc-h2 toc-link" data-title="返回格式">返回格式</a>
                 </li>
+                <li>
+                    <a href="./api_zh.htm?shell#useExplain-5" class="toc-h2 toc-link" data-title="常见错误码">常见错误码</a>
+                </li>
+                <li>
+                    <a href="./api_zh.htm?shell#useExplain-6" class="toc-h2 toc-link" data-title="示例代码">示例代码</a>
+                </li>
             </ul>
         </li>
         <li>
@@ -785,7 +791,7 @@
             <li>行情类接口调用根据IP进行限频：1秒10次</li>
         </ul>
         <h2 id="useExplain-3">请求格式</h2>
-        <p>所有的API请求都是restful，目前只有两种方法：GET和POST</p>
+        <p>目前只有两种方法：GET和POST</p>
 
         <ul>
             <li>GET请求：所有的参数都在路径参数里</li>
@@ -827,8 +833,103 @@
             </tr>
             </tbody>
         </table>
+        <h2 id="useExplain-5">常见错误码</h2>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <td>错误码</td>
+                <td>描述</td>
+            </tr>
+            </thead>
+            <tr>
+                <td>0075</td>
+                <td>交易价格不正确</td>
+            </tr>
+            <tr>
+                <td>0076</td>
+                <td>交易价格精度不对</td>
+            </tr>
+            <tr>
+                <td>0077</td>
+                <td>请求参数不正确</td>
+            </tr>
+            <tr>
+                <td>1005</td>
+                <td>余额不足</td>
+            </tr>
+            <tr>
+                <td>1801</td>
+                <td>数量太小</td>
+            </tr>
+            <tr>
+                <td>1931</td>
+                <td>委托数量超过限制</td>
+            </tr>
+            <tr>
+                <td>2002</td>
+                <td>交易对错误</td>
+            </tr>
+            <tr>
+                <td>2025</td>
+                <td>交易方向错误</td>
+            </tr>
+            <tr>
+                <td>2027</td>
+                <td>该交易对当前还未开放下单</td>
+            </tr>
+            <tr>
+                <td>2031</td>
+                <td>数量精度不正确</td>
+            </tr>
+            <tr>
+                <td>2033</td>
+                <td>该交易暂不支持下买单</td>
+            </tr>
+            <tr>
+                <td>2034</td>
+                <td>交易对当前还未开放买单</td>
+            </tr>
+            <tr>
+                <td>2035</td>
+                <td>该交易暂不支持下卖单</td>
+            </tr>
+            <tr>
+                <td>2036</td>
+                <td>交易对当前还未开放卖单</td>
+            </tr>
+            <tr>
+                <td>2037</td>
+                <td>请稍后下单/撤单(被限流)</td>
+            </tr>
+            <tr>
+                <td>2041</td>
+                <td>市价单Price应该为空</td>
+            </tr>
+            <tr>
+                <td>2042</td>
+                <td>交易对计划委托超过限制</td>
+            </tr>
+            <tr>
+                <td>2043</td>
+                <td>计划委托总数超过限制</td>
+            </tr>
+            <tr>
+                <td>6006</td>
+                <td>访问太频繁，请稍后重试(被限流)</td>
+            </tr>
+            <tr>
+                <td>7019</td>
+                <td>无法找到订单，无法取消</td>
+            </tr>
+            <tr>
+                <td>7020</td>
+                <td>无法取消该订单</td>
+            </tr>
+            </tbody>
+        </table>
 
-        <h2 id="示例代码访问限制">示例代码</h2>
+        <h2 id="useExplain-6">示例代码</h2>
         <p><a href="https://github.com/bkexapi/apidemo" target="_Blank">github 示例代码</a></p>
 
         <h1 id="basicInformation">基础信息</h1>
