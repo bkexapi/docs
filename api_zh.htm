@@ -286,7 +286,7 @@
 </a>
 <header>
     <div class="flex_box">
-        <a href="https://www.bkex.co/" class="a-logo">
+        <a href="https://www.bkex.cc/" class="a-logo">
             <img src="./api/newlogo.png" class="logo" alt="Logo">
         </a>
 
@@ -558,7 +558,7 @@
         </li>
     </ul>
     <ul class="toc-footer">
-        <li><a href="https://www.bkex.co/user/api">创建 API Key </a></li>
+        <li><a href="https://www.bkex.cc/user/api">创建 API Key </a></li>
     </ul>
 </div>
 <div class="page-wrapper">
@@ -593,7 +593,7 @@
         <h2 id="useQuick-1">接入准备</h2>
         <p>如需使用API ，请先登录网页端，完成API key的申请和权限配置，再据此文档详情进行开发和交易。 </p>
 
-        <p>您可以点击 <a href="https://www.bkex.co/user/api">这里 </a> 创建 API Key。</p>
+        <p>您可以点击 <a href="https://www.bkex.cc/user/api">这里 </a> 创建 API Key。</p>
 
         <p>每个账号最多可创建5组Api Key，每个Api Key可对应设置读取、交易、提币三种权限。 </p>
 
@@ -641,13 +641,13 @@
         <p><strong>REST API</strong></p>
 
         <p><strong><code>https://api.bkex.io (推荐)</code></strong></p>
-        <p><strong><code>https://api.bkex.co</code></strong></p>
+        <p><strong><code>https://api.bkex.cc</code></strong></p>
         <p><strong><code>https://api.bkex.com</code></strong></p>
 
         <p><strong>Websocket Feed</strong></p>
 
         <p><strong><code>wss://api.bkex.io (推荐)</code></strong></p>
-        <p><strong><code>wss://api.bkex.co</code></strong></p>
+        <p><strong><code>wss://api.bkex.cc</code></strong></p>
         <p><strong><code>wss://api.bkex.com</code></strong></p>
 
 
@@ -660,7 +660,7 @@
         <p>一个合法的请求所需要的内容：</p>
 
         <ul>
-            <li>方法请求地址：即访问服务器地址 api.bkex.co，比如 https://api.bkex.co/v2/u/order/create。</li>
+            <li>方法请求地址：即访问服务器地址 api.bkex.cc，比如 https://api.bkex.cc/v2/u/order/create。</li>
             <li>API 访问密钥（X_ACCESS_KEY）：您申请的 API Key 中的 Access Key。</li>
             <li>必选和可选参数：每个方法都有一组用于定义 API 调用的必需参数和可选参数。可以在每个方法的说明中查看这些参数及其含义。</li>
             <li>签名：加密计算得出的值，用于确保签名有效和未被篡改。</li>
@@ -669,7 +669,7 @@
         <p>规范要计算签名的请求 因为使用 HMAC 进行签名计算时，使用不同内容计算得到的结果会完全不同。所以在进行签名计算前，请先对请求进行规范化处理。下面以查询某订单详情请求为例进行说明：</p>
 
         <p>下单请求URL</p>
-        <p><code>https://api.bkex.co/v2/u/order/create?volume=0.12&direction=ASK&price=7126.4285&symbol=BTC_USDT</code>
+        <p><code>https://api.bkex.cc/v2/u/order/create?volume=0.12&direction=ASK&price=7126.4285&symbol=BTC_USDT</code>
         </p>
         <p>对参数按照ASCII码顺序进行排序</p>
         <p><code>direction=ASK&price=7126.4285&symbol=BTC_USDT&volume=0.12</code></p>
@@ -936,7 +936,7 @@
         <h2 id="basicInformation-1">获取所有交易对</h2>
         <p>此接口返回所有BKEX Global支持的交易对。</p>
         <pre class="highlight shell tab-shell"><code>curl <span
-                class="s2">"https://api.bkex.co/v2/common/symbols"</span>
+                class="s2">"https://api.bkex.cc/v2/common/symbols"</span>
 </code></pre>
         <h3 id="http">HTTP 请求</h3>
         <ul>
@@ -1010,7 +1010,7 @@
         <h2 id="basicInformation-2">获取所有币种</h2>
         <p>此接口返回所有BKEX Global支持的币种。</p>
         <pre class="highlight shell tab-shell"><code>curl <span
-                class="s2">"https://api.bkex.co/v2/common/currencys"</span>
+                class="s2">"https://api.bkex.cc/v2/common/currencys"</span>
 </code></pre>
         <h3 id="http-2">HTTP 请求</h3>
         <ul>
@@ -1105,7 +1105,7 @@
         <h2 id="basicInformation-3">获取服务器时间戳</h2>
         <p>此接口返回服务器当前时间戳。即从 UTC 1970年1月1日0时0分0秒0毫秒到现在的总毫秒数。</p>
         <pre class="highlight shell tab-shell"><code>curl <span
-                class="s2">"https://api.bkex.co/v2/common/timestamp"</span>
+                class="s2">"https://api.bkex.cc/v2/common/timestamp"</span>
 </code></pre>
         <h3 id="http-3">HTTP 请求</h3>
         <ul>
@@ -1150,7 +1150,7 @@
         <ul>
             <li>GET <code>/v2/q/kline</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.co/v2/q/kline?period=1m&amp;size=200&amp;symbol=BTC_USDT&amp;from=1529739295000&amp;to=1532331295000"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/q/kline?period=1m&amp;size=200&amp;symbol=BTC_USDT&amp;from=1529739295000&amp;to=1532331295000"</span>
 </code></pre>
         <h3 id="1f9ac54b15-5">请求参数</h3>
         <table>
@@ -1287,7 +1287,7 @@
         <ul>
             <li>GET <code>/v2/q/tickers</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.co/v2/q/tickers?symbol=BTC_USDT"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/q/tickers?symbol=BTC_USDT"</span>
 </code></pre>
         <h3 id="1f9ac54b15-6">请求参数</h3>
         <table>
@@ -1397,7 +1397,7 @@
         <ul>
             <li>GET <code>/v2/q/ticker/price</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.co/v2/q/ticker/price?symbol=BTC_USDT"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/q/ticker/price?symbol=BTC_USDT"</span>
 </code></pre>
         <h3 id="1f9ac54b15-6">请求参数</h3>
         <table>
@@ -1464,7 +1464,7 @@
         <ul>
             <li>GET <code>/v2/q/depth</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.co/v2/q/depth?symbol=BTC_USDT&amp;depth=20&amp;precision=4"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/q/depth?symbol=BTC_USDT&amp;depth=20&amp;precision=4"</span>
 </code></pre>
         <h3 id="1f9ac54b15-8">请求参数</h3>
         <table>
@@ -1554,7 +1554,7 @@
         <ul>
             <li>GET <code>/v2/q/deals</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.co/v2/q/deals?symbol=BTC_USDT&amp;size=20"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/q/deals?symbol=BTC_USDT&amp;size=20"</span>
 </code></pre>
         <h3 id="1f9ac54b15-9">请求参数</h3>
         <table>
@@ -1923,7 +1923,7 @@
         <ul>
             <li>GET <code>/v2/u/wallet/address</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.co//v2/u/wallet/address?currency=ETH"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc//v2/u/wallet/address?currency=ETH"</span>
 </code></pre>
         <h3 id="1f9ac54b15-19">请求参数</h3>
         <table>
@@ -3381,7 +3381,7 @@
             <li>GET <code>/v2/contract/common/brokerInfo</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/common/brokerInfo"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/common/brokerInfo"</span>
         </code></pre>
         <h3 id="contract-broker-request">请求参数</h3>
         <p>无参数</p>
@@ -3711,7 +3711,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/common/brokerInfo"</span>
             <li>GET <code>/v2/contract/q/index</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/q/index?symbol=BTC-SWAP"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/q/index?symbol=BTC-SWAP"</span>
         </code></pre>
         <h3 id="contract-index-request">请求参数</h3>
         <table>
@@ -3794,7 +3794,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/index?symbol=BTC-SWAP"<
             <li>GET <code>/v2/contract/q/depth</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/q/depth?symbol=BTC-SWAP&limit=30"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/q/depth?symbol=BTC-SWAP&limit=30"</span>
             </code></pre>
         <h3 id="contract-depth-request">请求参数</h3>
         <table>
@@ -4073,7 +4073,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/depth?symbol=BTC-SWAP&l
             <li>GET <code>/v2/contract/q/trades</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/q/trades?symbol=BTC-SWAP&limit=10"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/q/trades?symbol=BTC-SWAP&limit=10"</span>
             </code></pre>
         <h3 id="contract-trades-request">请求参数</h3>
         <table>
@@ -4176,7 +4176,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/trades?symbol=BTC-SWAP&
             <li>GET <code>/v2/contract/q/kline</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/q/kline?symbol=BTC-SWAP&interval=1m"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/q/kline?symbol=BTC-SWAP&interval=1m"</span>
             </code></pre>
         <h3 id="contract-kline-request">请求参数</h3>
         <table>
@@ -4347,7 +4347,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/kline?symbol=BTC-SWAP&i
             <li>GET <code>/v2/contract/q/ticker24hr</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-SWAP"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/q/ticker24hr?symbol=BTC-SWAP"</span>
             </code></pre>
         <h3 id="contract-ticker24hr-request">请求参数</h3>
         <table>
@@ -4773,7 +4773,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/q/ticker24hr?symbol=BTC-S
             <li>GET <code>/v2/contract/trade/getOrder</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/trade/getOrder?orderId=507904211109878016&orderType=LIMIT"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/getOrder?orderId=507904211109878016&orderType=LIMIT"</span>
         </code></pre>
         <h3 id="contract-getOrder-request">请求参数</h3>
         <table>
@@ -5228,7 +5228,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/getOrder?orderId=50
             <li>GET <code>/v2/contract/trade/openOrders</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/trade/openOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/openOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
 </code></pre>
         <h3 id="contract-openOrders-request">请求参数</h3>
         <table>
@@ -5472,7 +5472,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/openOrders?symbol=B
             <li>GET <code>/v2/contract/trade/historyOrders</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/trade/historyOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/historyOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
 </code></pre>
         <h3 id="contract-historyOrders-request">请求参数</h3>
         <table>
@@ -5716,7 +5716,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/historyOrders?symbo
             <li>GET <code>/v2/contract/trade/myTrades</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/trade/myTrades?symbol=BTC-SWAP&side=LIMIT"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/myTrades?symbol=BTC-SWAP&side=LIMIT"</span>
 </code></pre>
         <h3 id="contract-myTrades-request">请求参数</h3>
         <table>
@@ -5889,7 +5889,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/myTrades?symbol=BTC
             <li>GET <code>/v2/contract/trade/positions</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/trade/positions?symbol=BTC-SWAP&side=LONG"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/positions?symbol=BTC-SWAP&side=LONG"</span>
 </code></pre>
         <h3 id="contract-positions-request">请求参数</h3>
         <table>
@@ -6166,7 +6166,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/trade/positions?symbol=BT
             <li>GET <code>/v2/contract/u/account</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
+curl <span class="s2">"https://api.bkex.cc/v2/contract/u/account"</span>
         </code></pre>
         <h3 id="contract-account-request">请求参数</h3>
         <p>无参数</p>
@@ -6235,13 +6235,13 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <p><strong>行情请求地址</strong></p>
 
         <p><strong><code>wss://api.bkex.io (推荐)</code></strong></p>
-        <p><strong><code>wss://api.bkex.co</code></strong></p>
+        <p><strong><code>wss://api.bkex.cc</code></strong></p>
         <p><strong><code>wss://api.bkex.com</code></strong></p>
         <h2 id="websocket-2">例子</h2>
         <h3 id="a94c7743c15">Socket.io Demo</h3>
         <p><code>&lt;script
             src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"&gt;&lt;/script&gt;</code></p>
-        <p><code>const socket = io('https://api.bkex.co/quotation');</code></p>
+        <p><code>const socket = io('https://api.bkex.cc/quotation');</code></p>
         <p><code>socket.on('connect', function (data) {</code></p>
         <p><code>&emsp;socket.emit("subKlineByRange", {</code></p>
         <p><code>&emsp;&emsp;"symbol": "BTC_USDT,ETH_USDT,LTC_USDT",</code></p>
@@ -6254,7 +6254,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
 
         <h3 id="a94c7743c25">Native WebScoket Demo</h3>
         <p><code>var pingPong = null;</code></p>
-        <p><code>ws = new WebSocket("wss://api.bkex.co/socket.io/?EIO=3&transport=websocket");</code></p>
+        <p><code>ws = new WebSocket("wss://api.bkex.cc/socket.io/?EIO=3&transport=websocket");</code></p>
         <p><code>ws.onopen = function() {pingPong = setInterval(function () { ws.send('2');}, 20 * 1000)};</code>
         </p>
         <p><code>ws.onmessage = function(e) {</code></p>
@@ -6839,12 +6839,12 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <p><strong>请求地址</strong></p>
 
         <p><strong><code>wss://api.bkex.io (推荐)</code></strong></p>
-        <p><strong><code>wss://api.bkex.co</code></strong></p>
+        <p><strong><code>wss://api.bkex.cc</code></strong></p>
         <p><strong><code>wss://api.bkex.com</code></strong></p>
         <h2 id="websocket-account-2">例子</h2>
         <h3 id="a94c7743c5-account">Socket.io Demo</h3>
         <p><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"&gt;&lt;/script&gt;</code></p>
-        <p><code>const socketUser = io('https://api.bkex.co/account');</code></p>
+        <p><code>const socketUser = io('https://api.bkex.cc/account');</code></p>
         <p><code>socketUser.on('connect', function (data) {</code></p>
         <p><code>&emsp;socketUser.emit('userLogin', {</code></p>
         <p><code>&emsp;&emsp;"signature": "XXXXX",</code></p>
@@ -6861,7 +6861,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
 
         <h3 id="a94c7743c6-account">Native WebScoket Demo</h3>
         <p><code>var pingPong = null;</code></p>
-        <p><code>ws = new WebSocket("wss://api.bkex.co/socket.io/?EIO=3&transport=websocket");</code></p>
+        <p><code>ws = new WebSocket("wss://api.bkex.cc/socket.io/?EIO=3&transport=websocket");</code></p>
         <p><code>ws.onopen = function() {pingPong = setInterval(function () { ws.send('2');}, 20 * 1000)};</code>
         </p>
         <p><code>ws.onmessage = function(e) {</code></p>
@@ -7140,7 +7140,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         <p><strong>合约行情请求地址</strong></p>
 
         <p><strong><code>wss://api.bkex.io/contract/q/ws (推荐)</code></strong></p>
-        <p><strong><code>wss://api.bkex.co/contract/q/ws</code></strong></p>
+        <p><strong><code>wss://api.bkex.cc/contract/q/ws</code></strong></p>
         <p><strong><code>wss://api.bkex.com/contract/q/ws</code></strong></p>
 
         <p></p>
@@ -7825,7 +7825,7 @@ curl <span class="s2">"https://api.bkex.co/v2/contract/u/account"</span>
         </ul>
         <h3 id="websocket-contract-u-url">接入URL</h3>
         <p><strong><code>wss://api.bkex.io/contract/u/ws/{listenKey} (推荐)</code></strong></p>
-        <p><strong><code>wss://api.bkex.co/contract/u/ws/{listenKey}</code></strong></p>
+        <p><strong><code>wss://api.bkex.cc/contract/u/ws/{listenKey}</code></strong></p>
         <p><strong><code>wss://api.bkex.com/contract/u/ws/{listenKey}</code></strong></p>
         <p></p>
 

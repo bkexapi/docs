@@ -12,7 +12,7 @@ try:
 except ImportError:
     from urllib.parse import urlencode
 
-BASE_API_HOST = "https://api.bkex.co"
+BASE_API_HOST = "https://api.bkex.cc"
 
 class BkexAPI:
 
