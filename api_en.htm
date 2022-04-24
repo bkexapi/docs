@@ -635,16 +635,16 @@
 
         <p>The private interface can be used for transaction management and account management. Each private request must be signed using your API Key for signature verification.</p>
         <h2 id="useQuick-4">Access URLs</h2>
-        <p>You can compare the latency on your own using the api.bkex.cc and api.bkex.com domains. Select the low latency for use. </p>
+        <!--<p>You can compare the latency on your own using the api.bkex.cc and api.bkex.com domains. Select the low latency for use. </p>-->
 
         <p><strong>REST API</strong></p>
 
-        <p><strong><code>https://api.bkex.cc</code></strong></p>
+        <!--<p><strong><code>https://api.bkex.cc</code></strong></p>-->
         <p><strong><code>https://api.bkex.com</code></strong></p>
 
         <p><strong>Websocket Feed</strong></p>
 
-        <p><strong><code>wss://api.bkex.cc</code></strong></p>
+        <!--<p><strong><code>wss://api.bkex.cc</code></strong></p>-->
         <p><strong><code>wss://api.bkex.com</code></strong></p>
 
 
@@ -657,7 +657,7 @@
         <p>What is required for a legitimate request：</p>
 
         <ul>
-            <li>Method request address: i.e. access server address api.bkex.cc, e.g. https://api.bkex.cc/v2/u/order/create.</li>
+            <li>Method request address: i.e. access server address api.bkex.com, e.g. https://api.bkex.com/v2/u/order/create.</li>
             <li>API Access Key (X_ACCESS_KEY): The Access Key in the API Key you are requesting.</li>
             <li>Required and optional parameters: Each method has a set of required and optional parameters that define the API calls. These parameters and their meanings can be found in the description of each method.</li>
             <li>Signature: The value calculated cryptographically to ensure that the signature is valid and has not been tampered with.</li>
@@ -666,7 +666,7 @@
         <p>Specification of requests to calculate signatures Because when using HMAC for signature calculations, calculating with different content can result in Completely different. So before you perform the signature calculation, please normalize the request. The following is an example of a request for an order detail.</p>
 
         <p>Order Request URL</p>
-        <p><code>https://api.bkex.cc/v2/u/order/create?volume=0.12&direction=ASK&price=7126.4285&symbol=BTC_USDT</code>
+        <p><code>https://api.bkex.com/v2/u/order/create?volume=0.12&direction=ASK&price=7126.4285&symbol=BTC_USDT</code>
         </p>
         <p>Sort the parameters in ASCII order</p>
         <p><code>direction=ASK&price=7126.4285&symbol=BTC_USDT&volume=0.12</code></p>
@@ -934,7 +934,7 @@
         <h2 id="basicInformation-1">Get all pairs</h2>.
         <p>This interface returns all symbols supported by BKEX Global. </p>
         <pre class="highlight shell tab-shell"><code>curl <span
-                class="s2">"https://api.bkex.cc/v2/common/symbols"</span>
+                class="s2">"https://api.bkex.com/v2/common/symbols"</span>
             </code></pre>
         <h3 id="http">HTTP requests</h3>
         <ul>
@@ -1008,7 +1008,7 @@
         <h2 id="basicInformation-2">Get all currencies</h2>
         <p>This interface returns all currencies supported by BKEX Global. </p>
         <pre class="highlight shell tab-shell"><code>curl <span
-                class="s2">"https://api.bkex.cc/v2/common/currencys"</span>
+                class="s2">"https://api.bkex.com/v2/common/currencys"</span>
             </code></pre>
         <h3 id="http-2">HTTP request</h3>
         <ul>
@@ -1103,7 +1103,7 @@
         <h2 id="basicInformation-3">Get the server timestamp</h2>.
         <p>This interface returns the server's current timestamp. That is, the total number of milliseconds from 00:00:00:0 milliseconds on January 1, 1970 UTC to the present. </p>
         <pre class="highlight shell tab-shell"><code>curl <span
-                class="s2">"https://api.bkex.cc/v2/common/timestamp"</span>
+                class="s2">"https://api.bkex.com/v2/common/timestamp"</span>
             </code></pre>
         <h3 id="http-3">HTTP request</h3>
         <ul>
@@ -1147,7 +1147,7 @@
         <ul>
             <li>GET <code>/v2/q/kline</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/q/kline?period=1m&amp;size=200&amp;symbol=BTC_USDT&amp;from=1529739295000&amp;to=1532331295000"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.com/v2/q/kline?period=1m&amp;size=200&amp;symbol=BTC_USDT&amp;from=1529739295000&amp;to=1532331295000"</span>
 </code></pre>
         <h3 id="1f9ac54b15-5">Request Parameters</h3>
         <table>
@@ -1284,7 +1284,7 @@
         <ul>
             <li>GET <code>/v2/q/tickers</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/q/tickers?symbol=BTC_USDT"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.com/v2/q/tickers?symbol=BTC_USDT"</span>
 </code></pre>
         <h3 id="1f9ac54b15-6">request parameter</h3>
         <table>
@@ -1394,7 +1394,7 @@
         <ul>
             <li>GET <code>/v2/q/ticker/price</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/q/ticker/price?symbol=BTC_USDT"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.com/v2/q/ticker/price?symbol=BTC_USDT"</span>
 </code></pre>
         <h3 id="1f9ac54b15-6">Request Parameters</h3>
         <table>
@@ -1461,7 +1461,7 @@
         <ul>
             <li>GET <code>/v2/q/depth</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/q/depth?symbol=BTC_USDT&amp;depth=20&amp;precision=4"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.com/v2/q/depth?symbol=BTC_USDT&amp;depth=20&amp;precision=4"</span>
             </code></pre>
         <h3 id="1f9ac54b15-8">Request Parameters</h3>
         <table>
@@ -1550,7 +1550,7 @@
         <ul>
             <li>GET <code>/v2/q/deals</code></li>
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/q/deals?symbol=BTC_USDT&amp;size=20"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.com/v2/q/deals?symbol=BTC_USDT&amp;size=20"</span>
             </code></pre>
         <h3 id="1f9ac54b15-9">Request Parameters</h3>
         <table>
@@ -1912,7 +1912,7 @@
         <ul>
             <li>GET <code>/v2/u/wallet/address</code></li>.
         </ul>
-        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.cc/v2/u/wallet/address?currency=ETH"</span>
+        <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.bkex.com/v2/u/wallet/address?currency=ETH"</span>
             </code></pre>
         <h3 id="1f9ac54b15-19">Request Parameters</h3>
         <table>
@@ -3370,7 +3370,7 @@
             <li>GET <code>/v2/contract/common/brokerInfo</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/common/brokerInfo"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/common/brokerInfo"</span>
         </code></pre>
         <h3 id="contract-broker-request">Request Parameters</h3>
         <p>No parameters</p>
@@ -3700,7 +3700,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/common/brokerInfo"</span>
             <li>GET <code>/v2/contract/q/index</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/q/index?symbol=BTC-SWAP"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/q/index?symbol=BTC-SWAP"</span>
         </code></pre>
         <h3 id="contract-index-request">Request Parameters</h3>
         <table>
@@ -3782,7 +3782,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/q/index?symbol=BTC-SWAP"<
             <li>GET <code>/v2/contract/q/depth</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/q/depth?symbol=BTC-SWAP&limit=30"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/q/depth?symbol=BTC-SWAP&limit=30"</span>
             </code></pre>
         <h3 id="contract-depth-request">Request Parameters</h3>
         <table>
@@ -4061,7 +4061,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/q/depth?symbol=BTC-SWAP&l
             <li>GET <code>/v2/contract/q/trades</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/q/trades?symbol=BTC-SWAP&limit=10"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/q/trades?symbol=BTC-SWAP&limit=10"</span>
             </code></pre>
         <h3 id="contract-trades-request">Request Parameters</h3>
         <table>
@@ -4164,7 +4164,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/q/trades?symbol=BTC-SWAP&
             <li>GET <code>/v2/contract/q/kline</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/q/kline?symbol=BTC-SWAP&interval=1m"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/q/kline?symbol=BTC-SWAP&interval=1m"</span>
             </code></pre>
         <h3 id="contract-kline-request">Request Parameters</h3>
         <table>
@@ -4335,7 +4335,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/q/kline?symbol=BTC-SWAP&i
             <li>GET <code>/v2/contract/q/ticker24hr</code></li>。
         </ul>
         <pre class="highlight json tab-json"><code>。
-curl <span class="s2">"https://api.bkex.cc/v2/contract/q/ticker24hr?symbol=BTC-SWAP"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/q/ticker24hr?symbol=BTC-SWAP"</span>
             </code></pre>
         <h3 id="contract-ticker24hr-request">Request parameters</h3>。
         <table>
@@ -4761,7 +4761,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/q/ticker24hr?symbol=BTC-S
                 <li>GET <code>/v2/contract/trade/getOrder</code></li>
             </ul>
             <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/getOrder?orderId=507904211109878016&orderType=LIMIT"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/trade/getOrder?orderId=507904211109878016&orderType=LIMIT"</span>
         </code></pre>
             <h3 id="contract-getOrder-request">Request Parameters</h3 >
             <table>
@@ -5215,7 +5215,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/getOrder?orderId=50
                         <li>GET <code>/v2/contract/trade/openOrders</code></li>
                     </ul>
                     <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/openOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/trade/openOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
 </code></pre>
                     <h3 id="contract-openOrders-request">Request Parameters</h3>
                     <table>
@@ -5459,7 +5459,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/openOrders?symbol=B
             <li>GET <code>/v2/contract/trade/historyOrders</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/historyOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/trade/historyOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
 </code></pre>
         <h3 id="contract-historyOrders-request">request Parameters</h3>
         <table>
@@ -5703,7 +5703,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/historyOrders?symbo
             <li>GET <code>/v2/contract/trade/myTrades</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/myTrades?symbol=BTC-SWAP&side=LIMIT"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/trade/myTrades?symbol=BTC-SWAP&side=LIMIT"</span>
 </code></pre>
         <h3 id="contract-myTrades-request">Request Parameters</h3 >
         <table>
@@ -5875,7 +5875,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/myTrades?symbol=BTC
             <li>GET <code>/v2/contract/trade/positions</code></li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/positions?symbol=BTC-SWAP&side=LONG"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/trade/positions?symbol=BTC-SWAP&side=LONG"</span>
 </code></pre>
         <h3 id="contract-positions-request">Request Parameters</h3>
         <table>
@@ -6152,7 +6152,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/trade/positions?symbol=BT
             <li>GET <code>/v2/contract/u/account</code> </li>
         </ul>
         <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.cc/v2/contract/u/account"</span>
+curl <span class="s2">"https://api.bkex.com/v2/contract/u/account"</span>
         </code></pre>
         <h3 id="contract-account-request">Request Parameters</h3>
         <p>No parameters</p>
@@ -6220,13 +6220,13 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/u/account"</span>
         <h3 id="url">Access URL</h3>
         <p><strong>Quote Request Address</strong></p>
 
-        <p><strong><code>wss://api.bkex.cc</code></strong></code>. strong></p>
+        <!--<p><strong><code>wss://api.bkex.cc</code></strong></code>. strong></p>-->
         <p><strong><code>wss://api.bkex.com</code></strong></p>
         <h2 id="websocket-2">Example</h2>
         <h3 id="a94c7743c15">Socket.io Demo</h3>
         <p><code>&lt;script
             src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"&gt;&lt;/script&gt;</code></p>
-        <p><code>const socket = io('https://api.bkex.cc/quotation');</code></p>
+        <p><code>const socket = io('https://api.bkex.com/quotation');</code></p>
         <p><code>socket.on('connect', function (data) {</code></p>
         <p><code>&emsp;socket.emit("subKlineByRange", {</code></p>
         <p><code>&emsp;&emsp;"symbol": "BTC_USDT,ETH_USDT,LTC_USDT",</code></p>
@@ -6823,12 +6823,12 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/u/account"</span>
         <h3 id="url-account">Access URL</h3>
         <p><strong>Request address</strong></p>
 
-        <p><strong><code>wss://api.bkex.cc</code></strong></code>. strong></p>
+        <!--<p><strong><code>wss://api.bkex.cc</code></strong></code>. strong></p>-->
         <p><strong><code>wss://api.bkex.com</code></strong></p>
         <h2 id="websocket-account-2">Example</h2>
         <h3 id="a94c7743c5-account">Socket.io Demo</h3>
         <p><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"&gt;&lt;/script&gt;</code></p>
-        <p><code>const socketUser = io('https://api.bkex.cc/account');</code></p>
+        <p><code>const socketUser = io('https://api.bkex.com/account');</code></p>
         <p><code>socketUser.on('connect', function (data) {</code></p>
         <p><code>&emsp;socketUser.emit('userLogin', {</code></p>
         <p><code>&emsp;&emsp;"signature": "XXXXX",</code></p>
@@ -6845,7 +6845,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/u/account"</span>
 
         <h3 id="a94c7743c6-account">Native WebScoket Demo</h3>
         <p><code>var pingPong = null;</code></p>
-        <p><code>ws = new WebSocket("wss://api.bkex.cc/socket.io/?EIO=3&transport=websocket");</code></p>
+        <p><code>ws = new WebSocket("wss://api.bkex.com/socket.io/?EIO=3&transport=websocket");</code></p>
         <p><code>ws.onopen = function() {pingPong = setInterval(function () { ws.send('2');}, 20 * 1000)};</code>
         </p>
         <p><code>ws.onmessage = function(e) {</code></p>
@@ -7123,7 +7123,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/u/account"</span>
         <h3 id="websocket-contract-q-url">Access URL</h3 >
         <p><strong>Contract Quote Request Address</strong></p>
 
-        <p><strong><code>wss://api.bkex.cc/contract/q/ws</code></strong></p>
+        <!--<p><strong><code>wss://api.bkex.cc/contract/q/ws</code></strong></p>-->
         <p><strong><code>wss://api.bkex.com/contract/q/ws</code></strong></p>
 
 
@@ -7807,7 +7807,7 @@ curl <span class="s2">"https://api.bkex.cc/v2/contract/u/account"</span>
             <li><p>User information flow returns are not guaranteed to be in proper order during busy order periods, please use the E field for sorting</p></li>.
         </ul>
         <h3 id="websocket-contract-u-url">Access URL</h3>
-        <p><strong><code>wss://api.bkex.cc/contract/u/ws/{listenKey}</code></strong></p>
+        <!--<p><strong><code>wss://api.bkex.cc/contract/u/ws/{listenKey}</code></strong></p>-->
         <p><strong><code>wss://api.bkex.com/contract/u/ws/{listenKey}</code></strong></strong></strong></p>
         <p></p>
 
