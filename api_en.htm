@@ -454,35 +454,14 @@
                 </li>
             </ul>
         </li>
-        <a href="./api_en.htm?shell#contract" class="toc-h1 toc-link" data-title="Contract transaction">Contract transaction (not in service)</a>
+        <a href="./api_en.htm?shell#contract" class="toc-h1 toc-link" data-title="Contract transaction">Contract transaction</a>
         <ul class="toc-list-h2">
-            <li>
-                <a href="./api_en.htm?shell#contract-parameterDescription" class="toc-h2 toc-link"
-                   data-title="Explanation of key parameters">Explanation of key parameters</a>
-            </li>
-            <li><a href="./api_en.htm?shell#contract-broker" class="toc-h2 toc-link" data-title="Broker trading information(contract)">Broker trading information(contract)</a>
-            </li>
-            <li><a href="./api_en.htm?shell#contract-index" class="toc-h2 toc-link" data-title="Index price">Index price</a></li>
-            <li><a href="./api_en.htm?shell#contract-depth" class="toc-h2 toc-link" data-title="Order book">Order book</a></li>
-            <!--            <li><a href="./api_en.htm?shell#contract-depthMerged" class="toc-h2 toc-link" data-title="合并订单簿（推荐）">合并订单簿（推荐）</a></li>-->
-            <li><a href="./api_en.htm?shell#contract-trades" class="toc-h2 toc-link" data-title="Latest deal">Latest deal</a></li>
-            <li><a href="./api_en.htm?shell#contract-kline" class="toc-h2 toc-link" data-title="K-line/candlestick chart data">K-line/candlestick chart data</a>
-            </li>
-            <li><a href="./api_en.htm?shell#contract-ticker24hr" class="toc-h2 toc-link" data-title="24H ticker price change data">24H ticker price change data</a>
-            </li>
-            <li><a href="./api_en.htm?shell#contract-order" class="toc-h2 toc-link" data-title="Create new order">Create new order</a></li>
-            <li><a href="./api_en.htm?shell#contract-getOrder" class="toc-h2 toc-link" data-title="Order information">Order information</a></li>
-            <li><a href="./api_en.htm?shell#contract-orderCancel" class="toc-h2 toc-link" data-title="Order cancellation">Order cancellation</a>
-            </li>
-            <li><a href="./api_en.htm?shell#contract-openOrders" class="toc-h2 toc-link" data-title="Current order">Current order</a></li>
-            <li><a href="./api_en.htm?shell#contract-historyOrders" class="toc-h2 toc-link" data-title="Order history">Order history</a>
-            </li>
-            <li><a href="./api_en.htm?shell#contract-myTrades" class="toc-h2 toc-link" data-title="Transaction history">Transaction history</a></li>
-            <li><a href="./api_en.htm?shell#contract-positions" class="toc-h2 toc-link" data-title="Current position">Current position</a></li>
-            <li><a href="./api_en.htm?shell#contract-modifyMargin" class="toc-h2 toc-link"
-                   data-title="Changing the margin of a position">Changing the margin of a position</a></li>
-            <li><a href="./api_en.htm?shell#contract-account" class="toc-h2 toc-link" data-title="Account information">Account information</a></li>
-
+            <li><a href="./api_en.htm?shell#contract-deep-data" class="toc-h2 toc-link" data-title="Get depth data">Get depth data</a></li>
+            <li><a href="./api_en.htm?shell#contract-kline" class="toc-h2 toc-link" data-title="Get K-line data">Get K-line data</a></li>
+            <li><a href="./api_en.htm?shell#contract-market-price" class="toc-h2 toc-link" data-title="Get the latest price">Get the latest price</a></li>
+            <li><a href="./api_en.htm?shell#contract-ticker-data" class="toc-h2 toc-link" data-title="Get ticker data">Get ticker data</a></li>
+            <li><a href="./api_en.htm?shell#contract-trades-history" class="toc-h2 toc-link" data-title="Get transaction history">Get transaction history</a></li>
+            <li><a href="./api_en.htm?shell#contract-market-symbols" class="toc-h2 toc-link" data-title="Get all transaction pair information">Get all transaction pair information</a></li>
         </ul>
         </li>
         <li>
@@ -3323,151 +3302,78 @@
         </table>
 
         <!-- 合约相关-->
-        <h1 id="contract">Contract transaction (not in service)</h1>
+        <h1 id="contract">Contract transaction</h1>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication。</aside>
-
-        <h2 id="contract-parameterDescription">Explanation of key parameters</h2>
-        <h3>side</h3>
-        <p>Direction of the transaction</p>
-        <p>BUY_OPEN: open long position</p>
-        <p>SELL_CLOSE: close long positions</p>
-        <p>SELL_OPEN: open empty position</p>
-        <p>BUY_CLOSE: open short position</p>
-
-        <h3>priceType</h3>
-        <p>Price type</p>
-        <p>INPUT: The system will use the price you enter to set up the order. </p>
-        <p>OPPONENT: Orders will be placed at the best price on the opponent market.
-            If you open 10 more contracts and the best bid is 10 and the best ask is 11, you will place 10 orders at the following price For 11 contract orders. If the number of orders is less than 10 contracts traded, the rest will remain in the market. </p>
-        <p>QUEUE: Orders will be matched at the best price in the same direction.
-            If you open 10 contracts long, and the best bid is 10 and the best ask is 11, you will place 10 contracts at 10. Orders. Let's say the market originally had 5 buy orders of 10, and with the order you placed there is now a total of 15 buy orders of 10</p>
-        <p>Over: Orders will be matched at the best price + over-price (floating) of the opposing order.
-            Suppose you open 10 contracts long and the best bid is 10 and the best ask is 11 (the overshoot is now 3), you will place 10 contracts. (11 + 3 =) 14 of the buy orders. If the number of orders is less than 10 traded, the rest will remain in the market. </p>
-        <p>MARKET: Orders will be matched at the last traded price * (1 ± 5%).
-            Let's say you open 10 contracts long and the latest traded price is 10, you would place 10 (10*1.05=)10.5 of a buy order. </p>
-
-        <h3>timeInForce</h3>
-        <p>Types of aging sheets</p>
-        <p>GTC: Stays in effect until cancelled. The order will remain in effect until cancelled. </p>
-        <p>IOC: Fill or Kill immediately. Orders will be filled for as much volume as possible at the best available price, the order may be partially filled and the remainder will be automatically filled. Withdrawn. </p>
-        <p>FOK: Filled in full or cancelled. Orders will either be filled in full at a best available price or simply cancelled. </p>
-        <p>LIMIT_MAKER: If the order will be filled immediately, the order will be cancelled. </p>
-
-        <h3>orderType</h3>
-        <p>Order Types</p>
-        <p>LIMIT: The order will be filled at a given (or better) price</p>.
-        <p>STOP: The order will be triggered once the price reaches the triggerPrice</p>.
-
-        <p></p>
         <p></p>
         <h2>Public Information Interface</h2>
         <p></p>
-        <h2 id="contract-broker">Broker transaction information (contract)</h2 >
+        <h2 id="contract-deep-data">Get depth data</h2 >
         <p>API Key permissions: no signature required</p>
-        <p>Get information about the current broker's trading rules and contract symbols (precision units and other information), including the contract's risk limits and multipliers</p>
-        <h3 id="http-contract-broker">HTTP request</h3>
-        <ul>
-            <li>GET <code>/v2/contract/common/brokerInfo</code></li>
-        </ul>
-        <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/common/brokerInfo"</span>
-        </code></pre>
-        <h3 id="contract-broker-request">Request Parameters</h3>
-        <p>No parameters</p>
+        <p>Frequency limit (according to IP limit): 20 times / S</p>
+        <h3 id="http-contract-deep-data">HTTP request</h3>
+        <ul><li>GET <code>/fapi/v2/market/depth</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/depth?symbol=btc_usdt"</span></code></pre>
+        <h3 id="contract-deep-data-request">Request Parameters</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Position</th>
+                <th>Data Types</th>
+                <th>Required</th>
+                <th>Default value</th>
+                <th>Describe</th>
+                <th>Value range</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>query</td>
+                <td>string</td>
+                <td>true</td>
+                <td>none</td>
+                <td>Transaction pair</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
 
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
+        <pre class="highlight json tab-json responsePre">
+            <code>
+{
   "code": 0,
   "msg": "success",
   "data": {
-    "timezone": "UTC",
-    "serverTime": "1570701444309",
-    "brokerFilters": [],
-    "rateLimits": [
-      {
-        "rateLimitType": "ORDERS",
-        "interval": "SECOND",
-        "limit": 20
-      },
-      {
-        "rateLimitType": "ORDERS",
-        "interval": "DAY",
-        "limit": 350000
-      },
-      {
-        "rateLimitType": "REQUEST_WEIGHT",
-        "interval": "MINUTE",
-        "limit": 1500
-      }
+    "bid": [
+      [
+        "40522.82",
+        "3.65"
+      ],
+      [
+        "40521.18",
+        "4.07"
+      ]
     ],
-    "contracts": [
-      {
-        "filters": [
-          {
-            "minPrice": "0.01",
-            "maxPrice": "100000.00000000",
-            "tickSize": "0.01",
-            "filterType": "PRICE_FILTER"
-          },
-          {
-            "minQty": "1",
-            "maxQty": "100000.00000000",
-            "stepSize": "1",
-            "filterType": "LOT_SIZE"
-          },
-          {
-            "minNotional": "0.000001",
-            "filterType": "MIN_NOTIONAL"
-          }
-        ],
-        "exchangeId": "301",
-        "symbol": "BTC-SWAP",
-        "symbolName": "BTC-SWAP",
-        "status": "TRADING",
-        "baseAsset": "BTC-SWAP",
-        "baseAssetPrecision": "1",
-        "quoteAsset": "USDT",
-        "quoteAssetPrecision": "0.01",
-        "icebergAllowed": false,
-        "inverse": true,
-        "index": "BTCUSDT",
-        "marginToken": "TBTC",
-        "marginPrecision": "0.00000001",
-        "contractMultiplier": "1.0",
-        "riskLimits": [
-          {
-            "riskLimitId": "200000001",
-            "quantity": "1000000.0",
-            "initialMargin": "0.01",
-            "maintMargin": "0.005"
-          },
-          {
-            "riskLimitId": "200000002",
-            "quantity": "2000000.0",
-            "initialMargin": "0.02",
-            "maintMargin": "0.01"
-          },
-          {
-            "riskLimitId": "200000003",
-            "quantity": "3000000.0",
-            "initialMargin": "0.03",
-            "maintMargin": "0.015"
-          },
-          {
-            "riskLimitId": "200000004",
-            "quantity": "4000000.0",
-            "initialMargin": "0.04",
-            "maintMargin": "0.02"
-          }
-        ]
-      }
+    "ask": [
+      [
+        "40525.66",
+        "2.82"
+      ],
+      [
+        "40527.3",
+        "4.49"
+      ]
     ]
   }
-}</code></pre>
+}
+            </code>
+        </pre>
 
-        <h3 id="contract-broker-response">Response Data</h3>
+        <h3 id="contract-deep-data-response">Response Data</h3>
         <table>
             <thead>
             <tr>
@@ -3479,212 +3385,16 @@ curl <span class="s2">"https://api.bkex.com/v2/contract/common/brokerInfo"</span
             </thead>
             <tbody>
             <tr>
-                <td>timezone</td>
-                <td>string</td>
-                <td>UTC</td>
-                <td>Timestamped time zone</td>
+                <td>bid</td>
+                <td>array</td>
+                <td>["40522.82", "3.65"]</td>
+                <td>Buying direction: [price, quantity]</td>
             </tr>
             <tr>
-                <td>serverTime</td>.
-                <td>long</td>
-                <td>1554887652929</td>
-                <td>Returns the current server timestamp in milliseconds</td>.
-            </tr>
-            </tbody>
-        </table>
-        <table>
-            <p>In the rateLimits group: the request limit for the order api will be displayed</p>.
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>rateLimitType</td>
-                <td>string</td>
-                <td>ORDERS</td>
-                <td>Type of speed limit</td>
-            </tr>
-            <tr>
-                <td>interval</td>
-                <td>string</td>
-                <td>SECOND</td>
-                <td>Speed limit range</td>
-            </tr>
-            <tr>
-                <td>limit</td>
-                <td>string</td>
-                <td>1500</td>
-                <td>Speed limit interval values</td>
-            </tr>
-            </tbody>
-        </table>
-        <table>
-            <p>In the contracts information group: information on all contracts currently being traded by the broker will be returned:</p>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>BTC-SWAP</td>
-                <td>Contract name</td>
-            </tr>
-            <tr>
-                <td>status</td>
-                <td>string</td>
-                <td>TRADING</td>
-                <td>Contract status</td>
-            </tr>
-            <tr>
-                <td>baseAsset</td>
-                <td>string</td>
-                <td>BTC-SWAP</td>
-                <td> Underlying Assets. For contracts, the contract itself is the underlying asset. </td>
-            </tr>
-            <tr>
-                <td>baseAssetPrecision</td>
-                <td>float</td>
-                <td>0.001</td>
-                <td>Accuracy of underlying assets (number of contracts)</td>
-            </tr>
-            <tr>
-                <td>quoteAsset</td>
-                <td>string</td>
-                <td>USDT</td>
-                <td> Pricing the asset. For contracts, this is what the contract is settled for. </td>
-            </tr>
-            <tr>
-                <td>quoteAssetPrecision</td>
-                <td>float</td>
-                <td>0.001</td>
-                <td> Accuracy in pricing assets (contract prices). </td>
-            </tr>
-            <tr>
-                <td>inverse</td>
-                <td>bool</td>
-                <td>true</td>
-                <td> Whether the contract is a reverse contract (true=is a reverse contract, false=is a forward contract). </td>
-            </tr>
-            <tr>
-                <td>index</td>
-                <td>string</td>
-                <td>BTCUSDT</td>
-                <td> Name of the underlying index. The real time price of the underlying index can be accessed at the index endpoint. For example, if BTC-SWAP uses BTCUSDT as the underlying index, then the following can be found at the index endpoint Real-time prices for BTCUSDT</td>
-            </tr>
-            <tr>
-                <td>contractMultiplier</td>
-                <td>string</td>
-                <td>true</td>
-                <td>Multiplier for contracts</td>
-            </tr>
-            <tr>
-                <td>icebergAllowed</td>
-                <td>string</td>
-                <td>false</td>
-                <td>Is the iceberg order supported</td>?
-            </tr>
-            </tbody>
-        </table>
-        <table>
-            <p>In the contracts filers information group:</p>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>filterType</td>
-                <td>string</td>
-                <td>PRICE_FILTER</td>
-                <td>Filter types</td>
-            </tr>
-            <tr>
-                <td>minPrice</td>
-                <td>float</td>
-                <td>0.001</td>
-                <td>Minimum price allowed</td>
-            </tr>
-            <tr>
-                <td>maxPrice</td>
-                <td>float</td>
-                <td>100000.0</td>
-                <td>Maximum price allowed</td>
-            </tr>
-            <tr>
-                <td>tickSize</td>
-                <td>float</td>
-                <td>0.001</td>
-                <td>Accuracy of contract prices</td>
-            </tr>
-            <tr>
-                <td>minQty</td>
-                <td>float</td>
-                <td>0.01</td>
-                <td>Minimum number allowed</td>
-            </tr>
-            <tr>
-                <td>maxQty</td>
-                <td>float</td>
-                <td>100000</td>
-                <td>Maximum number allowed</td>
-            </tr>
-            <tr>
-                <td>stepSize</td>.
-                <td>float</td>
-                <td>0.001</td>
-                <td>Accuracy of contract numbers</td>
-            </tr>
-            <tr>
-                <td>minNotional</td>
-                <td>float</td>
-                <td>1</td>
-                <td>Minimum transaction size limit (quantity * price)</td>
-            </tr>
-            </tbody>
-        </table>
-        <table>
-            <p>In the riskLimits information group:</p>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>quantity</td>
-                <td>float</td>
-                <td>100</td>
-                <td> Positions less than this number and greater than the quantity of the previous stall need to refer to the following requirements. </td>
-            </tr>
-            <tr>
-                <td>initialMargin</td>
-                <td>float</td>
-                <td>0.1</td>
-                <td>Initial margin rate</td>
-            </tr>
-            <tr>
-                <td>maintMargin</td>
-                <td>float</td>
-                <td>0.03</td>
-                <td>Minimum maintenance margin rate</td>
+                <td>ask</td>
+                <td>array</td>
+                <td>["40525.66", "2.82"]</td>
+                <td>Selling direction: [price, quantity]</td>
             </tr>
             </tbody>
         </table>
@@ -3692,36 +3402,70 @@ curl <span class="s2">"https://api.bkex.com/v2/contract/common/brokerInfo"</span
         <p></p>
         <h2>Quotes interface</h2>
         <p></p>
-        <h2 id="contract-index">Index price</h2>
+        <h2 id="contract-kline">Get K-line data</h2>
         <p>API Key permissions: no signature required</p>
-        <p>The underlying index price</p>
-        <h3 id="http-contract-index">HTTP Request</h3>
-        <ul>
-            <li>GET <code>/v2/contract/q/index</code></li>
-        </ul>
-        <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/q/index?symbol=BTC-SWAP"</span>
-        </code></pre>
-        <h3 id="contract-index-request">Request Parameters</h3>
+        <p>Frequency limit (according to IP limit): 20 times / s.</p>
+        <h3 id="http-contract-kline">HTTP Request</h3>
+        <ul><li>GET <code>/fapi/v2/market/candle</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/candle?symbol=btc_usdt&period=M1"</span></code></pre>
+        <h3 id="contract-kline-request">Request Parameters</h3>
         <table>
             <thead>
             <tr>
-                <th>Parameters</th>
+                <th>Parameter Name</th>
+                <th>Position</th>
                 <th>Data Types</th>
-                <th>Is it necessary</th>
-                <th>Default values</th>
-                <th>Description</th>
-                <th>Range of values</th>
+                <th>Required</th>
+                <th>Default value</th>
+                <th>Describe</th>
+                <th>Value range</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>symbol</td>
+                <td>query</td>
+                <td>string</td>
+                <td>true</td>
+                <td>none</td>
+                <td>Transaction pair</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>period</td>
+                <td>query</td>
+                <td>string</td>
+                <td>true</td>
+                <td>none</td>
+                <td>Return the time granularity of data, that is, the time interval of each candle</td>
+                <td>Value range：M1 M5 M15 M30 H1 H4 H6 D1</td>
+            </tr>
+            <tr>
+                <td>start</td>
+                <td>query</td>
                 <td>string</td>
                 <td>false</td>
-                <td>NA</td>
-                <td> Underlying index name, if this is not sent, all prices of the underlying index are returned. e.g. BTC-SWAP</td>
+                <td>none</td>
+                <td>Query start timestamp, in milliseconds</td>
                 <td></td>
+            </tr>
+            <tr>
+                <td>end</td>
+                <td>query</td>
+                <td>string</td>
+                <td>false</td>
+                <td>none</td>
+                <td>Query deadline timestamp, in milliseconds</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>count</td>
+                <td>query</td>
+                <td>string</td>
+                <td>false</td>
+                <td>Default 200</td>
+                <td>Return the number of K-line data</td>
+                <td>Value range [1, 500]</td>
             </tr>
             </tbody>
         </table>
@@ -3729,26 +3473,48 @@ curl <span class="s2">"https://api.bkex.com/v2/contract/q/index?symbol=BTC-SWAP"
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
   "code": 0,
   "msg": "success",
-  "data": {
-  "index":{
-    "BTCUSDT":"8243.21666667",
-    "OKBUSDT":"1.482",
-    "BNBUSDT":"31.2658",
-    "HTUSDT":"3.1209",...
+  "data": [
+    {
+      "symbol": "btc_usdt",
+      "amount": "0.04",
+      "volume": "1618.83",
+      "open": "40488.78",
+      "close": "40469.88",
+      "high": "40488.78",
+      "low": "40469.88",
+      "ts": 1650937980000
     },
-  "edp":{
-    "BTCUSDT":"8258.98505556",
-    "OKBUSDT":"1.48578333",
-    "BNBUSDT":"31.48741917",
-    "HTUSDT":"3.14308",...
-  }
+    {
+      "symbol": "btc_usdt",
+      "amount": "0.04",
+      "volume": "1619.55",
+      "open": "40469.36",
+      "close": "40488.78",
+      "high": "40488.95",
+      "low": "40469.36",
+      "ts": 1650937920000
+    },
+    {
+      "symbol": "btc_usdt",
+      "amount": "0.02",
+      "volume": "809.35",
+      "open": "40490.47",
+      "close": "40469.36",
+      "high": "40490.47",
+      "low": "40464.03",
+      "ts": 1650937860000
+    }
+  ]
 }
-}</code></pre>
+            </code>
+        </pre>
 
-        <h3 id="contract-index-response">Response data</h3>
+        <h3 id="contract-kline-response">Response data</h3>
         <table>
             <thead>
             <tr>
@@ -3760,57 +3526,83 @@ curl <span class="s2">"https://api.bkex.com/v2/contract/q/index?symbol=BTC-SWAP"
             </thead>
             <tbody>
             <tr>
-                <td>index</td>
-                <td>float</td>
-                <td>8342.73</td>
-                <td>Price of the underlying index</td>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>Transaction pair</td>
             </tr>
             <tr>
-                <td>EDP</td>
-                <td>float</td>
-                <td>8432.32</td>
-                <td>EDP of the underlying index (estimated delivery price, average of index prices over the last 10 minutes)</td>
+                <td>amount</td>
+                <td>string</td>
+                <td>"0.04"</td>
+                <td>Transaction volume in base currency</td>
+            </tr>
+            <tr>
+                <td>volume</td>
+                <td>string</td>
+                <td>"809.35"</td>
+                <td>Transaction volume in quotation currency</td>
+            </tr>
+            <tr>
+                <td>open</td>
+                <td>string</td>
+                <td>"40490.47"</td>
+                <td>Opening price at this stage</td>
+            </tr>
+            <tr>
+                <td>close</td>
+                <td>string</td>
+                <td>"40469.36"</td>
+                <td>Closing price at this stage</td>
+            </tr>
+            <tr>
+                <td>high</td>
+                <td>string</td>
+                <td>"40490.47"</td>
+                <td>Maximum price at this stage</td>
+            </tr>
+            <tr>
+                <td>low</td>
+                <td>string</td>
+                <td>"40464.03"</td>
+                <td>Lowest price at this stage</td>
+            </tr>
+            <tr>
+                <td>ts</td>
+                <td>long</td>
+                <td>1650937860000</td>
+                <td>Timestamp of the beginning of this phase</td>
             </tr>
             </tbody>
         </table>
 
-        <h2 id="contract-depth">Order Book</h2>
+        <h2 id="contract-market-price">Get the latest price</h2>
         <p>API Key Permissions: no signature required</p>
-        <p>Get the data from the current order book. This endpoint is updated once every 3 seconds. </p>
+        <p>Frequency limit (according to IP limit): 50 times / s. </p>
         <h3 id="http-contract-depth">HTTP request</h3>
-        <ul>
-            <li>GET <code>/v2/contract/q/depth</code></li>
-        </ul>
-        <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/q/depth?symbol=BTC-SWAP&limit=30"</span>
-            </code></pre>
+        <ul><li>GET <code>/fapi/v2/market/ticker/price</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/ticker/price?symbol=btc_usdt"</span></code></pre>
         <h3 id="contract-depth-request">Request Parameters</h3>
         <table>
             <thead>
             <tr>
-                <th>Parameters</th>
+                <th>Parameter Name</th>
+                <th>Position</th>
                 <th>Data Types</th>
-                <th>Is it necessary</th>
-                <th>Default values</th>
-                <th>Description</th>
-                <th>Range of values</th>
+                <th>Required</th>
+                <th>Default value</th>
+                <th>Describe</th>
+                <th>Value range</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>symbol</td>
+                <td>query</td>
                 <td>string</td>
-                <td>true</td>
-                <td>NA</td>
-                <td> The contract name used to get the order book. e.g. BTC-SWAP</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>limit</td>
-                <td>integer</td>
                 <td>false</td>
-                <td>40</td>
-                <td> Returns the number of bids and tasks. Default 40; max 40.</td>
+                <td>NA</td>
+                <td>Transaction pair; If it is not filled in, the data of all currency pairs will be obtained</td>
                 <td></td>
             </tr>
             </tbody>
@@ -3820,41 +3612,20 @@ curl <span class="s2">"https://api.bkex.com/v2/contract/q/depth?symbol=BTC-SWAP&
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
+        <pre class="highlight json tab-json responsePre">
+            <code>
+{
   "code": 0,
   "msg": "success",
-  "data": {
-  "time": 1555049455783,
-  "bids": [
-   ["78.82", "0.526"],//[Price, Quantity]
-   ["77.24", "1.22"],
-   ["76.65", "1.043"],
-   ["76.58", "1.34"],
-   ["75.67", "1.52"],
-   ["75.12", "0.635"],
-   ["75.02", "0.72"],
-   ["75.01", "0.672"],
-   ["73.73", "1.282"],
-   ["73.58", "1.116"],
-   ["73.45", "0.471"],
-   ["73.44", "0.483"],
-   ["72.32", "0.383"],
-   ["72.26", "1.283"],
-   ["72.11", "0.703"],
-   ["70.61", "0.454"]],
-   "asks": [
-     ["122.96", "0.381"],//[Price, Quantity]
-     ["144.46", "1"],
-     ["155.55", "0.065"],
-     ["160.16", "0.052"],
-     ["200", "0.775"],
-     ["249", "0.17"],
-     ["250", "1"],
-     ["300", "1"],
-     ["400", "1"],
-     ["499", "1"]]
-   }
-}</code></pre>
+  "data": [
+    {
+      "symbol": "btc_usdt",
+      "price": "40557.23"
+    }
+  ]
+}
+            </code>
+        </pre>
 
         <h3 id="contract-depth-response">Response Data</h3>
         <table>
@@ -3868,347 +3639,47 @@ curl <span class="s2">"https://api.bkex.com/v2/contract/q/depth?symbol=BTC-SWAP&
             </tr>
             </thead>
             <tr>
-                <td>time</td>
-                <td>long</td>
-                <td>1550829103981</td>
-                <td>Current time (Unix Timestamp in milliseconds ms)</td>
-            </tr>
-            <tr>
-                <td>bids</td>
-                <td>list</td>
-                <td>(as follows)</td>
-                <td> Price and quantity information for all bids, best bid price from top to bottom. </td>
-            </tr>
-            <tr>
-                <td>asks</td>
-                <td>list</td>
-                <td>(as follows)</td>
-                <td> Price and quantity information for all ASKs, best ASK price from top to bottom. </td>
-            </tr>
-            </tbody>
-        </table>
-        <table>
-            <p>The group of information corresponding to bids and asks represents all prices in the order book and the quantity corresponding to the price by Best price from top to bottom:</p>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>123.10</td>
-                <td>Price</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>300</td>
-                <td>Qualities corresponding to the current price</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <!--        <h2 id="contract-depthMerged">合并订单簿（推荐）</h2>-->
-        <!--        <p>API Key 权限：无需签名</p>-->
-        <!--        <p>获取当前订单簿的数据。该端点0.5秒更新一次。</p>-->
-        <!--        <h3 id="http-contract-depthMerged">HTTP 请求</h3>-->
-        <!--        <ul>-->
-        <!--            <li>GET <code>/v2/contract/q/depthMerged</code></li>-->
-        <!--        </ul>-->
-        <!--        <pre class="highlight json tab-json"><code>{-->
-        <!--  "symbol": BTC-SWAP,-->
-        <!--  "limit": 30-->
-        <!--}</code></pre>-->
-        <!--        <h3 id="contract-depthMerged-request">请求参数</h3>-->
-        <!--        <table>-->
-        <!--            <thead>-->
-        <!--            <tr>-->
-        <!--                <th>参数</th>-->
-        <!--                <th>数据类型</th>-->
-        <!--                <th>是否必须</th>-->
-        <!--                <th>默认值</th>-->
-        <!--                <th>描述</th>-->
-        <!--                <th>取值范围</th>-->
-        <!--            </tr>-->
-        <!--            </thead>-->
-        <!--            <tbody>-->
-        <!--            <tr>-->
-        <!--                <td>symbol</td>-->
-        <!--                <td>string</td>-->
-        <!--                <td>true</td>-->
-        <!--                <td>NA</td>-->
-        <!--                <td>用来获取订单簿的合约名称。E.g. BTC-SWAP</td>-->
-        <!--                <td></td>-->
-        <!--            </tr>-->
-        <!--            <tr>-->
-        <!--                <td>limit</td>-->
-        <!--                <td>integer</td>-->
-        <!--                <td>false</td>-->
-        <!--                <td>40</td>-->
-        <!--                <td>返回bids和asks的数量 。默认 40; 最大 40.</td>-->
-        <!--                <td></td>-->
-        <!--            </tr>-->
-        <!--            </tbody>-->
-        <!--        </table>-->
-
-
-        <!--        <blockquote>-->
-        <!--            <p>Response:</p>-->
-        <!--        </blockquote>-->
-        <!--        <pre class="highlight json tab-json"><code>{-->
-        <!--  "code": 0,-->
-        <!--  "data": {-->
-        <!--  "time": 1555049455783,-->
-        <!--  "bids": [-->
-        <!--   ["78.82", "0.526"],//[Price, Quantity]-->
-        <!--   ["77.24", "1.22"],-->
-        <!--   ["76.65", "1.043"],-->
-        <!--   ["76.58", "1.34"],-->
-        <!--   ["75.67", "1.52"],-->
-        <!--   ["75.12", "0.635"],-->
-        <!--   ["75.02", "0.72"],-->
-        <!--   ["75.01", "0.672"],-->
-        <!--   ["73.73", "1.282"],-->
-        <!--   ["73.58", "1.116"],-->
-        <!--   ["73.45", "0.471"],-->
-        <!--   ["73.44", "0.483"],-->
-        <!--   ["72.32", "0.383"],-->
-        <!--   ["72.26", "1.283"],-->
-        <!--   ["72.11", "0.703"],-->
-        <!--   ["70.61", "0.454"]],-->
-        <!--   "asks": [-->
-        <!--     ["122.96", "0.381"],//[Price, Quantity]-->
-        <!--     ["144.46", "1"],-->
-        <!--     ["155.55", "0.065"],-->
-        <!--     ["160.16", "0.052"],-->
-        <!--     ["200", "0.775"],-->
-        <!--     ["249", "0.17"],-->
-        <!--     ["250", "1"],-->
-        <!--     ["300", "1"],-->
-        <!--     ["400", "1"],-->
-        <!--     ["499", "1"]]-->
-        <!--   }-->
-        <!--}</code></pre>-->
-
-        <!--        <h3 id="contract-depthMerged-response">响应数据</h3>-->
-        <!--        <table>-->
-        <!--            <tbody>-->
-        <!--            <thead>-->
-        <!--            <tr>-->
-        <!--                <th>参数名称</th>-->
-        <!--                <th>数据类型</th>-->
-        <!--                <th>例子</th>-->
-        <!--                <th>描述</th>-->
-        <!--            </tr>-->
-        <!--            </thead>-->
-        <!--            <tr>-->
-        <!--                <td>time</td>-->
-        <!--                <td>long</td>-->
-        <!--                <td>1550829103981</td>-->
-        <!--                <td>当前时间（Unix Timestamp，毫秒ms）</td>-->
-        <!--            </tr>-->
-        <!--            <tr>-->
-        <!--                <td>bids</td>-->
-        <!--                <td>list</td>-->
-        <!--                <td>(如下)</td>-->
-        <!--                <td>所有bid的价格和数量信息，最优bid价格由上到下排列。</td>-->
-        <!--            </tr>-->
-        <!--            <tr>-->
-        <!--                <td>asks</td>-->
-        <!--                <td>list</td>-->
-        <!--                <td>(如下)</td>-->
-        <!--                <td>所有ask的价格和数量信息，最优ask价格由上到下排列。</td>-->
-        <!--            </tr>-->
-        <!--            </tbody>-->
-        <!--        </table>-->
-        <!--        <table>-->
-        <!--            <p>bids和asks所对应的信息组代表了订单簿的所有价格以及价格对应数量的信息，由最优价格从上到下排列:</p>-->
-        <!--            <tbody>-->
-        <!--            <thead>-->
-        <!--            <tr>-->
-        <!--                <th>参数名称</th>-->
-        <!--                <th>数据类型</th>-->
-        <!--                <th>例子</th>-->
-        <!--                <th>描述</th>-->
-        <!--            </tr>-->
-        <!--            </thead>-->
-        <!--            <tr>-->
-        <!--                <td>''</td>-->
-        <!--                <td>float</td>-->
-        <!--                <td>123.10</td>-->
-        <!--                <td>价格</td>-->
-        <!--            </tr>-->
-        <!--            <tr>-->
-        <!--                <td>''</td>-->
-        <!--                <td>float</td>-->
-        <!--                <td>300</td>-->
-        <!--                <td>当前价格对应的数量</td>-->
-        <!--            </tr>-->
-        <!--            </tbody>-->
-        <!--        </table>-->
-
-
-        <h2 id="contract-trades">Latest deals</h2>
-        <p>API Key permissions: no signature required</p>
-        <p>Get information on the most recently executed orders for a particular contract. </p>
-        <h3 id="http-contract-trades">HTTP requests</h3>
-        <ul>
-            <li>GET <code>/v2/contract/q/trades</code></li>
-        </ul>
-        <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/q/trades?symbol=BTC-SWAP&limit=10"</span>
-            </code></pre>
-        <h3 id="contract-trades-request">Request Parameters</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>Parameters</th>
-                <th>Data Types</th>
-                <th>Is it necessary</th>
-                <th>Default values</th>
-                <th>Description</th>
-                <th>Range of values</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>true</td>
-                <td>NA</td>
-                <td> The contract name used to get the order book. e.g. BTC-SWAP</td>
-                <td></td>
+                <td>btc_usdt</td>
+                <td>Transaction pair</td>
             </tr>
-            <tr>
-                <td>limit</td>
-                <td>integer</td>
-                <td>false</td>
-                <td>500</td>
-                <td>The number of transactions returned. Default 500; Max 1000</td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
-
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "msg": "success",
-  "data": {
-  "time": 1555049455783,
-  "bids": [
-  {
-    "price": "4.00000100",
-    "qty": "12.00000000",
-    "time": 1499865549590,
-    "isBuyerMaker": true
-  },...
-]
-}</code></pre>
-
-        <h3 id="contract-trades-response">Response Data</h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
             <tr>
                 <td>price</td>
-                <td>float</td>
-                <td>0.055</td>
-                <td>Trade price</td>
-            </tr>
-            <tr>
-                <td>time</td>
-                <td>long</td>
-                <td>1537797044116</td>
-                <td>Current Unix timestamp in milliseconds (ms)</td>
-            </tr>
-            <tr>
-                <td>qty</td>
-                <td>float</td>
-                <td>5</td>
-                <td>Number (number of sheets)</td>
-            </tr>
-            <tr>
-                <td>isBuyerMaker</td>
                 <td>string</td>
-                <td>true</td>
-                <td>Seller or buyer. true=buy when order is created, false=sell when order is created</td>
+                <td>"40557.23"</td>
+                <td>price</td>
             </tr>
             </tbody>
         </table>
-        <ul>
-            <li><strong>Weight:</strong><span>1</span></span></li>
-        </ul>
 
-
-        <h2 id="contract-kline">K-line/candlestick data</h2>
+        <h2 id="contract-ticker-data">Get ticker data</h2>
         <p>API Key Permissions: no signature required</p>
-        <p>Get the K line of a contract (high, low, open, close, volume...). </p>
-        <h3 id="http-contract-kline">HTTP request</h3>
-        <ul>
-            <li>GET <code>/v2/contract/q/kline</code></li>
-        </ul>
-        <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/q/kline?symbol=BTC-SWAP&interval=1m"</span>
-            </code></pre>
-        <h3 id="contract-kline-request">Request Parameters</h3>
+        <p>Frequency limit (according to IP limit): 20 times / s.</p>
+        <h3 id="http-contract-ticker-data">HTTP request</h3>
+        <ul><li>GET <code>/fapi/v2/market/tickers</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/tickers?symbol=btc_usdt"</span></code></pre>
+        <h3 id="contract-ticker-data-request">Request Parameters</h3>
         <table>
             <thead>
             <tr>
-                <th>Parameters</th>
+                <th>Parameter Name</th>
+                <th>Position</th>
                 <th>Data Types</th>
-                <th>Is it necessary</th>
-                <th>Default values</th>
-                <th>Description</th>
-                <th>Range of values</th>
+                <th>Required</th>
+                <th>Default value</th>
+                <th>Describe</th>
+                <th>Value range</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>symbol</td>
+                <td>query</td>
                 <td>string</td>
-                <td>true</td>
-                <td>NA</td>
-                <td>Symbol Name E.g. BTC-SWAP</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>interval</td>
-                <td>string</td>
-                <td>true</td>
-                <td>NA</td>
-                <td>K-line chart interval</td>
-                <td>1m, 5m, 15m, 30m, 1h, 1d, 1W, 1M (m=minutes, h=hours, d=days, w=weeks, M=months)</td>
-            </tr>
-            <tr>
-                <td>to</td>
-                <td>number</td>
                 <td>false</td>
                 <td>NA</td>
-                <td>Time stamp (milliseconds) of the last returned entry</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>limit</td>
-                <td>integer</td>
-                <td>false</td>
-                <td>500</td>
-                <td> The number of bars returned. Default 500; Max 1000</td>
+                <td>Transaction pair; If it is not filled in, the data of all currency pairs will be obtained</td>
                 <td></td>
             </tr>
             </tbody>
@@ -4218,1723 +3689,28 @@ curl <span class="s2">"https://api.bkex.com/v2/contract/q/kline?symbol=BTC-SWAP&
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "msg": "success",
-  "data": {[
-  [
-    1499040000000,      // Open time
-    "0.01634790",       // Open
-    "0.80000000",       // High
-    "0.01575800",       // Low
-    "0.01577100",       // Close
-    "148976.11427815",  // Volume
-    1499644799999,      // Close time
-    "2434.19055334",    // Quote asset volume
-    308,                // Number of trades
-    "1756.87402397",    // Taker buy base asset volume
-    "28.46694368"       // Taker buy quote asset volume
-  ]
-]
-}</code></pre>
-
-        <h3 id="contract-kline-response">Response Data</h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>''</td>
-                <td>long</td>
-                <td>1538728740000</td>
-                <td>Beginning timestamp in milliseconds</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>36.00000</td>
-                <td>Opening price</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>36</td>
-                <td>Highest Price</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>36</td>
-                <td>Lowest Price</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>36</td>
-                <td>Closing price</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>148976.11427815</td>
-                <td>Contract Transaction Amount</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>long</td>
-                <td>1538728740000</td>
-                <td>Stop timestamp, milliseconds (ms) </td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>2434.19055334</td>
-                <td>Number of transactions (number of sheets)</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>integer</td>
-                <td>308</td>
-                <td>Number of transactions completed (number of pieces)</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>1756.87402397</td>
-                <td>Buyer purchase amount</td>
-            </tr>
-            <tr>
-                <td>''</td>
-                <td>float</td>
-                <td>28.46694368</td>
-                <td>Number of purchases by the buyer (number of pieces)</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <ul>
-            <li><strong>Weight:</strong><span>1</span></li>
-            <li><span>base asset represents that quantity of contracts received by the buyer</span></br>.
-                <span>quote asset represents the number of tokens used to obtain the contract</span></li>.
-        </ul>
-
-
-        <p></p>
-        <p></p>
-        <h2 id="contract-ticker24hr">24-hour ticker price changes Data</h2>
-        <p>API Key Permissions: no signature required</p>
-        <p>24-hour price change data. Note A lot of data is returned if symbols are not sent </p>
-        <h3 id="http-contract-ticker24hr">HTTP Requests</h3>
-        <ul>
-            <li>GET <code>/v2/contract/q/ticker24hr</code></li>。
-        </ul>
-        <pre class="highlight json tab-json"><code>。
-curl <span class="s2">"https://api.bkex.com/v2/contract/q/ticker24hr?symbol=BTC-SWAP"</span>
-            </code></pre>
-        <h3 id="contract-ticker24hr-request">Request parameters</h3>。
-        <table>
-            <thead>
-            <tr>
-                <th>Parameters</th>
-                <th>Data Types</th>
-                <th>Is it necessary</th>
-                <th>Default values</th>
-                <th>Description</th>
-                <th>Range of values</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>符号</td>
-                <td>字符串</td>
-                <td>false</td>
-                <td>NA</td>
-                <td>符号名称 如BTC-SWAP</td></td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
-
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "msg": "success",
-  "data": {
-## Single ticker
+        <pre class="highlight json tab-json responsePre">
+            <code>
 {
-  "time":1579424880100,
-  "symbol":"BTC-SWAP",
-  "bestBidPrice":"9079.1",
-  "bestAskPrice":"9079.5",
-  "volume":"61684269",
-  "quoteVolume":"553667621070",
-  "openInterest":"2277632.99999999998",
-  "lastPrice":"9077.5",
-  "highPrice":"9179.8",
-  "lowPrice":"8840.8",
-  "openPrice":"8861.7"
-  }
-## Multiple ticker info when symbol is omiited
-[
-  {
-    "time":1579422004248,
-    "symbol":"BTC-SWAP-USDT",
-    "volume":"102696523",
-    "quoteVolume":"918742352316.6",
-    "openInterest":"2277632.99999999998",
-    "lastPrice":"9092.9",
-    "highPrice":"9180.2",
-    "lowPrice":"8817.7",
-    "openPrice":"8817.7"
-    },...
-    ]
-}</code></pre>
-
-        <h3 id="contract-ticker24hr-response">response data </h3>
-            <table>
-                <tbody>
-                <thead>
-                <tr>
-                    <th>Parameter Name</th>
-                    <th>Data Types</th>
-                    <th>Examples</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tr>
-                    <td>time</td>
-                    <td>long</td>
-                    <td>1538728740000</td>
-                    <td>Beginning timestamp, in milliseconds</td>
-                </tr>
-                <tr>
-                    <td>symbol</td>
-                    <td>string</td>
-                    <td>BTC-SWAP</td>
-                    <td>Symbol name</td>.
-                </tr>
-                <tr>
-                    <td>bestBidPrice</td>
-                    <td>float</td>
-                    <td>4.00</td>
-                    <td>Best buy price</td>
-                </tr>
-                <tr>
-                    <td>bestAskPrice</td>
-                    <td>float</td>
-                    <td>4.000002000</td>
-                    <td>Best selling price</td>
-                </tr>
-                <tr>
-                    <td>lastPrice</td>
-                    <td>float</td>
-                    <td>4.000002000</td>
-                    <td>Last sale price</td>
-                </tr>
-                <tr>
-                    <td>openPrice</td>
-                    <td>float</td>
-                    <td>99</td>
-                    <td>Opening price</td>
-                </tr>
-                <tr>
-                    <td>highPrice</td>
-                    <td>float</td>
-                    <td>100</td>
-                    <td>Highest Price</td>
-                </tr>
-                <tr>
-                    <td>lowPrice</td>
-                    <td>float</td>
-                    <td>0.10000000</td>
-                    <td>Lowest Price</td>
-                </tr>
-                <tr>
-                    <td>volume</td>
-                    <td>float</td>
-                    <td>8913.30</td>
-                    <td>Trade volume</td>
-                </tr>
-                <tr>
-                    <td>openInterest</td>
-                    <td>float</td>
-                    <td>213933113</td>
-                    <td>Number of positions</td>
-                </tr>
-                </tbody>
-            </table>
-
-            <ul>
-                <li><strong>Weight:</strong><span>If there is only one symbol, 1; if symbol is not sent, 40</span></li>
-                <li><span>If the symbol is not sent, all symbol data is returned</span></li>
-            </ul>
-
-            <p></p>
-            <p></p>
-            <h2>Transaction interface</h2>
-            <aside class="notice">Access to the interface associated with the contract transaction requires signature authentication. </aside>
-            <p></p>
-            <h2 id="contract-order">Creating a new order</h2>
-            <p>API Key Permissions: Contract Operations</p>
-            <p>Contract orders</p>
-            <h3 id="http-contract-order">HTTP request</h3>
-        <ul>
-            <li>POST <code>/v2/contract/trade/order</code></li>
-        </ul>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "symbol": "BTC-SWAP",
-  "side": "BUY_OPEN",
-  "orderType": "LIMIT",
-  "quantity": 10,
-  "leverage": 10,
-  "clientOrderId": "100011111100001",
-  "price": 7928.6,
-  "priceType": "INPUT"
-}</code></pre>
-            <h3 id="contract-order-request">Request Parameters</h3>
-            <table>
-                <thead>
-                <tr>
-                    <th>Parameters</th>
-                    <th>Data Types</th>
-                    <th>Is it necessary</th>
-                    <th>Default values</th>
-                    <th>Description</th>
-                    <th>Range of values</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>symbol</td>
-                    <td>string</td>
-                    <td>true</td>
-                    <td>NA</td>
-                    <td>Symbol Name E.g. BTC-SWAP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>side</td>
-                    <td>string</td>
-                    <td>true</td>
-                    <td>NA</td>
-                    <td>Order direction, direction type BUY_OPEN, SELL_OPEN, BUY_CLOSE, SELL_CLOSE</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>orderType</td>
-                    <td>string</td>
-                    <td>true</td>
-                    <td>NA</td>
-                    <td>Order type, supports order types LIMIT and STOP</td>.
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>quantity</td>
-                    <td>number</td>
-                    <td>true</td>
-                    <td>NA</td>
-                    <td>Number of contracts on order</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>leverage</td>
-                    <td>string</td>
-                    <td>true</td>
-                    <td>NA</td>
-                    <td>Leverage on orders. (Not required for *_CLOSE" close orders)</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>clientOrderId</td>
-                    <td>string</td>
-                    <td>true</td>
-                    <td>NA</td>
-                    <td>ID of the order, defined by the user himself. e.g. 12094ahsihsiad</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>price</td>
-                    <td>number</td>
-                    <td>false</td>
-                    <td>NA</td>
-                    <td>Order Price. (LIMIT&INPUT) orders are mandatory</td>.
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>priceType</td>
-                    <td>string</td>
-                    <td>false</td>
-                    <td>NA</td>
-                    <td> Price types supported are INPUT (default), OPPONENT, QUEUEUE. OVER, MARKET.</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>triggerPrice</td>
-                    <td>number</td>
-                    <td>false</td>
-                    <td>NA</td>
-                    <td>Trigger price for a plan commission. </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>timeInForce</td>
-                    <td>string</td>
-                    <td>false</td>
-                    <td>NA</td>
-                    <td>Time in Force command for LIMIT orders, currently supported types are GTC (default), FOK, IOC, LIMIT_MAKER</td>.
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "msg": "success",
-  "data": {
-    "time": "1570759718825",
-    "updateTime": "0",
-    "orderId": "469961015902208000",
-    "clientOrderId": "6423344174",
-    "symbol": "BTC-SWAP",
-    "price": "8200",
-    "leverage": "12.08",
-    "origQty": "5",
-    "executedQty": "0",
-    "avgPrice": "0",
-    "marginLocked": "0.00005047",
-    "orderType": "LIMIT",
-    "side": "BUY_OPEN",
-    "fees": [],
-    "timeInForce": "GTC",
-    "status": "NEW",
-    "priceType": "INPUT"
-  }
-}</code></pre>
-
-            <h3 id="contract-order-response">Response data</h3>
-            <table>
-                <tbody>
-                <thead>
-                <tr>
-                    <th>Parameter Name</th>
-                    <th>Data Types</th>
-                    <th>Examples</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tr>
-                    <td>time</td>
-                    <td>long</td>
-                    <td>1570759718825</td>
-                    <td>Time stamp at order generation</td>.
-                </tr>
-                <tr>
-                    <td>updateTime</td>.
-                    <td>long</td>
-                    <td>1570759718825</td>
-                    <td>Time stamp of the last update of the order</td>.
-                </tr>
-                <tr>
-                    <td>orderId</td>
-                    <td>integer</td>
-                    <td>469961015902208000</td>
-                    <td>Order ID</td>
-                </tr>
-                <tr>
-                    <td>clientOrderId</td>
-                    <td>string</td>
-                    <td>100011111100001</td>
-                    <td>User-defined order ID</td>
-                </tr>
-                <tr>
-                    <td>symbol</td>
-                    <td>string</td>
-                    <td>BTC-SWAP</td>
-                    <td>Contract name</td>
-                </tr>
-                <tr>
-                    <td>price</td>
-                    <td>float</td>
-                    <td>8200</td>
-                    <td>Order Price</td>
-                </tr>
-                <tr>
-                    <td>leverage</td>
-                    <td>float</td>
-                    <td>99</td>
-                    <td>Order Leverage</td>
-                </tr>
-                <tr>
-                    <td>origQty</td>
-                    <td>float</td>
-                    <td>1.01</td>
-                    <td>Number of orders</td>
-                </tr>
-                <tr>
-                    <td>executedQty</td>
-                    <td>float</td>
-                    <td>0.10000000</td>
-                    <td>Number of orders executed</td>
-                </tr>
-                <tr>
-                    <td>avgPrice</td>
-                    <td>float</td>
-                    <td>8913.30</td>
-                    <td>Average trading price</td>
-                </tr>
-                <tr>
-                    <td>marginLocked</td>
-                    <td>float</td>
-                    <td>200</td>
-                    <td> Margin locked in for this order. This includes the actual margin required plus the fees required to open and close the position. </td>
-                </tr>
-                <tr>
-                    <td>orderType</td>
-                    <td>string</td>
-                    <td>LIMIT</td>
-                    <td>Order Type (and STOP)</td>
-                </tr>
-                <tr>
-                    <td>priceType</td>
-                    <td>string</td>
-                    <td>INPUT</td>
-                    <td>Price type (INPUT, OPPONENT, QUEUEUE, OVER, MARKET)</td>
-                </tr>
-                <tr>
-                    <td>side</td>
-                    <td>string</td>
-                    <td>BUY</td>
-                    <td>Order Direction (BUY_OPEN, SELL_OPEN, BUY_CLOSE, SELL_CLOSE)</td>
-                </tr>
-                <tr>
-                    <td>status</td>
-                    <td>string</td>
-                    <td>NEW</td>
-                    <td>Order Status (NEW, PARTIALLY_FILLED, FILLED, CANCELLED, REJECTED)</td>
-                </tr>
-                <tr>
-                    <td>timeInForce</td>
-                    <td>string</td>
-                    <td>GTC</td>
-                    <td>Time in Force type (GTC, FOK, IOC, LIMIT_MAKER)</td>
-                </tr>
-                <tr>
-                    <td>fees</td>
-                    <td></td>
-                    <td></td>
-                    <td>Commission on orders</td>
-                </tr>
-                </tbody>
-            </table>
-
-        <ul>
-            <li><strong>Note:</strong>
-                <ul>
-                    <li>For market orders, you need to set the orderType to LIMIT and set the priceType to MARKET</li>.
-                    <li>You can get contract price, quantity and precision configuration information at the brokerInfo endpoint</li>.
-                    <li>If your balance does not meet the required margin (initial margin + opening fee + closing fee). An "insufficient balance" error will be returned</li>.
-                    <li>For a detailed explanation of price types and order types, see the explanation of key parameters</li>.
-                </ul>
-            </li>
-            <li><strong>Weight:</strong><span>1</span></li>
-        </ul>
-
-        <p></p>
-        <p></p>
-            <h2 id="contract-getOrder">Order Information</h2>
-            <p>API Key Permissions: Contract Queries</p>
-            <p>Get the details of a particular order</p>
-            <h3 id="http-contract-getOrder">HTTP request</h3 >
-            <ul>
-                <li>GET <code>/v2/contract/trade/getOrder</code></li>
-            </ul>
-            <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/trade/getOrder?orderId=507904211109878016&orderType=LIMIT"</span>
-        </code></pre>
-            <h3 id="contract-getOrder-request">Request Parameters</h3 >
-            <table>
-                <thead>
-                <tr>
-                    <th>Parameters</th>
-                    <th>Data Types</th>
-                    <th>Is it necessary</th>
-                    <th>Default values</th>
-                    <th>Description</th>
-                    <th>Range of values</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>orderType</td>
-                    <td>string</td>
-                    <td>true</td>
-                    <td>NA</td>
-                    <td>Order Types (LIMIT and STOP)</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>orderId</td>
-                    <td>string</td>
-                    <td>false</td>
-                    <td>NA</td>
-                    <td>Order Id E.g. 507904211109878016</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>clientOrderId</td>
-                    <td>string</td>
-                    <td>false</td>
-                    <td>NA</td>
-                    <td>ID of the order, defined by the user himself. e.g. 100011111100001</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "msg": "success",
-  "data": {
-    "time": "1570759718825",
-    "updateTime": "0",
-    "orderId": "469961015902208000",
-    "clientOrderId": "6423344174",
-    "symbol": "BTC-SWAP",
-    "price": "8200",
-    "leverage": "12.08",
-    "origQty": "5",
-    "executedQty": "0",
-    "avgPrice": "0",
-    "marginLocked": "0.00005047",
-    "orderType": "LIMIT",
-    "side": "BUY_OPEN",
-    "fees": [],
-    "timeInForce": "GTC",
-    "status": "NEW",
-    "priceType": "INPUT"
-  }
-}</code></pre>
-
-            <h3 id="contract-getOrder-response">Response data</h3>
-            <table>
-                <tbody>
-                <thead>
-                <tr>
-                    <th>Parameter Name</th>
-                    <th>Data Types</th>
-                    <th>Examples</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tr>
-                    <td>time</td>
-                    <td>long</td>
-                    <td>1570759718825</td>
-                    <td>Time stamp at order generation</td>.
-                </tr>
-                <tr>
-                    <td>updateTime</td>.
-                    <td>long</td>
-                    <td>1570759718825</td>
-                    <td>Time stamp of the last update of the order</td>.
-                </tr>
-                <tr>
-                    <td>orderId</td>
-                    <td>integer</td>
-                    <td>469961015902208000</td>
-                    <td>Order ID</td>
-                </tr>
-                <tr>
-                    <td>clientOrderId</td>
-                    <td>string</td>
-                    <td>100011111100001</td>
-                    <td>User-defined order ID</td>
-                </tr>
-                <tr>
-                    <td>symbol</td>
-                    <td>string</td>
-                    <td>BTC-SWAP</td>
-                    <td>Contract name</td>
-                </tr>
-                <tr>
-                    <td>price</td>
-                    <td>float</td>
-                    <td>8200</td>
-                    <td>Order Price</td>
-                </tr>
-                <tr>
-                    <td>leverage</td>
-                    <td>float</td>
-                    <td>99</td>
-                    <td>Order Leverage</td>
-                </tr>
-                <tr>
-                    <td>origQty</td>
-                    <td>float</td>
-                    <td>1.01</td>
-                    <td>Number of orders</td>
-                </tr>
-                <tr>
-                    <td>executedQty</td>
-                    <td>float</td>
-                    <td>0.10000000</td>
-                    <td>Number of orders executed</td>
-                </tr>
-                <tr>
-                    <td>avgPrice</td>
-                    <td>float</td>
-                    <td>8913.30</td>
-                    <td>Average trading price</td>
-                </tr>
-                <tr>
-                    <td>marginLocked</td>
-                    <td>float</td>
-                    <td>200</td>
-                    <td> Margin locked in for this order. This includes the actual margin required plus the fees required to open and close the position. </td>
-                </tr>
-                <tr>
-                    <td>orderType</td>
-                    <td>string</td>
-                    <td>LIMIT</td>
-                    <td>Order Type (and STOP)</td>
-                </tr>
-                <tr>
-                    <td>priceType</td>
-                    <td>string</td>
-                    <td>INPUT</td>
-                    <td>Price type (INPUT, OPPONENT, QUEUEUE, OVER, MARKET)</td>
-                </tr>
-                <tr>
-                    <td>side</td>
-                    <td>string</td>
-                    <td>BUY</td>
-                    <td>Order Direction (BUY_OPEN, SELL_OPEN, BUY_CLOSE, SELL_CLOSE)</td>
-                </tr>
-                <tr>
-                    <td>status</td>
-                    <td>string</td>
-                    <td>NEW</td>
-                    <td>Order Status (NEW, PARTIALLY_FILLED, FILLED, CANCELLED, REJECTED)</td>
-                </tr>
-                <tr>
-                    <td>timeInForce</td>
-                    <td>string</td>
-                    <td>GTC</td>
-                    <td>Time in Force type (GTC, FOK, IOC, LIMIT_MAKER)</td>
-                </tr>
-                <tr>
-                    <td>fees</td>
-                    <td></td>
-                    <td></td>
-                    <td>Commission on orders</td>
-                </tr>
-                </tbody>
-            </table>
-            <table>
-                <p>In the fees information group:</p>
-                <tbody>
-                <thead>
-                <tr>
-                    <th>Parameter Name</th>
-                    <th>Data Types</th>
-                    <th>Examples</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tr>
-                    <td>feeToken</td>
-                    <td>string</td>
-                    <td>USDT</td>
-                    <td>Commission pricing types. </td>
-                </tr>
-                <tr>
-                    <td>fee</td>
-                    <td>float</td>
-                    <td>0.1</td>
-                    <td>Actual fees</td>
-                </tr>
-                </tbody>
-            </table>
-
-        <ul>
-            <li><strong>Weight:</strong><span>1</span></li>
-            Either <li>orderId or clientOrderId must be sent</li>.
-            <li> For some historical data cummulativeQuoteQty may be < 0, which Description data is currently unavailable. </li>
-        </ul>
-
-
-            <p></p>
-            <p></p>
-            <h2 id="contract-orderCancel">Cancel the order</h2>
-            <p>API Key Permissions: Contract Operations</p>
-            <p>To cancel an order, you need to send one of orderId or clientOrderId. This API endpoint requires a signature for your request. </p>
-            <h3 id="http-contract-orderCancel">HTTP request</h3>
-                <ul>
-                    <li>POST <code>/v2/contract/trade/orderCancel</code></li>
-                </ul>
-                <pre class="highlight json tab-json responsePre"><code>{
-  "orderType": "LIMIT",
-  "orderId": "507904211109878016",
-  "clientOrderId": "100011111100001"
-}</code></pre>
-                <h3 id="contract-orderCancel-request">Request Parameters</h3>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Parameters</th>
-                            <th>Data Types</th>
-                            <th>Is it necessary</th>
-                            <th>Default values</th>
-                            <th>Description</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>orderType</td>
-                            <td>string</td>
-                            <td>true</td>
-                            <td>NA</td>
-                            <td>Order Types (LIMIT and STOP)</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>orderId</td>
-                            <td>string</td>
-                            <td>false</td>
-                            <td>NA</td>
-                            <td>Order Id E.g. 507904211109878016</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>clientOrderId</td>
-                            <td>string</td>
-                            <td>false</td>
-                            <td>NA</td>
-                            <td>ID of the order, defined by the user himself. e.g. 100011111100001</td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "msg": "success",
-  "data": {
-    "symbol": "BTC-SWAP",
-    "leverage": "10",
-    "orderType": "LIMIT",
-    "side": "BUY_OPEN",
-    "fees": [],
-    "executedQty": "0",
-    "orderId": "580438692152238336",
-    "origQty": "10",
-    "avgPrice": "0",
-    "clientOrderId": "20200311202803",
-    "priceType": "INPUT",
-    "updateTime": "0",
-    "marginLocked": "0",
-    "price": "5000",
-    "time": "1583929684121",
-    "timeInForce": "GTC",
-    "status": "CANCELED"
-  }
-}</code></pre>
-
-        <h3 id="contract-orderCancel-response">Response data </h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>time</td>
-                <td>long</td>
-                <td>1570759718825</td>
-                <td>Time stamp at order generation</td>.
-            </tr>
-            <tr>
-                <td>updateTime</td>.
-                <td>long</td>
-                <td>1570759718825</td>
-                <td>Time stamp of the last update of the order</td>.
-            </tr>
-            <tr>
-                <td>orderId</td>
-                <td>integer</td>
-                <td>469961015902208000</td>
-                <td>Order ID</td>
-            </tr>
-            <tr>
-                <td>clientOrderId</td>
-                <td>string</td>
-                <td>100011111100001</td>
-                <td>User-defined order ID</td>
-            </tr>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>BTC-SWAP</td>
-                <td>Contract name</td>
-            </tr>
-            <tr>
-                <td>price</td>
-                <td>float</td>
-                <td>8200</td>
-                <td>Order Price</td>
-            </tr>
-            <tr>
-                <td>leverage</td>
-                <td>float</td>
-                <td>99</td>
-                <td>Order Leverage</td>
-            </tr>
-            <tr>
-                <td>origQty</td>
-                <td>float</td>
-                <td>1.01</td>
-                <td>Number of orders</td>
-            </tr>
-            <tr>
-                <td>executedQty</td>
-                <td>float</td>
-                <td>0.10000000</td>
-                <td>Number of orders executed</td>
-            </tr>
-            <tr>
-                <td>avgPrice</td>
-                <td>float</td>
-                <td>8913.30</td>
-                <td>Average trading price</td>
-            </tr>
-            <tr>
-                <td>marginLocked</td>
-                <td>float</td>
-                <td>200</td>
-                <td> Margin locked in for this order. This includes the actual margin required plus the fees required to open and close the position. </td>
-            </tr>
-            <tr>
-                <td>orderType</td>
-                <td>string</td>
-                <td>LIMIT</td>
-                <td>Order Type (and STOP)</td>
-            </tr>
-            <tr>
-                <td>priceType</td>
-                <td>string</td>
-                <td>INPUT</td>
-                <td>Price type (INPUT, OPPONENT, QUEUEUE, OVER, MARKET)</td>
-            </tr>
-            <tr>
-                <td>side</td>
-                <td>string</td>
-                <td>BUY</td>
-                <td>Order Direction (BUY_OPEN, SELL_OPEN, BUY_CLOSE, SELL_CLOSE)</td>
-            </tr>
-            <tr>
-                <td>status</td>
-                <td>string</td>
-                <td>NEW</td>
-                <td>Order Status (NEW, PARTIALLY_FILLED, FILLED, CANCELLED, REJECTED)</td>
-            </tr>
-            <tr>
-                <td>timeInForce</td>
-                <td>string</td>
-                <td>GTC</td>
-                <td>Time in Force type (GTC, FOK, IOC, LIMIT_MAKER)</td>
-            </tr>
-            <tr>
-                <td>fees</td>
-                <td></td>
-                <td></td>
-                <td>Commission on orders</td>
-            </tr>
-            </tbody>
-        </table>
-                    <table>
-                        <p>In the fees information group:</p>
-                        <tbody>
-                        <thead>
-                        <tr>
-                            <th>Parameter Name</th>
-                            <th>Data Types</th>
-                            <th>Examples</th>
-                            <th>Description</th>
-                        </tr>
-                        </thead>
-                        <tr>
-                            <td>feeToken</td>
-                            <td>string</td>
-                            <td>USDT</td>
-                            <td>Commission pricing types. </td>
-                        </tr>
-                        <tr>
-                            <td>fee</td>
-                            <td>float</td>
-                            <td>0.1</td>
-                            <td>Actual fees</td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                    <ul>
-                        <li><strong>Weight:</strong><span>1</span></li>
-                            Either <li>orderId or clientOrderId must be sent</li>.
-                    </ul>
-
-
-                    <p></p>
-                    <p></p>
-                    <h2 id="contract-openOrders">Current Orders</h2>
-                    <p>API Key Permissions: Contract Queries</p>
-                    <p>Gets the current order of single or multiple symbols. Note If no symbols are sent, a lot of data is returned. </p>
-                    <h3 id="http-contract-openOrders">HTTP requests</h3>
-                    <ul>
-                        <li>GET <code>/v2/contract/trade/openOrders</code></li>
-                    </ul>
-                    <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/trade/openOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
-</code></pre>
-                    <h3 id="contract-openOrders-request">Request Parameters</h3>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Parameters</th>
-                            <th>Data Types</th>
-                            <th>Is it necessary</th>
-                            <th>Default values</th>
-                            <th>Description</th>
-                            <th>Range of values</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>symbol</td>
-                            <td>string</td>
-                            <td>true</td>
-                            <td>NA</td>
-                            <td>Symbol Name E.g. BTC-SWAP</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>orderType</td>
-                            <td>string</td>
-                            <td>false</td>
-                            <td>NA</td>
-                            <td>Order Types (LIMIT and STOP)</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>side</td>
-                            <td>string</td>
-                            <td>false</td>
-                            <td>NA</td>
-                            <td>Order Direction (BUY_OPEN, SELL_OPEN, BUY_CLOSE, SELL_CLOSE)</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>orderId</td>
-                            <td>string</td>
-                            <td>false</td>
-                            <td>NA</td>
-                            <td>Order Id E.g. 507904211109878016</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>limit</td>
-                            <td>integer</td>
-                            <td>false</td>
-                            <td>20</td>
-                            <td>Default 20; max 1000</td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
   "code": 0,
   "msg": "success",
   "data": [
     {
-      "time": "1570760254539",
-      "updateTime": "0",
-      "orderId": "469965509788581888",
-      "clientOrderId": "1570760253946",
-      "symbol": "BTC-SWAP",
-      "price": "8502.34",
-      "leverage": "20",
-      "origQty": "222",
-      "executedQty": "0",
-      "avgPrice": "0",
-      "marginLocked": "0.00130552",
-      "orderType": "LIMIT",
-      "side": "BUY_OPEN",
-      "fees": [],
-      "timeInForce": "GTC",
-      "status": "NEW",
-      "priceType": "INPUT"
-    },...
-  ]
-}</code></pre>
-
-    <h3 id="contract-openOrders-response">Response data < /h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>time</td>
-                <td>long</td>
-                <td>1570759718825</td>
-                <td>Time stamp at order generation</td>.
-            </tr>
-            <tr>
-                <td>updateTime</td>.
-                <td>long</td>
-                <td>1570759718825</td>
-                <td>Time stamp of the last update of the order</td>.
-            </tr>
-            <tr>
-                <td>orderId</td>
-                <td>integer</td>
-                <td>469961015902208000</td>
-                <td>Order ID</td>
-            </tr>
-            <tr>
-                <td>clientOrderId</td>
-                <td>string</td>
-                <td>100011111100001</td>
-                <td>User-defined order ID</td>
-            </tr>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>BTC-SWAP</td>
-                <td>Contract name</td>
-            </tr>
-            <tr>
-                <td>price</td>
-                <td>float</td>
-                <td>8200</td>
-                <td>Order Price</td>
-            </tr>
-            <tr>
-                <td>leverage</td>
-                <td>float</td>
-                <td>99</td>
-                <td>Order Leverage</td>
-            </tr>
-            <tr>
-                <td>origQty</td>
-                <td>float</td>
-                <td>1.01</td>
-                <td>Number of orders</td>
-            </tr>
-            <tr>
-                <td>executedQty</td>
-                <td>float</td>
-                <td>0.10000000</td>
-                <td>Number of orders executed</td>
-            </tr>
-            <tr>
-                <td>avgPrice</td>
-                <td>float</td>
-                <td>8913.30</td>
-                <td>Average trading price</td>
-            </tr>
-            <tr>
-                <td>marginLocked</td>
-                <td>float</td>
-                <td>200</td>
-                <td> Margin locked in for this order. This includes the actual margin required plus the fees required to open and close the position. </td>
-            </tr>
-            <tr>
-                <td>orderType</td>
-                <td>string</td>
-                <td>LIMIT</td>
-                <td>Order Type (and STOP)</td>
-            </tr>
-            <tr>
-                <td>priceType</td>
-                <td>string</td>
-                <td>INPUT</td>
-                <td>Price type (INPUT, OPPONENT, QUEUEUE, OVER, MARKET)</td>
-            </tr>
-            <tr>
-                <td>side</td>
-                <td>string</td>
-                <td>BUY</td>
-                <td>Order Direction (BUY_OPEN, SELL_OPEN, BUY_CLOSE, SELL_CLOSE)</td>
-            </tr>
-            <tr>
-                <td>status</td>
-                <td>string</td>
-                <td>NEW</td>
-                <td>Order Status (NEW, PARTIALLY_FILLED, FILLED, CANCELLED, REJECTED)</td>
-            </tr>
-            <tr>
-                <td>timeInForce</td>
-                <td>string</td>
-                <td>GTC</td>
-                <td>Time in Force type (GTC, FOK, IOC, LIMIT_MAKER)</td>
-            </tr>
-            <tr>
-                <td>fees</td>
-                <td></td>
-                <td></td>
-                <td>Commission on orders</td>
-            </tr>
-            </tbody>
-        </table>
-        <table>
-            <p>In the fees information group:</p>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>feeToken</td>
-                <td>string</td>
-                <td>USDT</td>
-                <td>Commission pricing types. </td>
-            </tr>
-            <tr>
-                <td>fee</td>
-                <td>float</td>
-                <td>0.1</td>
-                <td>Actual fees</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <ul>
-            <li><strong>Weight:</strong><span>1</span></span></li>
-            <li>If an orderId is sent, all orders with < orderId are returned. If not, it returns the most recent unfinished order</li>
-        </ul>
-
-
-        <p></p>
-        <p></p>
-        <h2 id="contract-historyOrders">History Orders</h2>
-        <p>API Key Permissions: Contract Queries</p>
-        <p>Get the history order for the current account. Note that if no symbol is sent, a lot of data is returned. </p>
-        <h3 id="http-contract-historyOrders">HTTP Requests</h3>
-        <ul>
-            <li>GET <code>/v2/contract/trade/historyOrders</code></li>
-        </ul>
-        <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/trade/historyOrders?symbol=BTC-SWAP&orderType=LIMIT"</span>
-</code></pre>
-        <h3 id="contract-historyOrders-request">request Parameters</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>Parameters</th>
-                <th>Data Types</th>
-                <th>Is it necessary</th>
-                <th>Default values</th>
-                <th>Description</th>
-                <th>Range of values</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>true</td>
-                <td>NA</td>
-                <td>Symbol Name E.g. BTC-SWAP</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>orderType</td>
-                <td>string</td>
-                <td>false</td>
-                <td>NA</td>
-                <td>Order Types (LIMIT and STOP)</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>side</td>
-                <td>string</td>
-                <td>false</td>
-                <td>NA</td>
-                <td>Order Direction (BUY_OPEN, SELL_OPEN, BUY_CLOSE, SELL_CLOSE)</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>orderId</td>
-                <td>string</td>
-                <td>false</td>
-                <td>NA</td>
-                <td>Order Id E.g. 507904211109878016</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>limit</td>
-                <td>integer</td>
-                <td>false</td>
-                <td>500</td>
-                <td>Default 500; max 1000</td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "msg": "success",
-  "data": [
-    {
-      "time": "1570760254539",
-      "updateTime": "0",
-      "orderId": "469965509788581888",
-      "clientOrderId": "1570760253946",
-      "symbol": "BTC-SWAP",
-      "price": "8502.34",
-      "leverage": "20",
-      "origQty": "222",
-      "executedQty": "0",
-      "avgPrice": "0",
-      "marginLocked": "0.00130552",
-      "orderType": "LIMIT",
-      "side": "BUY_OPEN",
-      "fees": [],
-      "timeInForce": "GTC",
-      "status": "NEW",
-      "priceType": "INPUT"
-    },...
-  ]
-}</code></pre>
-
-        <h3 id="contract-historyOrders-response">Response Data</h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>time</td>
-                <td>long</td>
-                <td>1570759718825</td>
-                <td>Time stamp at order generation</td>.
-            </tr>
-            <tr>
-                <td>updateTime</td>.
-                <td>long</td>
-                <td>1570759718825</td>
-                <td>Time stamp of the last update of the order</td>.
-            </tr>
-            <tr>
-                <td>orderId</td>
-                <td>integer</td>
-                <td>469961015902208000</td>
-                <td>Order ID</td>
-            </tr>
-            <tr>
-                <td>clientOrderId</td>
-                <td>string</td>
-                <td>100011111100001</td>
-                <td>User-defined order ID</td>
-            </tr>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>BTC-SWAP</td>
-                <td>Contract name</td>
-            </tr>
-            <tr>
-                <td>price</td>
-                <td>float</td>
-                <td>8200</td>
-                <td>Order Price</td>
-            </tr>
-            <tr>
-                <td>leverage</td>
-                <td>float</td>
-                <td>99</td>
-                <td>Order Leverage</td>
-            </tr>
-            <tr>
-                <td>origQty</td>
-                <td>float</td>
-                <td>1.01</td>
-                <td>Number of orders</td>
-            </tr>
-            <tr>
-                <td>executedQty</td>
-                <td>float</td>
-                <td>0.10000000</td>
-                <td>Number of orders executed</td>
-            </tr>
-            <tr>
-                <td>avgPrice</td>
-                <td>float</td>
-                <td>8913.30</td>
-                <td>Average trading price</td>
-            </tr>
-            <tr>
-                <td>marginLocked</td>
-                <td>float</td>
-                <td>200</td>
-                <td> Margin locked in for this order. This includes the actual margin required plus the fees required to open and close the position. </td>
-            </tr>
-            <tr>
-                <td>orderType</td>
-                <td>string</td>
-                <td>LIMIT</td>
-                <td>Order Type (and STOP)</td>
-            </tr>
-            <tr>
-                <td>priceType</td>
-                <td>string</td>
-                <td>INPUT</td>
-                <td>Price type (INPUT, OPPONENT, QUEUEUE, OVER, MARKET)</td>
-            </tr>
-            <tr>
-                <td>side</td>
-                <td>string</td>
-                <td>BUY</td>
-                <td>Order Direction (BUY_OPEN, SELL_OPEN, BUY_CLOSE, SELL_CLOSE)</td>
-            </tr>
-            <tr>
-                <td>status</td>
-                <td>string</td>
-                <td>NEW</td>
-                <td>Order Status (NEW, PARTIALLY_FILLED, FILLED, CANCELLED, REJECTED)</td>
-            </tr>
-            <tr>
-                <td>timeInForce</td>
-                <td>string</td>
-                <td>GTC</td>
-                <td>Time in Force type (GTC, FOK, IOC, LIMIT_MAKER)</td>
-            </tr>
-            <tr>
-                <td>fees</td>
-                <td></td>
-                <td></td>
-                <td>Commission on orders</td>
-            </tr>
-            </tbody>
-        </table>
-        <table>
-            <p>In the fees information group:</p>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>feeToken</td>
-                <td>string</td>
-                <td>USDT</td>
-                <td>Commission pricing types. </td>
-            </tr>
-            <tr>
-                <td>fee</td>
-                <td>float</td>
-                <td>0.1</td>
-                <td>Actual fees</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <ul>
-            <li><strong>Weight:</strong><span>5</span></li>
-            <li>If an orderId is sent, all orders with < orderId are returned. If not, it returns the most recent unfinished order</li>
-        </ul>
-
-
-        <p></p>
-        <p></p>
-        <h2 id="contract-myTrades">transaction history</h2>
-        <p>API Key Permissions: Contract Queries</p>
-        <p>Get the transaction history of the current account</p>
-        <h3 id="http-contract-myTrades">HTTP requests</h3 >
-        <ul>
-            <li>GET <code>/v2/contract/trade/myTrades</code></li>
-        </ul>
-        <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/trade/myTrades?symbol=BTC-SWAP&side=LIMIT"</span>
-</code></pre>
-        <h3 id="contract-myTrades-request">Request Parameters</h3 >
-        <table>
-            <thead>
-            <tr>
-                <th>Parameters</th>
-                <th>Data Types</th>
-                <th>Is it necessary</th>
-                <th>Default values</th>
-                <th>Description</th>
-                <th>Range of values</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>true</td>
-                <td>NA</td>
-                <td>Symbol Name E.g. BTC-SWAP</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>side</td>
-                <td>string</td>
-                <td>false</td>
-                <td>NA</td>
-                <td>Order type (LIMIT, STOP)</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>fromId</td>
-                <td>integer</td>
-                <td>false</td>
-                <td>NA</td>
-                <td>From here Trade Id begins to query</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>toId</td>
-                <td>integer</td>
-                <td>false</td>
-                <td>NA</td>
-                <td>Conclude with this Trade Id</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>limit</td>
-                <td>integer</td>
-                <td>false</td>
-                <td>20</td>
-                <td>Default 20; max 1000</td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "msg": "success",
-  "data": [
-    {
-      "time": "1570760582848",
-      "tradeId": "469968263995080704",
-      "orderId": "469968263793737728",
-      "accountId": "456552319339779840",
-      "symbolId": "BTC-SWAP",
-      "price": "8531.17",
-      "quantity": "100",
-      "feeTokenId": "TBTC",
-      "fee": "0.00000586",
-      "type": "LIMIT",
-      "side": "BUY_OPEN"
-    },...
-  ]
-}</code></pre>
-
-        <h3 id="contract-myTrades-response">Response data</h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>Parameter Name</th>
-                <th>Data Types</th>
-                <th>Examples</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>time</td>
-                <td>long</td>
-                <td>1570759718825</td>
-                <td>Time stamp at order generation</td>.
-            </tr>
-            <tr>
-                <td>tradeId</td>
-                <td>long</td>
-                <td>49366</td>
-                <td>Transaction ID</td>
-            </tr>
-            <tr>
-                <td>orderId</td>
-                <td>integer</td>
-                <td>BTC-SWAP</td>
-                <td>Order id</td>
-            </tr>
-            <tr>
-                <td>symbolId</td>
-                <td>string</td>
-                <td>BTC-SWAP</td>
-                <td>Contract name</td>
-            </tr>
-            <tr>
-                <td>price</td>
-                <td>float</td>
-                <td>4765.29</td>
-                <td>Trading price</td>
-            </tr>
-            <tr>
-                <td>quantity</td>
-                <td>float</td>
-                <td>1.01</td>
-                <td>Number of transactions</td>
-            </tr>
-            <tr>
-                <td>feeTokenId</td>
-                <td>string</td>
-                <td>USDT</td>
-                <td>Commission type (Token name)</td>
-            </tr>
-            <tr>
-                <td>fee</td>
-                <td></td>
-                <td></td>
-                <td>Actual fees</td>
-            </tr>
-            <tr>
-                <td>side</td>
-                <td>string</td>
-                <td>BUY_OPEN</td>
-                <td>Order Direction (BUY_OPEN, SELL_OPEN, BUY_CLOSE, SELL_CLOSE)</td>
-            </tr>
-            <tr>
-                <td>orderType</td>
-                <td>string</td>
-                <td>LIMIT</td>
-                <td>Order types (LIMIT, MARKET)</td>
-            </tr>
-            </tbody>
-        </table>
-        <ul>
-            <li><strong>Weight:</strong><span>5</span></span></li>
-            <li>If only fromId, it will return the order number less than fromId, in reverse order. </li>
-            <li>If only toId is available, it will return the order number less than toId, in ascending order. </li>
-            <li>If you have both fromId and toId, it will return the order number in both fromId and toId. In reverse order. </li>
-            <li>If both fromId and toId are not available, it will return the most recent transaction record, in reverse order. </li>
-        </ul>
-
-
-        <p></p>
-        <p></p>
-        <h2 id="contract-positions">Current Positions</h2>
-        <p>API Key Permissions: Contract Queries</p>
-        <p>Get current position information</p>
-        <h3 id="http-contract-positions">HTTP requests</h3>
-        <ul>
-            <li>GET <code>/v2/contract/trade/positions</code></li>
-        </ul>
-        <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/trade/positions?symbol=BTC-SWAP&side=LONG"</span>
-</code></pre>
-        <h3 id="contract-positions-request">Request Parameters</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>Parameters</th>
-                <th>Data Types</th>
-                <th>Is it necessary</th>
-                <th>Default values</th>
-                <th>Description</th>
-                <th>Range of values</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>false</td>
-                <td>NA</td>
-                <td>Contract Name. If not sent, all contract position information will be returned. e.g. BTC_PERP-REV</td >
-                <td></td>
-            </tr>
-            <tr>
-                <td>side</td>
-                <td>string</td>
-                <td>false</td>
-                <td>NA</td>
-                <td> Position direction, LONG (long position) or SHORT (short position). If it is not sent, position information is returned for both directions. </td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "msg": "success",
-  "data": [
-    {
-      "symbol": "BTC-SWAP",
-      "leverage": "8.81",
-      "side": "SHORT",
-      "margin": "0.00056284",
-      "avgPrice": "7849.1",
-      "available": "40",
-      "flp": "8779.5",
-      "profitRate": "0.0302",
-      "positionValue": "0.00511312",
-      "marginRate": "0.1134",
-      "unrealizedPnL": "0.00001701",
-      "realizedPnL": "-0.00000216",
-      "position": "40",
-      "lastPrice": "7822.8"
+      "symbol": "btc_usdt",
+      "amount": "59.4",
+      "volume": "2336924.9619",
+      "open": "38995.98",
+      "close": "40544.87",
+      "high": "40661.06",
+      "low": "38270.16",
+      "ts": 1650937565572
     }
   ]
-}</code></pre>
+}
+            </code>
+        </pre>
 
-        <h3 id="contract-positions-response">Response data</h3>
+        <h3 id="contract-ticker-data-response">Response Data</h3>
         <table>
             <tbody>
             <thead>
@@ -5948,162 +3724,119 @@ curl <span class="s2">"https://api.bkex.com/v2/contract/trade/positions?symbol=B
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>BTC-SWAP</td>
-                <td>Contract name</td>
-            </tr>
-            <tr>
-                <td>side</td>
-                <td>string</td>
-                <td>LONG</td>
-                <td>Position Direction (LONG, SHORT)</td>
-            </tr>
-            <tr>
-                <td>avgPrice</td>
-                <td>float</td>
-                <td>100</td>
-                <td>Average opening price</td>
-            </tr>
-            <tr>
-                <td>position</td>
-                <td>float</td>
-                <td>20</td>
-                <td>Number of open positions (sheets)</td>
-            </tr>
-            <tr>
-                <td>available</td>
-                <td>float</td>
-                <td>15</td>
-                <td>Number of positions that can be closed (sheets)</td>
-            </tr>
-            <tr>
-                <td>leverage</td>
-                <td>float</td>
-                <td>6</td>
-                <td>Position now leveraged</td>
-            </tr>
-            <tr>
-                <td>lastPrice</td>
-                <td>float</td>
-                <td>100</td>
-                <td>Last Market Price of Contract</td>
-            </tr>
-            <tr>
-                <td>positionValue</td>
-                <td>float</td>
-                <td>2000</td>
-                <td>Value of position</td>
-            </tr>
-            <tr>
-                <td>flp</td>
-                <td>float</td>
-                <td>80</td>
-                <td>Forced liquidation price</td>
-            </tr>
-            <tr>
-                <td>margin</td>
-                <td>float</td>
-                <td>20</td>
-                <td>Position Margin</td>
-            </tr>
-            <tr>
-                <td>marginRate</td>
-                <td>float</td>
-                <td>0.2</td>
-                <td>Margin rate for current position</td>
-            </tr>
-            <tr>
-                <td>unrealizedPnL</td>
-                <td>float</td>
-                <td>10</td>
-                <td>Unrealized gain/loss on current position</td>
-            </tr>
-            <tr>
-                <td>profitRate</td>
-                <td>float</td>
-                <td>0.0000333</td>
-                <td>Profit margin on current position</td>
-            </tr>
-            <tr>
-                <td>realizedPnL</td>
-                <td>float</td>
-                <td>6.8</td>
-                <td>Realized gains/losses on current contracts</td>
-            </tr>
-            </tbody>
-
-        </table>
-        <ul>
-            <li><strong>Weight:</strong><span>1</span></li>
-        </ul>
-
-
-        <p></p>
-        <p></p>
-        <h2 id="contract-modifyMargin">Change Position Margin</h2>
-        <p>API Key Permissions: Contract Operations</p>
-        <p>Change the margin for a particular contract position. </p>
-        <h3 id="http-contract-modifyMargin">HTTP requests </h3>
-        <ul>
-            <li>POST <code>/v2/contract/trade/modifyMargin</code></li>
-        </ul>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "symbol": "BTC-SWAP",
-  "amount": 0.2564,
-  "side": "LONG"
-}</code></pre>
-        <h3 id="contract-modifyMargin-request">Request Parameters </h3>
-        <table>
-            <thead>
-            <tr>
-                <th>Parameters</th>
-                <th>Data Types</th>
-                <th>Is it necessary</th>
-                <th>Default values</th>
-                <th>Description</th>
-                <th>Range of values</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>true</td>
-                <td>NA</td>
-                <td>Contract name E.g. BTC-SWAP</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>side</td>
-                <td>string</td>
-                <td>true</td>
-                <td>NA</td>
-                <td> Position direction, LONG (long) or SHORT (short). </td>
-                <td></td>
+                <td>btc_usdt</td>
+                <td>Transaction pair</td>
             </tr>
             <tr>
                 <td>amount</td>
-                <td>number</td>
+                <td>string</td>
+                <td>"0.04"</td>
+                <td>Transaction volume in base currency</td>
+            </tr>
+            <tr>
+                <td>volume</td>
+                <td>string</td>
+                <td>"809.35"</td>
+                <td>Transaction volume in quotation currency</td>
+            </tr>
+            <tr>
+                <td>open</td>
+                <td>string</td>
+                <td>"40490.47"</td>
+                <td>Opening price in the last 24 hours</td>
+            </tr>
+            <tr>
+                <td>close</td>
+                <td>string</td>
+                <td>"40469.36"</td>
+                <td>Closing price in the last 24 hours</td>
+            </tr>
+            <tr>
+                <td>high</td>
+                <td>string</td>
+                <td>"40490.47"</td>
+                <td>Highest price in the last 24 hours</td>
+            </tr>
+            <tr>
+                <td>low</td>
+                <td>string</td>
+                <td>"40464.03"</td>
+                <td>Lowest price in the last 24 hours</td>
+            </tr>
+            <tr>
+                <td>ts</td>
+                <td>long</td>
+                <td>1650937860000</td>
+                <td>Timestamp of the latest transaction</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <h2 id="contract-trades-history">Get transaction history</h2>
+        <p>API Key permissions: no signature required</p>
+        <p>
+            1. Frequency limit (according to IP limit): 20 times / s.<br>
+            2. The maximum number of returned entries is 200.
+        </p>
+        <h3 id="http-contract-trades-history">HTTP requests</h3>
+        <ul><li>GET <code>/fapi/v2/market/deals</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/deals?symbol=btc_usdt"</span></code></pre>
+        <h3 id="contract-trades-history-request">Request Parameters</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Position</th>
+                <th>Data Types</th>
+                <th>Required</th>
+                <th>Default value</th>
+                <th>Describe</th>
+                <th>Value range</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>query</td>
+                <td>string</td>
                 <td>true</td>
                 <td>NA</td>
-                <td>The amount by which the margin is increased (positive) or decreased (negative). Note that this quantity refers to the underlying contract pricing asset (i.e., the subject of the contract settlement) </td>.
+                <td>Transaction pair</td>
                 <td></td>
             </tr>
             </tbody>
         </table>
+
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
+        <pre class="highlight json tab-json responsePre">
+            <code>
+{
   "code": 0,
   "msg": "success",
-  "data": {
-    "symbol": "BTC-SWAP",
-    "margin": "0.00056304",
-    "timestamp": "1583931567359"
-  }
-}</code></pre>
+  "data": [
+    {
+      "symbol": "btc_usdt",
+      "amount": "0.01",
+      "price": "40469.36",
+      "side": "sell",
+      "time": 1650937919615
+    },
+    {
+      "symbol": "btc_usdt",
+      "amount": "0.01",
+      "price": "40464.03",
+      "side": "sell",
+      "time": 1650937892485
+    }
+  ]
+}
+            </code>
+        </pre>
 
-        <h3 id="contract-modifyMargin-response">Response data</h3>
+        <h3 id="contract-trades-history-response">Response Data</h3>
         <table>
             <tbody>
             <thead>
@@ -6117,62 +3850,77 @@ curl <span class="s2">"https://api.bkex.com/v2/contract/trade/positions?symbol=B
             <tr>
                 <td>symbol</td>
                 <td>string</td>
-                <td>BTC-SWAP</td>
-                <td>Contract name</td>
+                <td>btc_usdt</td>
+                <td>Transaction pair</td>
             </tr>
             <tr>
-                <td>margin</td>
-                <td>float</td>
-                <td>12.3</td>
-                <td>Updated Position Margin</td>
+                <td>amount</td>
+                <td>string</td>
+                <td>"0.01"</td>
+                <td>Transaction volume in base currency</td>
             </tr>
             <tr>
-                <td>Timestamp</td>
+                <td>price</td>
+                <td>string</td>
+                <td>"40464.03"</td>
+                <td>Transaction price in quotation currency</td>
+            </tr>
+            <tr>
+                <td>side</td>
+                <td>string</td>
+                <td>"sell"</td>
+                <td>Trading direction: "sell" or "buy", "buy" means buy, "sell" means sell</td>
+            </tr>
+            <tr>
+                <td>time</td>
                 <td>long</td>
-                <td>1541161088303</td>
-                <td>Updated timestamp</td>
+                <td>1650937892485</td>
+                <td>Time stamp at closing</td>
             </tr>
             </tbody>
         </table>
-        <ul>
-            <li><strong>Weight:</strong><span>1</span></li>
-        </ul>
 
-
-        <h2>Account information</h2>
-        <aside class="notice">The interface associated with accessing account information requires signature authentication. </aside>
-        <p></p>
-
-
-        <h2 id="contract-account">Account information</h2>
-        <p>API Key Permissions: Contract Queries</p>
-        <p>Return the contract account balance. </p>
-        <h3 id="http-contract-account">HTTP request</h3>
-        <ul>
-            <li>GET <code>/v2/contract/u/account</code> </li>
-        </ul>
-        <pre class="highlight json tab-json"><code>
-curl <span class="s2">"https://api.bkex.com/v2/contract/u/account"</span>
-        </code></pre>
-        <h3 id="contract-account-request">Request Parameters</h3>
+        <h2 id="contract-market-symbols">Get all transaction pair information</h2>
+        <p>API Key Permissions: no signature required</p>
+        <p>Limit (according to IP limit): 50 times / s. </p>
+        <h3 id="http-contract-market-symbols">HTTP request</h3>
+        <ul><li>GET <code>/fapi/v2/market/symbols</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/symbols"</span></code></pre>
+        <h3 id="contract-market-symbols-request">Request Parameters</h3>
         <p>No parameters</p>
+
+
         <blockquote>
             <p>Response:</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
+        <pre class="highlight json tab-json responsePre">
+            <code>
+{
   "code": 0,
   "msg": "success",
-  "data": {
-    "TBTC": {
-        "total":"131.06671401",
-        "availableMargin":"131.0545541",
-        "positionMargin":"0.01215991",
-        "orderMargin":"0"
-    },...
-  }
-}</code></pre>
+  "data": [
+    {
+      "symbol": "xrp_usdt",
+      "supportTrade": true,
+      "volumePrecision": 0,
+      "pricePrecision": 4,
+      "marketMiniAmount": "100",
+      "limitMiniAmount": "100"
+    },
+    {
+      "symbol": "ltc_usdt",
+      "supportTrade": true,
+      "volumePrecision": 1,
+      "pricePrecision": 2,
+      "marketMiniAmount": "0.1",
+      "limitMiniAmount": "0.1"
+    }
+  ]
+}
+            </code>
+        </pre>
 
-        <h3 id="contract-account-response">Response data</h3>
+        <h3 id="contract-market-symbols-response">Response Data</h3>
         <table>
             <tbody>
             <thead>
@@ -6184,35 +3932,43 @@ curl <span class="s2">"https://api.bkex.com/v2/contract/u/account"</span>
             </tr>
             </thead>
             <tr>
-                <td>total</td>
-                <td>float</td>
-                <td>131.06671401</td>
-                <td>Total balance</td>
+                <td>symbol</td>
+                <td>tring</td>
+                <td>btc_usdt</td>
+                <td>Transaction pair</td>
             </tr>
             <tr>
-                <td>availableMargin</td>
-                <td>float</td>
-                <td>131.0545541</td>
-                <td>Available deposit</td>
+                <td>supportTrade</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>Whether transactions are supported</td>
             </tr>
             <tr>
-                <td>positionMargin</td>
-                <td>float</td>
-                <td>0.01215991</td>
-                <td>Position Margin</td>
+                <td>volumePrecision</td>
+                <td>int</td>
+                <td>1</td>
+                <td>Accuracy of transaction to order quantity (digits after decimal point)</td>
             </tr>
             <tr>
-                <td>orderMargin</td>
-                <td>float</td>
-                <td>0</td>
-                <td>Commission deposit (order lock)</td>
+                <td>pricePrecision</td>
+                <td>int</td>
+                <td>2</td>
+                <td>Accuracy of transaction to order price (digits after decimal point)</td>
+            </tr>
+            <tr>
+                <td>marketMiniAmount</td>
+                <td>string</td>
+                <td>"0.1",</td>
+                <td>Minimum order quantity of transaction to market price</td>
+            </tr>
+            <tr>
+                <td>limitMiniAmount</td>
+                <td>string</td>
+                <td>"0.1",</td>
+                <td>Minimum order quantity of transaction price limit</td>
             </tr>
             </tbody>
         </table>
-        <ul>
-            <li><strong>Weight:</strong><span>5</span></li>
-        </ul>
-
 
         <!-- Websocket-->
         <h1 id="websocket">Websocket coin market data</h1>
