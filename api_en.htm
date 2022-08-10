@@ -456,12 +456,18 @@
         </li>
         <a href="./api_en.htm?shell#contract" class="toc-h1 toc-link" data-title="Contract transaction">Contract transaction</a>
         <ul class="toc-list-h2">
+            <li><a href="./api_en.htm?shell#contract-server-ping" class="toc-h2 toc-link" data-title="Test server connectivity">Test server connectivity</a></li>
+            <li><a href="./api_en.htm?shell#contract-server-time" class="toc-h2 toc-link" data-title="Get server time">Get server time</a></li>
             <li><a href="./api_en.htm?shell#contract-market-symbols" class="toc-h2 toc-link" data-title="Get all transaction pair information">Get all transaction pair information</a></li>
             <li><a href="./api_en.htm?shell#contract-deep-data" class="toc-h2 toc-link" data-title="Get depth data">Get depth data</a></li>
             <li><a href="./api_en.htm?shell#contract-kline" class="toc-h2 toc-link" data-title="Get K-line data">Get K-line data</a></li>
             <li><a href="./api_en.htm?shell#contract-market-price" class="toc-h2 toc-link" data-title="Get the latest price">Get the latest price</a></li>
             <li><a href="./api_en.htm?shell#contract-ticker-data" class="toc-h2 toc-link" data-title="Get ticker data">Get ticker data</a></li>
             <li><a href="./api_en.htm?shell#contract-trades-history" class="toc-h2 toc-link" data-title="Get transaction history">Get transaction history</a></li>
+
+            <li><a href="./api_en.htm?shell#contract-index" class="toc-h2 toc-link" data-title="Get tag price">Get tag price</a></li>
+            <li><a href="./api_en.htm?shell#contract-fundingRate" class="toc-h2 toc-link" data-title="Get fund rate">Get fund rate</a></li>
+            <li><a href="./api_en.htm?shell#contract-riskLimit" class="toc-h2 toc-link" data-title="Get risk limit">Get risk limit</a></li>
         </ul>
         </li>
         <li>
@@ -509,16 +515,24 @@
             </ul>
         </li>
         <li>
-            <a href="./api_en.htm?shell#websocket-contract-q" class="toc-h1 toc-link" data-title="Websocket contract quote data">Websocket contract quote data (not in service)</a>
+            <a href="./api_en.htm?shell#websocket-contract-q" class="toc-h1 toc-link" data-title="Websocket contract quote data">Websocket contract quote data</a>
             <ul class="toc-list-h2">
                 <li><a href="./api_en.htm?shell#websocket-contract-q-url" class="toc-h2 toc-link" data-title="Access URL">Access URL</a></li>
+               <!--
                 <li><a href="./api_en.htm?shell#websocket-contract-q-8" class="toc-h2 toc-link" data-title="Error handling">Error handling</a></li>
                 <li><a href="./api_en.htm?shell#websocket-contract-q-9" class="toc-h2 toc-link" data-title="Heartbeat">Heartbeat</a></li>
-                <li><a href="./api_en.htm?shell#websocket-contract-q-3" class="toc-h2 toc-link" data-title="Full depth">Full depth</a></li>
-                <li><a href="./api_en.htm?shell#websocket-contract-q-4" class="toc-h2 toc-link" data-title="Symbol's ticker information">Symbol's ticker information</a></li>
                 <li><a href="./api_en.htm?shell#websocket-contract-q-12" class="toc-h2 toc-link" data-title="24H quotes">Transaction-by-transaction</a></li>
                 <li><a href="./api_en.htm?shell#websocket-contract-q-5" class="toc-h2 toc-link" data-title="K-line/candlestick chart">K-line/candlestick chart</a></li>
                 <li><a href="./api_en.htm?shell#websocket-contract-q-6" class="toc-h2 toc-link" data-title="Order book ticker information">Order book ticker information</a></li>
+                -->
+                <li><a href="./api_en.htm?shell#websocket-contract-q-sub" class="toc-h2 toc-link" data-title="Subscribe to message">Subscribe to message</a></li>
+                <li><a href="./api_en.htm?shell#websocket-contract-q-unsub" class="toc-h2 toc-link" data-title="Unsubscribe from messages">Unsubscribe from messages</a></li>
+                <li><a href="./api_en.htm?shell#websocket-contract-q-3" class="toc-h2 toc-link" data-title="Limited depth">Limited depth</a></li>
+                <li><a href="./api_en.htm?shell#websocket-contract-q-updatedepth" class="toc-h2 toc-link" data-title="Incremental depth">Incremental depth</a></li>
+                <li><a href="./api_en.htm?shell#websocket-contract-q-4" class="toc-h2 toc-link" data-title="Symbol's ticker information">Symbol's ticker information</a></li>
+                <li><a href="./api_en.htm?shell#websocket-contract-q-index" class="toc-h2 toc-link" data-title="Latest index price">Latest index price</a></li>
+
+
             </ul>
         </li>
         <li>
@@ -2069,7 +2083,7 @@
         <!--            <tr>-->
         <!--                <td>data</td>-->
         <!--                <td>object</td>-->
-        <!--                <td>返回数据</td>-->
+        <!--                <td>Response data</td>-->
         <!--            </tr>-->
         <!--            </tbody>-->
         <!--        </table>-->
@@ -3308,8 +3322,8 @@
         <h2>Public Information Interface</h2>
         <p></p>
         <h2 id="contract-deep-data">Get depth data</h2 >
-        <p>API Key permissions: no signature required</p>
-        <p>Frequency limit (according to IP limit): 20 times / S</p>
+        <p>Signature authentication is required to access this interface.</p>
+        <p>Frequency limit (according to IP limit): 20 times / S.</p>
         <h3 id="http-contract-deep-data">HTTP request</h3>
         <ul><li>GET <code>/fapi/v2/market/depth</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/depth?symbol=btc_usdt"</span></code></pre>
@@ -3697,13 +3711,16 @@
   "data": [
     {
       "symbol": "btc_usdt",
-      "amount": "59.4",
-      "volume": "2336924.9619",
-      "open": "38995.98",
-      "close": "40544.87",
-      "high": "40661.06",
-      "low": "38270.16",
-      "ts": 1650937565572
+            "amount":"2553.28",
+            "volume":"60609744.48039",
+            "open":"23775.65",
+            "close":"23745.15",
+            "high":"23852.37",
+            "low":"23561.12",
+            "lastPrice":"23745.15",
+            "lastAmount":"0.06",
+            "lastTime":1659336982046,
+            "change":"-0.12"
     }
   ]
 }
@@ -3731,13 +3748,13 @@
                 <td>amount</td>
                 <td>string</td>
                 <td>"0.04"</td>
-                <td>Transaction volume in base currency</td>
+                <td>Accumulated trading volume of last 24 hours (rotating 24h), in base currency</td>
             </tr>
             <tr>
                 <td>volume</td>
                 <td>string</td>
                 <td>"809.35"</td>
-                <td>Transaction volume in quotation currency</td>
+                <td>Accumulated trading value of last 24 hours (rotating 24h), in quote currency</td>
             </tr>
             <tr>
                 <td>open</td>
@@ -3764,10 +3781,28 @@
                 <td>Lowest price in the last 24 hours</td>
             </tr>
             <tr>
-                <td>ts</td>
+                <td>lastPrice</td>
+                <td>string</td>
+                <td>"40469.36"</td>
+                <td>Last traded price</td>
+            </tr>
+            <tr>
+                <td>lastAmount</td>
+                <td>string</td>
+                <td>"0.08"</td>
+                <td>Last traded size</td>
+            </tr>
+            <tr>
+                <td>lastTime</td>
                 <td>long</td>
                 <td>1650937860000</td>
                 <td>Timestamp of the latest transaction</td>
+            </tr>
+            <tr>
+                <td>change</td>
+                <td>string</td>
+                <td>"-0.18"</td>
+                <td>Range of change (plus or minus percentage, such as -0.18 means a decrease of 0.18%)</td>
             </tr>
             </tbody>
         </table>
@@ -3881,7 +3916,7 @@
         </table>
 
         <h2 id="contract-market-symbols">Get all transaction pair information</h2>
-        <p>API Key Permissions: no signature required</p>
+        <p>API Key Permissions: no signature required.</p>
         <p>Limit (according to IP limit): 50 times / s. </p>
         <h3 id="http-contract-market-symbols">HTTP request</h3>
         <ul><li>GET <code>/fapi/v2/market/symbols</code></li></ul>
@@ -3969,6 +4004,389 @@
             </tr>
             </tbody>
         </table>
+
+
+        <h2 id="contract-server-ping">Test server connectivity</h2>
+        <p>Signature authentication is required to access this interface.</p>
+        <p>Limit (according to IP limit):20 times /s.</p>
+        <h3 id="http-contract-server-ping">HTTP request</h3>
+        <ul><li>GET <code>/fapi/v2/server/ping</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/server/ping"</span></code></pre>
+        <h3 id="contract-server-ping-request">Request Parameters</h3>
+        <p>nothing</p>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": {
+                        "serverTime": 1658368263053
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">Response data</h3>
+        <table>
+            <tbody>
+            <thead>
+                <tr>
+                    <th>Parameter Name</th>
+                    <th>Data Types</th>
+                    <th>Examples</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>serverTime</td>
+                <td>long</td>
+                <td>1658368263053</td>
+                <td>Server time</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2 id="contract-server-time">Get server time</h2>
+        <p>Signature authentication is required to access this interface.</p>
+        <p>Limit (according to IP limit):20 times /s.</p>
+        <h3 id="http-contract-server-time">HTTP requests</h3>
+        <ul><li>GET <code>/fapi/v2/server/ping</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/server/time"</span></code></pre>
+        <h3 id="contract-server-time-request">Request Parameters</h3>
+        <p>nothing</p>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": {
+                        "serverTime": 1658368263053
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">Response data</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Data Types</th>
+                <th>Examples</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>serverTime</td>
+                <td>long</td>
+                <td>1658368263053</td>
+                <td>Server time</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <h2 id="contract-index">Get tag price</h2>
+        <p>Signature authentication is required to access this interface.</p>
+        <p>Limit (according to IP limit):20 times /s.</p>
+        <h3 id="http-contract-index">HTTP request</h3>
+        <ul><li>GET <code>/fapi/v2/market/index</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/index?symbol=btc_usdt"</span></code></pre>
+        <h3 id="contract-index-request">Request Parameters</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Position</th>
+                <th>Data Types</th>
+                <th>Required</th>
+                <th>Default value</th>
+                <th>Describe</th>
+                <th>Value range</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>query</td>
+                <td>string</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>Transaction pair (if no symbol is sent, the marked price of all transaction pairs is returned)</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": [
+                        {
+                            "symbol": "btc_usdt",
+                            "marketPrice": "23296.63"
+                        }
+                    ]
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">Response data</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Data Types</th>
+                <th>Examples</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>Trading pair</td>
+            </tr>
+            <tr>
+                <td>marketPrice</td>
+                <td>string</td>
+                <td>23296.63</td>
+                <td>Mark price</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <h2 id="contract-fundingRate">Get fund rate</h2>
+        <p>Signature authentication is required to access this interface.</p>
+        <p>Limit (according to IP limit):20 times /s.</p>
+        <h3 id="http-contract-fundingRate">HTTP request</h3>
+        <ul><li>GET <code>/fapi/v2/market/fundingRate</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/fundingRate?symbol=eth_usdt&limit=100"</span></code></pre>
+        <h3 id="contract-fundingRate-request">Request Parameters</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Position</th>
+                <th>Data Types</th>
+                <th>Required</th>
+                <th>Default value</th>
+                <th>Describe</th>
+                <th>Value range</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>query</td>
+                <td>string</td>
+                <td>true</td>
+                <td>NA</td>
+                <td>Trading pair</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>startTime</td>
+                <td>query</td>
+                <td>string</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>Start time</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>endTime</td>
+                <td>query</td>
+                <td>string</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>End time</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>limit</td>
+                <td>query</td>
+                <td>string</td>
+                <td>fase</td>
+                <td>NA</td>
+                <td>Default value: 100 maximum value: 1000</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": [
+                        {
+                            "symbol": "eth_usdt",
+                            "rate": "0.0000129",
+                            "time": 1658370002127
+                        }
+                    ]
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">Response data</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Data Types</th>
+                <th>Examples</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>Trading pair</td>
+            </tr>
+            <tr>
+                <td>marketPrice</td>
+                <td>string</td>
+                <td>0.0000129</td>
+                <td>Capital rate</td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td>long</td>
+                <td>1658370002127</td>
+                <td>time</td>
+            </tr>
+            </tbody>
+        </table>
+        <ul>
+            <li>If neither starttime nor Endtime is sent, the latest limit pieces of data are returned.</li>
+            <li>If the amount of data between starttime and Endtime is greater than limit, the data in the case of starttime + limit is returned.</li>
+        </ul>
+
+
+
+        <h2 id="contract-riskLimit">Get risk limits</h2>
+        <p>Signature authentication is required to access this interface.</p>
+        <p>Limit (according to IP limit):20 times /s.</p>
+        <h3 id="http-contract-riskLimit">HTTP request</h3>
+        <ul><li>GET <code>/fapi/v2/market/riskLimit</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/riskLimit?symbol=eth_usdt"</span></code></pre>
+        <h3 id="contract-riskLimit-request">Request Parameters</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Position</th>
+                <th>Data Types</th>
+                <th>Required</th>
+                <th>Default value</th>
+                <th>Describe</th>
+                <th>Value range</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>query</td>
+                <td>string</td>
+                <td>true</td>
+                <td>NA</td>
+                <td>Trading pair</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": [
+                        {
+                            "symbol": "btc_usdt",
+                            "minValue": "0",
+                            "maxValue": "500000",
+                            "maxLeverage": 100,
+                            "maintenanceMarginRate": "0.005"
+                        }
+                    ]
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">Response data</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Data Types</th>
+                <th>Examples</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>Trading pair</td>
+            </tr>
+            <tr>
+                <td>minValue</td>
+                <td>string</td>
+                <td>0</td>
+                <td>Minimum position value</td>
+            </tr>
+            <tr>
+                <td>maxValue</td>
+                <td>string</td>
+                <td>5000</td>
+                <td>Maximum position value</td>
+            </tr>
+            <tr>
+                <td>maxLeverage</td>
+                <td>int</td>
+                <td>100</td>
+                <td>Maximum available leverage</td>
+            </tr>
+            <tr>
+                <td>maintenanceMarginRate</td>
+                <td>string</td>
+                <td>0.005</td>
+                <td>Maintain margin rate</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
 
         <!-- Websocket-->
         <h1 id="websocket">Websocket coin market data</h1>
@@ -4875,14 +5293,506 @@
 
 
         <! -- websocket-contract-q -->
-        <h1 id="websocket-contract-q">Websocket Contract Quote Data (not in service)</h1>
-        <h3 id="websocket-contract-q-url">Access URL</h3 >
-        <p><strong>Contract Quote Request Address</strong></p>
-
-        <!--<p><strong><code>wss://api.bkex.cc/contract/q/ws</code></strong></p>-->
+        <h1 id="websocket-contract-q">Websocket contract quote data</h1>
+        <h2 id="websocket-contract-q-url">Access URL</h2>
+        <h3>Contract Quote Request Address</h3>
         <p><strong><code>wss://api.bkex.com/contract/q/ws</code></strong></p>
+        <h3>Heartbeat</h3>
+        <p>
+            When the user's Websocket client connects to the Websocket server, the server will periodically (currently set to 1 minute) send ping messages to it.<br/>
+            When the user's Websocket client receives this heartbeat message, it should return a pong message.<br/>
 
+            <aside class="warning">When the Websocket server sends a `ping` message twice in a row but does not receive any `pong` message returned, the server will actively disconnect the connection with the client.</aside>
+        </p>
+        <hr/>
 
+        <h2 id="websocket-contract-q-sub">Subscribe to messages</h2>
+        <p>After successfully establishing a connection with the Websocket server, the Websocket client sends a request to subscribe to a specific topic. The message format is unified, and multiple subscriptions can be subscribed at the same time, separated by ','.</p>
+        <p><code>{"event":"sub","topic":"topic1,topic2..."}</code></p>
+        <p>After a successful subscription, the Websocket client will receive an acknowledgment.</p>
+        <p><code>{"type":"sub","ts":1658133356074,"data":{"topic":"topic1,topic2...","status":"ok"}}</code></p>
+        <p>After that, once the subscribed topic is updated, the Websocket client will receive the update message pushed by the server.</p>
+        <hr/>
+
+        <h2 id="websocket-contract-q-unsub">Unsubscribe from messages</h2>
+        <p>After the subscription is successful, you can cancel the subscription. The message format is unified, and multiple subscriptions can be unsubscribed at the same time, separated by ','.</p>
+        <p><code>{"event":"unsub","topic":"topic1,topic2..."}</code></p>
+        <p>After successfully unsubscribing, the Websocket client will receive a message that the cancellation was successful.</p>
+        <p><code>{"type":"unsub","ts":1658133356074,"data":{"topic":"topic1,topic2...","status":"ok"}}</code></p>
+        <p>After that, push messages for that topic will no longer be received.</p>
+        <hr/>
+
+        <h2 id="websocket-contract-q-3">limited depth</h2>
+        <p>This thread sends the latest Depth of Market snapshot. The snapshot frequency is 1 every 500 milliseconds. Currently supports 5 files, 10 files, 20 files.</p>
+        <h3 id="a94c7743c5">Topic subscription</h3>
+
+        <p>$symbol.$depth</p>
+
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+<code>{"event":"sub","topic":"btc_usdt.5deep"}</code>
+        </pre>
+
+        <h3 id="749d765242">Subscription parameters</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameters</th>
+                    <th>Data Types</th>
+                    <th>Is it necessary</th>
+                    <th>Description</th>
+                    <th>Range of values</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>true</td>
+                <td>Trading pair</td>
+                <td>ada_usdt,bch_usdt,btc_usdt...</td>
+            </tr>
+            <tr>
+                <td>depth</td>
+                <td>string</td>
+                <td>true</td>
+                <td>depth type</td>
+                <td>5deep,10deep,20deep</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre"><code>
+{
+    "type":"btc_usdt.5deep",
+    "ts":1658133356423,
+    "data":{
+        "symbol":"btc_usdt",
+        "asks":[
+            "22283.880000",
+            "1.91",
+            "22284.060000",
+            "0.08",
+            "22284.440000",
+            "0.11",
+            "22284.620000",
+            "0.06",
+            "22284.640000",
+            "1.24"
+        ],
+        "bids":[
+            "22283.200000",
+            "1060",
+            "22283.000000",
+            "790",
+            "22282.280000",
+            "80",
+            "22282.240000",
+            "1150",
+            "22282.210000",
+            "940"
+        ]
+    }
+}
+    </code></pre>
+
+        <h3 id="7bf990a9a9">Response data</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Data Types</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>type</td><td>string</td><td>subscribed topic</td>
+                </tr>
+                <tr>
+                    <td>ts</td>
+                    <td>long</td>
+                    <td>timestamp</td>
+                </tr>
+                <tr>
+                    <td>&lt;data></data></td>
+                    <td>object</td>
+                    <td>data block</td>
+                </tr>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>Trading pair</td>
+            </tr>
+            <tr>
+                <td>asks</td>
+                <td>array</td>
+                <td>seller [price, size]</td>
+            </tr>
+            <tr>
+                <td>bids</td>
+                <td>array</td>
+                <td>buyer [price, size]</td>
+            </tr>
+            <tr>
+                <td>&lt;/data></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            </tbody>
+        </table>
+        <hr/>
+
+        <h2 id="websocket-contract-q-updatedepth">Incremental depth</h2>
+        <p>Push when the currency pair depth changes.</p>
+        <h3 id="a94c7743c5">Topic subscription</h3>
+
+        <p>$symbol.updateDepth</p>
+
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+<code>{"event":"sub","topic":"btc_usdt.updateDepth"}</code>
+        </pre>
+
+        <h3 id="749d765242">Subscription parameters</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameters</th>
+                    <th>Data Types</th>
+                    <th>Is it necessary</th>
+                    <th>Description</th>
+                    <th>Range of values</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>true</td>
+                <td>Trading pair</td>
+                <td>ada_usdt,bch_usdt,btc_usdt...</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre"><code>
+{
+    "type":"btc_usdt.5deep",
+    "ts":1658133356423,
+    "data":{
+        "symbol":"btc_usdt",
+        "asks":[
+            "22283.880000",
+            "1.91"
+        ],
+        "bids":[
+            "22283.200000",
+            "1060",
+        ]
+    }
+}
+    </code></pre>
+
+        <h3 id="7bf990a9a9">Response data</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Data Types</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>type</td><td>string</td><td>subscribed topic</td>
+                </tr>
+                <tr>
+                    <td>ts</td>
+                    <td>long</td>
+                    <td>timestamp</td>
+                </tr>
+                <tr>
+                    <td>&lt;data></data></td>
+                    <td>object</td>
+                    <td>data block</td>
+                </tr>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>Trading pair</td>
+            </tr>
+            <tr>
+                <td>asks</td>
+                <td>array</td>
+                <td>seller [price, size]</td>
+            </tr>
+            <tr>
+                <td>bids</td>
+                <td>array</td>
+                <td>buyer [price, size]</td>
+            </tr>
+            <tr>
+                <td>&lt;/data></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <hr/>
+
+        <h2 id="websocket-contract-q-4">Symbol's Ticker Information</h2>
+        <p>symbol 24 hours full ticker information.</p>
+        <h3 id="a94c7743c6-2">Topic subscription</h3>
+        <p>$symbol.ticker</p>
+
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre"><code>{"event":"sub","topic":"btc_usdt.ticker"}
+            </code></pre>
+        <h3 id="749d765245-2">Subscription parameters</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameters</th>
+                    <th>Data Types</th>
+                    <th>Is it necessary</th>
+                    <th>Description</th>
+                    <th>Range of values</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>true</td>
+                <td>Trading pair</td>
+                <td>ada_usdt,bch_usdt,btc_usdt...</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+{
+    "type":"btc_usdt.ticker",
+    "ts":1659319399003,
+    "data":{
+        "symbol":"btc_usdt",
+        "amount":"2553.28",
+        "volume":"60609744.48039",
+        "open":"23775.65",
+        "close":"23745.15",
+        "high":"23852.37",
+        "low":"23561.12",
+        "lastPrice":"23745.15",
+        "lastAmount":"0.06",
+        "lastTime":1659336982046,
+        "change":"-0.12"
+    }
+}
+</code></pre>
+        <h3 id="7bf990a9as8">Response data</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Data Types</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>type</td><td>string</td><td>subscribed topic</td>
+                </tr>
+                <tr>
+                    <td>ts</td>
+                    <td>long</td>
+                    <td>timestamp</td>
+                </tr>
+                <tr>
+                    <td>&lt;data></data></td>
+                    <td>object</td>
+                    <td>data block</td>
+                </tr>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>Trading pair</td>
+            </tr>
+            <tr>
+                <td>amount</td> <td>string</td><td>Accumulated trading volume of last 24 hours (rotating 24h), in base currency</td>
+            </tr>
+            <tr>
+                <td>volume</td> <td>string</td><td>Accumulated trading value of last 24 hours (rotating 24h), in quote currency</td>
+            </tr>
+
+            <tr>
+                <td>open</td>
+                <td>string</td>
+                <td>Opening price in the last 24 hours</td>
+            </tr>
+            <tr>
+                <td>close</td>
+                <td>string</td>
+                <td>Last 24 hours closing price</td>
+            </tr>
+
+            <tr>
+                <td>high</td>
+                <td>string</td>
+                <td>Highest price in the last 24 hours</td>
+            </tr>
+            <tr>
+                <td>low</td>
+                <td>string</td>
+                <td>Lowest price in last 24 hours</td>
+            </tr>
+
+            <tr>
+                <td>lastPrice</td>
+                <td>string</td>
+                <td>Last traded price</td>
+            </tr>
+
+            <tr>
+                <td>lastAmount</td>
+                <td>string</td>
+                <td>Last traded size</td>
+            </tr>
+
+            <tr>
+                <td>lastTime</td>
+                <td>long</td>
+                <td>Timestamp of the latest transaction</td>
+            </tr>
+
+            <tr>
+                <td>change</td>
+                <td>string</td>
+                <td>Range of change (plus or minus percentage, such as -0.18 means a decrease of 0.18%)</td>
+            </tr>
+
+            <tr>
+                <td>&lt;/data></data></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <hr/>
+
+        <h2 id="websocket-contract-q-index">latest index price</h2>
+        <p></p>
+        <h3>Topic subscription</h3>
+        <p>$symbol.index</p>
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+{"event":"sub","topic":"btc_usdt.index"}
+        </code></pre>
+
+        <h3 id="749d7652242-2">Subscription parameters</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameters</th>
+                    <th>Data Types</th>
+                    <th>Is it necessary</th>
+                    <th>Description</th>
+                    <th>Range of values</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>true</td>
+                <td>Trading pair</td>
+                <td>ada_usdt,bch_usdt,btc_usdt...</td>
+            </tr>
+            </table>
+
+            <h3>Response data</h3>
+            <blockquote>
+                <p>Request</p>
+            </blockquote>
+            <pre class="highlight json tab-json responsePre">
+                <code>
+{
+    "type":"btc_usdt.index",
+    "ts":1658139156030,
+    "data":{
+        "symbol":"btc_usdt",
+        "price":"22227.673",
+        "time":1658139156278
+    }
+}
+            </code></pre>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Data Types</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>type</td><td>string</td><td>subscribed topic</td>
+                    </tr>
+                    <tr>
+                        <td>ts</td>
+                        <td>long</td>
+                        <td>timestamp</td>
+                    </tr>
+                    <tr>
+                        <td>&lt;data></data></td>
+                        <td>object</td>
+                        <td>data block</td>
+                    </tr>
+
+                    <tr>
+                        <td>symbol</td><td>string</td><td>Trading pair</td>
+                    </tr>
+                    <tr>
+                        <td>price</td><td>string</td><td>Index price</td>
+                    </tr>
+                    <tr>
+                        <td>time</td><td>long</td><td>event time</td>
+                    </tr>
+
+                    <tr>
+                        <td>&lt;/data></data></td>
+                        <td>object</td>
+                        <td>data block</td>
+                    </tr>
+                    </tbody>
+                    </table>
+<hr/>
+
+        <!--
         <p></p>
         <h2 id="websocket-contract-q-8">Error Handling</h2>
         <p><code>INVALID_REQUEST("-10000", "Invalid request!")</code></p>
@@ -4908,7 +5818,6 @@
             "pong": 1535975085052
             }</code></p>
 
-        <p></p>
         <h2 id="websocket-contract-q-3">Full Depth</h2>
         <h3 id="a94c7743c5">Subscribe to messages</h3>
 
@@ -5550,8 +6459,9 @@
             </tr>
             </tbody>
         </table>
+    -->
 
-        <! -- websocket-contract-u ->>>
+        <!-- websocket-contract-u -->
         <h1 id="websocket-contract-u">Websocket Contract User Data (not in service)</h1>
         <h2 id="websocket-contract-u-1">Basic Information</h2>
         <ul>
