@@ -470,6 +470,30 @@
             <li><a href="./api_zh.htm?shell#contract-fundingRate" class="toc-h2 toc-link" data-title="查询资金费率">查询资金费率</a></li>
             <li><a href="./api_zh.htm?shell#contract-riskLimit" class="toc-h2 toc-link" data-title="查询获取风险限额">查询获取风险限额</a></li>
 
+            <li><a href="./api_zh.htm?shell#contract-account-balance" class="toc-h2 toc-link" data-title="查询账户余额">查询账户余额</a></li>
+            <li><a href="./api_zh.htm?shell#contract-account-setLeverage" class="toc-h2 toc-link" data-title="调整开仓杠杆">调整开仓杠杆</a></li>
+            <li><a href="./api_zh.htm?shell#contract-account-position" class="toc-h2 toc-link" data-title="获取用户持仓">获取用户持仓</a></li>
+            <li><a href="./api_zh.htm?shell#contract-account-order" class="toc-h2 toc-link" data-title="获取账户成交历史">获取账户成交历史</a></li>
+            <li><a href="./api_zh.htm?shell#contract-account-balanceRecord" class="toc-h2 toc-link" data-title="查询账户资金账单">查询账户资金账单</a></li>
+            <li><a href="./api_zh.htm?shell#contract-account-orderForced" class="toc-h2 toc-link" data-title="用户强平单历史">用户强平单历史</a></li>
+            
+            <li><a href="./api_zh.htm?shell#contract-deal-position-update" class="toc-h2 toc-link" data-title="设置仓位模式">设置仓位模式</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-position-info" class="toc-h2 toc-link" data-title="查询仓位模式">获取仓位模式</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-position-setSpSl" class="toc-h2 toc-link" data-title="设置止盈止损">设置止盈止损</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-order-open" class="toc-h2 toc-link" data-title="下单">下单</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-order-batchOpen" class="toc-h2 toc-link" data-title="批量下单">批量下单</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-order-cancel" class="toc-h2 toc-link" data-title="撤销订单">撤销订单</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-order-batchCancel" class="toc-h2 toc-link" data-title="批量撤销订单">批量撤销订单</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-order-close" class="toc-h2 toc-link" data-title="平仓">平仓</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-order-closeAll" class="toc-h2 toc-link" data-title="一键平仓">一键平仓</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-order-unFinish" class="toc-h2 toc-link" data-title="查询挂单信息">查询挂单信息</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-order-finishedInfo" class="toc-h2 toc-link" data-title="查询完结订单详情">查询完结订单详情</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-order-finished" class="toc-h2 toc-link" data-title="查询历史订单列表">查询历史订单列表</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-entrust-add" class="toc-h2 toc-link" data-title="计划委托下单">计划委托下单</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-entrust-cancel" class="toc-h2 toc-link" data-title="取消计划委托">取消计划委托</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-entrust-unFinish" class="toc-h2 toc-link" data-title="查询未完成的计划委托列表">查询未完成的计划委托列表</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deal-entrust-finished" class="toc-h2 toc-link" data-title="查询已完成的计划委托列表">查询已完成的计划委托列表</a></li>
+
         </ul>
         </li>
         <li>
@@ -530,22 +554,23 @@
                 <li><a href="./api_zh.htm?shell#websocket-contract-q-index" class="toc-h2 toc-link" data-title="最新标记价格">最新标记价格</a></li>
                <!--
                 <li><a href="./api_zh.htm?shell#websocket-contract-q-12" class="toc-h2 toc-link" data-title="24小时行情">逐笔交易</a></li>
-                <li><a href="./api_zh.htm?shell#websocket-contract-q-5" class="toc-h2 toc-link" data-title="K线/蜡烛图">K线/蜡烛图</a></li>
-                <li><a href="./api_zh.htm?shell#websocket-contract-q-6" class="toc-h2 toc-link" data-title="订单簿Ticker信息">订单簿Ticker信息</a></li>
             -->
+                <li><a href="./api_zh.htm?shell#websocket-contract-q-5" class="toc-h2 toc-link" data-title="K线/蜡烛图">K线/蜡烛图</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-q-6" class="toc-h2 toc-link" data-title="成交明细">成交明细</a></li>
             </ul>
         </li>
         <li>
-            <a href="./api_zh.htm?shell#websocket-contract-u" class="toc-h1 toc-link" data-title="Websocket合约用户数据">Websocket合约用户数据(暂停使用)</a>
+            <a href="./api_zh.htm?shell#websocket-contract-u" class="toc-h1 toc-link" data-title="Websocket合约用户数据">Websocket合约用户数据</a>
             <ul class="toc-list-h2">
-                <li><a href="./api_zh.htm?shell#websocket-contract-u-1" class="toc-h2 toc-link" data-title="基本信息">基本信息</a></li>
                 <li><a href="./api_zh.htm?shell#websocket-contract-u-url" class="toc-h2 toc-link" data-title="接入URL">接入URL</a></li>
-                <li><a href="./api_zh.htm?shell#websocket-contract-listenKey-create" class="toc-h2 toc-link" data-title="创建listenKey">创建listenKey</a></li>
-                <li><a href="./api_zh.htm?shell#websocket-contract-listenKey-update" class="toc-h2 toc-link" data-title="延长ListenKey有效期">延长ListenKey有效期</a></li>
-                <li><a href="./api_zh.htm?shell#websocket-contract-listenKey-delete" class="toc-h2 toc-link" data-title="关闭listenKey">关闭listenKey</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-u-auth" class="toc-h2 toc-link" data-title="用户认证">用户认证</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-u-sub" class="toc-h2 toc-link" data-title="订阅消息">订阅消息</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-u-unsub" class="toc-h2 toc-link" data-title="取消订阅">取消订阅</a></li>
+
                 <li><a href="./api_zh.htm?shell#websocket-contract-u-account" class="toc-h2 toc-link" data-title="账户更新">账户更新</a></li>
-                <li><a href="./api_zh.htm?shell#websocket-contract-u-order" class="toc-h2 toc-link" data-title="订单更新">订单更新</a></li>
                 <li><a href="./api_zh.htm?shell#websocket-contract-u-position" class="toc-h2 toc-link" data-title="持仓更新">持仓更新</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-u-order" class="toc-h2 toc-link" data-title="订单更新">订单更新</a></li>
+                <li><a href="./api_zh.htm?shell#websocket-contract-u-entrust" class="toc-h2 toc-link" data-title="计划委托">计划委托</a></li>
             </ul>
         </li>
     </ul>
@@ -4478,12 +4503,2534 @@
         </table>
 
 
+        <h2 id="contract-account-balance">查询账户余额</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-riskLimit">HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/account/balance</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/balance"</span></code></pre>
+        <h3 id="contract-riskLimit-request">请求参数</h3>
+        <p>无</p>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": {
+                        "balance": "0",
+                        "frozen": "0",
+                        "margin": "0",
+                        "point": "0",
+                        "loans": "0",
+                        "profit": "0",
+                        "unProfit": "0",
+                        "unLosses": "0",
+                        "coin": "usdt"
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>balance</td>
+                <td>string</td>
+                <td>0</td>
+                <td>余额</td>
+            </tr>
+            <tr>
+                <td>frozen</td>
+                <td>string</td>
+                <td>0</td>
+                <td>挂单冻结</td>
+            </tr>
+            <tr>
+                <td>margin</td>
+                <td>string</td>
+                <td>0</td>
+                <td>持仓保证金</td>
+            </tr>
+            <tr>
+                <td>point</td>
+                <td>string</td>
+                <td>0</td>
+                <td>积分</td>
+            </tr>
+            <tr>
+                <td>loans</td>
+                <td>string</td>
+                <td>0</td>
+                <td>借贷</td>
+            </tr>
+            <tr>
+                <td>profit</td>
+                <td>string</td>
+                <td>0</td>
+                <td>未实现盈亏</td>
+            </tr>
+            <tr>
+                <td>unProfit</td>
+                <td>string</td>
+                <td>0</td>
+                <td>浮盈</td>
+            </tr>
+            <tr>
+                <td>unLosses</td>
+                <td>string</td>
+                <td>0</td>
+                <td>浮亏</td>
+            </tr>
+            <tr>
+                <td>coin</td>
+                <td>string</td>
+                <td>usdt</td>
+                <td>币种</td>
+            </tr>
+            </tbody>
+        </table>
 
 
+        <h2 id="contract-account-setLeverage">调整开仓杠杆</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-account-setLeverage">HTTP 请求</h3>
+        <ul><li>POST <code>/fapi/v2/account/setLeverage</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/riskLimit"</span></code></pre>
+        <h3 id="contract-riskLimit-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>body</td>
+                <td>string</td>
+                <td>true</td>
+                <td>NA</td>
+                <td>交易对</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>leverage</td>
+                <td>body</td>
+                <td>int</td>
+                <td>true</td>
+                <td>NA</td>
+                <td>杠杆</td>
+                <td>1-100</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data":{
+                        "symbol": "btc_usdt",
+                        "leverage": 100,
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>交易对</td>
+            </tr>
+            <tr>
+                <td>leverage</td>
+                <td>int</td>
+                <td>100</td>
+                <td>杠杆1-100</td>
+            </tr>
+            </tbody>
+        </table>
 
 
+        <h2 id="contract-account-position">获取用户持仓</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-account-position">HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/account/position</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/position"</span></code></pre>
+        <h3 id="contract-riskLimit-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>query</td>
+                <td>string</td>
+                <td>true</td>
+                <td>NA</td>
+                <td>交易对</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>positionID</td>
+                <td>query</td>
+                <td>string</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>仓位id</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": [
+                        {
+                            "positionID": "220621102231380140005",
+                            "symbol": "btc_usdt",
+                            "side":1,
+                            "leverage":20,
+                            "price":"10000.101",
+                            "amount":"10",
+                            "frozenAmount":"1",
+                            "margin":"200",
+                            "triggerType":1,
+                            "spPrice":"0",
+                            "slPrice":0,
+                            "openProfit":"0",
+                            "updatedAt":1661763669950
+                        }
+                    ]
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>positionID</td>
+                <td>string</td>
+                <td>220621102231380140005</td>
+                <td>仓位id</td>
+            </tr>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>交易对</td>
+            </tr>
+            <tr>
+                <td>side</td>
+                <td>int</td>
+                <td>1</td>
+                <td>交易方向:1-买,2-卖</td>
+            </tr>
+            <tr>
+                <td>leverage</td>
+                <td>int</td>
+                <td>20</td>
+                <td>杠杆</td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td>string</td>
+                <td>0</td>
+                <td>成交均价</td>
+            </tr>
+            <tr>
+                <td>amount</td>
+                <td>string</td>
+                <td>1</td>
+                <td>持仓量</td>
+            </tr>
+            <tr>
+                <td>frozenAmount</td>
+                <td>string</td>
+                <td>0</td>
+                <td>平仓冻结量</td>
+            </tr>
+            <tr>
+                <td>margin</td>
+                <td>string</td>
+                <td>0</td>
+                <td>持仓保证金</td>
+            </tr>
+            <tr>
+                <td>triggerType</td>
+                <td>int</td>
+                <td>1</td>
+                <td>止盈止损触发类型：1-成交价，2-指数价</td>
+            </tr>
+            <tr>
+                <td>spPrice</td>
+                <td>string</td>
+                <td>0</td>
+                <td>止盈价</td>
+            </tr>
+            <tr>
+                <td>slPrice</td>
+                <td>string</td>
+                <td>0</td>
+                <td>止损价</td>
+            </tr>
+            <tr>
+                <td>openProfit</td>
+                <td>string</td>
+                <td>0</td>
+                <td>未实现盈亏</td>
+            </tr>
+            <tr>
+                <td>updatedAt</td>
+                <td>int</td>
+                <td>0</td>
+                <td>更新时间</td>
+            </tr>
+
+            </tbody>
+        </table>
 
 
+        <h2 id="contract-account-order">获取账户成交历史</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-account-order">HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/account/order</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/order"</span></code></pre>
+        <h3 id="contract-riskLimit-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>query</td>
+                <td>string</td>
+                <td>true</td>
+                <td>NA</td>
+                <td>交易对</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>startTime</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>开始时间ms</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>endTime</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>结束时间ms，如果startTime 和 endTime 均未发送, 只会返回最近7天的数据。
+                    startTime 和 endTime 的最大间隔为7天
+                    </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>limit</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>500</td>
+                <td>返回的结果集数量 默认值:500 最大值:1000</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": [
+                        {
+                            "positionID": "220621102231380140005",
+                            "symbol": "btc_usdt",
+                            "side":1,
+                            "leverage":20,
+                            "price":"10000.101",
+                            "amount":"10",
+                            "frozenAmount":"1",
+                            "margin":"200",
+                            "triggerType":1,
+                            "spPrice":"0",
+                            "slPrice":0,
+                            "openProfit":"0",
+                            "updatedAt":1661763669950
+                        }
+                    ]
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>positionID</td>
+                <td>string</td>
+                <td>220621102231380140005</td>
+                <td>仓位id</td>
+            </tr>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>交易对</td>
+            </tr>
+            <tr>
+                <td>side</td>
+                <td>int</td>
+                <td>1</td>
+                <td>方向 1buy 2sell</td>
+            </tr>
+            <tr>
+                <td>leverage</td>
+                <td>int</td>
+                <td>20</td>
+                <td>杠杆</td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td>string</td>
+                <td>0</td>
+                <td>成交均价</td>
+            </tr>
+            <tr>
+                <td>amount</td>
+                <td>string</td>
+                <td>1</td>
+                <td>持仓量</td>
+            </tr>
+            <tr>
+                <td>frozenAmount</td>
+                <td>string</td>
+                <td>0</td>
+                <td>平仓冻结量</td>
+            </tr>
+            <tr>
+                <td>margin</td>
+                <td>string</td>
+                <td>0</td>
+                <td>持仓保证金</td>
+            </tr>
+            <tr>
+                <td>triggerType</td>
+                <td>int</td>
+                <td>1</td>
+                <td>止盈止损触发类型：1-成交价，2-指数价</td>
+            </tr>
+            <tr>
+                <td>spPrice</td>
+                <td>string</td>
+                <td>0</td>
+                <td>止盈价</td>
+            </tr>
+            <tr>
+                <td>slPrice</td>
+                <td>string</td>
+                <td>0</td>
+                <td>止损价</td>
+            </tr>
+            <tr>
+                <td>openProfit</td>
+                <td>string</td>
+                <td>0</td>
+                <td>未实现盈亏</td>
+            </tr>
+            <tr>
+                <td>updatedAt</td>
+                <td>int</td>
+                <td>0</td>
+                <td>更新时间</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        
+        <h2 id="contract-account-balanceRecord">查询账户资金账单</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-account-balanceRecord">HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/account/balanceRecord</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/balanceRecord"</span></code></pre>
+        <h3 id="contract-riskLimit-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>query</td>
+                <td>string</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>交易对</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>event</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>账单类型：1:充值，2:扣款，3:转入，4:转出，9:资金费用，201:开多，202:开空，204:平多，205:平空，206:强平(event字段没有发送，返回所有类型账户损益资金流水)</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>startTime</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>开始时间ms</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>endTime</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>结束时间ms,
+                    如果startTime 和 endTime 均未发送, 只会返回最近7天的数据,
+                    仅保留最近3个月的数据
+                    </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>limit</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>500</td>
+                <td>返回的结果集数量 默认值:500 最大值:1000</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": [
+                        {
+                            "id": "220621102231380140005",
+                            "symbol": "btc_usdt",
+                            "event":1,
+                            "amount":"100",
+                            "coin":"usdt",
+                            "note":"",
+                            "updatedAt":1661763669950
+                        }
+                    ]
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>id</td>
+                <td>string</td>
+                <td>220621102231380140005</td>
+                <td>交易id</td>
+            </tr>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>交易对</td>
+            </tr>
+            <tr>
+                <td>event</td>
+                <td>int</td>
+                <td>1</td>
+                <td>账单类型：1:充值，2:扣款，3:转入，4:转出，9:资金费用，201:开多，202:开空，204:平多，205:平空，206:强平</td>
+            </tr>
+            <tr>
+                <td>amount</td>
+                <td>string</td>
+                <td>100</td>
+                <td>金额</td>
+            </tr>
+            <tr>
+                <td>coin</td>
+                <td>string</td>
+                <td>usdt</td>
+                <td>币种</td>
+            </tr>
+            <tr>
+                <td>note</td>
+                <td>string</td>
+                <td></td>
+                <td>备注</td>
+            </tr>
+            <tr>
+                <td>updatedAt</td>
+                <td>int</td>
+                <td>0</td>
+                <td>更新时间</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+
+        <h2 id="contract-account-orderForced">用户强平单历史</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-account-orderForced">HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/account/orderForced</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/orderForced"</span></code></pre>
+        <h3 id="contract-riskLimit-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>query</td>
+                <td>string</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>交易对</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>startTime</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>开始时间ms</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>endTime</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>结束时间ms，如果startTime和endTime均未发送, 只会返回最近7天的数据,startTime和endTime间隔不能大于7天
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>limit</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>50</td>
+                <td>返回的结果集数量 默认值:50 最大值:100</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>action</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>4</td>
+                <td>强平类型:4-强平,5-FOK强平,6-ADL自动减仓,9-穿仓</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": [
+                        {
+                            "id": "22052621161573001012345840025",
+                            "symbol": "eth_usdt",
+                            "type": 2,
+                            "action": 6,
+                            "side": 1,
+                            "positionID": "220526154001021010017",
+                            "price": "0",
+                            "leverage": 21,
+                            "amount": "0.1",
+                            "frozen": "0",
+                            "filledAmount": "0.1",
+                            "filledPrice": "1984.5",
+                            "filledValue": "198.45",
+                            "triggerType": 2,
+                            "spPrice": "0",
+                            "slPrice": "0",
+                            "createdAt": 1661822066000,
+                            "updatedAt": 1653570975733,
+                            "state": 1,
+                            "profit": "-0.01",
+                            "fee": "0.099225",
+                            "pointFee": "0",
+                            "pointProfit": "0",
+                            "closePrice": "0"
+                        }
+                    ]
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>id</td>
+                <td>string</td>
+                <td>220621102231380140005</td>
+                <td>订单id</td>
+            </tr>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>交易对</td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>int</td>
+                <td>1</td>
+                <td>订单类型:1-限价,2-市价</td>
+            </tr>
+            <tr>
+                <td>action</td>
+                <td>int</td>
+                <td>4</td>
+                <td>强平类型:4-强平,5-FOK强平,6-ADL自动减仓,9-穿仓</td>
+            </tr>
+            <tr>
+                <td>side</td>
+                <td>int</td>
+                <td>1</td>
+                <td>交易方向:1-买,2-卖</td>
+            </tr>
+            <tr>
+                <td>positionID</td>
+                <td>string</td>
+                <td>1</td>
+                <td>仓位ID</td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td>string</td>
+                <td>100</td>
+                <td>订单价格，限价单才有值</td>
+            </tr>
+            <tr>
+                <td>leverage</td>
+                <td>int</td>
+                <td>20</td>
+                <td>杠杆</td>
+            </tr>
+            <tr>
+                <td>amount</td>
+                <td>string</td>
+                <td>1</td>
+                <td>下单量</td>
+            </tr>
+            <tr>
+                <td>frozen</td>
+                <td>string</td>
+                <td>1</td>
+                <td>冻结保证金</td>
+            </tr>
+            <tr>
+                <td>filledAmount</td>
+                <td>string</td>
+                <td>1</td>
+                <td>已完成量</td>
+            </tr>
+            <tr>
+                <td>filledPrice</td>
+                <td>string</td>
+                <td>1</td>
+                <td>成交均价</td>
+            </tr>
+            <tr>
+                <td>filledValue</td>
+                <td>string</td>
+                <td>1</td>
+                <td>成交价值</td>
+            </tr>
+            <tr>
+                <td>triggerType</td>
+                <td>int</td>
+                <td>1</td>
+                <td>止盈止损触发类型:1-成交价,2-指数价</td>
+            </tr>
+            <tr>
+                <td>spPrice</td>
+                <td>string</td>
+                <td>1</td>
+                <td>预设止盈价</td>
+            </tr>
+            <tr>
+                <td>slPrice</td>
+                <td>string</td>
+                <td>1</td>
+                <td>预设止损价</td>
+            </tr>
+            <tr>
+                <td>state</td>
+                <td>int</td>
+                <td>1</td>
+                <td>状态:1-正常,2-已完成,3-撤销,4-部分成交,5-部分成交已撤销,6-撤销中</td>
+            </tr>
+            <tr>
+                <td>profit</td>
+                <td>string</td>
+                <td>1</td>
+                <td>已实现盈亏</td>
+            </tr>
+            <tr>
+                <td>fee</td>
+                <td>string</td>
+                <td>1</td>
+                <td>手续费</td>
+            </tr>
+            <tr>
+                <td>pointFee</td>
+                <td>string</td>
+                <td>1</td>
+                <td>积分(赠金)手续费抵扣</td>
+            </tr>
+            <tr>
+                <td>pointProfit</td>
+                <td>string</td>
+                <td>1</td>
+                <td>积分(赠金)盈亏抵扣</td>
+            </tr>
+            <tr>
+                <td>closePrice</td>
+                <td>string</td>
+                <td>1</td>
+                <td>破产价</td>
+            </tr>
+            <tr>
+                <td>updatedAt</td>
+                <td>int</td>
+                <td>0</td>
+                <td>更新时间</td>
+            </tr>
+            <tr>
+                <td>createdAt</td>
+                <td>int</td>
+                <td>0</td>
+                <td>创建时间</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <!-- 用户交易 -->
+        <h2 id="contract-deal-position-update">设置仓位模式</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-deal-position-update">HTTP 请求</h3>
+        <ul><li>POST <code>/fapi/v2/position/update</code></li></ul>
+        
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+<code>
+    {
+        "positionClass": 2
+        "recvWindow": 7796,
+        "timestamp": 1662005739,
+    }
+</code>
+        </pre>
+
+        <h3 id="contract-deal-position-update-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>positionClass</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>仓位模式</td><td>1:分仓 2:合仓</td></tr>
+                <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+                <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success"
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <p>无</p>
+
+        <h2 id="contract-deal-position-info">查询仓位模式</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-deal-position-info">HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/position/info</code></li></ul>
+
+        <h3 id="contract-deal-position-update-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>recvWindow</td><td>query</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+                <td>timestamp</td><td>query</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": 2
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>data</td>
+                <td>int</td>
+                <td>1:分仓 2:合仓</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2 id="contract-deal-position-setSpSl">设置止盈止损</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-deal-position-setSpSl">HTTP 请求</h3>
+        <ul><li>POST <code>/fapi/v2/position/setSpSl</code></li></ul>
+        
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+<code>
+    {
+        "slPrice": "19000",
+        "spPrice": "21500",
+        "isSetSl": true,
+        "isSetSp": true,
+        "positionID": "220715100013671016701",
+        "triggerType": 1,
+        "recvWindow": 32705,
+        "timestamp": 1662005739
+    }
+</code>
+        </pre>
+
+        <h3 id="contract-deal-position-update-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>slPrice</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>止损价</td><td></td></tr>
+                <td>spPrice</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>止盈价</td><td></td></tr>
+                <td>isSetSl</td><td>body</td><td>bool</td><td>false</td><td>NA</td><td>是否设置止损</td><td></td></tr>
+                <td>isSetSp</td><td>body</td><td>bool</td><td>false</td><td>NA</td><td>是否设置止盈</td><td></td></tr>
+                <td>positionID</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>仓位ID</td><td></td></tr>
+                <td>triggerType</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>触发类型</td><td>1:成交价 2:指数价</td></tr>
+                <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+                <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": {
+                        "id": "220901120303441011478",
+                        "symbol": "btc_usdt",
+                        "side": 1,
+                        "leverage": 20,
+                        "openPrice": "20046.71",
+                        "amount": "1",
+                        "frozenAmount": "0",
+                        "margin": "1002.08",
+                        "triggerType": 1,
+                        "spPrice": "21500",
+                        "slPrice": "19000"
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>id</td>
+                <td>string</td>
+                <td>仓位id</td>
+            </tr>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>交易对</td>
+            </tr>
+            <tr>
+                <td>side</td>
+                <td>int</td>
+                <td>交易方向 1:买 2:卖</td>
+            </tr>
+            <tr>
+                <td>leverage</td>
+                <td>int</td>
+                <td>杠杆</td>
+            </tr>
+            <tr>
+                <td>openPrice</td>
+                <td>string</td>
+                <td>成交均价</td>
+            </tr>
+            <tr>
+                <td>amount</td>
+                <td>string</td>
+                <td>持仓量</td>
+            </tr>
+            <tr>
+                <td>frozenAmount</td>
+                <td>string</td>
+                <td>平仓冻结量</td>
+            </tr>
+            <tr>
+                <td>margin</td>
+                <td>string</td>
+                <td>持仓保证金</td>
+            </tr>
+            <tr>
+                <td>triggerType</td>
+                <td>int</td>
+                <td>止盈止损触发类型 1:成交价 2:指数价</td>
+            </tr>
+            <tr>
+                <td>spPrice</td>
+                <td>string</td>
+                <td>止盈价</td>
+            </tr>
+            <tr>
+                <td>slPrice</td>
+                <td>string</td>
+                <td>止损价</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2 id="contract-deal-order-open">下单</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-deal-order-open">HTTP 请求</h3>
+        <ul><li>POST <code>/fapi/v2/order/open</code></li></ul>
+        
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+<code>
+    {
+        "customID": "test_customID_01",
+        "symbol": "btc_usdt",
+        "side": 1,
+        "type": 1,
+        "amount": "2",
+        "leverage": 20,
+        "triggerType": 1,
+        "price": "20270.46",
+        "recvWindow": 7796,
+        "timestamp": 1757798285
+    }
+</code>
+        </pre>
+
+        <h3>请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>customID</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>用户自定义订单号</td><td>`^[\.A-Z\:/a-z0-9_-]{1,36}$`</td></tr>
+                <td>symbol</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>合约币对</td><td></td></tr>
+                <td>type</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>订单类型</td><td>1:限价 2:市价</td></tr>
+                <td>side</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>交易方向</td><td>1:买 2:卖</td></tr>
+                <td>leverage</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>杠杆</td><td>1 - 100</td></tr>
+                <td>price</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>下单价（限价委托使用）</td><td></td></tr>
+                <td>amount</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>下单量</td><td></td></tr>
+                <td>triggerType</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>止盈止损触发类型</td><td>1:成交价 2:指数价</td></tr>
+                <td>slPrice</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>止损价</td><td></td></tr>
+                <td>spPrice</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>止盈价</td><td></td></tr>
+                <td>isSetSl</td><td>body</td><td>bool</td><td>false</td><td>false</td><td>是否设置止损</td><td></td></tr>
+                <td>isSetSp</td><td>body</td><td>bool</td><td>false</td><td>false</td><td>是否设置止盈</td><td></td></tr>
+                <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+                <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": {
+                        "orderID": "22090114311747401010000602280"
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3>响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>orderID</td>
+                <td>string</td>
+                <td>订单ID</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2 id="contract-deal-order-batchOpen">批量下单</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-deal-order-batchOpen">HTTP 请求</h3>
+        <ul><li>POST <code>/fapi/v2/order/batchOpen</code></li></ul>
+        
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+<code>
+    {
+        "items":[
+            {
+                "customID":"test_customID_002",
+                "symbol":"btc_usdt",
+                "side":1,
+                "type":2,
+                "amount":"2",
+                "leverage":20,
+                "triggerType":1,
+                "openType":1
+            },
+            {
+                "customID":"test_customID_003",
+                "symbol":"btc_usdt",
+                "side":1,
+                "type":2,
+                "amount":"2",
+                "leverage":20,
+                "triggerType":1,
+                "openType":1
+            },
+            {
+                "customID":"test_customID_004",
+                "symbol":"btc_usdt",
+                "side":1,
+                "type":2,
+                "amount":"2",
+                "leverage":20,
+                "triggerType":1,
+                "openType":1
+            }
+        ],
+        "recvWindow":7796,
+        "timestamp":1757798285
+    }
+</code>
+        </pre>
+
+        <h3>请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th><th>位置</th><th>数据类型</th><th>是否必须</th><th>默认值</th><th>描述</th><th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                
+                <td>&lt;items></td><td>body</td><td>array</td><td>true</td><td>NA</td><td>下单列表</td><td>1-10</td></tr>
+                <td>customID</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>用户自定义订单号</td><td>`^[\.A-Z\:/a-z0-9_-]{1,36}$`</td></tr>
+                <td>symbol</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>合约币对</td><td></td></tr>
+                <td>type</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>订单类型</td><td>1:限价 2:市价</td></tr>
+                <td>side</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>交易方向</td><td>1:买 2:卖</td></tr>
+                <td>leverage</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>杠杆</td><td>1 - 100</td></tr>
+                <td>price</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>下单价（限价委托使用）</td><td></td></tr>
+                <td>amount</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>下单量</td><td></td></tr>
+                <td>triggerType</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>止盈止损触发类型</td><td>1:成交价 2:指数价</td></tr>
+                <td>slPrice</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>止损价</td><td></td></tr>
+                <td>spPrice</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>止盈价</td><td></td></tr>
+                <td>isSetSl</td><td>body</td><td>bool</td><td>false</td><td>false</td><td>是否设置止损</td><td></td></tr>
+                <td>isSetSp</td><td>body</td><td>bool</td><td>false</td><td>false</td><td>是否设置止盈</td><td></td></tr>
+                <td>&lt;/items></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+                <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": {
+                        "success": {
+                            "22090114415869401010000602284": "test_customID_002",
+                            "22090114415869901010000602285": "test_customID_003",
+                            "22090114415870101010000602286": "test_customID_004"
+                        },
+                        "fail": {}
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3>响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>&lt;success></td>
+                <td>object</td>
+                <td>成功集合</td></tr>
+                <td></td><td>map</td><td>订单ID:自定义ID</td></tr>
+                <td>&lt;/success></td>
+                <td>object</td>
+                <td></td></tr>
+
+                <td>&lt;fail></td>
+                <td>object</td>
+                <td>失败集合</td></tr>
+                <td></td><td>map</td><td>自定义ID:错误码</td></tr>
+                <td>&lt;/fail></td>
+                <td>object</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2 id="contract-deal-order-cancel">撤销订单</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-deal-order-cancel">HTTP 请求</h3>
+        <ul><li>POST <code>/fapi/v2/order/cancel</code></li></ul>
+        
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+<code>
+    {
+        "customID": "test_customID_005"
+        "recvWindow": 17807,
+        "timestamp": 1662005739,
+    }
+</code>
+        </pre>
+
+        <h3>请求参数</h3>
+        <aside class="notice">四个条件，必须传递其中一个，建议用orderID，多个条件取并集</aside>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>合约币对</td><td></td></tr>
+                <td>orderID</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>订单ID</td><td></td></tr>
+                <td>customID</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>自定义ID</td><td></td></tr>
+                <td>positionID</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>仓位ID</td><td></td></tr>
+                <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+                <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+        {
+            "code": 0,
+            "msg": "success",
+            "data": {
+                "success": {
+                    "22090115124192801010000602316": "test_customID_005"
+                },
+                "fail": {}
+            }
+        }
+            </code>
+        </pre>
+
+        <h3>响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>&lt;success></td>
+                <td>object</td>
+                <td>成功集合</td></tr>
+                <td></td><td>map</td><td>订单ID:自定义ID</td></tr>
+                <td>&lt;/success></td>
+                <td>object</td>
+                <td></td></tr>
+
+                <td>&lt;fail></td>
+                <td>object</td>
+                <td>失败集合</td></tr>
+                <td></td><td>map</td><td>订单ID:自定义ID</td></tr>
+                <td>&lt;/fail></td>
+                <td>object</td>
+                <td></td>
+            </tr>
+    
+            </tbody>
+        </table>
+
+        <h2 id="contract-deal-order-batchCancel">批量撤销订单</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-deal-order-batchCancel">HTTP 请求</h3>
+        <ul><li>POST <code>/fapi/v2/order/batchCancel</code></li></ul>
+        
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+<code>
+    {
+        "listOrderID": [
+            "22090115471405601010000602461",
+            "22090115470116001010000602452"
+        ],
+        "recvWindow": 17957,
+        "timestamp": 1662005739
+    }
+</code>
+        </pre>
+
+        <h3>请求参数</h3>
+        <aside class="notice">四个条件，只需要传递其中一个，优先级顺序`symbol > order id > custom id > position id`，建议用order id</aside>
+
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>合约币对</td><td></td></tr>
+                <td>listOrderID</td><td>body</td><td>array</td><td>false</td><td>NA</td><td>订单ID列表</td><td></td></tr>
+                <td>listCustomID</td><td>body</td><td>array</td><td>false</td><td>NA</td><td>自定义ID列表</td><td></td></tr>
+                <td>listPositionID</td><td>body</td><td>array</td><td>false</td><td>NA</td><td>仓位ID列表</td><td></td></tr>
+                <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+                <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+            {
+                "code": 0,
+                "msg": "success",
+                "data": {
+                    "success": {
+                        "22090115470116001010000602452": "test_customID_005",
+                        "22090115471405601010000602461": "test_customID_006"
+                    },
+                    "fail": {}
+                }
+            }
+            </code>
+        </pre>
+
+        <h3>响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>&lt;success></td>
+                <td>object</td>
+                <td>成功集合</td></tr>
+                <td></td><td>map</td><td>订单ID:自定义ID</td></tr>
+                <td>&lt;/success></td>
+                <td>object</td>
+                <td></td></tr>
+
+                <td>&lt;fail></td>
+                <td>object</td>
+                <td>失败集合</td></tr>
+                <td></td><td>map</td><td>订单ID:自定义ID</td></tr>
+                <td>&lt;/fail></td>
+                <td>object</td>
+                <td></td>
+            </tr>
+    
+            </tbody>
+        </table>
+
+        <!-- title -->
+<h2 id="contract-deal-order-close">平仓</h2>
+<aside class="notice">访问该接口需要进行签名认证。</aside>
+<h3 id="http-contract-deal-order-close">HTTP 请求</h3>
+<ul><li>POST <code>/fapi/v2/order/close</code></li></ul>
+
+<blockquote>
+    <p>Request</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre">
+<code>
+    {
+        "recvWindow": 5106,
+        "timestamp": 1692005739,
+        "amount": "1",
+        "type": 2,
+        "positionId": "220901161157435012531",
+        "price": "19345.62"
+    }
+</code>
+</pre>
+
+<h3>请求参数</h3>
+<table>
+    <thead>
+    <tr>
+        <th>参数</th>
+        <th>位置</th>
+        <th>数据类型</th>
+        <th>是否必须</th>
+        <th>默认值</th>
+        <th>描述</th>
+        <th>取值范围</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>amount</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>委托量</td><td></td></tr>
+        <td>price</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>平仓价（限价使用）</td><td></td></tr>
+        <td>type</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>订单类型</td><td>1:限价 2:市价</td></tr>
+        <td>positionID</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>仓位ID</td><td></td></tr>
+        <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+        <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+    </tr>
+    </tbody>
+</table>
+
+<blockquote>
+    <p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre">
+    <code>
+        {
+            "code": 0,
+            "msg": "success",
+            "data": {
+                "orderID": "22090116125693501010000602538"
+            }
+        }
+    </code>
+</pre>
+
+<h3>响应数据</h3>
+<table>
+    <tbody>
+    <thead>
+    <tr>
+        <th>参数名称</th>
+        <th>数据类型</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>orderID</td>
+        <td>string</td>
+        <td>订单ID</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- title -->
+<h2 id="contract-deal-order-closeAll">一键平仓</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-deal-order-closeAll">HTTP 请求</h3>
+        <ul><li>POST <code>/fapi/v2/order/closeAll</code></li></ul>
+        
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+<code>
+    {
+        "symbol": "btc_usdt"
+        "recvWindow": 9092,
+        "timestamp": 1662005739,
+    }
+</code>
+        </pre>
+
+        <h3>请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>合约币对</td><td></td></tr>
+                <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+                <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": {
+                        "listOrderID": [
+                            "22090117082618701010000602582",
+                            "22090117082619401010000602583",
+                            "22090117082620301010000602584"
+                        ]
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3>响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>listOrderID</td>
+                <td>array</td>
+                <td>订单ID列表</td>
+            </tr>
+            </tbody>
+        </table>
+
+         <!-- title -->
+ <h2 id="contract-deal-order-unFinish">查询挂单信息</h2>
+ <aside class="notice">访问该接口需要进行签名认证。</aside>
+ <h3 id="http-contract-deal-order-unFinish">HTTP 请求</h3>
+ <ul><li>GET <code>/fapi/v2/order/unFinish</code></li></ul>
+
+ <h3>请求参数</h3>
+ <table>
+     <thead>
+     <tr>
+         <th>参数</th>
+         <th>位置</th>
+         <th>数据类型</th>
+         <th>是否必须</th>
+         <th>默认值</th>
+         <th>描述</th>
+         <th>取值范围</th>
+     </tr>
+     </thead>
+     <tbody>
+     <tr>
+        <td>symbol</td><td>query</td><td>string</td><td>false</td><td>NA</td><td>合约币对</td><td></td></tr>
+        <td>orderID</td><td>query</td><td>string</td><td>false</td><td>NA</td><td>订单ID</td><td></td></tr>
+        <td>customID</td><td>query</td><td>string</td><td>false</td><td>NA</td><td>自定义ID</td><td></td></tr>
+        <td>positionID</td><td>query</td><td>string</td><td>false</td><td>NA</td><td>仓位ID</td><td></td></tr>
+         <td>recvWindow</td><td>query</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+         <td>timestamp</td><td>query</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+     </tr>
+     </tbody>
+ </table>
+
+ <blockquote>
+     <p>Response:</p>
+ </blockquote>
+ <pre class="highlight json tab-json responsePre">
+     <code>
+        {
+            "code": 0,
+            "msg": "success",
+            "data": [
+                {
+                    "id": "22090117251664501010000602602",
+                    "customID": "test-customID-01",
+                    "symbol": "btc_usdt",
+                    "type": 1,
+                    "action": 0,
+                    "side": 1,
+                    "positionID": "220901172516645012603",
+                    "price": "19319.44",
+                    "leverage": 20,
+                    "amount": "1",
+                    "frozen": "965.97",
+                    "filledAmount": "0",
+                    "filledPrice": "0",
+                    "filledValue": "",
+                    "triggerType": 2,
+                    "spPrice": "0",
+                    "slPrice": "0",
+                    "state": 0,
+                    "profit": "",
+                    "fee": "",
+                    "pointFee": "",
+                    "pointProfit": "",
+                    "closePrice": "",
+                    "triggerPrice": "",
+                    "createdAt": 1662024316645,
+                    "updatedAt": 1662024316645
+                }
+            ]
+        }
+     </code>
+ </pre>
+
+ <h3>响应数据</h3>
+ <table>
+     <tbody>
+     <thead>
+     <tr>
+         <th>参数名称</th>
+         <th>数据类型</th>
+         <th>描述</th>
+     </tr>
+     </thead>
+     <tr>
+         <td>id</td><td>string</td><td>订单ID</td></tr>
+         <td>customID</td><td>string</td><td>用户自定义订单号</td></tr>
+         <td>symbol</td><td>string</td><td>合约币对</td></tr>
+         <td>type</td><td>int</td><td>订单类型 1限价 2市价</td></tr>
+         <td>action</td><td>int</td><td>订单事件 0开仓 1平仓 2止损 3止盈 4强平 5FOK强平 6ADL减仓 7加仓 8反向开仓 9穿仓</td></tr>
+         <td>side</td><td>int</td><td>交易方向 1buy 2sell</td></tr>
+         <td>positionID</td><td>string</td><td>仓位ID</td></tr>
+         <td>price</td><td>string</td><td>订单价格，限价单才有值</td></tr>
+         <td>leverage</td><td>int</td><td>杠杆</td></tr>
+         <td>amount</td><td>string</td><td>下单量</td></tr>
+         <td>frozen</td><td>string</td><td>冻结保证金</td></tr>
+         <td>filledAmount</td><td>string</td><td>已完成量</td></tr>
+         <td>filledPrice</td><td>string</td><td>成交均价</td></tr>
+         <td>filledValue</td><td>string</td><td>成交价值</td></tr>
+         <td>triggerType</td><td>int</td><td>止盈止损触发类型 1成交价 2指数价</td></tr>
+         <td>spPrice</td><td>string</td><td>预设止盈价</td></tr>
+         <td>slPrice</td><td>string</td><td>预设止损价</td></tr>
+         <td>state</td><td>int</td><td>状态 1正常 2已完成 3撤销 4部分成交 5部分成交已撤销 6撤销中</td></tr>
+         <td>profit</td><td>string</td><td>已实现盈亏（平仓订单使用）</td></tr>
+         <td>fee</td><td>string</td><td>手续费</td></tr>
+         <td>pointFee</td><td>string</td><td>积分(赠金)手续费抵扣</td></tr>
+         <td>pointProfit</td><td>string</td><td>积分(赠金)盈亏抵扣</td></tr>
+         <td>closePrice</td><td>string</td><td>破产价</td></tr>
+         <td>triggerPrice</td><td>string</td><td>触发价</td></tr>
+         <td>createdAt</td><td>int</td><td>创建时间戳</td></tr>
+         <td>updatedAt</td><td>int</td><td>更新时间戳</td>
+     </tr>
+     </tbody>
+ </table>
+
+  <!-- title -->
+  <h2 id="contract-deal-order-finishedInfo">查询完结订单详情</h2>
+  <aside class="notice">访问该接口需要进行签名认证。</aside>
+  <h3 id="http-contract-deal-order-finishedInfo">HTTP 请求</h3>
+  <ul><li>GET <code>/fapi/v2/order/finishedInfo</code></li></ul>
+
+  <h3>请求参数</h3>
+  <aside class="notice">order id和custom id必须传递其中一个，建议使用order id</aside>
+  <table>
+      <thead>
+      <tr>
+          <th>参数</th>
+          <th>位置</th>
+          <th>数据类型</th>
+          <th>是否必须</th>
+          <th>默认值</th>
+          <th>描述</th>
+          <th>取值范围</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>symbol</td><td>query</td><td>string</td><td>false</td><td>NA</td><td>合约币对</td><td></td></tr>
+        <td>orderID</td><td>query</td><td>string</td><td>false</td><td>NA</td><td>订单ID</td><td></td></tr>
+        <td>customID</td><td>query</td><td>string</td><td>false</td><td>NA</td><td>自定义ID</td><td></td></tr>
+        <td>positionID</td><td>query</td><td>string</td><td>false</td><td>NA</td><td>仓位ID</td><td></td></tr>
+          <td>recvWindow</td><td>query</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+          <td>timestamp</td><td>query</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+      </tr>
+      </tbody>
+  </table>
+
+  <blockquote>
+      <p>Response:</p>
+  </blockquote>
+  <pre class="highlight json tab-json responsePre">
+      <code>
+        {
+            "code": 0,
+            "msg": "success",
+            "data": {
+                "id": "22083115573193301010000601127",
+                "customID": "test_customID_01",
+                "symbol": "btc_usdt",
+                "type": 1,
+                "action": 0,
+                "side": 1,
+                "positionID": "220831155731933011128",
+                "price": "20270.46",
+                "leverage": 20,
+                "amount": "2",
+                "frozen": "0",
+                "filledAmount": "2",
+                "filledPrice": "20270.46",
+                "filledValue": "40540.92",
+                "triggerType": 1,
+                "spPrice": "0",
+                "slPrice": "0",
+                "state": 1,
+                "profit": "0",
+                "fee": "20.27046",
+                "pointFee": "0",
+                "pointProfit": "0",
+                "closePrice": "0",
+                "triggerPrice": "0",
+                "createdAt": 1661932651933,
+                "updatedAt": 1661932651933
+            }
+        }
+      </code>
+  </pre>
+
+  <h3>响应数据</h3>
+  <table>
+      <tbody>
+      <thead>
+      <tr>
+          <th>参数名称</th>
+          <th>数据类型</th>
+          <th>描述</th>
+      </tr>
+      </thead>
+      <tr>
+        <td>id</td><td>string</td><td>订单ID</td></tr>
+        <td>customID</td><td>string</td><td>用户自定义订单号</td></tr>
+        <td>symbol</td><td>string</td><td>合约币对</td></tr>
+        <td>type</td><td>int</td><td>订单类型 1限价 2市价</td></tr>
+        <td>action</td><td>int</td><td>订单事件 0开仓 1平仓 2止损 3止盈 4强平 5FOK强平 6ADL减仓 7加仓 8反向开仓 9穿仓</td></tr>
+        <td>side</td><td>int</td><td>交易方向 1buy 2sell</td></tr>
+        <td>positionID</td><td>string</td><td>仓位ID</td></tr>
+        <td>price</td><td>string</td><td>订单价格，限价单才有值</td></tr>
+        <td>leverage</td><td>int</td><td>杠杆</td></tr>
+        <td>amount</td><td>string</td><td>下单量</td></tr>
+        <td>frozen</td><td>string</td><td>冻结保证金</td></tr>
+        <td>filledAmount</td><td>string</td><td>已完成量</td></tr>
+        <td>filledPrice</td><td>string</td><td>成交均价</td></tr>
+        <td>filledValue</td><td>string</td><td>成交价值</td></tr>
+        <td>triggerType</td><td>int</td><td>止盈止损触发类型 1成交价 2指数价</td></tr>
+        <td>spPrice</td><td>string</td><td>预设止盈价</td></tr>
+        <td>slPrice</td><td>string</td><td>预设止损价</td></tr>
+        <td>state</td><td>int</td><td>状态 1正常 2已完成 3撤销 4部分成交 5部分成交已撤销 6撤销中</td></tr>
+        <td>profit</td><td>string</td><td>已实现盈亏（平仓订单使用）</td></tr>
+        <td>fee</td><td>string</td><td>手续费</td></tr>
+        <td>pointFee</td><td>string</td><td>积分(赠金)手续费抵扣</td></tr>
+        <td>pointProfit</td><td>string</td><td>积分(赠金)盈亏抵扣</td></tr>
+        <td>closePrice</td><td>string</td><td>破产价</td></tr>
+        <td>triggerPrice</td><td>string</td><td>触发价</td></tr>
+        <td>createdAt</td><td>int</td><td>创建时间戳</td></tr>
+        <td>updatedAt</td><td>int</td><td>更新时间戳</td>
+      </tr>
+      </tbody>
+  </table>
+
+ <!-- title -->
+ <h2 id="contract-deal-order-finished">查询历史订单列表</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-deal-order-finished">HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/order/finished</code></li></ul>
+
+        <h3>请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbols</td><td>query</td><td>string</td><td>false</td><td>NA</td><td>币对</td><td></td></tr>
+                <td>startTime</td><td>query</td><td>int</td><td>false</td><td>90天前</td><td>开始时间戳</td><td></td></tr>
+                <td>endTime</td><td>query</td><td>int</td><td>false</td><td>当前时间戳</td><td>结束时间戳</td><td></td></tr>
+                <td>pageIndex</td><td>query</td><td>int</td><td>true</td><td>NA</td><td>页码</td><td>大于0</td></tr>
+                <td>pageSize</td><td>query</td><td>int</td><td>true</td><td>NA</td><td>每页条数</td><td>1 - 50</td></tr>
+                <td>recvWindow</td><td>query</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+                <td>timestamp</td><td>query</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": {
+                        "total": 126,
+                        "page": 1,
+                        "data": [
+                            {
+                                "id": "22090117082620301010000602584",
+                                "customID": "test-customID-01",
+                                "symbol": "btc_usdt",
+                                "type": 2,
+                                "action": 1,
+                                "side": 2,
+                                "positionID": "220901170710987012573",
+                                "price": "0",
+                                "leverage": 20,
+                                "amount": "3",
+                                "frozen": "0",
+                                "filledAmount": "3",
+                                "filledPrice": "19928.02",
+                                "filledValue": "59784.06",
+                                "triggerType": 2,
+                                "spPrice": "0",
+                                "slPrice": "0",
+                                "state": 1,
+                                "profit": "-36.65",
+                                "fee": "29.89203",
+                                "pointFee": "0",
+                                "pointProfit": "0",
+                                "closePrice": "0",
+                                "triggerPrice": "0",
+                                "createdAt": 1662023306204,
+                                "updatedAt": 1662023306204
+                            }
+                        ]
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3>响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>total</td><td>int</td><td>总条数</td></tr>
+                <td>page</td><td>int</td><td>当面页码</td></tr>
+                <td>&lt;data></td><td>array</td><td>数据块</td></tr>
+                <td>id</td><td>string</td><td>订单ID</td></tr>
+                <td>customID</td><td>string</td><td>用户自定义订单号</td></tr>
+                <td>symbol</td><td>string</td><td>合约币对</td></tr>
+                <td>type</td><td>int</td><td>订单类型 1限价 2市价</td></tr>
+                <td>action</td><td>int</td><td>订单事件 0开仓 1平仓 2止损 3止盈 4强平 5FOK强平 6ADL减仓 7加仓 8反向开仓 9穿仓</td></tr>
+                <td>side</td><td>int</td><td>交易方向 1buy 2sell</td></tr>
+                <td>positionID</td><td>string</td><td>仓位ID</td></tr>
+                <td>price</td><td>string</td><td>订单价格，限价单才有值</td></tr>
+                <td>leverage</td><td>int</td><td>杠杆</td></tr>
+                <td>amount</td><td>string</td><td>下单量</td></tr>
+                <td>frozen</td><td>string</td><td>冻结保证金</td></tr>
+                <td>filledAmount</td><td>string</td><td>已完成量</td></tr>
+                <td>filledPrice</td><td>string</td><td>成交均价</td></tr>
+                <td>filledValue</td><td>string</td><td>成交价值</td></tr>
+                <td>triggerType</td><td>int</td><td>止盈止损触发类型 1成交价 2指数价</td></tr>
+                <td>spPrice</td><td>string</td><td>预设止盈价</td></tr>
+                <td>slPrice</td><td>string</td><td>预设止损价</td></tr>
+                <td>state</td><td>int</td><td>状态 1正常 2已完成 3撤销 4部分成交 5部分成交已撤销 6撤销中</td></tr>
+                <td>profit</td><td>string</td><td>已实现盈亏（平仓订单使用）</td></tr>
+                <td>fee</td><td>string</td><td>手续费</td></tr>
+                <td>pointFee</td><td>string</td><td>积分(赠金)手续费抵扣</td></tr>
+                <td>pointProfit</td><td>string</td><td>积分(赠金)盈亏抵扣</td></tr>
+                <td>closePrice</td><td>string</td><td>破产价</td></tr>
+                <td>triggerPrice</td><td>string</td><td>触发价</td></tr>
+                <td>createdAt</td><td>int</td><td>创建时间戳</td></tr>
+                <td>updatedAt</td><td>int</td><td>更新时间戳</td></tr>
+                <td>&lt;/data></td><td></td><td></td></tr>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- title -->
+<h2 id="contract-deal-entrust-add">计划委托下单</h2>
+<aside class="notice">访问该接口需要进行签名认证。</aside>
+<h3 id="http-contract-deal-entrust-add">HTTP 请求</h3>
+<ul><li>POST <code>/fapi/v2/entrust/add</code></li></ul>
+
+<blockquote>
+    <p>Request</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre">
+<code>
+    {
+        "customID":"test-CustomID-02",
+        "amount": "5",
+        "symbol": "btc_usdt",
+        "side": 1,
+        "triggerPrice": "20646.59",
+        "price": "20646.59",
+        "leverage": 20,
+        "triggerType": 2,
+        "spSlTriggerType": 1,
+        "recvWindow": 66,
+        "timestamp": 1662005739
+    }
+</code>
+</pre>
+
+<h3>请求参数</h3>
+<table>
+    <thead>
+    <tr>
+        <th>参数</th>
+        <th>位置</th>
+        <th>数据类型</th>
+        <th>是否必须</th>
+        <th>默认值</th>
+        <th>描述</th>
+        <th>取值范围</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>customID</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>用户自定义订单号</td><td>`^[\.A-Z\:/a-z0-9_-]{1,36}$`</td></tr>
+        <td>symbol</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>合约币对</td><td></td></tr>
+        <td>side</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>交易方向</td><td>1:买 2:卖</td></tr>
+        <td>triggerType</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>计划委托触发类型</td><td>1:成交价 2:指数价</td></tr>
+        <td>triggerPrice</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>触发价格</td><td></td></tr>
+        <td>amount</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>下单量</td><td></td></tr>
+        <td>price</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>委托价格</td><td></td></tr>
+        <td>leverage</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>杠杆</td><td>1 - 100</td></tr>
+        <td>spSlTriggerType</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>止盈止损触发类型</td><td>1最新价 2指数价</td></tr>
+        <td>slPrice</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>止损价</td><td></td></tr>
+        <td>spPrice</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>止盈价</td><td></td></tr>
+        <td>isSetSl</td><td>body</td><td>bool</td><td>false</td><td>false</td><td>是否设置止损</td><td></td></tr>
+        <td>isSetSp</td><td>body</td><td>bool</td><td>false</td><td>false</td><td>是否设置止盈</td><td></td></tr>
+        <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+        <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+    </tr>
+    </tbody>
+</table>
+
+<blockquote>
+    <p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre">
+    <code>
+        {
+            "code": 0,
+            "msg": "success",
+            "data": {
+                "id": "22090120553294601010000600015",
+                "symbol": "btc_usdt",
+                "leverage": 20,
+                "triggerType": 2,
+                "triggerPrice": "20646.59",
+                "status": 1,
+                "side": 1,
+                "price": "20646.59",
+                "startPrice": "20019.75",
+                "amount": "5",
+                "spSlTriggerType": 1,
+                "spPrice": "0",
+                "slPrice": "0",
+                "isSetSp": false,
+                "isSetSl": false,
+                "frozen": "5161.64",
+                "createdAt": 1662036932946,
+                "updatedAt": 1662036932946
+            }
+        }
+    </code>
+</pre>
+
+<h3>响应数据</h3>
+<table>
+    <tbody>
+    <thead>
+    <tr>
+        <th>参数名称</th>
+        <th>数据类型</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>id</td><td>string</td><td>委托订单ID</td></tr>
+        <td>symbol</td><td>string</td><td>合约币对</td></tr>
+        <td>side</td><td>int</td><td>交易方向 1buy 2sell</td></tr>
+        <td>triggerType</td><td>int</td><td>计划委托触发类型 1成交价 2指数价</td></tr>
+        <td>triggerPrice</td><td>string</td><td>触发价格</td></tr>
+        <td>status</td><td>int</td><td>状态 1待委托 2已委托 3用户撤消 4系统撤消</td></tr>
+        <td>amount</td><td>string</td><td>下单量</td></tr>
+        <td>price</td><td>string</td><td>委托价格</td></tr>
+        <td>startPrice</td><td>string</td><td>触发下单的价格</td></tr>
+        <td>leverage</td><td>int</td><td>杠杆</td></tr>
+        <td>spSlTriggerType</td><td>int</td><td>止盈止损触发类型</td></tr>
+        <td>slPrice</td><td>string</td><td>止损价</td></tr>
+        <td>spPrice</td><td>string</td><td>止盈价</td></tr>
+        <td>isSetSl</td><td>bool</td><td>是否设置止损</td></tr>
+        <td>isSetSp</td><td>bool</td><td>是否设置止盈</td></tr>
+        <td>frozen</td><td>string</td><td>冻结保证金</td></tr>
+        <td>createdAt</td><td>int</td><td>创建时间戳</td></tr>
+        <td>updatedAt</td><td>int</td><td>更新时间戳</td></tr>
+    </tr>
+    </tbody>
+</table>
+
+<!-- title -->
+<h2 id="contract-deal-entrust-cancel">取消计划委托</h2>
+        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <h3 id="http-contract-deal-entrust-cancel">HTTP 请求</h3>
+        <ul><li>POST <code>/fapi/v2/entrust/cancel</code></li></ul>
+        
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+<code>
+    {
+        "symbol": "btc_usdt",
+        "entrustID": "22090120553294601010000600015"
+        "recvWindow": 7472,
+        "timestamp": 1662005739,
+    }
+</code>
+        </pre>
+
+        <h3>请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>币对</td><td></td></tr>
+                <td>entrustID</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>委托订单ID</td><td></td></tr>
+                <td>customID</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>用户自定义单号</td><td></td></tr>
+                <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+                <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": [
+                        "22090120553294601010000600015"
+                    ]
+                }
+            </code>
+        </pre>
+
+        <h3>响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>data</td>
+                <td>array</td>
+                <td>取消的委托订单ID列表</td>
+            </tr>
+    
+            </tbody>
+        </table>
+
+         <!-- title -->
+ <h2 id="contract-deal-entrust-unFinish">查询未完成的计划委托列表</h2>
+ <aside class="notice">访问该接口需要进行签名认证。</aside>
+ <h3 id="http-contract-deal-entrust-unFinish">HTTP 请求</h3>
+ <ul><li>GET <code>/fapi/v2/entrust/unFinish</code></li></ul>
+
+ <h3>请求参数</h3>
+ <table>
+     <thead>
+     <tr>
+         <th>参数</th>
+         <th>位置</th>
+         <th>数据类型</th>
+         <th>是否必须</th>
+         <th>默认值</th>
+         <th>描述</th>
+         <th>取值范围</th>
+     </tr>
+     </thead>
+     <tbody>
+     <tr>
+        <td>symbol</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>币对</td><td></td></tr>
+         <td>recvWindow</td><td>query</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+         <td>timestamp</td><td>query</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+     </tr>
+     </tbody>
+ </table>
+
+ <blockquote>
+     <p>Response:</p>
+ </blockquote>
+ <pre class="highlight json tab-json responsePre">
+     <code>
+        {
+            "code": 0,
+            "msg": "success",
+            "data": [
+                {
+                    "id": "22090121233844901010000600016",
+                    "symbol": "btc_usdt",
+                    "leverage": 20,
+                    "triggerType": 2,
+                    "triggerPrice": "20646.59",
+                    "status": 1,
+                    "side": 1,
+                    "price": "20646.59",
+                    "startPrice": "19963.5",
+                    "amount": "5",
+                    "spSlTriggerType": 1,
+                    "spPrice": "0",
+                    "slPrice": "0",
+                    "isSetSp": false,
+                    "isSetSl": false,
+                    "frozen": "5161.64",
+                    "createdAt": 1662038618449,
+                    "updatedAt": 1662038618449
+                }
+            ]
+        }
+     </code>
+ </pre>
+
+ <h3>响应数据</h3>
+ <table>
+     <tbody>
+     <thead>
+     <tr>
+         <th>参数名称</th>
+         <th>数据类型</th>
+         <th>描述</th>
+     </tr>
+     </thead>
+     <tr>
+         <td>&lt;data></td><td>array</td><td>计划委托列表</td></tr>
+         <td>id</td><td>string</td><td>委托订单ID</td></tr>
+        <td>symbol</td><td>string</td><td>合约币对</td></tr>
+        <td>side</td><td>int</td><td>交易方向 1buy 2sell</td></tr>
+        <td>triggerType</td><td>int</td><td>计划委托触发类型 1成交价 2指数价</td></tr>
+        <td>triggerPrice</td><td>string</td><td>触发价格</td></tr>
+        <td>status</td><td>int</td><td>状态 1待委托 2已委托 3用户撤消 4系统撤消</td></tr>
+        <td>amount</td><td>string</td><td>下单量</td></tr>
+        <td>price</td><td>string</td><td>委托价格</td></tr>
+        <td>startPrice</td><td>string</td><td>触发下单的价格</td></tr>
+        <td>leverage</td><td>int</td><td>杠杆</td></tr>
+        <td>spSlTriggerType</td><td>int</td><td>止盈止损触发类型</td></tr>
+        <td>slPrice</td><td>string</td><td>止损价</td></tr>
+        <td>spPrice</td><td>string</td><td>止盈价</td></tr>
+        <td>isSetSl</td><td>bool</td><td>是否设置止损</td></tr>
+        <td>isSetSp</td><td>bool</td><td>是否设置止盈</td></tr>
+        <td>frozen</td><td>string</td><td>冻结保证金</td></tr>
+        <td>createdAt</td><td>int</td><td>创建时间戳</td></tr>
+        <td>updatedAt</td><td>int</td><td>更新时间戳</td></tr>
+         <td>&lt;/data></td><td></td><td></td>
+     </tr>
+     </tbody>
+ </table>
+
+  <!-- title -->
+  <h2 id="contract-deal-entrust-finished">查询已完成的计划委托列表</h2>
+  <aside class="notice">访问该接口需要进行签名认证。</aside>
+  <h3 id="http-contract-deal-entrust-finished">HTTP 请求</h3>
+  <ul><li>GET <code>/fapi/v2/entrust/finished</code></li></ul>
+
+  <h3>请求参数</h3>
+  <table>
+      <thead>
+      <tr>
+          <th>参数</th>
+          <th>位置</th>
+          <th>数据类型</th>
+          <th>是否必须</th>
+          <th>默认值</th>
+          <th>描述</th>
+          <th>取值范围</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>symbol</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>币对</td><td></td></tr>
+        <td>pageIndex</td><td>query</td><td>int</td><td>true</td><td>NA</td><td>页码</td><td>大于0</td></tr>
+        <td>pageSize</td><td>query</td><td>int</td><td>true</td><td>NA</td><td>每页条数</td><td>1 - 50</td></tr>
+        <td>recvWindow</td><td>query</td><td>int</td><td>false</td><td>5000</td><td>时间滑动窗口(秒)</td><td>1 - 60000</td></tr>
+        <td>timestamp</td><td>query</td><td>int</td><td>true</td><td>NA</td><td>时间戳</td><td></td>
+      </tr>
+      </tbody>
+  </table>
+
+  <blockquote>
+      <p>Response:</p>
+  </blockquote>
+  <pre class="highlight json tab-json responsePre">
+      <code>
+        {
+            "code": 0,
+            "msg": "success",
+            "data": {
+                "total": 16,
+                "page": 1,
+                "data": [
+                    {
+                        "id": "22090120553294601010000600015",
+                        "symbol": "btc_usdt",
+                        "leverage": 20,
+                        "triggerType": 2,
+                        "triggerPrice": "20646.59",
+                        "status": 3,
+                        "side": 1,
+                        "price": "20646.59",
+                        "startPrice": "20019.75",
+                        "amount": "5",
+                        "spSlTriggerType": 1,
+                        "spPrice": "0",
+                        "slPrice": "0",
+                        "isSetSp": false,
+                        "isSetSl": false,
+                        "frozen": "5161.64",
+                        "createdAt": 1662036932947,
+                        "updatedAt": 1662037987010
+                    }
+                ]
+            }
+        }
+      </code>
+  </pre>
+
+  <h3>响应数据</h3>
+  <table>
+      <tbody>
+      <thead>
+      <tr>
+          <th>参数名称</th>
+          <th>数据类型</th>
+          <th>描述</th>
+      </tr>
+      </thead>
+      <tr>
+        <td>total</td><td>int</td><td>总条数</td></tr>
+        <td>page</td><td>int</td><td>当面页码</td></tr>
+        <td>&lt;data></td><td>array</td><td>计划委托列表</td></tr>
+        <td>id</td><td>string</td><td>委托订单ID</td></tr>
+        <td>symbol</td><td>string</td><td>合约币对</td></tr>
+        <td>side</td><td>int</td><td>交易方向 1buy 2sell</td></tr>
+        <td>triggerType</td><td>int</td><td>计划委托触发类型 1成交价 2指数价</td></tr>
+        <td>triggerPrice</td><td>string</td><td>触发价格</td></tr>
+        <td>status</td><td>int</td><td>状态 1待委托 2已委托 3用户撤消 4系统撤消</td></tr>
+        <td>amount</td><td>string</td><td>下单量</td></tr>
+        <td>price</td><td>string</td><td>委托价格</td></tr>
+        <td>startPrice</td><td>string</td><td>触发下单的价格</td></tr>
+        <td>leverage</td><td>int</td><td>杠杆</td></tr>
+        <td>spSlTriggerType</td><td>int</td><td>止盈止损触发类型</td></tr>
+        <td>slPrice</td><td>string</td><td>止损价</td></tr>
+        <td>spPrice</td><td>string</td><td>止盈价</td></tr>
+        <td>isSetSl</td><td>bool</td><td>是否设置止损</td></tr>
+        <td>isSetSp</td><td>bool</td><td>是否设置止盈</td></tr>
+        <td>frozen</td><td>string</td><td>冻结保证金</td></tr>
+        <td>createdAt</td><td>int</td><td>创建时间戳</td></tr>
+        <td>updatedAt</td><td>int</td><td>更新时间戳</td></tr>
+        <td>&lt;/data></td><td></td><td></td></tr>
+          
+      </tr>
+      </tbody>
+  </table>
 
         <!-- Websocket-->
         <h1 id="websocket">Websocket币币行情数据</h1>
@@ -5392,8 +7939,8 @@
         <!-- websocket-contract-q -->
         <h1 id="websocket-contract-q">Websocket合约行情数据</h1>
         <h2 id="websocket-contract-q-url">接入URL</h2>
-        <h3>合约行情请求地址</h3>
-        <p><strong><code>wss://api.bkex.com/contract/q/ws</code></strong></p>
+        <h3>合约行情数据请求地址</h3>
+        <p><strong><code>wss://fapi.bkex.com/fapi/v2/ws</code></strong></p>
         <h3>心跳消息</h3>
         <p>
             当用户的Websocket客户端连接到Websocket服务器后，服务器会定期（当前设为1分钟）向其发送<code>ping</code>消息。<br/>
@@ -5453,31 +8000,7 @@
         <p>之后, 将不再收到该主题的推送消息。</p>
         <hr/>
 
-        <!--h2 id="websocket-contract-q-8">错误处理(TODO)</h2>
-        <p><code>INVALID_REQUEST("-10000", "Invalid request!")</code></p>
-        <p><code>JSON_FORMAT_ERROR("-10001", "Invalid JSON!")</code></p>
-        <p><code>INVALID_EVENT("-10002", "Invalid event")</code></p>
-        <p><code>REQUIRED_EVENT("-10003", "Event required!")</code></p>
-        <p><code>INVALID_TOPIC("-10004", "Invalid topic!")</code></p>
-        <p><code>REQUIRED_TOPIC("-10005", "Topic required!")</code></p>
-        <p><code>PARAM_EMPTY("-10007", "Params required!")</code></p>
-        <p><code>PERIOD_EMPTY("-10008", "Period required!")</code></p>
-        <p><code>PERIOD_ERROR("-10009", "Invalid period!")</code></p>
-        <p><code>SYMBOLS_ERROR("-100010", "Invalid Symbols!")</code></p-->
-
-        <!--h2 id="websocket-contract-q-9">心跳</h2>
-        <p>每隔一段时间，客户端需要发送ping帧，服务端会回复pong帧，否则服务端会在5分钟内主动断开链接。</p>
-        <h3 id="a94c7743d5">请求</h3>
-        <p><code>{
-            "ping": 1535975085052
-            }</code></p>
-        <h3 id="a94c7743d6">返回</h3>
-        <p><code>{
-            "pong": 1535975085052
-            }</code></p>
-
-        <p></p-->
-
+        <!-- begin -->
         <h2 id="websocket-contract-q-3">推送有限档深度</h2>
         <p>此主题发送最新市场深度快照。快照频率为每500毫秒1次。目前支持5档,10档,20档。</p>
         <h3 id="a94c7743c5">主题订阅</h3>
@@ -5937,41 +8460,26 @@
                     <tr>
                         <td>&lt;/data></data></td>
                         <td>object</td>
-                        <td>数据块</td>
+                        <td></td>
             </tr>
             </tbody>
         </table>
                     <hr/>
 
-        <!--h2 id="websocket-contract-q-12">逐笔交易</h2>
-        <p>逐笔交易推送每一笔成交的信息。成交，或者说交易的定义是仅有一个吃单者与一个挂单者相互交易。
-            在成功连接到服务器后，服务器首先会推送一条最近的60条成交。在这条推送之后，每条推送都是实时的成交。
-            变量“v”可以理解成一个交易ID。这个变量是全局递增的并且独特的。例如：假设过去5秒有3笔交易发生，分别是EOS-SWAP-USDT、BTC-SWAP-USDT、BTC-SWAP。它们的“v”会为连续的值（112，113，114）。</p>
-        <h3 id="a94c774w3c5-2">主题订阅</h3>
-        <p><code>
-{
-    "topic": "trade",
-    "event": "sub",
-    "params": {
-        "symbol": "$symbol",
-        "binary": false
-    }
-}
-        </code></p>
+      <h2 id="websocket-contract-q-5">K线/蜡烛图</h2>
+        <p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
+        <p>K线/蜡烛图间隔:</p>
+        <p>订阅Kline需要提供间隔参数，最短为分钟线，最长为周线。支持以下间隔:</p>
+        <p>M -> 分钟; H -> 小时; D -> 天; W -> 周</p>
+        <h3 id="a94c77q43c5-2">主题订阅</h3>
+        <p><code>$symbol.candle.$period</code></p>
 
         <blockquote>
-            <p>订阅参数</p>
+            <p>Request</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "topic": "trade",
-  "event": "sub",
-  "params": {
-    "symbol": "$symbol",
-    "binary": false
-  }
-}</code>
+        <pre class="highlight json tab-json responsePre"><code>{"event":"sub","topic":"btc_usdt.candle.M1"}</code>
         </pre>
-        <h3 id="749d7652242-2">参数</h3>
+        <h3 id="749d76524s2-2">订阅参数</h3>
         <table>
             <thead>
             <tr>
@@ -5988,14 +8496,14 @@
                 <td>string</td>
                 <td>true</td>
                 <td>交易对</td>
-                <td>BTC-SWAP-USDT</td>
+                <td>ada_usdt,bch_usdt,btc_usdt...</td>
             </tr>
             <tr>
-                <td>binary</td>
-                <td>boolean</td>
-                <td>false</td>
-                <td>返回的数据是否是压缩过的，默认为false</td>
-                <td></td>
+                <td>period</td>
+                <td>string</td>
+                <td>true</td>
+                <td>周期</td>
+                <td>M1,M5,M15,M30,H1,H2,H4,H6,D1,W1</td>
             </tr>
             </tbody>
         </table>
@@ -6003,21 +8511,21 @@
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "topic": "trade",
-  "params": {
-    "symbol": "BTC-SWAP-USDT",
-    "binary": "false"
-  },
-  "data": {
-    "v": "564265886622695424",
-    "t": 1582001735462,
-    "p": "9787.5",
-    "q": "0.195009",
-    "m": true
-  }
-}</code></pre>
-        <h3 id="7bf990a9a8">响应数据data</h3>
+        <pre class="highlight json tab-json responsePre"><code>
+        {
+            "type": "btc_usdt.candle.M1",
+            "ts": 1662360553440,
+            "data": [
+              "473.15",
+              "9355628.808",
+              "19771.14",
+              "19778.09",
+              "19769.17",
+              "19778.06",
+              "1662360540000"
+            ]
+          }</code></pre>
+        <h3 id="7bf99w0a9a8">返回数据</h3>
         <table>
             <thead>
             <tr>
@@ -6027,194 +8535,59 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>t</td>
-                <td>long</td>
-                <td>时间戳</td>
-            </tr>
-            <tr>
-                <td>v</td>
-                <td>string</td>
-                <td>可以理解成一个交易ID</td>
-            </tr>
-            <tr>
-                <td>p</td>
-                <td>string</td>
-                <td>价格</td>
-            </tr>
-            <tr>
-                <td>q</td>
-                <td>string</td>
-                <td>数量</td>
-            </tr>
-            <tr>
-                <td>m</td>
-                <td>string</td>
-                <td>true = 买, false = 卖</td>
-            </tr>
+                <tr>
+                    <td>type</td><td>string</td><td>订阅的topic</td>
+                </tr>
+                <tr>
+                    <td>ts</td>
+                    <td>long</td>
+                    <td>时间戳</td>
+                </tr>
+                <tr>
+                    <td>&lt;data></data></td>
+                    <td>array</td>
+                    <td>数据块</td>
+                </tr>
+
+                <tr>
+                    <td></td><td>string</td><td>总成交量</td>
+                </tr>
+                <tr>
+                    <td></td><td>string</td><td>总成交额</td>
+                </tr>
+                <tr>
+                    <td></td><td>string</td><td>开盘价</td>
+                </tr>
+                <tr>
+                    <td></td><td>string</td><td>最高价</td>
+                </tr>
+                <tr>
+                    <td></td><td>string</td><td>最低价</td>
+                </tr>
+                <tr>
+                    <td></td><td>string</td><td>收盘价</td>
+                </tr>
+                <tr>
+                    <td></td><td>string</td><td>所属区间的时间戳(毫秒)</td>
+                </tr>
+                <tr>
+                    <td>&lt;/data></data></td>
+                    <td>array</td>
+                    <td></td>
+        </tr>
             </tbody>
-        </table>
+        </table><hr/>
 
-
-        <h2 id="websocket-contract-q-5">K线/蜡烛图</h2>
-        <p>K线stream逐秒推送所请求的K线种类(最新一根K线)的更新</p>
-        <p>K线/蜡烛图间隔:</p>
-        <p>订阅Kline需要提供间隔参数，最短为分钟线，最长为月线。支持以下间隔:</p>
-        <p>m -> 分钟; h -> 小时; d -> 天; w -> 周; M -> 月</p>
-        <p>1m、5m、15m、30m、1h、2h、4h、6h、12h、1d、1w、1M</p>
-        <h3 id="a94c77q43c5-2">主题订阅</h3>
-        <p><code>{
-            "topic": "kline",
-            "event": "sub",
-            "params": {
-            "binary": false,
-            "symbol": "$symbol",
-            "klineType": "1m"
-            }
-            }</code></p>
-
-        <blockquote>
-            <p>订阅参数</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "topic": "kline",
-  "event": "sub",
-  "params": {
-    "binary": false,
-    "symbol": "BTC-SWAP-USDT",
-    "klineType": "1m"
-  }
-}</code>
-        </pre>
-        <h3 id="749d76524s2-2">参数</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>参数</th>
-                <th>数据类型</th>
-                <th>是否必需</th>
-                <th>描述</th>
-                <th>取值范围</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>true</td>
-                <td>合约id</td>
-                <td>BTC-SWAP-USDT</td>
-            </tr>
-            <tr>
-                <td>binary</td>
-                <td>boolean</td>
-                <td>false</td>
-                <td>返回的数据是否是压缩过的，默认为false</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>klineType</td>
-                <td>string</td>
-                <td>true</td>
-                <td>间隔</td>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
-
-        <blockquote>
-            <p>Response</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "topic": "kline",
-  "params": {
-    "symbol": "BTC-SWAP-USDT",
-    "binary": "false",
-    "klineType": "1m"
-  },
-  "data": {
-    "t": 1585729380000,
-    "s": "BTC-SWAP-USDT",
-    "c": "6308",
-    "h": "6308",
-    "l": "6308",
-    "o": "6308",
-    "v": "10"
-  }
-}</code></pre>
-        <h3 id="7bf99w0a9a8">响应数据data</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>字段</th>
-                <th>数据类型</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>t</td>
-                <td>long</td>
-                <td>k线开始时间</td>
-            </tr>
-            <tr>
-                <td>s</td>
-                <td>string</td>
-                <td>symbol</td>
-            </tr>
-            <tr>
-                <td>c</td>
-                <td>string</td>
-                <td>收盘价</td>
-            </tr>
-            <tr>
-                <td>h</td>
-                <td>string</td>
-                <td>最高价</td>
-            </tr>
-            <tr>
-                <td>l</td>
-                <td>string</td>
-                <td>最低价</td>
-            </tr>
-            <tr>
-                <td>o</td>
-                <td>string</td>
-                <td>开盘价</td>
-            </tr>
-            <tr>
-                <td>v</td>
-                <td>string</td>
-                <td>交易量</td>
-            </tr>
-            </tbody>
-        </table>
-
-
-        <h2 id="websocket-contract-q-6">订单簿Ticker信息</h2>
+        <h2 id="websocket-contract-q-6">成交明细</h2>
         <h3 id="a94c7743c42-2">主题订阅</h3>
-        <p><code>{
-            "topic": "bookTicker",
-            "event": "sub",
-            "params": {
-            "binary": false,
-            "symbol": "$symbol"
-            }
-            }</code></p>
+        <p><code>$symbol.trade</code></p>
 
         <blockquote>
-            <p>订阅参数</p>
+            <p>Request</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "topic": "trade",
-  "event": "sub",
-  "params": {
-    "symbol": "BTC-SWAP-USDT",
-    "binary": false
-  }
-}</code>
+        <pre class="highlight json tab-json responsePre"><code>{"event":"sub","topic":"btc_usdt.trade"}</code>
         </pre>
-        <h3 id="749d76524a2-2">参数</h3>
+        <h3 id="749d76524a2-2">订阅参数</h3>
         <table>
             <thead>
             <tr>
@@ -6230,39 +8603,27 @@
                 <td>symbol</td>
                 <td>string</td>
                 <td>true</td>
-                <td>合约id</td>
-                <td>BTC-SWAP-USDT</td>
-            </tr>
-            <tr>
-                <td>binary</td>
-                <td>boolean</td>
-                <td>false</td>
-                <td>返回的数据是否是压缩过的，默认为false</td>
-                <td></td>
+                <td>交易对</td>
+                <td>ada_usdt,bch_usdt,btc_usdt...</td>
             </tr>
             </tbody>
         </table>
 
-
         <blockquote>
             <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "topic": "bookTicker",
-  "params": {
-    "symbol": "BTC-SWAP-USDT",
-    "binary": "false"
-  },
-  "data": {
-    "symbol": "BTC-SWAP-USDT",
-    "bidPrice": "9797.79",
-    "bidQty": "0.177976",
-    "askPrice": "9799",
-    "askQty": "0.65",
-    "time": 1582001830346
-  }
-}</code></pre>
-        <h3 id="7bf99w0a9aa8">响应数据data</h3>
+        <pre class="highlight json tab-json responsePre"><code>
+        {
+            "type": "btc_usdt.trade",
+            "ts": 1662361313562,
+            "data": [
+              "19788.12",
+              "1",
+              "15.06",
+              "1662361313094"
+            ]
+          }</code></pre>
+        <h3 id="7bf99w0a9aa8">返回数据</h3>
         <table>
             <thead>
             <tr>
@@ -6273,371 +8634,498 @@
             </thead>
             <tbody>
             <tr>
-                <td>time</td>
-                <td>long</td>
-                <td>时间戳</td>
-            </tr>
-            <tr>
-                <td>symbol</td>
-                <td>string</td>
-                <td>symbol</td>
-            </tr>
-            <tr>
-                <td>bidPrice</td>
-                <td>string</td>
-                <td>bid价格</td>
-            </tr>
-            <tr>
-                <td>bidQty</td>
-                <td>string</td>
-                <td>bid量</td>
-            </tr>
-            <tr>
-                <td>askPrice</td>
-                <td>string</td>
-                <td>ask价格</td>
-            </tr>
-            <tr>
-                <td>askQty</td>
-                <td>string</td>
-                <td>ask量</td>
-            </tr>
+                    <td>type</td><td>string</td><td>订阅的topic</td>
+                </tr>
+                <tr>
+                    <td>ts</td>
+                    <td>long</td>
+                    <td>时间戳</td>
+                </tr>
+                <tr>
+                    <td>&lt;data></data></td>
+                    <td>array</td>
+                    <td>数据块</td>
+                </tr>
+
+                <tr>
+                    <td></td><td>string</td><td>价格</td>
+                </tr>
+                <tr>
+                    <td></td><td>string</td><td>交易方向 1.买 2.卖</td>
+                </tr>
+                <tr>
+                    <td></td><td>string</td><td>成交数量</td>
+                </tr>
+                <tr>
+                    <td></td><td>string</td><td>成交时间戳</td>
+                </tr>
+               
+                    <td>&lt;/data></data></td>
+                    <td>array</td>
+                    <td></td>
+        </tr>
             </tbody>
-        </table>
+        </table><hr/>
 
         <!-- websocket-contract-u -->
-        <h1 id="websocket-contract-u">Websocket合约用户数据 (暂停使用)</h1>
-        <h2 id="websocket-contract-u-1">基本信息</h2>
-        <ul>
-            <li><p>一个用户数据流的 listenKey 在创建之后的有效期只有60分钟</p></li>
-            <li><p>如果对listenKey 做更新请求可以延长有效期60分钟</p></li>
-            <li><p>如果对listenKey 做删除请求会关闭推送</p></li>
-            <li><p>用户数据流推送在这个端点 /contract/u/ws/{listenKey}访问</p></li>
-            <li><p>单一API连接的有效期只有24小时，请做好在24小时后被断开连接的准备</p></li>
-            <li><p>用户信息流返回在订单繁忙期不保证顺序正常，请使用E字段进行排序</p></li>
-            <li>
-        </ul>
-        <h3 id="websocket-contract-u-url">接入URL</h3>
-        <!--<p><strong><code>wss://api.bkex.cc/contract/u/ws/{listenKey}</code></strong></p>-->
-        <p><strong><code>wss://api.bkex.com/contract/u/ws/{listenKey}</code></strong></p>
-        <p></p>
+        <h1 id="websocket-contract-u">Websocket合约用户数据</h1>
+        <h2 id="websocket-contract-u-url">接入URL</h2>
+        <h3>合约用户数据请求地址</h3>
+        <p><strong><code>wss://fapi.bkex.com/fapi/v2/ws</code></strong></p>
+        <h3>心跳消息</h3>
+        <p>
+            当用户的Websocket客户端连接到Websocket服务器后，服务器会定期（当前设为1分钟）向其发送<code>ping</code>消息。<br/>
+            当用户的Websocket客户端接收到此心跳消息后，应返回<code>pong</code>消息。<br/>
+            <aside class="warning">当Websocket服务器连续两次发送了`ping`消息却没有收到任何一次`pong`消息返回后，服务器将主动断开与此客户端的连接。</aside>
+        </p>
+        <hr/>
 
-
-        <h2 id="websocket-contract-listenKey-create">创建listenKey</h2>
-        <p>API Key 权限：合约查询</p>
-        <p>创建一个新的用户信息流。如果没有发送keepalive，推送将会在60分钟后断开</p>
-        <h3 id="http-contract-listenKey-create">HTTP 请求</h3>
-        <ul>
-            <li>POST <code>/v2/contract/ws/dataStream/create</code></li>
-        </ul>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "recvWindow": 500
-}</code></pre>
-        <h3 id="contract-listenKey-create-request">请求参数</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>参数</th>
-                <th>数据类型</th>
-                <th>是否必须</th>
-                <th>默认值</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>recvWindow</td>
-                <td>long</td>
-                <td>false</td>
-                <td>500</td>
-                <td>recvWindow</td>
-            </tr>
-
-            </tbody>
-        </table>
+        <h2 id="websocket-contract-u-auth">用户认证</h2> 
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre"><code>{"event":"auth","accessKey":"bdc8e5ed9813cc1d00fd5d564f27e7e2696d0a9cbd70644e297ed71bb8265ea2"}</code>
+        </pre>
 
         <blockquote>
-            <p>Response:</p>
+            <p>Response</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "data": {
-    "listenKey": "1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj"
-  }
-}</code></pre>
+        <pre class="highlight json tab-json responsePre"><code>
+        {
+            "type": "auth",
+            "ts": 1662364280888,
+            "data": "ok"
+          }</code></pre>
 
-        <h3 id="contract-listenKey-create-response">响应数据</h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>参数名称</th>
-                <th>数据类型</th>
-                <th>例子</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>listenKey</td>
-                <td>String</td>
-                <td></td>
-                <td>listen Key</td>
-            </tr>
+        <p>要接受用户变更推送之前，需要申请一个access key。<br/>
+            使用access key进行认证，成功后，再进行对应的主题订阅，用户数据在发生变化后才能收到对应的消息推送。</p>
+        <aside class="warning">未认证成功或者access key没有对应主题的权限，进行用户数据的主题订阅是无效的。</aside>
+        <hr/>
 
-            </tbody>
-        </table>
-        <ul>
-            <li><strong>Weight:</strong><span>1</span></li>
-        </ul>
-
-        <h2 id="websocket-contract-listenKey-update">延长ListenKey有效期</h2>
-        <p>API Key 权限：合约查询</p>
-        <p>延长至本次调用后60分钟，建议每30分钟做一次延长操作 </p>
-        <h3 id="http-contract-listenKey-update">HTTP 请求</h3>
-        <ul>
-            <li>POST <code>/v2/contract/ws/dataStream/update</code></li>
-        </ul>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "listenKey":"1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj",
-  "recvWindow": 500
-}</code></pre>
-        <h3 id="contract-listenKey-update-request">请求参数</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>参数</th>
-                <th>数据类型</th>
-                <th>是否必须</th>
-                <th>默认值</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>listenKey</td>
-                <td>string</td>
-                <td>true</td>
-                <td>500</td>
-                <td>listen Key</td>
-            </tr>
-            <tr>
-                <td>recvWindow</td>
-                <td>long</td>
-                <td>false</td>
-                <td>500</td>
-                <td>recvWindow</td>
-            </tr>
-            </tbody>
-        </table>
+        <h2 id="websocket-contract-u-sub">订阅消息</h2>
 
         <blockquote>
-            <p>Response:</p>
+            <p>Request</p>
         </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "data": {}
-}</code></pre>
-
-        <h3 id="contract-listenKey-update-response">响应数据</h3>
-        <p>{}</p>
-        <ul>
-            <li><strong>Weight:</strong><span>1</span></li>
-        </ul>
-
-        <h2 id="websocket-contract-listenKey-delete">关闭listenKey</h2>
-        <p>API Key 权限：合约查询</p>
-        <p>关闭用户数据流</p>
-        <h3 id="http-contract-listenKey-delete">HTTP 请求</h3>
-        <ul>
-            <li>POST <code>/v2/contract/ws/dataStream/delete</code></li>
-        </ul>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "listenKey":"1A9LWJjuMwKWYP4QQPw34GRm8gz3x5AephXSuqcDef1RnzoBVhEeGE963CoS1Sgj",
-  "recvWindow": 500
-}</code></pre>
-        <h3 id="contract-listenKey-delete-request">请求参数</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>参数</th>
-                <th>数据类型</th>
-                <th>是否必须</th>
-                <th>默认值</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>listenKey</td>
-                <td>string</td>
-                <td>true</td>
-                <td>500</td>
-                <td>listen Key</td>
-            </tr>
-            <tr>
-                <td>recvWindow</td>
-                <td>long</td>
-                <td>false</td>
-                <td>500</td>
-                <td>recvWindow</td>
-            </tr>
-            </tbody>
-        </table>
+        <pre class="highlight json tab-json responsePre"><code>{"event":"sub","topic":"btc_usdt.5deep,btc_usdt.index"}</code>
+        </pre>
+        <p>成功建立与Websocket服务器的连接后，Websocket客户端发送请求以订阅特定主题，消息格式统一，可同时订阅多个，以','分隔。</p>
+        <p><code>{"event":"sub","topic":"topic1,topic2..."}</code></p>
 
         <blockquote>
-            <p>Response:</p>
+            <p>Response</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "code": 0,
-  "data": {}
-}</code></pre>
-
-        <h3 id="contract-listenKey-delete-response">响应数据</h3>
-        <p>{}</p>
-        <ul>
-            <li><strong>Weight:</strong><span>1</span></li>
-        </ul>
-
-        <p></p>
-        <h2>WebSocket Payload</h2>
-        <p></p>
-
-        <p></p>
-        <h2 id="websocket-contract-u-account">账户更新</h2>
-        <p>使用 outboundAccountInfo event进行账户更新</p>
-        <h3 id="a94c7723d5">Payload</h3>
-        <p><code>{
-            "e": "outboundAccountInfo", // 事件类型
-            "E": 1499405658849, // 事件时间
-            "T": true, // 允许交易?
-            "W": true, // 允许体现?
-            "D": true, // 允许充值?
-            "B": [ // 余额变化
-            {
-            "a": "LTC", // 资产名称
-            "f": "17366.18538083", // 可用数量
-            "l": "0.00000000" // 冻结数量
-            }
-            ]
-            }</code></p>
-
-        <blockquote>
-            <p>账户更新response</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "e": "outboundAccountInfo",   // 事件类型
-  "E": 1499405658849,           // 事件时间
-  "T": true,                    // 允许交易?
-  "W": true,                    // 允许体现?
-  "D": true,                    // 允许充值?
-  "B": [                        // 余额变化
-    {
-      "a": "LTC",               // 资产名称
-      "f": "17366.18538083",    // 可用数量
-      "l": "0.00000000"         // 冻结数量
+    "type":"sub",
+    "ts":1658133356074,
+    "data":{
+        "topic":"btc_usdt.5deep,btc_usdt.index",
+        "status":"ok"
     }
-  ]
-}
-</code></pre>
-
-        <p></p>
-        <h2 id="websocket-contract-u-order">订单更新</h2>
-        <p>订单通过contractExecutionReport事件进行更新。详细说明信息请查看这里。通过将Z除以z可以找到平均价格</p>
-        <h3 id="a94c774365">Payload</h3>
-        <p><code>{
-            "e": "contractExecutionReport", // 事件类型
-            "E": 1499405658658, // 事件时间
-            "s": "BTC-SWAP-USDT", // 交易对
-            "c": 1000087761, // Client order ID
-            "S": "BUY", // 订单方向
-            "o": "LIMIT", // 订单类型
-            "f": "GTC", // Time in force
-            "q": "1.00000000", // 订单数量
-            "p": "0.10264410", // 订单价格
-            "X": "NEW", // 当前订单状态
-            "i": 4293153, // Order ID
-            "l": "0.00000000", // 最新成交数量
-            "z": "0.00000000", // 累计成交数量
-            "L": "0.00000000", // 最新成交价格
-            "n": "0", // 手续费
-            "N": null, // 手续费币种
-            "u": true, // 请忽略
-            "w": true, // 请忽略
-            "m": false, // 请忽略
-            "O": 1499405658657, // 订单创建时间
-            "Z": "0.00000000" // 累计成交数额</code></p>
-
-        <h5>订单状态:</h5>
-        <ul>
-            <li>NEW（新订单）</li>
-            <li>PARTIALLY_FILLED（部分成交）</li>
-            <li>FILLED（全部成交）</li>
-            <li>CANCELED（已撤销）</li>
-            <li>REJECTED（已拒绝）</li>
-        </ul>
-
-        <blockquote>
-            <p>订单更新response</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre"><code>{
-  "e": "executionReport",        // 事件类型
-  "E": 1499405658658,            // 事件时间
-  "s": "BTC-SWAP-USDT",                 // 交易对
-  "c": 1000087761,               // Client order ID
-  "S": "BUY",                    // 订单方向
-  "o": "LIMIT",                  // 订单类型
-  "f": "GTC",                    // Time in force
-  "q": "1.00000000",             // 订单数量
-  "p": "0.10264410",             // 订单价格
-  "X": "NEW",                    // 当前订单状态
-  "i": 4293153,                  // Order ID
-  "l": "0.00000000",             // 最新成交数量
-  "z": "0.00000000",             // 累计成交数量
-  "L": "0.00000000",             // 最新成交价格
-  "n": "0",                      // 手续费
-  "N": null,                     // 手续费币种
-  "u": true,                     // 请忽略
-  "w": true,                     // 请忽略
-  "m": false,                    // 请忽略
-  "O": 1499405658657,            // 订单创建时间
-  "Z": "0.00000000"              // 累计成交数额
 }</code></pre>
+        <p>成功订阅后，Websocket客户端将收到确认。</p>
+        <p><code>{"type":"sub","ts":1658133356074,"data":{"topic":"topic1,topic2...","status":"ok"}}</code></p>
+        <p>之后, 一旦所订阅的主题有更新，Websocket客户端将收到服务器推送的更新消息（push）。</p>
+        <hr/>
 
-        <p></p>
-        <h2 id="websocket-contract-u-position">持仓更新</h2>
-        <p>使用 outboundContractPositionInfo event进行持仓更新</p>
-        <h3 id="a94c6743d5">Payload</h3>
-        <p><code>{
-            "e": "outboundContractPositionInfo", // 事件类型
-            "A": "", // 账户ID
-            "s": "BTC-SWAP-USDT", // symbol
-            "S": "LONG", // 仓位方向
-            "p": "9851.5", // 平均价格
-            "P": "269", // 仓位数量
-            "a": "269", // 可用
-            "f": "7705.9", // 强子平仓价
-            "m": "59.7884", // 保证金
-            "r": "-0.0139" // 已实现盈亏
-            }</code></p>
+        <h2 id="websocket-contract-u-unsub">取消订阅</h2>
+        <blockquote>
+            <p>Request</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre"><code>{"event":"unsub","topic":"btc_usdt.5deep,btc_usdt.index"}</code>
+        </pre>
+        <p>订阅成功后可以取消订阅。消息格式格式统一，可同时取消订阅多个，以','分隔。</p>
+        <p><code>{"event":"unsub","topic":"topic1,topic2..."}</code></p>
 
         <blockquote>
-            <p>持仓更新response</p>
+            <p>Response</p>
         </blockquote>
         <pre class="highlight json tab-json responsePre"><code>{
-  "e": "outboundContractPositionInfo",  // 事件类型
-  "A": "",                              // 账户ID
-  "s": "BTC-SWAP-USDT",                 // symbol
-  "S": "LONG",                          // 仓位方向
-  "p": "9851.5",                        // 平均价格
-  "P": "269",                           // 仓位数量
-  "a": "269",                           // 可用
-  "f": "7705.9",                        // 强子平仓价
-  "m": "59.7884",                       // 保证金
-  "r": "-0.0139"                        // 已实现盈亏
-}
-</code></pre>
+    "type":"unsub",
+    "ts":1658133356074,
+    "data":{
+        "topic":"btc_usdt.5deep,btc_usdt.index",
+        "status":"ok"
+    }
+}</code></pre>
+        <p>成功取消订阅后，Websocket客户端将收到确认。</p>
+        <p><code>{"type":"unsub","ts":1658133356074,"data":{"topic":"topic1,topic2...","status":"ok"}}</code></p>
+        <p>之后, 将不再收到该主题的推送消息。</p>
+        <hr/>
+
+<!-- user begin -->
+<h2 id="websocket-contract-u-account">账户更新</h2>
+<h3 id="a94c7743c42-2">主题订阅</h3>
+<p><code>user.balance</code></p>
+<aside class="notice">需要“查询”权限</aside>
+
+<blockquote>
+    <p>Request</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre">
+    <code>{"event":"sub","topic":"user.balance"}</code>
+</pre>
+<h3 id="749d76524a2-2">订阅参数</h3>
+<p>无</p>
 
 
+<blockquote>
+    <p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre"><code>
+    {
+        "type":"user.balance",
+        "ts":1662365636378,
+        "data":{
+            "balance":"6120140.06",
+            "frozen":"0",
+            "margin":"1002.79",
+            "point":"0",
+            "loans":"",
+            "profit":"-327.08",
+            "unProfit":"0",
+            "unLosses":"-327.08",
+            "coin":"usdt"
+        }
+    }</code></pre>
+<h3 id="7bf99w0a9aa8">返回数据</h3>
+<table>
+    <thead>
+    <tr>
+        <th>字段</th>
+        <th>数据类型</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+            <td>type</td><td>string</td><td>订阅的topic</td>
+        </tr>
+        <tr>
+            <td>ts</td>
+            <td>long</td>
+            <td>时间戳</td>
+        </tr>
+        <tr>
+            <td>&lt;data></data></td>
+            <td>object</td>
+            <td>数据块</td>
+        </tr>
+
+        <tr>
+            <td>balance</td><td>string</td><td>余额</td>
+        </tr>
+        <tr>
+            <td>frozen</td><td>string</td><td>挂单冻结</td>
+        </tr>
+        <tr>
+            <td>margin</td><td>string</td><td>持仓保证金</td>
+        </tr>
+        <tr>
+            <td>point</td><td>string</td><td>积分(赠金)</td>
+        </tr>
+       
+        <td>loans</td><td>string</td><td>借贷</td></tr>
+        <td>profit</td><td>string</td><td>未实现盈亏</td></tr>
+        <td>unProfit</td><td>string</td><td>浮盈</td></tr>
+        <td>unLosses</td><td>string</td><td>浮亏</td></tr>
+        <td>coin</td><td>string</td><td>币种</td></tr>
+
+            <td>&lt;/data></data></td>
+            <td>object</td>
+            <td></td>
+</tr>
+    </tbody>
+</table><hr/>
+
+<h2 id="websocket-contract-u-position">持仓更新</h2>
+<h3 id="a94c7743c42-2">主题订阅</h3>
+<p><code>user.position</code></p>
+<aside class="notice">需要“委托”权限</aside>
+
+<blockquote>
+    <p>Request</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre"><code>{"event":"sub","topic":"user.position"}</code>
+</pre>
+<h3 id="749d76524a2-2">订阅参数</h3>
+<p>无</p>
+
+
+<blockquote>
+    <p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre"><code>
+    {
+        "type":"user.position",
+        "ts":1662366937145,
+        "data":[
+            {
+                "positionID":"220902151914127013061",
+                "symbol":"btc_usdt",
+                "side":1,
+                "leverage":20,
+                "price":"20056.67",
+                "amount":"1",
+                "frozenAmount":"0",
+                "margin":"1002.7981",
+                "triggerType":2,
+                "spPrice":"",
+                "slPrice":"",
+                "openProfit":"",
+                "updatedAt":1662103154185
+            }
+        ]
+    }</code></pre>
+<h3 id="7bf99w0a9aa8">返回数据</h3>
+<table>
+    <thead>
+    <tr>
+        <th>字段</th>
+        <th>数据类型</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+            <td>type</td><td>string</td><td>订阅的topic</td>
+        </tr>
+        <tr>
+            <td>ts</td>
+            <td>long</td>
+            <td>时间戳</td>
+        </tr>
+        <tr>
+            <td>&lt;data></data></td>
+            <td>array</td>
+            <td>数据块</td>
+        </tr>
+
+            <td>positionID</td><td>string</td><td>仓位id</td></tr>
+            <td>symbol</td><td>string</td><td>币对</td></tr>
+            <td>side</td><td>int</td><td>方向 1.买 2.卖</td></tr>
+            <td>leverage</td><td>int</td><td>杠杆</td></tr>
+            <td>price</td><td>string</td><td>成交均价</td></tr>
+            <td>amount</td><td>string</td><td>持仓量</td></tr>
+            <td>frozenAmount</td><td>string</td><td>平仓冻结量</td></tr>
+            <td>margin</td><td>string</td><td>持仓保证金</td></tr>
+            <td>triggerType</td><td>int</td><td>止盈止损触发类型</td></tr>
+            <td>spPrice</td><td>string</td><td>止盈价</td></tr>
+            <td>slPrice</td><td>string</td><td>止损价</td></tr>
+            <td>openProfit</td><td>string</td><td>未实现盈亏</td></tr>
+            <td>updatedAt</td><td>int</td><td>更新时间</td></tr>
+       
+            <td>&lt;/data></data></td>
+            <td>array</td>
+            <td></td>
+</tr>
+    </tbody>
+</table><hr/>
+
+<h2 id="websocket-contract-u-order">订单更新</h2>
+<h3 id="a94c7743c42-2">主题订阅</h3>
+<p><code>user.order</code></p>
+<aside class="notice">需要“委托”权限</aside>
+
+<blockquote>
+    <p>Request</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre"><code>{"event":"sub","topic":"user.order"}</code>
+</pre>
+<h3 id="749d76524a2-2">订阅参数</h3>
+<p>无</p>
+
+<blockquote>
+    <p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre"><code>
+    {
+        "type":"user.order",
+        "ts":1662367922965,
+        "data":[
+            {
+                "id":"22090516520341901010000604204",
+                "customID":"",
+                "symbol":"btc_usdt",
+                "type":2,
+                "action":1,
+                "side":2,
+                "positionID":"220905163537440014195",
+                "price":"0",
+                "leverage":20,
+                "amount":"1.2",
+                "frozen":"0",
+                "filledAmount":"0",
+                "filledPrice":"0",
+                "filledValue":"",
+                "triggerType":2,
+                "spPrice":"0",
+                "slPrice":"0",
+                "state":0,
+                "profit":"",
+                "fee":"",
+                "pointFee":"",
+                "pointProfit":"",
+                "closePrice":"",
+                "triggerPrice":"",
+                "createdAt":1662367923419,
+                "updatedAt":0
+            }
+        ]
+    }</code></pre>
+<h3 id="7bf99w0a9aa8">返回数据</h3>
+<table>
+    <thead>
+    <tr>
+        <th>字段</th>
+        <th>数据类型</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+            <td>type</td><td>string</td><td>订阅的topic</td>
+        </tr>
+        <tr>
+            <td>ts</td>
+            <td>long</td>
+            <td>时间戳</td>
+        </tr>
+        <tr>
+            <td>&lt;data></data></td>
+            <td>array</td>
+            <td>数据块</td>
+        </tr>
+
+        <td>id</td><td>string</td><td>订单ID</td></tr>
+        <td>customID</td><td>string</td><td>用户自定义订单号</td></tr>
+        <td>symbol</td><td>string</td><td>合约币对</td></tr>
+        <td>type</td><td>int</td><td>订单类型 1限价 2市价</td></tr>
+        <td>action</td><td>int</td><td>订单事件 0开仓 1平仓 2止损 3止盈 4强平 5FOK强平 6ADL减仓 7加仓 8反向开仓 9穿仓</td></tr>
+        <td>side</td><td>int</td><td>交易方向 1buy 2sell</td></tr>
+        <td>positionID</td><td>string</td><td>仓位ID</td></tr>
+        <td>price</td><td>string</td><td>订单价格，限价单才有值</td></tr>
+        <td>leverage</td><td>int</td><td>杠杆</td></tr>
+        <td>amount</td><td>string</td><td>下单量</td></tr>
+        <td>frozen</td><td>string</td><td>冻结保证金</td></tr>
+        <td>filledAmount</td><td>string</td><td>已完成量</td></tr>
+        <td>filledPrice</td><td>string</td><td>成交均价</td></tr>
+        <td>filledValue</td><td>string</td><td>成交价值</td></tr>
+        <td>triggerType</td><td>int</td><td>止盈止损触发类型 1成交价 2指数价</td></tr>
+        <td>spPrice</td><td>string</td><td>预设止盈价</td></tr>
+        <td>slPrice</td><td>string</td><td>预设止损价</td></tr>
+        <td>state</td><td>int</td><td>状态 1正常 2已完成 3撤销 4部分成交 5部分成交已撤销 6撤销中</td></tr>
+        <td>profit</td><td>string</td><td>已实现盈亏（平仓订单使用）</td></tr>
+        <td>fee</td><td>string</td><td>手续费</td></tr>
+        <td>pointFee</td><td>string</td><td>积分(赠金)手续费抵扣</td></tr>
+        <td>pointProfit</td><td>string</td><td>积分(赠金)盈亏抵扣</td></tr>
+        <td>closePrice</td><td>string</td><td>破产价</td></tr>
+        <td>triggerPrice</td><td>string</td><td>触发价</td></tr>
+        <td>createdAt</td><td>int</td><td>创建时间戳</td></tr>
+        <td>updatedAt</td><td>int</td><td>更新时间戳</td></tr>
+
+            <td>&lt;/data></data></td>
+            <td>array</td>
+            <td></td>
+</tr>
+    </tbody>
+</table><hr/>
+
+<h2 id="websocket-contract-u-entrust">计划委托</h2>
+<h3 id="a94c7743c42-2">主题订阅</h3>
+<p><code>user.entrust</code></p>
+<aside class="notice">需要“委托”权限</aside>
+
+<blockquote>
+    <p>Request</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre"><code>{"event":"sub","topic":"user.entrust"}</code>
+</pre>
+<h3 id="749d76524a2-2">订阅参数</h3>
+<p>无</p>
+
+<blockquote>
+    <p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json responsePre"><code>
+    {
+        "type":"user.entrust",
+        "ts":1662369267825,
+        "data":[
+            {
+                "id":"22090517074500101010000600018",
+                "symbol":"btc_usdt",
+                "leverage":20,
+                "triggerType":2,
+                "triggerPrice":"19730.96",
+                "status":1,
+                "side":1,
+                "price":"19700.96",
+                "startPrice":"",
+                "amount":"1",
+                "spSlTriggerType":0,
+                "spPrice":"0",
+                "slPrice":"0",
+                "isSetSp":false,
+                "isSetSl":false,
+                "frozen":"",
+                "createdAt":1662368865001,
+                "updatedAt":1662368865001
+            }
+        ]
+    }</code></pre>
+<h3 id="7bf99w0a9aa8">返回数据</h3>
+<table>
+    <thead>
+    <tr>
+        <th>字段</th>
+        <th>数据类型</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+            <td>type</td><td>string</td><td>订阅的topic</td>
+        </tr>
+        <tr>
+            <td>ts</td>
+            <td>long</td>
+            <td>时间戳</td>
+        </tr>
+        <tr>
+            <td>&lt;data></data></td>
+            <td>array</td>
+            <td>数据块</td>
+        </tr>
+
+        <td>id</td><td>string</td><td>委托订单ID</td></tr>
+        <td>symbol</td><td>string</td><td>合约币对</td></tr>
+        <td>side</td><td>int</td><td>交易方向 1buy 2sell</td></tr>
+        <td>triggerType</td><td>int</td><td>计划委托触发类型 1成交价 2指数价</td></tr>
+        <td>triggerPrice</td><td>string</td><td>触发价格</td></tr>
+        <td>status</td><td>int</td><td>状态 1待委托 2已委托 3用户撤消 4系统撤消</td></tr>
+        <td>amount</td><td>string</td><td>下单量</td></tr>
+        <td>price</td><td>string</td><td>委托价格</td></tr>
+        <td>startPrice</td><td>string</td><td>触发下单的价格</td></tr>
+        <td>leverage</td><td>int</td><td>杠杆</td></tr>
+        <td>spSlTriggerType</td><td>int</td><td>止盈止损触发类型</td></tr>
+        <td>slPrice</td><td>string</td><td>止损价</td></tr>
+        <td>spPrice</td><td>string</td><td>止盈价</td></tr>
+        <td>isSetSl</td><td>bool</td><td>是否设置止损</td></tr>
+        <td>isSetSp</td><td>bool</td><td>是否设置止盈</td></tr>
+        <td>frozen</td><td>string</td><td>冻结保证金</td></tr>
+        <td>createdAt</td><td>int</td><td>创建时间戳</td></tr>
+        <td>updatedAt</td><td>int</td><td>更新时间戳</td></tr>
+       
+            <td>&lt;/data></data></td>
+            <td>array</td>
+            <td></td>
+</tr>
+    </tbody>
+</table>
+
+
+<!-- user end -->
     </div>
     <div class="dark-box">
         <div class="lang-selector">
