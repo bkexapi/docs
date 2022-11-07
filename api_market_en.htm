@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>BKEX API Document</title>
+    <style>
+        .next-ul-show {
+            display: block !important;
+        }
+
+        .highlight table td {
+            padding: 5px;
+        }
+
+        .highlight table pre {
+            margin: 0;
+        }
+
+        .highlight .gh {
+            color: #999999;
+        }
+
+        .highlight .sr {
+            color: #f6aa11;
+        }
+
+        .highlight .go {
+            color: #888888;
+        }
+
+        .highlight .gp {
+            color: #555555;
+        }
+
+        .highlight .gu {
+            color: #aaaaaa;
+        }
+
+        .highlight .nb {
+            color: #f6aa11;
+        }
+
+        .highlight .cm {
+            color: #75715e;
+        }
+
+        .highlight .cp {
+            color: #75715e;
+        }
+
+        .highlight .c1 {
+            color: #75715e;
+        }
+
+        .highlight .cs {
+            color: #75715e;
+        }
+
+        .highlight .c, .highlight .cd {
+            color: #75715e;
+        }
+
+        .highlight .err {
+            color: #960050;
+        }
+
+        .highlight .gr {
+            color: #960050;
+        }
+
+        .highlight .gt {
+            color: #960050;
+        }
+
+        .highlight .gd {
+            color: #49483e;
+        }
+
+        .highlight .gi {
+            color: #49483e;
+        }
+
+        .highlight .ge {
+            color: #49483e;
+        }
+
+        .highlight .kc {
+            color: #66d9ef;
+        }
+
+        .highlight .kd {
+            color: #66d9ef;
+        }
+
+        .highlight .kr {
+            color: #66d9ef;
+        }
+
+        .highlight .no {
+            color: #66d9ef;
+        }
+
+        .highlight .kt {
+            color: #66d9ef;
+        }
+
+        .highlight .mf {
+            color: #ae81ff;
+        }
+
+        .highlight .mh {
+            color: #ae81ff;
+        }
+
+        .highlight .il {
+            color: #ae81ff;
+        }
+
+        .highlight .mi {
+            color: #ae81ff;
+        }
+
+        .highlight .mo {
+            color: #ae81ff;
+        }
+
+        .highlight .m, .highlight .mb, .highlight .mx {
+            color: #ae81ff;
+        }
+
+        .highlight .sc {
+            color: #ae81ff;
+        }
+
+        .highlight .se {
+            color: #ae81ff;
+        }
+
+        .highlight .ss {
+            color: #ae81ff;
+        }
+
+        .highlight .sd {
+            color: #e6db74;
+        }
+
+        .highlight .s2 {
+            color: #e6db74;
+        }
+
+        .highlight .sb {
+            color: #e6db74;
+        }
+
+        .highlight .sh {
+            color: #e6db74;
+        }
+
+        .highlight .si {
+            color: #e6db74;
+        }
+
+        .highlight .sx {
+            color: #e6db74;
+        }
+
+        .highlight .s1 {
+            color: #e6db74;
+        }
+
+        .highlight .s {
+            color: #e6db74;
+        }
+
+        .highlight .na {
+            color: #a6e22e;
+        }
+
+        .highlight .nc {
+            color: #a6e22e;
+        }
+
+        .highlight .nd {
+            color: #a6e22e;
+        }
+
+        .highlight .ne {
+            color: #a6e22e;
+        }
+
+        .highlight .nf {
+            color: #a6e22e;
+        }
+
+        .highlight .vc {
+            color: #ffffff;
+        }
+
+        .highlight .nn {
+            color: #ffffff;
+        }
+
+        .highlight .nl {
+            color: #ffffff;
+        }
+
+        .highlight .ni {
+            color: #ffffff;
+        }
+
+        .highlight .bp {
+            color: #ffffff;
+        }
+
+        .highlight .vg {
+            color: #ffffff;
+        }
+
+        .highlight .vi {
+            color: #ffffff;
+        }
+
+        .highlight .nv {
+            color: #ffffff;
+        }
+
+        .highlight .w {
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: #ffffff;
+        }
+
+        .highlight .n, .highlight .py, .highlight .nx {
+            color: #ffffff;
+        }
+
+        .highlight .ow {
+            color: #f92672;
+        }
+
+        .highlight .nt {
+            color: #f92672;
+        }
+
+        .highlight .k, .highlight .kv {
+            color: #f92672;
+        }
+
+        .highlight .kn {
+            color: #f92672;
+        }
+
+        .highlight .kp {
+            color: #f92672;
+        }
+
+        .highlight .o {
+            color: #f92672;
+        }
+
+        pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+        .string { color: green; }
+        .number { color: darkorange; }
+        .boolean { color: #ae81ff; }
+        .null { color: magenta; }
+        .key { color: #e6db74; }
+
+    </style>
+    <link href="./api/screen.css" rel="stylesheet" media="screen">
+    <link href="./api/print.css" rel="stylesheet" media="print">
+    <script src="./api/jquery.min.js"></script>
+
+    <link rel="shortcut icon" href="api/logo.png">
+</head>
+
+<body class="api_en" data-languages="[&quot;shell&quot;]">
+<a href="./api_market_en.htm?shell#" id="nav-button">
+      <span>
+        <img src="./api/navbar.png" alt="Navbar">
+      </span>
+</a>
+<header>
+    <div class="flex_box">
+        <a href="https://www.bkex.com/" class="a-logo">
+            <img src="./api/newlogo.png" class="logo" alt="Logo">
+        </a>
+
+    </div>
+    <a href="https://bkexapi.github.io/docs/api_zh.htm" class="lang" id="lang_box" style="display: block;">Chinese</a>
+</header>
+<div class="toc-wrapper">
+    <div class="lang-selector">
+        <a href="./api_market_en.htm?shell#" data-language-name="shell" class="active">shell</a>
+    </div>
+    <ul id="toc" class="toc-list-h1">
+        <li>
+            <a href="./api_market_en.htm?shell#useQuick" class="toc-h1 toc-link" data-title="Quick Start">Quick Start</a>
+            <ul class="toc-list-h2">
+                <li>
+                    <a href="./api_market_en.htm?shell#useQuick-4" class="toc-h2 toc-link" data-title="Access URLs">Access URLs</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="./api_market_en.htm?shell#useExplain" class="toc-h1 toc-link" data-title="Access notes">Access notes</a>
+            <ul class="toc-list-h2">
+                <li>
+                    <a href="./api_market_en.htm?shell#useExplain-1" class="toc-h2 toc-link" data-title="Interface overview">Interface overview</a>
+                </li>
+                <li>
+                    <a href="./api_market_en.htm?shell#useExplain-3" class="toc-h2 toc-link" data-title="Request format">Request format</a>
+                </li>
+                <li>
+                    <a href="./api_market_en.htm?shell#useExplain-4" class="toc-h2 toc-link" data-title="Response format">Response format</a>
+                </li>
+                <li>
+                    <a href="./api_market_en.htm?shell#useExplain-6" class="toc-h2 toc-link" data-title="Sample code">Sample code</a>
+                </li>
+            </ul>
+        </li>
+        <a href="./api_market_en.htm?shell#contract" class="toc-h1 toc-link" data-title="Contract transaction">Contract transaction</a>
+        <ul class="toc-list-h2">
+            <li><a href="./api_market_en.htm?shell#contract-market-Contracts" class="toc-h2 toc-link" data-title="Contracts">Contracts</a></li>
+            <li><a href="./api_market_en.htm?shell#contract-market-ContractSpecifications" class="toc-h2 toc-link" data-title="Contract Specifications">Contract Specifications</a></li>
+            <li><a href="./api_market_en.htm?shell#contract-market-OrderBook" class="toc-h2 toc-link" data-title="Order Book">Order Book</a></li>
+
+        </ul>
+        </li>
+    </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+
+
+        <h1 id="useQuick">Quick Start</h1>
+
+        <h2 id="useQuick-4">Access URLs</h2>
+        <!--<p>You can compare the latency on your own using the api.bkex.cc and api.bkex.com domains. Select the low latency for use. </p>-->
+
+        <p><strong>REST API</strong></p>
+
+        <!--<p><strong><code>https://api.bkex.cc</code></strong></p>-->
+        <p><strong><code>https://fapi.bkex.com</code></strong></p>
+
+        <h1 id="useExplain">Access Description</h1>
+        <h2 id="useExplain-1">Interface Overview</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Interface Classification</th>
+                <th>Category Links</th>
+                <th>Overview</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Quotes</td>
+                <td>/v2/market/*</td>
+                <td>Public quote class interface, including transaction, depth, quotes, etc.</td>.
+            </tr>
+            </tbody>
+        </table>
+        <h2 id="useExplain-3">Request Format</h2>
+        <p>There are currently only two methods: GET and POST</p>
+
+        <ul>
+            <li>GET request: all the parameters are in the path parameter</li>
+            <li>POST request, with all parameters sent in form-data format in the body of the request</li>
+        </ul>
+        <h2 id="useExplain-4">Return Format</h2>
+        <p>All interfaces are in JSON format. There are three fields at the top of JSON: <code>msg</code>, <code>code</code> and
+            <code>data</code>. The first two fields represent the request status and information, the actual business data is in the <code>data</code> field . </p>
+
+        <p>Here is an example of a return format:</p>
+        <pre class="highlight json tab-json responsePre">{
+  "msg": "success",
+  "code": "0",
+  "data": // per API response data in nested JSON object
+}</code></pre>
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Data Types</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>msg</td>
+                <td>string</td>
+                <td>API information returned</td>.
+            </tr>
+            <tr>
+                <td>code</td>
+                <td>int</td>
+                <td>Interface status returned, 0 represents success</td>
+            </tr>
+            <tr>
+                <td>data</td>
+                <td>object</td>
+                <td>Interface returns data subject</td>.
+            </tr>
+            </tbody>
+        </table>
+
+        <h2 id="useExplain-6">Sample code</h2>
+        <p><a href="https://github.com/bkexapi/apidemo" target="_Blank">github sample code</a></p>
+
+
+        <!-- 合约相关-->
+        <h1 id="contract">Contract transaction</h1>
+        <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
+        <p></p>
+        <h2>Public Information Interface</h2>
+        <p></p>
+
+        <!--        Contracts-->
+        <h1 id="contract-market-Contracts">Contracts</h1>
+        <h2 id="contract-market-Contracts-B1">Endpoint B1 provides a summary of every single contract traded on the exchange.</h2>
+        <p>API Key Permissions: no signature required.</p>
+        <p>Limit (according to IP limit): 50 times / s. </p>
+        <h3 id="http-contract-market-Contracts">HTTP request</h3>
+        <ul><li>GET <code>/fapi/v2/market/contracts</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/contracts"</span></code></pre>
+        <h3 id="contract-market-Contracts-request">Request Parameters</h3>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Parameters</th>
+                <th>Data Types</th>
+                <th>Is it necessary</th>
+                <th>Default values</th>
+                <th>Description</th>
+                <th>Range of values</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>ticker_id</td>
+                <td>string</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>Trading pair</td>
+                <td>BTC_USDT</td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+{
+    "code": 0,
+    "msg": "success",
+    "data": [
+        {
+            "ticker_id": "chz_usdt",
+            "base_currency": "chz",
+            "quote_currency": "usdt",
+            "last_price": "0.25025",
+            "base_volume": "21615513",
+            "USD_volume": "5203400.09253",
+            "quote_volume": "5203400.09253",
+            "bid": "0.250270",
+            "ask": "0.250390",
+            "high": "0.25575",
+            "low": "0.23101",
+            "product_type": "Perpetual",
+            "open_interest": "0",
+            "open_interest_usd": "0",
+            "index_price": "0.25033",
+            "creation_timestamp": 0,
+            "expiry_timestamp": 0,
+            "funding_rate": "0.00001002",
+            "next_funding_rate": "0.00001002",
+            "next_funding_rate_timestamp": 1667580902401,
+            "maker_fee": "0.0005",
+            "taker_fee": "0.0005"
+        },
+        {
+            "ticker_id": "bch_usdt",
+            "base_currency": "bch",
+            "quote_currency": "usdt",
+            "last_price": "122.05",
+            "base_volume": "2136246.81",
+            "USD_volume": "254559868.7387",
+            "quote_volume": "254559868.7387",
+            "bid": "122.040000",
+            "ask": "122.060000",
+            "high": "124.9",
+            "low": "114.94",
+            "product_type": "Perpetual",
+            "open_interest": "10",
+            "open_interest_usd": "1101.25",
+            "index_price": "122.1",
+            "creation_timestamp": 0,
+            "expiry_timestamp": 0,
+            "funding_rate": "-0.00001002",
+            "next_funding_rate": "-0.00001002",
+            "next_funding_rate_timestamp": 1667580902401,
+            "maker_fee": "0.0005",
+            "taker_fee": "0.0005"
+        }
+    ]
+}
+            </code>
+        </pre>
+
+        <h3 id="contract-market-Contracts-response">Response Data</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Data Types</th>
+                <th>Examples</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>ticker_id</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>Identifier of a ticker with delimiter to separate base/quote, eg.</td>
+            </tr>
+            <tr>
+                <td>base_currency</td>
+                <td>string</td>
+                <td>"btc"</td>
+                <td>Symbol/currency code of base pair, eg.</td>
+            </tr>
+            <tr>
+                <td>quote_currency</td>
+                <td>string</td>
+                <td>"usdt</td>
+                <td>Symbol/currency code of quote pair, eg.</td>
+            </tr>
+            <tr>
+                <td>last_price</td>
+                <td>string</td>
+                <td>"0.25025"</td>
+                <td>Last transacted price of base currency based on given quote currency</td>
+            </tr>
+            <tr>
+                <td>base_volume</td>
+                <td>string</td>
+                <td>"21615513"</td>
+                <td>24 hour trading volume in BASE currency</td>
+            </tr>
+            <tr>
+                <td>USD_volume</td>
+                <td>string</td>
+                <td>"5203400.09253"</td>
+                <td>24 hour trading volume in USD</td>
+            </tr>
+            <tr>
+                <td>quote_volume</td>
+                <td>string</td>
+                <td>"5203400.09253"</td>
+                <td>24 hour trading volume in QUOTE currency</td>
+            </tr>
+            <tr>
+                <td>bid</td>
+                <td>string</td>
+                <td>"0.250270"</td>
+                <td>Current highest bid price</td>
+            </tr>
+            <tr>
+                <td>ask</td>
+                <td>string</td>
+                <td>"0.250390"</td>
+                <td>Current lowest ask price</td>
+            </tr>
+            <tr>
+                <td>high</td>
+                <td>string</td>
+                <td>"0.25575"</td>
+                <td>Rolling 24-hour highest transaction price</td>
+            </tr>
+            <tr>
+                <td>low</td>
+                <td>string</td>
+                <td>"0.23101"</td>
+                <td>Rolling 24-hour lowest transaction price</td>
+            </tr>
+            <tr>
+                <td>product_type</td>
+                <td>string</td>
+                <td>"Perpetual"</td>
+                <td>Futures, Perpetual, Options</td>
+            </tr>
+            <tr>
+                <td>open_interest</td>
+                <td>string</td>
+                <td>"0"</td>
+                <td>The number of outstanding derivatives  contracts that have not been settled</td>
+            </tr>
+            <tr>
+                <td>open_interest_usd</td>
+                <td>string</td>
+                <td>"0"</td>
+                <td>The sum of the Open Positions (long or short) in USD Value of the contract</td>
+            </tr>
+            <tr>
+                <td>index_price</td>
+                <td>string</td>
+                <td>"0.25033"</td>
+                <td>Last calculated index price for underlying of contract</td>
+            </tr>
+            <!--                <tr>-->
+            <!--                    <td>creation_timestamp</td>-->
+            <!--                    <td>int</td>-->
+            <!--                    <td>0</td>-->
+            <!--                    <td>Start date of derivative</td>-->
+            <!--                </tr>-->
+            <!--                <tr>-->
+            <!--                    <td>expiry_timestamp</td>-->
+            <!--                    <td>int</td>-->
+            <!--                    <td>0</td>-->
+            <!--                    <td>End date of derivative</td>-->
+            <!--                </tr>-->
+            <tr>
+                <td>funding_rate</td>
+                <td>string</td>
+                <td>"0.00001002"</td>
+                <td>Current funding rate</td>
+            </tr>
+            <tr>
+                <td>next_funding_rate</td>
+                <td>string</td>
+                <td>"0.00001002"</td>
+                <td>Upcoming predicted funding rate</td>
+            </tr>
+            <tr>
+                <td>next_funding_rate_timestamp</td>
+                <td>int</td>
+                <td>1667580902401</td>
+                <td>Timestamp of the next funding rate change</td>
+            </tr>
+            <tr>
+                <td>maker_fee</td>
+                <td>string</td>
+                <td>"0.0005"</td>
+                <td>Fees for filling a “maker” order</td>
+            </tr>
+            <tr>
+                <td>taker_fee</td>
+                <td>string</td>
+                <td>"0.0005"</td>
+                <td>Fees for filling a “taker” order</td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+
+
+<!--        Contract Specifications-->
+            <h1 id="contract-market-ContractSpecifications">Contracts Specification</h1>
+            <h2 id="contract-market-Contracts-B2">Describes the specification of the contracts</h2>
+            <p>API Key Permissions: no signature required.</p>
+            <p>Limit (according to IP limit): 50 times / s. </p>
+            <h3 id="http-contract-market-ContractSpecifications">HTTP request</h3>
+            <ul><li>GET <code>/fapi/v2/market/contractSpecifications</code></li></ul>
+            <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/contractSpecifications"</span></code></pre>
+            <p>No parameters</p>
+
+            <blockquote>
+                <p>Response:</p>
+            </blockquote>
+            <pre class="highlight json tab-json responsePre">
+            <code>
+{
+    "code": 0,
+    "msg": "success",
+    "data": [
+        {
+            "contract_type": "1000shib_usdt",
+            "contract_price": "0.012364",
+            "contract_price_currency": "usdt"
+        },
+        {
+            "contract_type": "sol_usdt",
+            "contract_price": "33.05",
+            "contract_price_currency": "usdt"
+        }
+    ]
+}
+            </code>
+        </pre>
+
+            <h3 id="contract-market-ContractSpecifications-response">Response Data</h3>
+            <table>
+                <tbody>
+                <thead>
+                <tr>
+                    <th>Parameter Name</th>
+                    <th>Data Types</th>
+                    <th>Examples</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>contract_type</td>
+                    <td>string</td>
+                    <td>btc_usdt</td>
+                    <td>Transaction pair</td>
+                </tr>
+                <tr>
+                    <td>contract_price</td>
+                    <td>int</td>
+                    <td>"0.012364"</td>
+                    <td>Describes the price per contract.</td>
+                </tr>
+                <tr>
+                    <td>contract_price_currency</td>
+                    <td>string</td>
+                    <td>"usdt"</td>
+                    <td>Describes the currency which the contract is priced</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+<!--        Order Book-->
+            <h1 id="contract-market-OrderBook">Order Book</h1>
+            <h2 id="contract-market-Contracts-B3">Market pair/ticker.</h2>
+            <p>API Key Permissions: no signature required.</p>
+            <p>Limit (according to IP limit): 50 times / s. </p>
+            <h3 id="http-contract-market-OrderBook">HTTP request</h3>
+            <ul><li>GET <code>/fapi/v2/market/orderBook</code></li></ul>
+            <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/orderBook"</span></code></pre>
+            <h3 id="contract-market-OrderBook-request">Request Parameters</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Parameters</th>
+                    <th>Data Types</th>
+                    <th>Is it necessary</th>
+                    <th>Default values</th>
+                    <th>Description</th>
+                    <th>Range of values</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>depth</td>
+                    <td>int</td>
+                    <td>true</td>
+                    <td>NA</td>
+                    <td>Length</td>
+                    <td>1-100</td>
+                </tr>
+                <tr>
+                    <td>ticker_id</td>
+                    <td>string</td>
+                    <td>false</td>
+                    <td>NA</td>
+                    <td>Trading pair</td>
+                    <td>BTC_USDT,ETH_USDT...</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+
+            <blockquote>
+                <p>Response:</p>
+            </blockquote>
+            <pre class="highlight json tab-json responsePre">
+            <code>
+{
+  "code": 0,
+  "msg": "success",
+  "data": [
+  {
+            "ticker_id": "eth_usdt",
+            "timestamp": 1667580454199,
+            "bids": [
+                [
+                    "1616.890000",
+                    "55.17"
+                ]
+            ],
+            "asks": [
+                [
+                    "1617.230000",
+                    "57.04"
+                ]
+            ]
+        },
+        {
+            "ticker_id": "uni_usdt",
+            "timestamp": 1667580454199,
+            "bids": [
+                [
+                    "7.593000",
+                    "642"
+                ]
+            ],
+            "asks": [
+                [
+                    "7.597000",
+                    "632"
+                ]
+            ]
+        }
+    ]
+}
+            </code>
+        </pre>
+
+            <h3 id="contract-market-OrderBook-response ">Response Data</h3>
+            <table>
+                <tbody>
+                <thead>
+                <tr>
+                    <th>Parameter Name</th>
+                    <th>Data Types</th>
+                    <th>Examples</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>ticker_id</td>
+                    <td>string</td>
+                    <td>btc_usdt</td>
+                    <td>Transaction pair</td>
+                </tr>
+                <tr>
+                    <td>timestamp</td>
+                    <td>int</td>
+                    <td>1667579940761</td>
+                    <td>Unix timestamp in milliseconds for when the last updated time occurred.</td>
+                </tr>
+                <tr>
+                    <td>asks</td>
+                    <td>string</td>
+                    <td>"40469.87"</td>
+                    <td>The ask price and quantity for each ask order</td>
+                </tr>
+                <tr>
+                    <td>bids</td>
+                    <td>string</td>
+                    <td>"40469.88"</td>
+                    <td>The offer price and quantity fyor each bid order</td>
+                </tr>
+                </tbody>
+            </table>
+
+        <hr/>
+
+<!-- user end -->
+
+<div>
+    <div class="dark-box">
+        <div class="lang-selector">
+            <a href="./api_market_en.htm?shell#" data-language-name="shell" class="active">shell</a>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#toc a.toc-h1").on("click", function (e) {
+            let tar = $(this);
+            $("a.active-nav").removeClass("active-nav");
+            $("ul.next-ul-show").removeClass("next-ul-show");
+            tar.addClass("active-nav").next("ul").addClass("next-ul-show");
+        });
+
+        $("pre.responsePre ").html(function () {
+            var json = $(this).html();
+            try {
+                $(this).html(syntaxHighlight(json));
+            }catch (e) {
+                console.log(json);
+                console.log(e);
+            }
+
+        });
+
+    });
+
+    function syntaxHighlight(json) {
+        if (typeof json != 'string') {
+            json = JSON.stringify(json, undefined, 2);
+        }
+        json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+            var cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+
+
+</script>
+
+
+</body>
+</html>
