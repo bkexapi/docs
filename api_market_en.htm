@@ -429,32 +429,7 @@
         <h3 id="http-contract-market-Contracts">HTTP request</h3>
         <ul><li>GET <code>/fapi/v2/market/contracts</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/contracts"</span></code></pre>
-        <h3 id="contract-market-Contracts-request">Request Parameters</h3>
-
-        <table>
-            <thead>
-            <tr>
-                <th>Parameters</th>
-                <th>Data Types</th>
-                <th>Is it necessary</th>
-                <th>Default values</th>
-                <th>Description</th>
-                <th>Range of values</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>ticker_id</td>
-                <td>string</td>
-                <td>false</td>
-                <td>NA</td>
-                <td>Trading pair</td>
-                <td>BTC_USDT</td>
-            </tr>
-
-
-            </tbody>
-        </table>
+        <p>No parameters</p>
 
 
         <blockquote>
@@ -677,8 +652,32 @@
             <h3 id="http-contract-market-ContractSpecifications">HTTP request</h3>
             <ul><li>GET <code>/fapi/v2/market/contractSpecifications</code></li></ul>
             <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/contractSpecifications"</span></code></pre>
-            <p>No parameters</p>
+        <h3 id="contract-market-Contracts-b2-request">Request Parameters</h3>
 
+        <table>
+            <thead>
+            <tr>
+                <th>Parameters</th>
+                <th>Data Types</th>
+                <th>Is it necessary</th>
+                <th>Default values</th>
+                <th>Description</th>
+                <th>Range of values</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>ticker_id</td>
+                <td>string</td>
+                <td>false</td>
+                <td>NA</td>
+                <td>Trading pair</td>
+                <td>BTC_USDT</td>
+            </tr>
+
+
+            </tbody>
+        </table>
             <blockquote>
                 <p>Response:</p>
             </blockquote>
@@ -761,7 +760,7 @@
                 <tr>
                     <td>depth</td>
                     <td>int</td>
-                    <td>true</td>
+                    <td>false</td>
                     <td>NA</td>
                     <td>Length</td>
                     <td>1-100</td>
