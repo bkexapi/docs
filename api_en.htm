@@ -3342,7 +3342,7 @@
         <h2>Public Information Interface</h2>
         <p></p>
         <h2 id="contract-deep-data">Get depth data</h2 >
-        <p>Signature authentication is required to access this interface.</p>
+        <p>API Key Permissions: no signature required.</p>
         <p>Frequency limit (according to IP limit): 20 times / S.</p>
         <h3 id="http-contract-deep-data">HTTP request</h3>
         <ul><li>GET <code>/fapi/v2/market/depth</code></li></ul>
@@ -4027,7 +4027,7 @@
 
 
         <h2 id="contract-server-ping">Test server connectivity</h2>
-        <p>Signature authentication is required to access this interface.</p>
+        <p>API Key Permissions: no signature required.</p>
         <p>Limit (according to IP limit):20 times /s.</p>
         <h3 id="http-contract-server-ping">HTTP request</h3>
         <ul><li>GET <code>/fapi/v2/server/ping</code></li></ul>
@@ -4071,7 +4071,7 @@
         </table>
 
         <h2 id="contract-server-time">Get server time</h2>
-        <p>Signature authentication is required to access this interface.</p>
+        <p>API Key Permissions: no signature required.</p>
         <p>Limit (according to IP limit):20 times /s.</p>
         <h3 id="http-contract-server-time">HTTP requests</h3>
         <ul><li>GET <code>/fapi/v2/server/ping</code></li></ul>
@@ -4116,7 +4116,7 @@
 
 
         <h2 id="contract-index">Get tag price</h2>
-        <p>Signature authentication is required to access this interface.</p>
+        <p>API Key Permissions: no signature required.</p>
         <p>Limit (according to IP limit):20 times /s.</p>
         <h3 id="http-contract-index">HTTP request</h3>
         <ul><li>GET <code>/fapi/v2/market/index</code></li></ul>
@@ -4193,7 +4193,7 @@
 
 
         <h2 id="contract-fundingRate">Get fund rate</h2>
-        <p>Signature authentication is required to access this interface.</p>
+        <p>API Key Permissions: no signature required.</p>
         <p>Limit (according to IP limit):20 times /s.</p>
         <h3 id="http-contract-fundingRate">HTTP request</h3>
         <ul><li>GET <code>/fapi/v2/market/fundingRate</code></li></ul>
@@ -4309,7 +4309,7 @@
 
 
         <h2 id="contract-riskLimit">Get risk limits</h2>
-        <p>Signature authentication is required to access this interface.</p>
+        <p>API Key Permissions: no signature required.</p>
         <p>Limit (according to IP limit):20 times /s.</p>
         <h3 id="http-contract-riskLimit">HTTP request</h3>
         <ul><li>GET <code>/fapi/v2/market/riskLimit</code></li></ul>
@@ -4405,7 +4405,9 @@
             </tbody>
         </table>
 
-        <h2 id="contract-account-balance">Check account balance</h2>
+        <h2 id="contract-account-balance">Get account balance</h2>
+        <aside class="warning">System Maintaining</aside>
+
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-riskLimit">HTTP Request</h3>
         <ul><li>GET <code>/fapi/v2/account/balance</code></li></ul>
@@ -4506,6 +4508,7 @@
 
 
         <h2 id="contract-account-setLeverage">Set the opening leverage</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-account-setLeverage">HTTP Request</h3>
         <ul><li>POST <code>/fapi/v2/account/setLeverage</code></li></ul>
@@ -4589,6 +4592,7 @@
 
 
         <h2 id="contract-account-position">Get user positions</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-account-position">HTTP Request</h3>
         <ul><li>GET <code>/fapi/v2/account/position</code></li></ul>
@@ -4752,6 +4756,7 @@
 
 
         <h2 id="contract-account-order">Get account transaction history</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-account-order">HTTP Request</h3>
         <ul><li>GET <code>/fapi/v2/account/order</code></li></ul>
@@ -4935,6 +4940,7 @@
 
         
         <h2 id="contract-account-balanceRecord">Query account funds statement</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-account-balanceRecord">HTTP Request</h3>
         <ul><li>GET <code>/fapi/v2/account/balanceRecord</code></li></ul>
@@ -5086,6 +5092,7 @@
 
 
         <h2 id="contract-account-orderForced">User forced liquidation order history</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-account-orderForced">HTTP Request</h3>
         <ul><li>GET <code>/fapi/v2/account/orderForced</code></li></ul>
@@ -5354,6 +5361,7 @@
 
         <!-- 用户交易 -->
         <h2 id="contract-deal-position-update">Set position mode</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-deal-position-update">HTTP request</h3>
         <ul><li>POST <code>/fapi/v2/position/update</code></li></ul>
@@ -5410,6 +5418,7 @@
 
 
         <h2 id="contract-deal-position-info">Get position mode</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-deal-position-info">HTTP request</h3>
         <ul><li>GET <code>/fapi/v2/position/info</code></li></ul>
@@ -5468,6 +5477,7 @@
 
 <!-- check list -->
 <h2 id="contract-deal-position-setSpSl">Set Take Profit and Stop Loss</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-deal-position-setSpSl">HTTP request</h3>
         <ul><li>POST <code>/fapi/v2/position/setSpSl</code></li></ul>
@@ -5611,6 +5621,7 @@
         </table>
 
         <h2 id="contract-deal-order-open">Place a New Order</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-deal-order-open">HTTP request</h3>
         <ul><li>POST <code>/fapi/v2/order/open</code></li></ul>
@@ -5702,6 +5713,7 @@
         </table>
 
         <h2 id="contract-deal-order-batchOpen">Place a Batch of Orders</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-deal-order-batchOpen">HTTP request</h3>
         <ul><li>POST <code>/fapi/v2/order/batchOpen</code></li></ul>
@@ -5837,6 +5849,7 @@
         </table>
 
         <h2 id="contract-deal-order-cancel">Cancel order</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-deal-order-cancel">HTTP request</h3>
         <ul><li>POST <code>/fapi/v2/order/cancel</code></li></ul>
@@ -5930,6 +5943,7 @@
         </table>
 
         <h2 id="contract-deal-order-batchCancel">Cancel orders in bulk</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-deal-order-batchCancel">HTTP request</h3>
         <ul><li>POST <code>/fapi/v2/order/batchCancel</code></li></ul>
@@ -6029,6 +6043,7 @@
 
         <!-- title -->
 <h2 id="contract-deal-order-close">Close the position</h2>
+        <aside class="warning">System Maintaining</aside>
 <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
 <h3 id="http-contract-deal-order-close">HTTP request</h3>
 <ul><li>POST <code>/fapi/v2/order/close</code></li></ul>
@@ -6109,6 +6124,7 @@
 
 <!-- title -->
 <h2 id="contract-deal-order-closeAll">One-click closing</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-deal-order-closeAll">HTTP request</h3>
         <ul><li>POST <code>/fapi/v2/order/closeAll</code></li></ul>
@@ -6187,6 +6203,7 @@
 
          <!-- title -->
  <h2 id="contract-deal-order-unFinish">Query pending order information</h2>
+        <aside class="warning">System Maintaining</aside>
  <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
  <h3 id="http-contract-deal-order-unFinish">HTTP request</h3>
  <ul><li>GET <code>/fapi/v2/order/unFinish</code></li></ul>
@@ -6301,6 +6318,7 @@
 
   <!-- title -->
   <h2 id="contract-deal-order-finishedInfo">Query completed order details</h2>
+        <aside class="warning">System Maintaining</aside>
   <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
   <h3 id="http-contract-deal-order-finishedInfo">HTTP request</h3>
   <ul><li>GET <code>/fapi/v2/order/finishedInfo</code></li></ul>
@@ -6414,6 +6432,7 @@
 
  <!-- title -->
  <h2 id="contract-deal-order-finished">Query the list of historical orders</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-deal-order-finished">HTTP request</h3>
         <ul><li>GET <code>/fapi/v2/order/finished</code></li></ul>
@@ -6537,6 +6556,7 @@
 
         <!-- title -->
 <h2 id="contract-deal-entrust-add">Place a conditional order</h2>
+        <aside class="warning">System Maintaining</aside>
 <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
 <h3 id="http-contract-deal-entrust-add">HTTP request</h3>
 <ul><li>POST <code>/fapi/v2/entrust/add</code></li></ul>
@@ -6663,6 +6683,7 @@
 
 <!-- title -->
 <h2 id="contract-deal-entrust-cancel">Cancel conditional orders (before triggering)</h2>
+        <aside class="warning">System Maintaining</aside>
         <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
         <h3 id="http-contract-deal-entrust-cancel">HTTP request</h3>
         <ul><li>POST <code>/fapi/v2/entrust/cancel</code></li></ul>
@@ -6741,6 +6762,7 @@
 
          <!-- title -->
  <h2 id="contract-deal-entrust-unFinish">Query open conditional orders (before triggering)</h2>
+        <aside class="warning">System Maintaining</aside>
  <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
  <h3 id="http-contract-deal-entrust-unFinish">HTTP request</h3>
  <ul><li>GET <code>/fapi/v2/entrust/unFinish</code></li></ul>
@@ -6838,6 +6860,7 @@
 
   <!-- title -->
   <h2 id="contract-deal-entrust-finished">Query triggered conditional orders</h2>
+        <aside class="warning">System Maintaining</aside>
   <aside class="notice">Access to interfaces related to contract transactions requires signature authentication.</aside>
   <h3 id="http-contract-deal-entrust-finished">HTTP request</h3>
   <ul><li>GET <code>/fapi/v2/entrust/finished</code></li></ul>
@@ -8596,7 +8619,8 @@
         </p>
         <hr/>
 
-        <h2 id="websocket-contract-u-auth">User Authentication</h2> 
+        <h2 id="websocket-contract-u-auth">User Authentication</h2>
+        <aside class="warning">System Maintaining</aside>
         <blockquote>
             <p>Request</p>
         </blockquote>
@@ -8621,6 +8645,7 @@
         <hr/>
 
         <h2 id="websocket-contract-u-sub">Subscribe to messages</h2>
+        <aside class="warning">System Maintaining</aside>
         <blockquote>
             <p>Request</p>
         </blockquote>
@@ -8647,6 +8672,7 @@
         <hr/>
 
         <h2 id="websocket-contract-u-unsub">Unsubscribe from messages</h2>
+        <aside class="warning">System Maintaining</aside>
         <blockquote>
             <p>Request</p>
         </blockquote>
@@ -8674,6 +8700,7 @@
 
 <!-- user begin -->
 <h2 id="websocket-contract-u-account">Account update</h2>
+        <aside class="warning">System Maintaining</aside>
 <h3 id="a94c7743c42-2">Topic subscription</h3>
 <p><code>user.balance</code></p>
 <aside class="notice">Requires "Query" permission.</aside>
@@ -8756,6 +8783,7 @@
 </table><hr/>
 
 <h2 id="websocket-contract-u-position">Position update</h2>
+        <aside class="warning">System Maintaining</aside>
 <h3 id="a94c7743c42-2">Topic subscription</h3>
 <p><code>user.position</code></p>
 <aside class="notice">Requires "Place" permission.</aside>
@@ -8890,6 +8918,7 @@
 </table><hr/>
 
 <h2 id="websocket-contract-u-order">Order update</h2>
+        <aside class="warning">System Maintaining</aside>
 <h3 id="a94c7743c42-2">Topic subscription</h3>
 <p><code>user.order</code></p>
 <aside class="notice">Requires "Place" permission.</aside>
@@ -8997,6 +9026,7 @@
 </table><hr/>
 
 <h2 id="websocket-contract-u-entrust">Trigger order update</h2>
+        <aside class="warning">System Maintaining</aside>
 <h3 id="a94c7743c42-2">Topic subscription</h3>
 <p><code>user.entrust</code></p>
 <aside class="notice">Requires "Place" permission.</aside>

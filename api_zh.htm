@@ -3348,12 +3348,191 @@
             </tbody>
         </table>
 
-        <!-- 合约相关-->
+<!-- 合约相关开始-->
         <h1 id="contract">合约交易</h1>
         <aside class="notice">访问合约交易相关的接口需要进行签名认证。</aside>
         <p></p>
         <h2>公共信息接口</h2>
         <p></p>
+
+        <h2 id="contract-server-ping">测试服务器连通性</h2>
+        <p>API Key 权限：无需签名</p>
+        <h3 id="http-contract-server-ping">HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/server/ping</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/server/ping"</span></code></pre>
+        <h3 id="contract-server-ping-request">请求参数</h3>
+        <p>无</p>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": {
+                        "serverTime": 1658368263053
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>serverTime</td>
+                <td>long</td>
+                <td>1658368263053</td>
+                <td>系统时间</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2 id="contract-server-time">获取服务器时间</h2>
+        <p>API Key 权限：无需签名</p>
+        <h3 id="http-contract-server-time">HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/server/ping</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/server/time"</span></code></pre>
+        <h3 id="contract-server-time-request">请求参数</h3>
+        <p>无</p>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+                {
+                    "code": 0,
+                    "msg": "success",
+                    "data": {
+                        "serverTime": 1658368263053
+                    }
+                }
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>serverTime</td>
+                <td>long</td>
+                <td>1658368263053</td>
+                <td>系统时间</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+        <h2 id="contract-market-symbols">获取所有交易对信息</h2>
+        <p>API Key 权限：无需签名</p>
+        <p>限制(根据IP限制)：50次/s。</p>
+        <h3 id="http-contract-market-symbols">HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/market/symbols</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/symbols"</span></code></pre>
+        <h3 id="contract-market-symbols-request">请求参数</h3>
+        <p>无</p>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+{
+  "code": 0,
+  "msg": "success",
+  "data": [
+    {
+      "symbol": "xrp_usdt",
+      "supportTrade": true,
+      "volumePrecision": 0,
+      "pricePrecision": 4,
+      "marketMiniAmount": "100",
+      "limitMiniAmount": "100"
+    },
+    {
+      "symbol": "ltc_usdt",
+      "supportTrade": true,
+      "volumePrecision": 1,
+      "pricePrecision": 2,
+      "marketMiniAmount": "0.1",
+      "limitMiniAmount": "0.1"
+    }
+  ]
+}
+            </code>
+        </pre>
+
+        <h3 id="contract-market-symbols-response">响应数据</h3>
+        <table>
+            <tbody>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>symbol</td>
+                <td>tring</td>
+                <td>btc_usdt</td>
+                <td>交易对</td>
+            </tr>
+            <tr>
+                <td>supportTrade</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>是否支持交易</td>
+            </tr>
+            <tr>
+                <td>volumePrecision</td>
+                <td>int</td>
+                <td>1</td>
+                <td>交易对下单数量的精度（小数点后位数）</td>
+            </tr>
+            <tr>
+                <td>pricePrecision</td>
+                <td>int</td>
+                <td>2</td>
+                <td>交易对下单价格的精度（小数点后位数）</td>
+            </tr>
+            <tr>
+                <td>marketMiniAmount</td>
+                <td>string</td>
+                <td>"0.1",</td>
+                <td>交易对市价最小下单量</td>
+            </tr>
+            <tr>
+                <td>limitMiniAmount</td>
+                <td>string</td>
+                <td>"0.1",</td>
+                <td>交易对限价最小下单量</td>
+            </tr>
+            </tbody>
+        </table>
+
+
         <h2 id="contract-deep-data">获取深度数据</h2>
         <p>API Key 权限：无需签名</p>
         <p>频率限制(根据IP限制)：20次/s</p>
@@ -3445,6 +3624,7 @@
             </tr>
             </tbody>
         </table>
+
 
         <p></p>
         <h2 id="contract-kline">获取k线数据</h2>
@@ -3950,273 +4130,9 @@
             </tbody>
         </table>
 
-        <h2 id="contract-market-symbols">获取所有交易对信息</h2>
-        <p>API Key 权限：无需签名</p>
-        <p>限制(根据IP限制)：50次/s。</p>
-        <h3 id="http-contract-market-symbols">HTTP 请求</h3>
-        <ul><li>GET <code>/fapi/v2/market/symbols</code></li></ul>
-        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/symbols"</span></code></pre>
-        <h3 id="contract-market-symbols-request">请求参数</h3>
-        <p>无</p>
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre">
-            <code>
-{
-  "code": 0,
-  "msg": "success",
-  "data": [
-    {
-      "symbol": "xrp_usdt",
-      "supportTrade": true,
-      "volumePrecision": 0,
-      "pricePrecision": 4,
-      "marketMiniAmount": "100",
-      "limitMiniAmount": "100"
-    },
-    {
-      "symbol": "ltc_usdt",
-      "supportTrade": true,
-      "volumePrecision": 1,
-      "pricePrecision": 2,
-      "marketMiniAmount": "0.1",
-      "limitMiniAmount": "0.1"
-    }
-  ]
-}
-            </code>
-        </pre>
-
-        <h3 id="contract-market-symbols-response">响应数据</h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>参数名称</th>
-                <th>数据类型</th>
-                <th>例子</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>symbol</td>
-                <td>tring</td>
-                <td>btc_usdt</td>
-                <td>交易对</td>
-            </tr>
-            <tr>
-                <td>supportTrade</td>
-                <td>boolean</td>
-                <td>true</td>
-                <td>是否支持交易</td>
-            </tr>
-            <tr>
-                <td>volumePrecision</td>
-                <td>int</td>
-                <td>1</td>
-                <td>交易对下单数量的精度（小数点后位数）</td>
-            </tr>
-            <tr>
-                <td>pricePrecision</td>
-                <td>int</td>
-                <td>2</td>
-                <td>交易对下单价格的精度（小数点后位数）</td>
-            </tr>
-            <tr>
-                <td>marketMiniAmount</td>
-                <td>string</td>
-                <td>"0.1",</td>
-                <td>交易对市价最小下单量</td>
-            </tr>
-            <tr>
-                <td>limitMiniAmount</td>
-                <td>string</td>
-                <td>"0.1",</td>
-                <td>交易对限价最小下单量</td>
-            </tr>
-            </tbody>
-        </table>
-
-
-        <h2 id="contract-market-symbols">获取所有交易对信息</h2>
-        <aside class="notice">访问该接口需要进行签名认证。</aside>
-        <h3 id="http-contract-market-symbols">HTTP 请求</h3>
-        <ul><li>GET <code>/fapi/v2/market/symbols</code></li></ul>
-        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/symbols"</span></code></pre>
-        <h3 id="contract-market-symbols-request">请求参数</h3>
-        <p>无</p>
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre">
-            <code>
-{
-  "code": 0,
-  "msg": "success",
-  "data": [
-    {
-      "symbol": "xrp_usdt",
-      "supportTrade": true,
-      "volumePrecision": 0,
-      "pricePrecision": 4,
-      "marketMiniAmount": "100",
-      "limitMiniAmount": "100"
-    },
-    {
-      "symbol": "ltc_usdt",
-      "supportTrade": true,
-      "volumePrecision": 1,
-      "pricePrecision": 2,
-      "marketMiniAmount": "0.1",
-      "limitMiniAmount": "0.1"
-    }
-  ]
-}
-            </code>
-        </pre>
-
-        <h3 id="contract-market-symbols-response">响应数据</h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>参数名称</th>
-                <th>数据类型</th>
-                <th>例子</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>symbol</td>
-                <td>tring</td>
-                <td>btc_usdt</td>
-                <td>交易对</td>
-            </tr>
-            <tr>
-                <td>supportTrade</td>
-                <td>boolean</td>
-                <td>true</td>
-                <td>是否支持交易</td>
-            </tr>
-            <tr>
-                <td>volumePrecision</td>
-                <td>int</td>
-                <td>1</td>
-                <td>交易对下单数量的精度（小数点后位数）</td>
-            </tr>
-            <tr>
-                <td>pricePrecision</td>
-                <td>int</td>
-                <td>2</td>
-                <td>交易对下单价格的精度（小数点后位数）</td>
-            </tr>
-            <tr>
-                <td>marketMiniAmount</td>
-                <td>string</td>
-                <td>"0.1",</td>
-                <td>交易对市价最小下单量</td>
-            </tr>
-            <tr>
-                <td>limitMiniAmount</td>
-                <td>string</td>
-                <td>"0.1",</td>
-                <td>交易对限价最小下单量</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <h2 id="contract-server-ping">测试服务器连通性</h2>
-        <aside class="notice">访问该接口需要进行签名认证。</aside>
-        <h3 id="http-contract-server-ping">HTTP 请求</h3>
-        <ul><li>GET <code>/fapi/v2/server/ping</code></li></ul>
-        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/server/ping"</span></code></pre>
-        <h3 id="contract-server-ping-request">请求参数</h3>
-        <p>无</p>
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre">
-            <code>
-                {
-                    "code": 0,
-                    "msg": "success",
-                    "data": {
-                        "serverTime": 1658368263053
-                    }
-                }
-            </code>
-        </pre>
-
-        <h3 id="contract-market-symbols-response">响应数据</h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>参数名称</th>
-                <th>数据类型</th>
-                <th>例子</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>serverTime</td>
-                <td>long</td>
-                <td>1658368263053</td>
-                <td>系统时间</td>
-            </tr>
-            </tbody>
-        </table>
-
-        <h2 id="contract-server-time">获取服务器时间</h2>
-        <aside class="notice">访问该接口需要进行签名认证。</aside>
-        <h3 id="http-contract-server-time">HTTP 请求</h3>
-        <ul><li>GET <code>/fapi/v2/server/ping</code></li></ul>
-        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/server/time"</span></code></pre>
-        <h3 id="contract-server-time-request">请求参数</h3>
-        <p>无</p>
-
-        <blockquote>
-            <p>Response:</p>
-        </blockquote>
-        <pre class="highlight json tab-json responsePre">
-            <code>
-                {
-                    "code": 0,
-                    "msg": "success",
-                    "data": {
-                        "serverTime": 1658368263053
-                    }
-                }
-            </code>
-        </pre>
-
-        <h3 id="contract-market-symbols-response">响应数据</h3>
-        <table>
-            <tbody>
-            <thead>
-            <tr>
-                <th>参数名称</th>
-                <th>数据类型</th>
-                <th>例子</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-            <tr>
-                <td>serverTime</td>
-                <td>long</td>
-                <td>1658368263053</td>
-                <td>系统时间</td>
-            </tr>
-            </tbody>
-        </table>
-
 
         <h2 id="contract-index">查询标记价格</h2>
-        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <p>API Key 权限：无需签名</p>
         <h3 id="http-contract-index">HTTP 请求</h3>
         <ul><li>GET <code>/fapi/v2/market/index</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/index?symbol=btc_usdt"</span></code></pre>
@@ -4292,7 +4208,7 @@
 
 
         <h2 id="contract-fundingRate">查询资金费率</h2>
-        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <p>API Key 权限：无需签名</p>
         <h3 id="http-contract-fundingRate">HTTP 请求</h3>
         <ul><li>GET <code>/fapi/v2/market/fundingRate</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/fundingRate?symbol=eth_usdt&limit=100"</span></code></pre>
@@ -4407,7 +4323,7 @@
 
 
         <h2 id="contract-riskLimit">查询获取风险限额</h2>
-        <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <p>API Key 权限：无需签名</p>
         <h3 id="http-contract-riskLimit">HTTP 请求</h3>
         <ul><li>GET <code>/fapi/v2/market/riskLimit</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/riskLimit?symbol=eth_usdt"</span></code></pre>
@@ -4505,6 +4421,7 @@
 
         <h2 id="contract-account-balance">查询账户余额</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-riskLimit">HTTP 请求</h3>
         <ul><li>GET <code>/fapi/v2/account/balance</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/balance"</span></code></pre>
@@ -4605,6 +4522,7 @@
 
         <h2 id="contract-account-setLeverage">调整开仓杠杆</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>s
         <h3 id="http-contract-account-setLeverage">HTTP 请求</h3>
         <ul><li>POST <code>/fapi/v2/account/setLeverage</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/riskLimit"</span></code></pre>
@@ -4688,6 +4606,7 @@
 
         <h2 id="contract-account-position">获取用户持仓</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-account-position">HTTP 请求</h3>
         <ul><li>GET <code>/fapi/v2/account/position</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/position"</span></code></pre>
@@ -4851,6 +4770,7 @@
 
         <h2 id="contract-account-order">获取账户成交历史</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-account-order">HTTP 请求</h3>
         <ul><li>GET <code>/fapi/v2/account/order</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/order"</span></code></pre>
@@ -5034,6 +4954,7 @@
         
         <h2 id="contract-account-balanceRecord">查询账户资金账单</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-account-balanceRecord">HTTP 请求</h3>
         <ul><li>GET <code>/fapi/v2/account/balanceRecord</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/balanceRecord"</span></code></pre>
@@ -5185,6 +5106,7 @@
 
         <h2 id="contract-account-orderForced">用户强平单历史</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-account-orderForced">HTTP 请求</h3>
         <ul><li>GET <code>/fapi/v2/account/orderForced</code></li></ul>
         <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/account/orderForced"</span></code></pre>
@@ -5453,6 +5375,7 @@
         <!-- 用户交易 -->
         <h2 id="contract-deal-position-update">设置仓位模式</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-deal-position-update">HTTP 请求</h3>
         <ul><li>POST <code>/fapi/v2/position/update</code></li></ul>
         
@@ -5508,6 +5431,7 @@
 
         <h2 id="contract-deal-position-info">查询仓位模式</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-deal-position-info">HTTP 请求</h3>
         <ul><li>GET <code>/fapi/v2/position/info</code></li></ul>
 
@@ -5565,6 +5489,7 @@
 
         <h2 id="contract-deal-position-setSpSl">设置止盈止损</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-deal-position-setSpSl">HTTP 请求</h3>
         <ul><li>POST <code>/fapi/v2/position/setSpSl</code></li></ul>
         
@@ -5708,6 +5633,7 @@
 
         <h2 id="contract-deal-order-open">下单</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-deal-order-open">HTTP 请求</h3>
         <ul><li>POST <code>/fapi/v2/order/open</code></li></ul>
         
@@ -5799,6 +5725,7 @@
 
         <h2 id="contract-deal-order-batchOpen">批量下单</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-deal-order-batchOpen">HTTP 请求</h3>
         <ul><li>POST <code>/fapi/v2/order/batchOpen</code></li></ul>
         
@@ -5928,6 +5855,7 @@
 
         <h2 id="contract-deal-order-cancel">撤销订单</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-deal-order-cancel">HTTP 请求</h3>
         <ul><li>POST <code>/fapi/v2/order/cancel</code></li></ul>
         
@@ -6021,6 +5949,7 @@
 
         <h2 id="contract-deal-order-batchCancel">批量撤销订单</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-deal-order-batchCancel">HTTP 请求</h3>
         <ul><li>POST <code>/fapi/v2/order/batchCancel</code></li></ul>
         
@@ -6120,6 +6049,7 @@
         <!-- title -->
 <h2 id="contract-deal-order-close">平仓</h2>
 <aside class="notice">访问该接口需要进行签名认证。</aside>
+<aside class="warning">维护中</aside>
 <h3 id="http-contract-deal-order-close">HTTP 请求</h3>
 <ul><li>POST <code>/fapi/v2/order/close</code></li></ul>
 
@@ -6200,6 +6130,7 @@
 <!-- title -->
 <h2 id="contract-deal-order-closeAll">一键平仓</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-deal-order-closeAll">HTTP 请求</h3>
         <ul><li>POST <code>/fapi/v2/order/closeAll</code></li></ul>
         
@@ -6278,6 +6209,7 @@
          <!-- title -->
  <h2 id="contract-deal-order-unFinish">查询挂单信息</h2>
  <aside class="notice">访问该接口需要进行签名认证。</aside>
+<aside class="warning">维护中</aside>
  <h3 id="http-contract-deal-order-unFinish">HTTP 请求</h3>
  <ul><li>GET <code>/fapi/v2/order/unFinish</code></li></ul>
 
@@ -6392,6 +6324,7 @@
   <!-- title -->
   <h2 id="contract-deal-order-finishedInfo">查询完结订单详情</h2>
   <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
   <h3 id="http-contract-deal-order-finishedInfo">HTTP 请求</h3>
   <ul><li>GET <code>/fapi/v2/order/finishedInfo</code></li></ul>
 
@@ -6505,6 +6438,7 @@
  <!-- title -->
  <h2 id="contract-deal-order-finished">查询历史订单列表</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-deal-order-finished">HTTP 请求</h3>
         <ul><li>GET <code>/fapi/v2/order/finished</code></li></ul>
 
@@ -6628,6 +6562,7 @@
         <!-- title -->
 <h2 id="contract-deal-entrust-add">计划委托下单</h2>
 <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
 <h3 id="http-contract-deal-entrust-add">HTTP 请求</h3>
 <ul><li>POST <code>/fapi/v2/entrust/add</code></li></ul>
 
@@ -6754,6 +6689,7 @@
 <!-- title -->
 <h2 id="contract-deal-entrust-cancel">取消计划委托</h2>
         <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
         <h3 id="http-contract-deal-entrust-cancel">HTTP 请求</h3>
         <ul><li>POST <code>/fapi/v2/entrust/cancel</code></li></ul>
         
@@ -6832,6 +6768,7 @@
          <!-- title -->
  <h2 id="contract-deal-entrust-unFinish">查询未完成的计划委托列表</h2>
  <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
  <h3 id="http-contract-deal-entrust-unFinish">HTTP 请求</h3>
  <ul><li>GET <code>/fapi/v2/entrust/unFinish</code></li></ul>
 
@@ -6929,6 +6866,7 @@
   <!-- title -->
   <h2 id="contract-deal-entrust-finished">查询已完成的计划委托列表</h2>
   <aside class="notice">访问该接口需要进行签名认证。</aside>
+        <aside class="warning">维护中</aside>
   <h3 id="http-contract-deal-entrust-finished">HTTP 请求</h3>
   <ul><li>GET <code>/fapi/v2/entrust/finished</code></li></ul>
 
@@ -8680,7 +8618,9 @@
         </p>
         <hr/>
 
-        <h2 id="websocket-contract-u-auth">用户认证</h2> 
+        <h2 id="websocket-contract-u-auth">用户认证</h2>
+        <aside class="warning">维护中</aside>
+
         <blockquote>
             <p>Request</p>
         </blockquote>
@@ -8703,7 +8643,7 @@
         <hr/>
 
         <h2 id="websocket-contract-u-sub">订阅消息</h2>
-
+        <aside class="warning">维护中</aside>
         <blockquote>
             <p>Request</p>
         </blockquote>
@@ -8729,6 +8669,7 @@
         <hr/>
 
         <h2 id="websocket-contract-u-unsub">取消订阅</h2>
+        <aside class="warning">维护中</aside>
         <blockquote>
             <p>Request</p>
         </blockquote>
@@ -8755,6 +8696,7 @@
 
 <!-- user begin -->
 <h2 id="websocket-contract-u-account">账户更新</h2>
+        <aside class="warning">维护中</aside>
 <h3 id="a94c7743c42-2">主题订阅</h3>
 <p><code>user.balance</code></p>
 <aside class="notice">需要“查询”权限</aside>
@@ -8839,6 +8781,7 @@
 </table><hr/>
 
 <h2 id="websocket-contract-u-position">持仓更新</h2>
+        <aside class="warning">维护中</aside>
 <h3 id="a94c7743c42-2">主题订阅</h3>
 <p><code>user.position</code></p>
 <aside class="notice">需要“委托”权限</aside>
@@ -8923,6 +8866,7 @@
 </table><hr/>
 
 <h2 id="websocket-contract-u-order">订单更新</h2>
+        <aside class="warning">维护中</aside>
 <h3 id="a94c7743c42-2">主题订阅</h3>
 <p><code>user.order</code></p>
 <aside class="notice">需要“委托”权限</aside>
@@ -9032,6 +8976,7 @@
 </table><hr/>
 
 <h2 id="websocket-contract-u-entrust">计划委托</h2>
+        <aside class="warning">维护中</aside>
 <h3 id="a94c7743c42-2">主题订阅</h3>
 <p><code>user.entrust</code></p>
 <aside class="notice">需要“委托”权限</aside>
