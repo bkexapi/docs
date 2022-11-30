@@ -972,14 +972,16 @@
       "supportTrade": true,
       "volumePrecision": 4,
       "pricePrecision": 4,
-      "minimumTradeVolume": 0.001
+      "minimumTradeVolume": 0.001,
+      "tradeSet":"USDT"
     },
     {
       "symbol": "ETH_USDT",
       "supportTrade": false,
       "volumePrecision": 4,
       "pricePrecision": 4,
-      "minimumTradeVolume": 0.01
+      "minimumTradeVolume": 0.01,
+      "tradeSet":"USDT"
     }
   ]
 }</code></pre>
@@ -1017,6 +1019,11 @@
                 <td>minimumTradeVolume</td>
                 <td>decimal</td>
                 <td>交易对前币种最小下单数量</td>
+            </tr>
+            <tr>
+                <td>tradeSet</td>
+                <td>string</td>
+                <td>交易区</td>
             </tr>
             </tbody>
         </table>
