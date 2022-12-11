@@ -460,6 +460,7 @@
             <li><a href="./api_en.htm?shell#contract-server-time" class="toc-h2 toc-link" data-title="Get server time">Get server time</a></li>
             <li><a href="./api_en.htm?shell#contract-market-symbols" class="toc-h2 toc-link" data-title="Get all transaction pair information">Get all transaction pair information</a></li>
             <li><a href="./api_en.htm?shell#contract-deep-data" class="toc-h2 toc-link" data-title="Get depth data">Get depth data</a></li>
+            <li><a href="./api_en.htm?shell#contract-deepAll-data" class="toc-h2 toc-link" data-title="Get depth data(all symbol)">Get depth data(all symbol)</a></li>
             <li><a href="./api_en.htm?shell#contract-kline" class="toc-h2 toc-link" data-title="Get K-line data">Get K-line data</a></li>
             <li><a href="./api_en.htm?shell#contract-market-price" class="toc-h2 toc-link" data-title="Get the latest price">Get the latest price</a></li>
             <li><a href="./api_en.htm?shell#contract-ticker-data" class="toc-h2 toc-link" data-title="Get ticker data">Get ticker data</a></li>
@@ -3383,6 +3384,15 @@
                 <td>Transaction pair</td>
                 <td></td>
             </tr>
+            <tr>
+                <td>limit</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>none</td>
+                <td>交易对</td>
+                <td>默认20，{5, 10, 20, 50,100,200}</td>
+            </tr>
             </tbody>
         </table>
 
@@ -3431,6 +3441,111 @@
             </tr>
             </thead>
             <tbody>
+            <tr>
+                <td>bid</td>
+                <td>array</td>
+                <td>["40522.82", "3.65"]</td>
+                <td>Buying direction: [price, quantity]</td>
+            </tr>
+            <tr>
+                <td>ask</td>
+                <td>array</td>
+                <td>["40525.66", "2.82"]</td>
+                <td>Selling direction: [price, quantity]</td>
+            </tr>
+            </tbody>
+        </table><p></p>
+        <h2 id="contract-deepAll-data">Get depth data(all symbol)</h2 >
+        <p>API Key Permissions: no signature required.</p>
+        <p>Frequency limit (according to IP limit): 20 times / S.</p>
+        <h3 >HTTP request</h3>
+        <ul><li>GET <code>/fapi/v2/market/deepAll</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/deepAll?limit=5"</span></code></pre>
+        <h3 id="contract-deep-datadeepAll-request">Request Parameters</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Position</th>
+                <th>Data Types</th>
+                <th>Required</th>
+                <th>Default value</th>
+                <th>Describe</th>
+                <th>Value range</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>limit</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>none</td>
+                <td>交易对</td>
+                <td>默认10，{5, 10, 20, 50}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+{
+  "code": 0,
+  "msg": "success",
+  "data": [
+    {
+      "symbol": "atom_usdt",
+      "bid": [
+        [
+          "9.870000",
+          "2459"
+        ],
+        [
+          "9.864000",
+          "1332"
+        ]
+      ],
+      "ask": [
+        [
+          "9.874000",
+          "1065"
+        ],
+        [
+          "9.875000",
+          "1331"
+        ]
+      ]
+    },
+    {
+      "symbol": "uni_usdt",
+      "bid": [],
+      "ask": []
+    }
+  ]
+}
+            </code>
+        </pre>
+
+        <h3 id="contract-deepAll-data-response">Response Data</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter Name</th>
+                <th>Data Types</th>
+                <th>Examples</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>币对名称</td>
+            </tr>
             <tr>
                 <td>bid</td>
                 <td>array</td>

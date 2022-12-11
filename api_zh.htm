@@ -461,6 +461,7 @@
             <li><a href="./api_zh.htm?shell#contract-server-time" class="toc-h2 toc-link" data-title="获取服务器时间">获取服务器时间</a></li>
             <li><a href="./api_zh.htm?shell#contract-market-symbols" class="toc-h2 toc-link" data-title="获取所有交易对信息">获取所有交易对信息</a></li>
             <li><a href="./api_zh.htm?shell#contract-deep-data" class="toc-h2 toc-link" data-title="获取深度数据">获取深度数据</a></li>
+            <li><a href="./api_zh.htm?shell#contract-deepAll-data" class="toc-h2 toc-link" data-title="获取深度数据(所有币种)">获取深度数据(所有币种)</a></li>
             <li><a href="./api_zh.htm?shell#contract-kline" class="toc-h2 toc-link" data-title="获取k线数据">获取k线数据</a></li>
             <li><a href="./api_zh.htm?shell#contract-market-price" class="toc-h2 toc-link" data-title="获取最新价">获取最新价</a></li>
             <li><a href="./api_zh.htm?shell#contract-ticker-data" class="toc-h2 toc-link" data-title="获取ticker数据">获取ticker数据</a></li>
@@ -3575,6 +3576,15 @@
                 <td>交易对</td>
                 <td></td>
             </tr>
+            <tr>
+                <td>limit</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>none</td>
+                <td>交易对</td>
+                <td>默认20，{5, 10, 20, 50,100,200}</td>
+            </tr>
             </tbody>
         </table>
 
@@ -3623,6 +3633,114 @@
             </tr>
             </thead>
             <tbody>
+            <tr>
+                <td>bid</td>
+                <td>array</td>
+                <td>["40522.82", "3.65"]</td>
+                <td>买方向:[价格，数量]</td>
+            </tr>
+            <tr>
+                <td>ask</td>
+                <td>array</td>
+                <td>["40525.66", "2.82"]</td>
+                <td>卖方向:[价格，数量]</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+        <h2 id="contract-deepAll-data">获取深度数据(所有币对)</h2>
+        <p>API Key 权限：无需签名</p>
+        <p>频率限制(根据IP限制)：20次/s</p>
+        <h3 >HTTP 请求</h3>
+        <ul><li>GET <code>/fapi/v2/market/depthAll</code></li></ul>
+        <pre class="highlight json tab-json"><code>curl <span class="s2">"https://fapi.bkex.com/fapi/v2/market/depthAll?limit=5"</span></code></pre>
+        <h3 id="contract-deepAll-request">请求参数</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>位置</th>
+                <th>数据类型</th>
+                <th>是否必须</th>
+                <th>默认值</th>
+                <th>描述</th>
+                <th>取值范围</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>limit</td>
+                <td>query</td>
+                <td>int</td>
+                <td>false</td>
+                <td>none</td>
+                <td>交易对</td>
+                <td>默认10，{5, 10, 20, 50}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p>Response:</p>
+        </blockquote>
+        <pre class="highlight json tab-json responsePre">
+            <code>
+{
+  "code": 0,
+  "msg": "success",
+  "data": [
+    {
+      "symbol": "atom_usdt",
+      "bid": [
+        [
+          "9.870000",
+          "2459"
+        ],
+        [
+          "9.864000",
+          "1332"
+        ]
+      ],
+      "ask": [
+        [
+          "9.874000",
+          "1065"
+        ],
+        [
+          "9.875000",
+          "1331"
+        ]
+      ]
+    },
+    {
+      "symbol": "uni_usdt",
+      "bid": [],
+      "ask": []
+    }
+  ]
+}
+            </code>
+        </pre>
+
+        <h3 id="contract-deepAll-response">响应数据</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数名称</th>
+                <th>数据类型</th>
+                <th>例子</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>symbol</td>
+                <td>string</td>
+                <td>btc_usdt</td>
+                <td>币对名称</td>
+            </tr>
             <tr>
                 <td>bid</td>
                 <td>array</td>
