@@ -4879,6 +4879,62 @@
                 <td>Update time</td>
             </tr>
 
+            <tr>
+                <td>spSlModel</td>
+                <td>int</td>
+                <td>1</td>
+                <td>Take Profit Stop Loss Mode.
+                    1-All take profit and stop loss
+                    2-Partial take profit stop loss</td>
+            </tr>
+            <tr>
+                <td>spType</td>
+                <td>int</td>
+                <td>1</td>
+                <td>Take Profit Type.
+                    0-no take profit set
+                    1-limit price
+                    2-market price</td>
+            </tr>
+            <tr>
+                <td>slType</td>
+                <td>int</td>
+                <td>1</td>
+                <td>Stop loss type.
+                    0-no take profit set
+                    1-limit price
+                    2-market price</td>
+            </tr>
+            <tr>
+                <td>spTriggerPrice</td>
+                <td>string</td>
+                <td>123.12</td>
+                <td>Take Profit Order Price</td>
+            </tr>
+            <tr>
+                <td>slTriggerPrice</td>
+                <td>string</td>
+                <td>123.12</td>
+                <td>Stop loss order price</td>
+            </tr>
+            <tr>
+                <td>&lt;spSlPartData></td><td>array</td><td></td><td>Partial take profit and stop loss data</td>
+            </tr>
+
+            <tr><td>id</td><td>int</td><td>220621102231380142311</td><td>Partial Stop Loss Stop Profit Stop Loss ID</td></tr>
+            <tr><td>triggerType</td><td>int</td><td>1</td><td>Take profit and stop loss trigger type</td></tr>
+            <tr><td>spPrice</td><td>string</td><td>123.12</td><td>Take Profit Price</td></tr>
+            <tr><td>slPrice</td><td>string</td><td>123.12</td><td>Stop price</td></tr>
+            <tr><td>amount</td><td>string</td><td>3.12</td><td>Partial Take Profit Stop Loss Quantity</td></tr>
+            <tr><td>spType</td><td>int</td><td>1</td><td>Stop loss type</td></tr>
+            <tr><td>slType</td><td>int</td><td>1</td><td>top loss type</td></tr>
+            <tr><td>spTriggerPrice</td><td>string</td><td>123.12</td><td>Take Profit Order Price</td></tr>
+            <tr><td>slTriggerPrice</td><td>string</td><td>123.12</td><td>Stop loss order price</td></tr>
+
+            <tr>
+                <td>&lt;/spSlPartData></td><td></td><td></td><td></td>
+            </tr>
+
             </tbody>
         </table>
 
@@ -5649,7 +5705,18 @@
                 <td>isSetSp</td><td>body</td><td>bool</td><td>false</td><td>NA</td><td>whether to set take profit</td><td></td></tr>
                 <td>positionID</td><td>body</td><td>string</td><td>true</td><td>NA</td><td>position id</td><td></td></tr>
                 <td>triggerType</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>trigger type</td><td>1:ticker price 2:index price</td></tr>
-                <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>time interval window (seconds)</td><td>1 - 60000</td></tr>
+
+            <td>spSlModel</td><td>body</td><td>int</td><td>false</td><td>1</td><td>Take Profit Stop Loss Mode.</td>
+            <td>1-All take profit and stop loss
+                2-Partial take profit stop loss</td></tr>
+            <td>amount</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>Amount of partial take profit and stop loss.(used when partial take profit and stop loss)</td><td></td></tr>
+            <td>spType</td><td>body</td><td>int</td><td>false</td><td>NA</td><td>Stop profit type</td><td>1: limit price 2: market price</td></tr>
+            <td>slType</td><td>body</td><td>int</td><td>false</td><td>NA</td><td>Stop loss type</td><td>1: limit price 2: market price</td></tr>
+            <td>spTriggerPrice</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>Take Profit Order Price</td><td></td></tr>
+            <td>slTriggerPrice</td><td>body</td><td>string</td><td>false</td><td>NA</td><td>Stop loss order price</td><td></td></tr>
+
+
+            <td>recvWindow</td><td>body</td><td>int</td><td>false</td><td>5000</td><td>time interval window (seconds)</td><td>1 - 60000</td></tr>
                 <td>timestamp</td><td>body</td><td>int</td><td>true</td><td>NA</td><td>timestamp</td><td></td>
             </tr>
             </tbody>
@@ -5745,6 +5812,58 @@
                 <td>string</td>
                 <td>stop price</td>
             </tr>
+
+            <tr>
+                <td>spSlModel</td>
+                <td>int</td>
+                <td>Take Profit Stop Loss Mode.
+                    1-All take profit and stop loss
+                    2-Partial take profit stop loss</td>
+            </tr>
+            <tr>
+                <td>spType</td>
+                <td>int</td>
+                <td>Take Profit Type.
+                    0-no take profit set
+                    1-limit price
+                    2-market price</td>
+            </tr>
+            <tr>
+                <td>slType</td>
+                <td>int</td>
+                <td>Stop loss type.
+                    0-no take profit set
+                    1-limit price
+                    2-market price</td>
+            </tr>
+            <tr>
+                <td>spTriggerPrice</td>
+                <td>string</td>
+                <td>Take Profit Order Price</td>
+            </tr>
+            <tr>
+                <td>slTriggerPrice</td>
+                <td>string</td>
+                <td>Stop loss order price</td>
+            </tr>
+            <tr>
+                <td>&lt;spSlPartData></td><td>array</td><td>Partial take profit and stop loss data</td>
+            </tr>
+
+            <tr><td>id</td><td>int</td><td>Partial Stop Loss Stop Profit Stop Loss ID</td></tr>
+            <tr><td>triggerType</td><td>int</td><td>Take profit and stop loss trigger type</td></tr>
+            <tr><td>spPrice</td><td>string</td><td>Take Profit Price</td></tr>
+            <tr><td>slPrice</td><td>string</td><td>Stop price</td></tr>
+            <tr><td>amount</td><td>string</td><td>Partial Take Profit Stop Loss Quantity</td></tr>
+            <tr><td>spType</td><td>int</td><td>Stop loss type</td></tr>
+            <tr><td>slType</td><td>int</td><td>top loss type</td></tr>
+            <tr><td>spTriggerPrice</td><td>string</td><td>Take Profit Order Price</td></tr>
+            <tr><td>slTriggerPrice</td><td>string</td><td>Stop loss order price</td></tr>
+
+            <tr>
+                <td>&lt;/spSlPartData></td><td></td><td></td>
+            </tr>
+
             </tbody>
         </table>
 
@@ -9037,6 +9156,58 @@
             <td>int</td>
             <td>Update timestamp</td>
         </tr>
+
+    <tr>
+        <td>spSlModel</td>
+        <td>int</td>
+        <td>Take Profit Stop Loss Mode.
+            1-All take profit and stop loss
+            2-Partial take profit stop loss</td>
+    </tr>
+    <tr>
+        <td>spType</td>
+        <td>int</td>
+        <td>Take Profit Type.
+            0-no take profit set
+            1-limit price
+            2-market price</td>
+    </tr>
+    <tr>
+        <td>slType</td>
+        <td>int</td>
+        <td>Stop loss type.
+            0-no take profit set
+            1-limit price
+            2-market price</td>
+    </tr>
+    <tr>
+        <td>spTriggerPrice</td>
+        <td>string</td>
+        <td>Take Profit Order Price</td>
+    </tr>
+    <tr>
+        <td>slTriggerPrice</td>
+        <td>string</td>
+        <td>Stop loss order price</td>
+    </tr>
+    <tr>
+        <td>&lt;spSlPartData></td><td>array</td><td>Partial take profit and stop loss data</td>
+    </tr>
+
+    <tr><td>id</td><td>int</td><td>Partial Stop Loss Stop Profit Stop Loss ID</td></tr>
+    <tr><td>triggerType</td><td>int</td><td>Take profit and stop loss trigger type</td></tr>
+    <tr><td>spPrice</td><td>string</td><td>Take Profit Price</td></tr>
+    <tr><td>slPrice</td><td>string</td><td>Stop price</td></tr>
+    <tr><td>amount</td><td>string</td><td>Partial Take Profit Stop Loss Quantity</td></tr>
+    <tr><td>spType</td><td>int</td><td>Stop loss type</td></tr>
+    <tr><td>slType</td><td>int</td><td>top loss type</td></tr>
+    <tr><td>spTriggerPrice</td><td>string</td><td>Take Profit Order Price</td></tr>
+    <tr><td>slTriggerPrice</td><td>string</td><td>Stop loss order price</td></tr>
+
+    <tr>
+        <td>&lt;/spSlPartData></td><td></td><td></td>
+    </tr>
+
        
             <td>&lt;/data></data></td>
             <td>array</td>
